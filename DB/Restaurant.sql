@@ -50,7 +50,7 @@ CREATE TABLE Request(
 CREATE TABLE MenuItem (
     ItemID VARCHAR(30) PRIMARY KEY,
     ItemName VARCHAR(50) NOT NULL,
-    CookingTime TIME DEFAULT 0,
+    CookingTime TIME DEFAULT '00:00:00',
     ItemStatus VARCHAR(50) DEFAULT 'Available',
 	ChefSSN VARCHAR(11),
 	FOREIGN KEY (ChefSSN) REFERENCES Employee(SSN)
@@ -123,7 +123,7 @@ CREATE TABLE Supplies (
 CREATE TABLE CustomerOrder(
 	OrderID VARCHAR(30) PRIMARY KEY,
 	OrderState VARCHAR(15) DEFAULT 'Pending' NOT NULL,
-	OrderDate DATE DEFAULT 0 NOT NULL,
+	OrderDate DATE NOT NULL,
 	OrderFeedback VARCHAR(255),
 	CustomerPhoneNumber VARCHAR(15),
 	WaiterSSN VARCHAR(11),
