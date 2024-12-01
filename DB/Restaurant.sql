@@ -1,7 +1,9 @@
 -------------Database creation-------------
 --create database Restaurant
-USE mysql
+USE master
+GO
 DROP DATABASE IF EXISTS Restaurant
+GO
 Create database Restaurant
 GO
 use Restaurant
