@@ -155,7 +155,7 @@
     <None Include=".env" />
     <Compile Include="Controller.cs" />
     <Compile Include="DBManager.cs" />
-    <Compile Include="DotEnv.cs" />
+    <Compile Include="envHandler.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

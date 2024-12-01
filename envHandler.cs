@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Restaurant_DB
 {
-    public static class DotEnv
+    public static class envHandler
     {
         public static void Load(string filePath)
         {

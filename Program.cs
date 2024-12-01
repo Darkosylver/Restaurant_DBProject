@@ -17,7 +17,7 @@ namespace Restaurant_DB
 
             //Loading Connection String
             string root = Directory.GetCurrentDirectory();
-            DotEnv.Load(Path.Combine(root, "..\\..\\.env"));
+            envHandler.Load(Path.Combine(root, "..\\..\\.env"));
 
             Application.Run(new Form1());
         }
