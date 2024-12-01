@@ -1,12 +1,15 @@
 -------------Database creation-------------
 --create database Restaurant
-USE master
+USE master;
 GO
-DROP DATABASE IF EXISTS Restaurant
+ALTER DATABASE Restaurant SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
 GO
-Create database Restaurant
+DROP DATABASE IF EXISTS Restaurant;
 GO
-use Restaurant
+CREATE DATABASE Restaurant;
+GO
+USE Restaurant;
+GO
 
 ------------Table Creation-----------------
 CREATE TABLE Employee (
@@ -17,13 +20,13 @@ CREATE TABLE Employee (
 	Position VARCHAR(30) NOT NULL,
 	WorkingHours INT NOT NULL DEFAULT 0,
     Salary DECIMAL(10, 2) NOT NULL DEFAULT 0,
-	SuperSSN VARCHAR(11) DEFAULT NULL,
+	SuperSSN VARCHAR(11),
 	City VARCHAR(30),
     Street VARCHAR(30),
 	Building VARCHAR(30),
 	FOREIGN KEY (SuperSSN) REFERENCES Employee(SSN)
-	ON DELETE SET NULL
-	ON UPDATE CASCADE
+	--ON DELETE SET NULL
+	--ON UPDATE CASCADE fihom error somehow has2al 3leh elmo3eida bokra
 );
 
 CREATE TABLE Ingredient(
@@ -41,14 +44,12 @@ CREATE TABLE Request(
 	RequestStatus VARCHAR(20) DEFAULT 'Pending',
 	ManagerSSN VARCHAR(11) NOT NULL,
 	FOREIGN KEY (IngredientID) REFERENCES Ingredient(IngredientID)
-	--ON DELETE RESTRICT law m4 by3ml by default
+	ON DELETE NO ACTION
 	ON UPDATE CASCADE,
 	FOREIGN KEY (ChefSSN) REFERENCES Employee(SSN)
-	--ON DELETE RESTRICT law m4 by3ml by default
-	ON UPDATE CASCADE,
+	ON DELETE NO ACTION,
 	FOREIGN KEY (ManagerSSN) REFERENCES Employee(SSN)
-	--ON DELETE RESTRICT law m4 by3ml by default
-	ON UPDATE CASCADE
+	ON DELETE NO ACTION
 );
 
 CREATE TABLE MenuItem (
