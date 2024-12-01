@@ -1,5 +1,7 @@
 -------------Database creation-------------
 --create database Restaurant
+USE mysql
+DROP DATABASE IF EXISTS Restaurant
 Create database Restaurant
 GO
 use Restaurant
