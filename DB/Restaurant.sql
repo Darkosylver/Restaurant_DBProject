@@ -25,8 +25,14 @@ CREATE TABLE Employee (
     Street VARCHAR(30),
 	Building VARCHAR(30),
 	FOREIGN KEY (SuperSSN) REFERENCES Employee(SSN)
-	--ON DELETE SET NULL
-	--ON UPDATE CASCADE fihom error somehow has2al 3leh elmo3eida bokra
+);
+
+CREATE TABLE Passwords(
+    SSN VARCHAR(11) PRIMARY KEY,
+    EPassword VARCHAR(30),
+    FOREIGN KEY (SSN) REFERENCES Employee(SSN)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
 
 CREATE TABLE Ingredient(
@@ -156,8 +162,8 @@ CREATE TABLE Order_Contains_MenuItem (
 ------------INSERT VALUES------------
 INSERT INTO Employee (SSN, FName, LName, Position, WorkingHours, Salary, SuperSSN, City, Street, Building)
 VALUES 
-    ('12345678901', 'John', 'Doe', 'Chef', 40, 2500.00, '23456789012', 'New York', '5th Ave', 'Building 1'),
     ('23456789012', 'Jane', 'Smith', 'Manager', 45, 3500.00, NULL, 'Los Angeles', 'Sunset Blvd', 'Building 2'),
+    ('12345678901', 'John', 'Doe', 'Chef', 40, 2500.00, '23456789012', 'New York', '5th Ave', 'Building 1'),
     ('34567890123', 'Emily', 'Johnson', 'Waiter', 35, 1500.00, '23456789012', 'Chicago', 'Oak Street', 'Building 3');
 
 INSERT INTO Ingredient (IngredientID, IngredientName, IngredientStock, IngredientPrice)
@@ -166,6 +172,12 @@ VALUES
     ('INGR002', 'Sugar', 50, 1.80),
     ('INGR003', 'Butter', 30, 3.00),
     ('INGR004', 'Eggs', 200, 0.50);
+
+INSERT INTO Passwords (SSN,EPassword)
+VALUES
+	('23456789012','mypassword1234'),
+	('12345678901','mypassword123'),
+	('34567890123','mypassword12');
 
 INSERT INTO Request (ID, IngredientID, ChefSSN, RequestDate, RequestStatus, ManagerSSN)
 VALUES
