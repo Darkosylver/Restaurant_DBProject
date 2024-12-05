@@ -13,7 +13,7 @@ namespace Restaurant_DB
 
             foreach (var line in File.ReadAllLines(filePath))
             {
-                char[] separators= { '=' };
+                char[] separators= { '!' };
                 var parts = line.Split(separators, options: StringSplitOptions.RemoveEmptyEntries);
 
                 if (parts.Length != 2)
