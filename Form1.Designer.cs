@@ -1,6 +1,6 @@
 ﻿namespace Restaurant_DB
 {
-    partial class Form1
+    partial class loginScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -93,7 +93,7 @@
             this.label3.Text = "Incorrect username or password, Please try again";
             this.label3.Visible = false;
             // 
-            // Form1
+            // loginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -104,8 +104,8 @@
             this.Controls.Add(this.userName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "loginScreen";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

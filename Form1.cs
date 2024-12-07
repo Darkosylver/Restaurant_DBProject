@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Restaurant_DB
 {
-    public partial class Form1 : Form
+    public partial class loginScreen : Form
     {
         Controller controller = new Controller();
-        public Form1()
+        public loginScreen()
         {
             InitializeComponent();
         }
@@ -44,16 +44,23 @@ namespace Restaurant_DB
             
             if (controller.findPassword(userName.Text) == null)
             {
-                label3.Visible = true;
+                label3.Text = "Incorrect Credentials, Please check username";
             }
             else
             {
-                if (controller.findPassword(userName.Text).ToString() == passWord.Text)
+                if (controller.findPassword(userName.Text).ToString() != passWord.Text)
+                {
+                    label3.Text = "Incorrect Password, Please try again";
+                }
+                else
                 {
                     label3.Text = "Welcome";
+                    string position = controller.findPosition(userName.Text).ToString();
+                    //use this to know which form to load after the login
                 }
-                label3.Visible = true;
             }
+            label3.Visible = true;
+                           
         }
     }
 }

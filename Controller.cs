@@ -20,6 +20,14 @@ namespace Restaurant_DB
                 "WHERE PASSWORDS.SSN = '" + userName + "';";
             return dbMan.ExecuteScalar(query);
         }
+
+        public object findPosition(string userName)
+        {
+            string query = "SELECT POSITION " +
+                "FROM EMPLOYEE " +
+                "WHERE SSN = " + userName + ";";
+            return dbMan.ExecuteScalar(query);
+        }
         public void TerminateConnection()
         {
             dbMan.CloseConnection();
