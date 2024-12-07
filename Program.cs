@@ -19,7 +19,7 @@ namespace Restaurant_DB
             string root = Directory.GetCurrentDirectory();
             envHandler.Load(Path.Combine(root, "..\\..\\.env"));
 
-            Application.Run(new Form1());
+            Application.Run(new loginScreen());
         }
     }
 }

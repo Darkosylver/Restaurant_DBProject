@@ -10,16 +10,57 @@ using System.Windows.Forms;
 
 namespace Restaurant_DB
 {
-    public partial class Form1 : Form
+    public partial class loginScreen : Form
     {
-        public Form1()
+        Controller controller = new Controller();
+        public loginScreen()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show(Environment.GetEnvironmentVariable("Connection_String"));
+          
+        }
+
+        private void userName_TextChanged(object sender, EventArgs e)
+        {
+            if (userName.Text != "" && passWord.Text != "")
+            {
+                logIn.Enabled = true;
+            }
+        }
+
+        private void passWord_TextChanged(object sender, EventArgs e)
+        {
+            if (userName.Text != "" && passWord.Text != "")
+            {
+                logIn.Enabled = true;
+            }
+        }
+
+        private void logIn_Click(object sender, EventArgs e)
+        {
+            
+            if (controller.findPassword(userName.Text) == null)
+            {
+                label3.Text = "Incorrect Credentials, Please check username";
+            }
+            else
+            {
+                if (controller.findPassword(userName.Text).ToString() != passWord.Text)
+                {
+                    label3.Text = "Incorrect Password, Please try again";
+                }
+                else
+                {
+                    label3.Text = "Welcome";
+                    string position = controller.findPosition(userName.Text).ToString();
+                    //use this to know which form to load after the login
+                }
+            }
+            label3.Visible = true;
+                           
         }
     }
 }

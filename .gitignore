@@ -362,3 +362,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /.env
+/RestaurantDataSet.xss
+/RestaurantDataSet.xsd
+/RestaurantDataSet.xsc
