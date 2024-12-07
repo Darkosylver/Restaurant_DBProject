@@ -16,17 +16,35 @@ namespace Restaurant_DB
         public object findPassword(string userName)
         {
             string query = "SELECT EPASSWORD " +
-                "FROM PASSWORDS " +
-                "WHERE PASSWORDS.SSN = '" + userName + "';";
-            return dbMan.ExecuteScalar(query);
+                "FROM EMPLOYEE " +
+                "WHERE EMPLOYEE.SSN = '" + userName + "';";
+            if (dbMan.ExecuteScalar(query) != null)
+            {
+                return dbMan.ExecuteScalar(query);
+            }
+            else
+            {
+                query = "SELECT EPASSWORD " +
+                    "FROM CUSTOMER " +
+                    "WHERE CUSTOMER.PHONENUMBER = '" + userName + "';";
+                return dbMan.ExecuteScalar(query);
+            }
         }
 
         public object findPosition(string userName)
         {
             string query = "SELECT POSITION " +
                 "FROM EMPLOYEE " +
-                "WHERE SSN = " + userName + ";";
-            return dbMan.ExecuteScalar(query);
+                "WHERE SSN = '" + userName + "';";
+           if (dbMan.ExecuteScalar(query) != null)
+           {
+                return dbMan.ExecuteScalar(query);
+           }
+           else
+           {
+                object position = "Customer";
+                return position;
+           }
         }
         public void TerminateConnection()
         {
