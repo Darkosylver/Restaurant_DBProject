@@ -54,8 +54,8 @@ namespace Restaurant_DB
                 }
                 else
                 {
-                    label3.Text = "Welcome";
                     string position = controller.findPosition(userName.Text).ToString();
+                    label3.Text = "Welcome, " + position;
                     //use this to know which form to load after the login
                 }
             }
