@@ -157,6 +157,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="waiter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="waiter.Designer.cs">
+      <DependentUpon>waiter.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="waiter.resx">
+      <DependentUpon>waiter.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include=".env" />
     <Compile Include="Controller.cs" />
     <Compile Include="DBManager.cs" />
