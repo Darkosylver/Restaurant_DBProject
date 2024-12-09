@@ -46,6 +46,35 @@ namespace Restaurant_DB
                 return position;
            }
         }
+
+        public object checktableexists(int tnumber)
+        {
+            string query = "SELECT COUNT(*) FROM RestaurantTable WHERE TableNumber=" + tnumber + ";";
+            return dbMan.ExecuteScalar(query);
+        }
+
+        public object checktable(int tnumber)
+        {
+            string query = "SELECT CustomerPhoneNumber FROM RestaurantTable WHERE TableNumber=" + tnumber + ";";
+            return dbMan.ExecuteScalar(query);
+        }
+        public void reservetable(int tnumber,string phone)
+        {
+            string query = "UPDATE RestaurantTable SET CustomerPhoneNumber='"+phone+"' WHERE TableNumber="+tnumber+";";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public object checkphonenumber(string phone)
+        {
+            string query = "SELECT COUNT(*) FROM Customer WHERE PhoneNumber='"+phone+"';";
+            return dbMan.ExecuteScalar(query);
+        }
+
+        public void insertlocation(string phone,string city,string street,string building)
+        {
+            string query = "UPDATE Customer SET City='"+city+"', Street='"+street+"', Building='"+building+"' WHERE PhoneNumber='"+phone+"';";
+            dbMan.ExecuteNonQuery(query);
+        }
         public void TerminateConnection()
         {
             dbMan.CloseConnection();
