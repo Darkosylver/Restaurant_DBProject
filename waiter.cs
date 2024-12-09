@@ -73,9 +73,19 @@ namespace Restaurant_DB
             {
                 MessageBox.Show("enter valid city");
             }
+            else if(controllerobj.checklocationexist(city.Text,street.Text,building.Text)==null)
+            {
+                controllerobj.insertlocationid(phoneno.Text,city.Text,street.Text,building.Text);
+                controllerobj.insertlocation(phoneno.Text,Convert.ToInt32(controllerobj.checklocationexist(city.Text,street.Text,building.Text)));
+                MessageBox.Show("location updated successfully");
+            }
+            else if (Convert.ToInt32(controllerobj.checkassignedlocation(phoneno.Text,Convert.ToInt32(controllerobj.checklocationexist(city.Text, street.Text, building.Text))))!=0)
+            {
+                MessageBox.Show("customer already has that address");
+            }
             else
             {
-                controllerobj.insertlocation(phoneno.Text, city.Text,street.Text,building.Text);
+                controllerobj.insertlocation(phoneno.Text, Convert.ToInt32(controllerobj.checklocationexist(city.Text, street.Text, building.Text)));
                 MessageBox.Show("location updated successfully");
             }
         }
@@ -83,6 +93,27 @@ namespace Restaurant_DB
         private void waiter_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            if (city.Text == "" || street.Text == "" || building.Text == "")
+            {
+                MessageBox.Show("address cannot have empty input");
+            }
+            else if (city.Text.Any(char.IsDigit))
+            {
+                MessageBox.Show("enter valid city");
+            }
+            else if (Convert.ToInt32(controllerobj.checkassignedlocation(phoneno.Text, Convert.ToInt32(controllerobj.checklocationexist(city.Text, street.Text, building.Text)))) == 0)
+            {
+                MessageBox.Show("customer doesn't have that address");
+            }
+            else
+            {
+                controllerobj.deletelocation(phoneno.Text, Convert.ToInt32(controllerobj.checklocationexist(city.Text, street.Text, building.Text)));
+                MessageBox.Show("removed successfully");
+            }
         }
     }
 }

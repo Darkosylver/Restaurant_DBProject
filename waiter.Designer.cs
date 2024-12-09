@@ -41,22 +41,25 @@
             this.label3 = new System.Windows.Forms.Label();
             this.street = new System.Windows.Forms.TextBox();
             this.city = new System.Windows.Forms.TextBox();
+            this.delete = new System.Windows.Forms.Button();
+            this.items = new System.Windows.Forms.ComboBox();
+            this.quantity = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // order
             // 
-            this.order.Location = new System.Drawing.Point(677, 113);
+            this.order.Location = new System.Drawing.Point(663, 113);
             this.order.Name = "order";
-            this.order.Size = new System.Drawing.Size(103, 23);
+            this.order.Size = new System.Drawing.Size(125, 23);
             this.order.TabIndex = 0;
             this.order.Text = "set order";
             this.order.UseVisualStyleBackColor = true;
             // 
             // update
             // 
-            this.update.Location = new System.Drawing.Point(677, 213);
+            this.update.Location = new System.Drawing.Point(663, 201);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(111, 23);
+            this.update.Size = new System.Drawing.Size(125, 23);
             this.update.TabIndex = 1;
             this.update.Text = "update address";
             this.update.UseVisualStyleBackColor = true;
@@ -64,9 +67,9 @@
             // 
             // reserve
             // 
-            this.reserve.Location = new System.Drawing.Point(677, 361);
+            this.reserve.Location = new System.Drawing.Point(663, 361);
             this.reserve.Name = "reserve";
-            this.reserve.Size = new System.Drawing.Size(111, 23);
+            this.reserve.Size = new System.Drawing.Size(125, 23);
             this.reserve.TabIndex = 2;
             this.reserve.Text = "reserve table";
             this.reserve.UseVisualStyleBackColor = true;
@@ -153,11 +156,39 @@
             this.city.Size = new System.Drawing.Size(100, 22);
             this.city.TabIndex = 10;
             // 
+            // delete
+            // 
+            this.delete.Location = new System.Drawing.Point(663, 230);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(125, 23);
+            this.delete.TabIndex = 13;
+            this.delete.Text = "delete address";
+            this.delete.UseVisualStyleBackColor = true;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
+            // 
+            // items
+            // 
+            this.items.FormattingEnabled = true;
+            this.items.Location = new System.Drawing.Point(256, 113);
+            this.items.Name = "items";
+            this.items.Size = new System.Drawing.Size(121, 24);
+            this.items.TabIndex = 14;
+            // 
+            // quantity
+            // 
+            this.quantity.Location = new System.Drawing.Point(400, 114);
+            this.quantity.Name = "quantity";
+            this.quantity.Size = new System.Drawing.Size(100, 22);
+            this.quantity.TabIndex = 15;
+            // 
             // waiter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.quantity);
+            this.Controls.Add(this.items);
+            this.Controls.Add(this.delete);
             this.Controls.Add(this.building);
             this.Controls.Add(this.street);
             this.Controls.Add(this.city);
@@ -194,5 +225,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox street;
         private System.Windows.Forms.TextBox city;
+        private System.Windows.Forms.Button delete;
+        private System.Windows.Forms.ComboBox items;
+        private System.Windows.Forms.TextBox quantity;
     }
 }
