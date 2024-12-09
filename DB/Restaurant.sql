@@ -83,10 +83,25 @@ CREATE TABLE Customer(
 	PhoneNumber VARCHAR(15) PRIMARY KEY,
 	FName VARCHAR(20) NOT NULL,
 	LName VARCHAR(20) NOT NULL,
-	EPassword VARCHAR(30) NOT NULL,
-	City VARCHAR(30),
-	Street VARCHAR(30),
-	Building VARCHAR(30)
+	EPassword VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE Locations (
+	LocationID INT IDENTITY(1,1) PRIMARY KEY,
+    City VARCHAR(30) NOT NULL,
+    Street VARCHAR(30) NOT NULL,
+    Building VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE CustomerLocations (
+    PhoneNumber VARCHAR(15),
+    LocationID INT,
+    PRIMARY KEY (PhoneNumber, LocationID),
+    FOREIGN KEY (PhoneNumber) REFERENCES Customer(PhoneNumber)
+	ON DELETE CASCADE,
+    FOREIGN KEY (LocationID) REFERENCES Locations(LocationID)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
 );
 
 CREATE TABLE RestaurantTable (
@@ -177,10 +192,20 @@ VALUES
     ('ABC', 'Supplies'),
     ('XYZ', 'Supplier');
 
-INSERT INTO Customer (PhoneNumber, FName, LName, EPassword,City,Street,Building)
+INSERT INTO Customer (PhoneNumber, FName, LName, EPassword)
 VALUES
-    ('01234567890', 'Michael', 'Brown', 'mypassword93','cairo','192','2'),
-    ('00987654321', 'Sarah', 'Davis','mypassword87','giza','21','3');
+    ('01234567890', 'Michael', 'Brown', 'mypassword93'),
+    ('00987654321', 'Sarah', 'Davis','mypassword87');
+
+INSERT INTO Locations (City, Street, Building)
+VALUES
+    ('New York', '5th Ave', 'Building 1'),
+    ('Los Angeles', 'Sunset Blvd', 'Building 2');
+
+INSERT INTO CustomerLocations (PhoneNumber, LocationID)
+VALUES
+    ('01234567890', 1),
+    ('00987654321', 2);
 
 INSERT INTO RestaurantTable (CustomerPhoneNumber)
 VALUES
