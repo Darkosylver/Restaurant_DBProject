@@ -70,9 +70,33 @@ namespace Restaurant_DB
             return dbMan.ExecuteScalar(query);
         }
 
-        public void insertlocation(string phone,string city,string street,string building)
+        public object checklocationexist(string city, string street, string building)
         {
-            string query = "UPDATE Customer SET City='"+city+"', Street='"+street+"', Building='"+building+"' WHERE PhoneNumber='"+phone+"';";
+            string query = "SELECT LocationID FROM Locations WHERE City='" + city + "' AND Street='" + street + "' AND Building='" + building + "';";
+
+            return dbMan.ExecuteScalar(query);
+        }
+
+        public void insertlocationid(string phone,string city,string street,string building)
+        {
+            string query = "INSERT INTO Locations (City, Street, Building) VALUES('" + city + "', '" + street + "', '" + building + "');";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public object checkassignedlocation(string phone, int locationid)
+        {
+            string query = "SELECT COUNT(*) FROM CustomerLocations WHERE PhoneNumber='"+phone+"' AND LocationID="+locationid+";";
+            return dbMan.ExecuteScalar(query);
+        }
+        public void insertlocation(string phone, int id)
+        {
+            string query = "INSERT INTO CustomerLocations (PhoneNumber, LocationID) VALUES ('" + phone + "', " + id + ");";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public void deletelocation(string phone, int id)
+        {
+            string query = "DELETE FROM CustomerLocations WHERE PhoneNumber='" + phone + "' AND LocationID=" + id + ";";
             dbMan.ExecuteNonQuery(query);
         }
         public void TerminateConnection()
