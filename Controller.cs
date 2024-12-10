@@ -47,56 +47,86 @@ namespace Restaurant_DB
            }
         }
 
-        public object checktableexists(int tnumber)
+
+        public object checktableexists(int tnumber) //checks if table exists returns 1 if it does and 0 if it doesnt
         {
             string query = "SELECT COUNT(*) FROM RestaurantTable WHERE TableNumber=" + tnumber + ";";
             return dbMan.ExecuteScalar(query);
         }
 
-        public object checktable(int tnumber)
+        public object checktable(int tnumber) //returns the id of the table if it exists and null if it doesnt (could be used instead of the above)
         {
             string query = "SELECT CustomerPhoneNumber FROM RestaurantTable WHERE TableNumber=" + tnumber + ";";
             return dbMan.ExecuteScalar(query);
         }
-        public void reservetable(int tnumber,string phone)
+        public void reservetable(int tnumber,string phone) //reserves a table by setting a phone number next to the table number
         {
             string query = "UPDATE RestaurantTable SET CustomerPhoneNumber='"+phone+"' WHERE TableNumber="+tnumber+";";
             dbMan.ExecuteNonQuery(query);
         }
 
-        public object checkphonenumber(string phone)
+        public void freetable(int tnumber) // frees a reserved table
+        {
+            string query = "UPDATE RestaurantTable SET CustomerPhoneNumber=NULL WHERE TableNumber=" + tnumber + ";";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public void inserttable() //adds a new table to the restaurant congratulations
+        {
+            string query = "INSERT INTO RestaurantTable (CustomerPhoneNumber) VALUES(NULL);";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public DataTable gettables() // get all tables inside the restaurant... to help the lazy waiter to keep track of the table
+        {
+            string query = "SELECT * FROM RestaurantTable;";
+            return dbMan.ExecuteReader(query);
+        }
+        
+        public object checkcustomerexist(string phone) // check if our beloved customer is in our dumb system
+        {
+            string query = "SELECT COUNT(*) FROM Customer WHERE PhoneNumber='" + phone + "';";
+            return dbMan.ExecuteScalar(query);
+        }
+        public object checkphonenumber(string phone) //check if the phone number exists (returns 1 if it does and 0 if it doesnt)
         {
             string query = "SELECT COUNT(*) FROM Customer WHERE PhoneNumber='"+phone+"';";
             return dbMan.ExecuteScalar(query);
         }
 
-        public object checklocationexist(string city, string street, string building)
+        public object checklocationexist(string city, string street, string building) //returns locationid if that location alrdy exists in our system and null if it doesnt
         {
             string query = "SELECT LocationID FROM Locations WHERE City='" + city + "' AND Street='" + street + "' AND Building='" + building + "';";
 
             return dbMan.ExecuteScalar(query);
         }
 
-        public void insertlocationid(string phone,string city,string street,string building)
+        public void insertlocationid(string phone,string city,string street,string building)//insert the locationid in case it doesnt
         {
             string query = "INSERT INTO Locations (City, Street, Building) VALUES('" + city + "', '" + street + "', '" + building + "');";
             dbMan.ExecuteNonQuery(query);
         }
 
-        public object checkassignedlocation(string phone, int locationid)
+        public object checkassignedlocation(string phone, int locationid) //returns 1 if our beloved customer has the location with the following id assigned to him
         {
             string query = "SELECT COUNT(*) FROM CustomerLocations WHERE PhoneNumber='"+phone+"' AND LocationID="+locationid+";";
             return dbMan.ExecuteScalar(query);
         }
-        public void insertlocation(string phone, int id)
+        public void insertlocation(string phone, int id) //insert a new location to our customer... why did you have to move out
         {
             string query = "INSERT INTO CustomerLocations (PhoneNumber, LocationID) VALUES ('" + phone + "', " + id + ");";
             dbMan.ExecuteNonQuery(query);
         }
 
-        public void deletelocation(string phone, int id)
+        public void deletelocation(string phone, int id) //removes a location from our beloved customer after he moved out... just why
         {
             string query = "DELETE FROM CustomerLocations WHERE PhoneNumber='" + phone + "' AND LocationID=" + id + ";";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public void deletetable(int tableno) //remove a table from the restaurant.. who broke that table???
+        {
+            string query = "DELETE FROM RestaurantTable WHERE TableNumber="+tableno+";";
             dbMan.ExecuteNonQuery(query);
         }
         public void TerminateConnection()
