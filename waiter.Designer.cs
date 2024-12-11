@@ -42,8 +42,6 @@
             this.street = new System.Windows.Forms.TextBox();
             this.city = new System.Windows.Forms.TextBox();
             this.delete = new System.Windows.Forms.Button();
-            this.items = new System.Windows.Forms.ComboBox();
-            this.quantity = new System.Windows.Forms.TextBox();
             this.freetable = new System.Windows.Forms.Button();
             this.tablelabel = new System.Windows.Forms.Label();
             this.restauranttables = new System.Windows.Forms.DataGridView();
@@ -56,12 +54,13 @@
             // 
             // order
             // 
-            this.order.Location = new System.Drawing.Point(663, 56);
+            this.order.Location = new System.Drawing.Point(503, 86);
             this.order.Name = "order";
-            this.order.Size = new System.Drawing.Size(125, 23);
+            this.order.Size = new System.Drawing.Size(134, 23);
             this.order.TabIndex = 0;
-            this.order.Text = "set order";
+            this.order.Text = "make an order";
             this.order.UseVisualStyleBackColor = true;
+            this.order.Click += new System.EventHandler(this.order_Click);
             // 
             // update
             // 
@@ -86,7 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 26);
+            this.label1.Location = new System.Drawing.Point(86, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 16);
             this.label1.TabIndex = 3;
@@ -103,7 +102,7 @@
             // 
             // phoneno
             // 
-            this.phoneno.Location = new System.Drawing.Point(36, 57);
+            this.phoneno.Location = new System.Drawing.Point(185, 91);
             this.phoneno.Name = "phoneno";
             this.phoneno.Size = new System.Drawing.Size(126, 22);
             this.phoneno.TabIndex = 5;
@@ -111,7 +110,7 @@
             // 
             // tableno
             // 
-            this.tableno.Location = new System.Drawing.Point(503, 377);
+            this.tableno.Location = new System.Drawing.Point(517, 377);
             this.tableno.Name = "tableno";
             this.tableno.Size = new System.Drawing.Size(134, 22);
             this.tableno.TabIndex = 6;
@@ -179,21 +178,6 @@
             this.delete.UseVisualStyleBackColor = true;
             this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
-            // items
-            // 
-            this.items.FormattingEnabled = true;
-            this.items.Location = new System.Drawing.Point(256, 57);
-            this.items.Name = "items";
-            this.items.Size = new System.Drawing.Size(121, 24);
-            this.items.TabIndex = 14;
-            // 
-            // quantity
-            // 
-            this.quantity.Location = new System.Drawing.Point(400, 56);
-            this.quantity.Name = "quantity";
-            this.quantity.Size = new System.Drawing.Size(100, 22);
-            this.quantity.TabIndex = 15;
-            // 
             // freetable
             // 
             this.freetable.Location = new System.Drawing.Point(663, 376);
@@ -207,7 +191,7 @@
             // tablelabel
             // 
             this.tablelabel.AutoSize = true;
-            this.tablelabel.Location = new System.Drawing.Point(486, 406);
+            this.tablelabel.Location = new System.Drawing.Point(500, 406);
             this.tablelabel.Name = "tablelabel";
             this.tablelabel.Size = new System.Drawing.Size(0, 16);
             this.tablelabel.TabIndex = 17;
@@ -234,7 +218,7 @@
             // 
             // addtable
             // 
-            this.addtable.Location = new System.Drawing.Point(151, 212);
+            this.addtable.Location = new System.Drawing.Point(322, 212);
             this.addtable.Name = "addtable";
             this.addtable.Size = new System.Drawing.Size(75, 23);
             this.addtable.TabIndex = 20;
@@ -245,7 +229,7 @@
             // phonelabel
             // 
             this.phonelabel.AutoSize = true;
-            this.phonelabel.Location = new System.Drawing.Point(33, 93);
+            this.phonelabel.Location = new System.Drawing.Point(87, 129);
             this.phonelabel.Name = "phonelabel";
             this.phonelabel.Size = new System.Drawing.Size(0, 16);
             this.phonelabel.TabIndex = 21;
@@ -272,8 +256,6 @@
             this.Controls.Add(this.restauranttables);
             this.Controls.Add(this.tablelabel);
             this.Controls.Add(this.freetable);
-            this.Controls.Add(this.quantity);
-            this.Controls.Add(this.items);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.building);
             this.Controls.Add(this.street);
@@ -313,8 +295,6 @@
         private System.Windows.Forms.TextBox street;
         private System.Windows.Forms.TextBox city;
         private System.Windows.Forms.Button delete;
-        private System.Windows.Forms.ComboBox items;
-        private System.Windows.Forms.TextBox quantity;
         private System.Windows.Forms.Button freetable;
         private System.Windows.Forms.Label tablelabel;
         private System.Windows.Forms.DataGridView restauranttables;

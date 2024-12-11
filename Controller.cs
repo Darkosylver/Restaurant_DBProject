@@ -47,7 +47,7 @@ namespace Restaurant_DB
            }
         }
 
-
+        //dont touch keep scrolling >:(
         public object checktableexists(int tnumber) //checks if table exists returns 1 if it does and 0 if it doesnt
         {
             string query = "SELECT COUNT(*) FROM RestaurantTable WHERE TableNumber=" + tnumber + ";";
@@ -65,6 +65,11 @@ namespace Restaurant_DB
             dbMan.ExecuteNonQuery(query);
         }
 
+        public object checktablereserved(int tno) // checks if the table is reserved by our customer... he better not be trolling the restaurant
+        {
+            string query = "SELECT COUNT(*) FROM RestaurantTable WHERE TableNumber=" + tno + " AND CustomerPhoneNumber IS NOT NULL;";
+            return dbMan.ExecuteScalar(query);
+        }
         public void freetable(int tnumber) // frees a reserved table
         {
             string query = "UPDATE RestaurantTable SET CustomerPhoneNumber=NULL WHERE TableNumber=" + tnumber + ";";
@@ -129,6 +134,7 @@ namespace Restaurant_DB
             string query = "DELETE FROM RestaurantTable WHERE TableNumber="+tableno+";";
             dbMan.ExecuteNonQuery(query);
         }
+        //you can edit the ones below :)
 
         public string GetCustomerFName(string phoneNumber)  //returns the first name of the customer
         {
