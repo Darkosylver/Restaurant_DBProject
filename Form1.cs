@@ -41,11 +41,7 @@ namespace Restaurant_DB
 
         private void logIn_Click(object sender, EventArgs e)
         {
-            if (true)
-            {
-                Form newform = new waiter(userName.Text);
-                newform.ShowDialog();
-            }
+          
             if (controller.findPassword(userName.Text) == null)
             {
                 label3.Text = "Incorrect Credentials, Please check username";
