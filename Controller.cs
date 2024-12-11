@@ -129,6 +129,38 @@ namespace Restaurant_DB
             string query = "DELETE FROM RestaurantTable WHERE TableNumber="+tableno+";";
             dbMan.ExecuteNonQuery(query);
         }
+
+        public string GetCustomerFName(string phoneNumber)  //returns the first name of the customer
+        {
+            string query = "SELECT FName FROM Customer WHERE PhoneNumber='" + phoneNumber + "';";
+            object fname = dbMan.ExecuteScalar(query);
+            if (fname != null)
+            {
+                return fname.ToString();
+            }
+            else
+            {
+                return "";
+            }
+        
+        }
+
+       public string VerifyCustonmer(string phoneNumber, string password)  //sees if the customer exists
+        {
+            string query="SELECT FName FROM Customer WHERE PhoneNumber='"+phoneNumber+"' AND EPassword='"+password+"';";
+
+            object fname = dbMan.ExecuteScalar(query);
+
+            if (fname != null)
+            {
+                return fname.ToString();
+            }
+            else
+            {
+                return "";
+            }
+        }
+
         public void TerminateConnection()
         {
             dbMan.CloseConnection();
