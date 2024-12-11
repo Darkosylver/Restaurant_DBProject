@@ -1,6 +1,7 @@
 ﻿using Microsoft.SqlServer.Server;
 using System;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Restaurant_DB
 {
@@ -167,7 +168,22 @@ namespace Restaurant_DB
             }
         }
 
-        public void TerminateConnection()
+        public DataTable LoadCustomerOrders(string phoneNumber)
+        {
+            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "';";
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                MessageBox.Show("No Orders found for the given Phone Number.");
+                return null;
+            }
+        }
+
+            public void TerminateConnection()
         {
             dbMan.CloseConnection();
         }
