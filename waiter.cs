@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Restaurant_DB
+namespace Restaurant_DB // okay so before we start let's agree on smth.. if you find any bugs leave me alone
 {
     public partial class waiter : Form
     {
-        Controller controllerobj = new Controller();
+        Controller controllerobj = new Controller(); 
         string storedssn;
         public waiter(string ssn)
         {
@@ -22,8 +22,9 @@ namespace Restaurant_DB
             order.Enabled = false;
             update.Enabled = false;
             delete.Enabled = false;
-            reserve.Enabled = false;
             deletetable.Enabled = false;
+            freetable.Enabled = false;
+            reserve.Enabled = false;
         }
 
         public void refreshtables()
@@ -32,35 +33,38 @@ namespace Restaurant_DB
         }
         private void reserve_Click(object sender, EventArgs e)
         {
-            if (tableno.Text=="")
-            {
-                MessageBox.Show("table number cannot be empty");
-            }
-            else if (!tableno.Text.All(char.IsDigit))
-            {
-                MessageBox.Show("table number cant be negative or have letters");
-            }
-            else if (!phoneno.Text.All(char.IsDigit) || phoneno.Text.Length!=11 || (Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text)))==0)
-            {
-                MessageBox.Show("enter a valid phone number");
-            }
-            else if(Convert.ToInt32(controllerobj.checktableexists(Convert.ToInt32(tableno.Text)))!=1)
-            {
-                MessageBox.Show("No table with the following number");
-            }
-            else if(Convert.ToString(controllerobj.checktable(Convert.ToInt32(tableno.Text)))!="")
-            {
-                MessageBox.Show("table already reserved");
-            }
-            else if (Convert.ToInt32(controllerobj.checkphonenumber(phoneno.Text)) != 1)
-            {
-                MessageBox.Show("no customer with the following phone number");
-            }
-            else
-            {
-                controllerobj.reservetable(Convert.ToInt32(tableno.Text), phoneno.Text);
-                MessageBox.Show("added successfully");
-            }
+            //if (tableno.Text == "")
+            //{
+            //    MessageBox.Show("table number cannot be empty");
+            //}
+            //else if (!tableno.Text.All(char.IsDigit))
+            //{
+            //    MessageBox.Show("table number cant be negative or have letters");
+            //}
+            //else if (!phoneno.Text.All(char.IsDigit) || phoneno.Text.Length != 11 || (Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text))) == 0)
+            //{
+            //    MessageBox.Show("enter a valid phone number");
+            //}
+            //else if (Convert.ToInt32(controllerobj.checktableexists(Convert.ToInt32(tableno.Text))) != 1)
+            //{
+            //    MessageBox.Show("No table with the following number");
+            //}
+            //else if (Convert.ToString(controllerobj.checktable(Convert.ToInt32(tableno.Text))) != "")
+            //{
+            //    MessageBox.Show("table already reserved");
+            //}
+            //else if (Convert.ToInt32(controllerobj.checkphonenumber(phoneno.Text)) != 1)
+            //{
+            //    MessageBox.Show("no customer with the following phone number");
+            //}
+            //else
+            //{ }
+            controllerobj.reservetable(Convert.ToInt32(tableno.Text), phoneno.Text);
+            reserve.Enabled = false;
+            deletetable.Enabled=false;
+            refreshtables();
+            MessageBox.Show("added successfully");
+            
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -136,36 +140,52 @@ namespace Restaurant_DB
 
         private void freetable_Click(object sender, EventArgs e)
         {
-            if (tableno.Text == "")
-            {
-                MessageBox.Show("table number cannot be empty");
-            }
-            else if (!tableno.Text.All(char.IsDigit))
-            {
-                MessageBox.Show("table number cant be negative or have letters");
-            }
-            else if (Convert.ToInt32(controllerobj.checktableexists(Convert.ToInt32(tableno.Text))) != 1)
-            {
-                MessageBox.Show("No table with the following number");
-            }
-            else if (Convert.ToString(controllerobj.checktable(Convert.ToInt32(tableno.Text))) != "")
-            {
                 controllerobj.freetable(Convert.ToInt32(tableno.Text));
+                refreshtables();
                 MessageBox.Show("Table is now available");
-            }
+            
         }
 
         private void tableno_TextChanged(object sender, EventArgs e)
         {
-            if ((Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text))) == 1 && tableno.Text!="" && Convert.ToInt32(controllerobj.checktableexists(Convert.ToInt32(tableno.Text))) == 1)
+            if ((Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text))) == 1 && tableno.Text!="" && Convert.ToInt32(controllerobj.checktableexists(Convert.ToInt32(tableno.Text))) == 1 && Convert.ToInt32(controllerobj.checktablereserved(Convert.ToInt32(tableno.Text)))==1)
+            {
+                tablelabel.Text = "already reserved";
+                reserve.Enabled = false;
+                freetable.Enabled = true;
+                deletetable.Enabled = false;
+            }
+            else if ((Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text))) == 1 && tableno.Text != "" && Convert.ToInt32(controllerobj.checktableexists(Convert.ToInt32(tableno.Text))) == 1)
             {
                 tablelabel.Text = "";
                 reserve.Enabled = true;
                 freetable.Enabled = true;
                 deletetable.Enabled = true;
             }
-            else if ((Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text))) != 1 || tableno.Text=="")
+            else if (tableno.Text!="" && Convert.ToInt32(controllerobj.checktableexists(Convert.ToInt32(tableno.Text))) == 1 && Convert.ToInt32(controllerobj.checktablereserved(Convert.ToInt32(tableno.Text))) == 1)
             {
+                tablelabel.Text = "already reserved";
+                reserve.Enabled = false;
+                freetable.Enabled = true;
+                deletetable.Enabled = false;
+            }
+            else if (tableno.Text != "" && Convert.ToInt32(controllerobj.checktableexists(Convert.ToInt32(tableno.Text))) == 1 && Convert.ToInt32(controllerobj.checktablereserved(Convert.ToInt32(tableno.Text))) != 1)
+            {
+                tablelabel.Text = "";
+                reserve.Enabled = false;
+                freetable.Enabled = true;
+                deletetable.Enabled = true;
+            }
+            else if (tableno.Text != "" && Convert.ToInt32(controllerobj.checktableexists(Convert.ToInt32(tableno.Text))) == 1)
+            {
+                tablelabel.Text = "";
+                reserve.Enabled = false;
+                freetable.Enabled = true;
+                deletetable.Enabled = true;
+            }
+            else if (tableno.Text=="")
+            {
+                tablelabel.Text = "";
                 reserve.Enabled = false;
                 freetable.Enabled = false;
                 deletetable.Enabled = false;
@@ -213,24 +233,42 @@ namespace Restaurant_DB
 
         private void phoneno_TextChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text)) == 1 && tableno.Text!="" && Convert.ToInt32(controllerobj.checktableexists(Convert.ToInt32(tableno.Text))) == 1 && (building.Text != "" && city.Text != "" && street.Text != ""))
+            if (Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text)) == 1 && tableno.Text!="" && Convert.ToInt32(controllerobj.checktablereserved(Convert.ToInt32(tableno.Text))) == 1 && Convert.ToInt32(controllerobj.checktableexists(Convert.ToInt32(tableno.Text))) == 1 && (building.Text != "" && city.Text != "" && street.Text != ""))
+            {
+                phonelabel.Text = "";
+                tablelabel.Text = "already reserved";
+                reserve.Enabled = false;
+                deletetable.Enabled=false;
+                update.Enabled = true;
+                delete.Enabled = true;
+                order.Enabled = true;
+                
+            }
+            else if (Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text)) == 1 && tableno.Text != "" && Convert.ToInt32(controllerobj.checktablereserved(Convert.ToInt32(tableno.Text))) == 1 && (building.Text != "" && city.Text != "" && street.Text != ""))
             {
                 phonelabel.Text = "";
                 reserve.Enabled = true;
+                deletetable.Enabled = true;
                 update.Enabled = true;
                 delete.Enabled = true;
+                order.Enabled = true;
+
             }
-            else if (Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text)) == 1 && tableno.Text != "" && Convert.ToInt32(controllerobj.checktableexists(Convert.ToInt32(tableno.Text)))==1)
+            else if (Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text)) == 1 && tableno.Text != "" && Convert.ToInt32(controllerobj.checktableexists(Convert.ToInt32(tableno.Text)))==1 && Convert.ToInt32(controllerobj.checktablereserved(Convert.ToInt32(tableno.Text))) == 1)
             {
                 phonelabel.Text = "";
-                reserve.Enabled=true;
-
+                tablelabel.Text = "already reserved";
+                reserve.Enabled=false;
+                deletetable.Enabled=false;
+                order.Enabled=true;
             }
             else if (Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text)) == 1 && (building.Text != "" && city.Text != "" && street.Text != ""))
             {
                 phonelabel.Text = "";
                 update.Enabled = true;
                 delete.Enabled = true;
+                order.Enabled=true;
+                
             }
             else if (phoneno.Text=="")
             {
@@ -238,10 +276,12 @@ namespace Restaurant_DB
                 update.Enabled = false;
                 delete.Enabled = false;
                 reserve.Enabled = false;
+                order.Enabled = false;
             }
             else if((Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text))) == 1)
             {
                 phonelabel.Text = "";
+                order.Enabled = true;
             }
             else if (!phoneno.Text.All(char.IsDigit) || phoneno.Text.Length != 11 || (Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text))) == 0)
             {
@@ -250,6 +290,7 @@ namespace Restaurant_DB
                 update.Enabled = false;
                 delete.Enabled = false;
                 reserve.Enabled = false;
+                order.Enabled = false;
             }
         }
 
@@ -297,8 +338,20 @@ namespace Restaurant_DB
 
         private void deletetable_Click(object sender, EventArgs e)
         {
+            
+            
             controllerobj.deletetable(Convert.ToInt32(tableno.Text));
+            deletetable.Enabled = false;
+            freetable.Enabled = false;
+            reserve.Enabled = false;
+            refreshtables();
             MessageBox.Show("Table Deleted Successfully");
+        }
+
+        private void order_Click(object sender, EventArgs e)
+        {
+            //kindly add the new form and remove the message box
+            MessageBox.Show("under development thanks for supporting our restaurant");
         }
     }
 }
