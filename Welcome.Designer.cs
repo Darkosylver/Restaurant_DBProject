@@ -33,6 +33,7 @@
             this.MenuButton = new System.Windows.Forms.Button();
             this.ShowOrdersButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.MakeOrderButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,11 +86,22 @@
             this.dataGridView1.Size = new System.Drawing.Size(776, 150);
             this.dataGridView1.TabIndex = 4;
             // 
+            // MakeOrderButton
+            // 
+            this.MakeOrderButton.Location = new System.Drawing.Point(224, 173);
+            this.MakeOrderButton.Name = "MakeOrderButton";
+            this.MakeOrderButton.Size = new System.Drawing.Size(109, 47);
+            this.MakeOrderButton.TabIndex = 5;
+            this.MakeOrderButton.Text = "Make Order";
+            this.MakeOrderButton.UseVisualStyleBackColor = true;
+            this.MakeOrderButton.Click += new System.EventHandler(this.MakeOrderButton_Click);
+            // 
             // Welcome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.MakeOrderButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.ShowOrdersButton);
             this.Controls.Add(this.MenuButton);
@@ -111,5 +123,6 @@
         private System.Windows.Forms.Button MenuButton;
         private System.Windows.Forms.Button ShowOrdersButton;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button MakeOrderButton;
     }
 }

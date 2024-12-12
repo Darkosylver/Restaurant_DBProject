@@ -14,6 +14,7 @@ namespace Restaurant_DB
     {
         Controller controllerobj = new Controller();
         string Phone;
+        string waiterSSN = null;
         public Welcome(string phoneNumber)
         {
             InitializeComponent();
@@ -39,6 +40,12 @@ namespace Restaurant_DB
         private void ShowOrdersButton_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = controllerobj.LoadCustomerOrders(Phone);
+        }
+
+        private void MakeOrderButton_Click(object sender, EventArgs e)
+        {
+            Make_Order order = new Make_Order(Phone, waiterSSN);
+            order.Show();
         }
     }
 }

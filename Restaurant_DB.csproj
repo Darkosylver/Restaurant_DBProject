@@ -152,6 +152,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Make Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Make Order.Designer.cs">
+      <DependentUpon>Make Order.cs</DependentUpon>
+    </Compile>
     <Compile Include="RestaurantDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -169,6 +175,9 @@
     <Compile Include="Welcome.Designer.cs">
       <DependentUpon>Welcome.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Make Order.resx">
+      <DependentUpon>Make Order.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="waiter.resx">
       <DependentUpon>waiter.cs</DependentUpon>
     </EmbeddedResource>

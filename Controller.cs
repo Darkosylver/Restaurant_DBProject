@@ -168,7 +168,7 @@ namespace Restaurant_DB
             }
         }
 
-        public DataTable LoadCustomerOrders(string phoneNumber)
+        public DataTable LoadCustomerOrders(string phoneNumber)  //loads the orders of the customer
         {
             string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "';";
             DataTable dt = dbMan.ExecuteReader(query);
@@ -179,6 +179,46 @@ namespace Restaurant_DB
             else
             {
                 MessageBox.Show("No Orders found for the given Phone Number.");
+                return null;
+            }
+        }
+
+        public void MakeOrder(int orderID, string orderstate, string orderdate, string phonenumber )  //inserts the order of the customer
+        {
+            string query = "INSERT INTO CustomerOrder (OrderID, OrderState, OrderDate, CustomerPhoneNumber ) VALUES('" + orderID + "', '" + orderstate + "', '" + orderdate + "', '" + phonenumber + "');";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public DataTable GetMenuItems()  //loads the menu of the restaurant
+        {  
+            string query = "SELECT ItemName, ItemStatus FROM MenuItem;";
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                MessageBox.Show("No Menu Items found.");
+                return null;
+            }
+        }
+
+        public DataTable GetMenuItemPrice()  //returns the price of the menu item
+        {
+            string query = "SELECT MenuItem.*, SUM(IngredientPrice) as TotalPrice " +
+            "FROM MenuItem, ContainsIngredient, Ingredient " +
+            "WHERE MenuItem.ItemID = ContainsIngredient.ItemID AND Ingredient.IngredientID = ContainsIngredient.IngredientID " +
+            "GROUP BY MenuItem.ItemID, MenuItem.ItemName, MenuItem.CookingTime, MenuItem.ItemStatus, MenuItem.ChefSSN " +
+            "ORDER BY ItemName";
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                MessageBox.Show("Failed to get menu item price.");
                 return null;
             }
         }
