@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace Restaurant_DB
 {
     public partial class loginScreen : Form
@@ -16,6 +18,7 @@ namespace Restaurant_DB
         public loginScreen()
         {
             InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -55,6 +58,7 @@ namespace Restaurant_DB
                 else
                 {
                     string position = controller.findPosition(userName.Text).ToString();
+                    label3.ForeColor = Color.RoyalBlue;
                     label3.Text = "Welcome, " + position;
                     //use this to know which form to load after the login
                 }
@@ -62,5 +66,15 @@ namespace Restaurant_DB
             label3.Visible = true;
                            
         }
+
+        private void signUp_MouseClick(object sender, MouseEventArgs e)
+        {
+            Hide();
+            SignUp sign = new SignUp();
+            sign.ShowDialog();
+            Show();
+        }
+
+
     }
 }
