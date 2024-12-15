@@ -130,7 +130,8 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
             {
                 controllerobj.insertlocationid(phoneno.Text,city.Text,street.Text,building.Text);
                 controllerobj.insertlocation(phoneno.Text,Convert.ToInt32(controllerobj.checklocationexist(city.Text,street.Text,building.Text)));
-                MessageBox.Show("location updated successfully");
+                putlocationsincombobox(phoneno.Text);
+                MessageBox.Show("location inserted successfully");
             }
             else if (Convert.ToInt32(controllerobj.checkassignedlocation(phoneno.Text,Convert.ToInt32(controllerobj.checklocationexist(city.Text, street.Text, building.Text))))!=0)
             {
@@ -140,7 +141,7 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
             {
                 controllerobj.insertlocation(phoneno.Text, Convert.ToInt32(controllerobj.checklocationexist(city.Text, street.Text, building.Text)));
                 putlocationsincombobox(phoneno.Text);
-                MessageBox.Show("location updated successfully");
+                MessageBox.Show("location inserted successfully");
             }
         }
 
@@ -182,6 +183,7 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
             if (Convert.ToInt32(controllerobj.checkphonenumber(phoneno.Text))==1)
             {
                 reserve.Enabled= true;
+                deletetable.Enabled= true;
             }
                 refreshtables();
                 MessageBox.Show("Table is now available");
@@ -338,13 +340,7 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
                 delete.Enabled= true;
                 putlocationsincombobox(phoneno.Text);
             }
-            else if ((Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text))) == 1)
-            {
-                phonelabel.Text = "";
-                order.Enabled = true;
-                delete.Enabled = true;
-                putlocationsincombobox(phoneno.Text);
-            }
+            
             else if (!phoneno.Text.All(char.IsDigit) || phoneno.Text.Length != 11 || (Convert.ToInt32(controllerobj.checkcustomerexist(phoneno.Text))) == 0)
             {
                 phonelabel.Text = "enter a valid phone number";
