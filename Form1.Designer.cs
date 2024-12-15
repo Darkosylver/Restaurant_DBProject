@@ -34,6 +34,7 @@
             this.passWord = new System.Windows.Forms.TextBox();
             this.logIn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.signUp = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -75,7 +76,7 @@
             // logIn
             // 
             this.logIn.Enabled = false;
-            this.logIn.Location = new System.Drawing.Point(254, 259);
+            this.logIn.Location = new System.Drawing.Point(164, 289);
             this.logIn.Name = "logIn";
             this.logIn.Size = new System.Drawing.Size(75, 23);
             this.logIn.TabIndex = 4;
@@ -86,18 +87,31 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(410, 262);
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(161, 255);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(301, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Incorrect username or password, Please try again";
             this.label3.Visible = false;
             // 
+            // signUp
+            // 
+            this.signUp.AutoSize = true;
+            this.signUp.Location = new System.Drawing.Point(321, 292);
+            this.signUp.Name = "signUp";
+            this.signUp.Size = new System.Drawing.Size(189, 16);
+            this.signUp.TabIndex = 6;
+            this.signUp.Text = "Not Registered ? Sign up here!";
+            this.signUp.MouseClick += new System.Windows.Forms.MouseEventHandler(this.signUp_MouseClick);
+            // 
             // loginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.signUp);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.logIn);
             this.Controls.Add(this.passWord);
@@ -121,6 +135,7 @@
         private System.Windows.Forms.TextBox passWord;
         private System.Windows.Forms.Button logIn;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label signUp;
     }
 }
 
