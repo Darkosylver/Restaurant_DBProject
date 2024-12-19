@@ -44,7 +44,11 @@ namespace Restaurant_DB
 
         private void logIn_Click(object sender, EventArgs e)
         {
-            
+            if (true)
+            {
+                Form newform = new waiter(userName.Text);
+                newform.ShowDialog();
+            }
             if (controller.findPassword(userName.Text) == null)
             {
                 label3.Text = "Incorrect Credentials, Please check username";
@@ -60,6 +64,11 @@ namespace Restaurant_DB
                     string position = controller.findPosition(userName.Text).ToString();
                     label3.ForeColor = Color.RoyalBlue;
                     label3.Text = "Welcome, " + position;
+                    if (position == "Waiter")
+                    {
+                        Form newform = new waiter(userName.Text);
+                        newform.ShowDialog();
+                    }
                     //use this to know which form to load after the login
                 }
             }
