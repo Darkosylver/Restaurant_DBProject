@@ -29,15 +29,15 @@ CREATE TABLE Employee (
 );
 
 CREATE TABLE Ingredient(
-	IngredientID VARCHAR(30) PRIMARY KEY,
+	IngredientID INT IDENTITY(1,1) PRIMARY KEY,
 	IngredientName VARCHAR(30) NOT NULL,
 	IngredientStock INT DEFAULT 0,
 	IngredientPrice DECIMAL(5,2) NOT NULL
 );
 
 CREATE TABLE Request(
-	ID VARCHAR(30) PRIMARY KEY,
-	IngredientID VARCHAR(30) NOT NULL,
+	ID INT IDENTITY(1,1) PRIMARY KEY,
+	IngredientID INT NOT NULL,
 	ChefSSN VARCHAR(11) NOT NULL,
 	RequestDate DATE NOT NULL,
 	RequestStatus VARCHAR(20) DEFAULT 'Pending',
@@ -52,7 +52,7 @@ CREATE TABLE Request(
 );
 
 CREATE TABLE MenuItem (
-    ItemID VARCHAR(30) PRIMARY KEY,
+    ItemID INT IDENTITY(1,1) PRIMARY KEY,
     ItemName VARCHAR(50) NOT NULL,
     CookingTime TIME DEFAULT '00:00:00',
     ItemStatus VARCHAR(50) DEFAULT 'Available',
@@ -61,8 +61,8 @@ CREATE TABLE MenuItem (
 );
 
 CREATE TABLE ContainsIngredient (
-    ItemID VARCHAR(30),
-    IngredientID VARCHAR(30),
+    ItemID INT,
+    IngredientID INT,
     Quantity DECIMAL(5, 2) NOT NULL,
     PRIMARY KEY (ItemID, IngredientID),
     FOREIGN KEY (ItemID) REFERENCES MenuItem(ItemID)
@@ -74,20 +74,20 @@ CREATE TABLE ContainsIngredient (
 );
 
 CREATE TABLE Supplier(
-	SupplierID VARCHAR(30) PRIMARY KEY,
+	SupplierID INT IDENTITY(1,1) PRIMARY KEY,
 	FName VARCHAR(20) NOT NULL,
 	LName VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE Customer(
 	PhoneNumber VARCHAR(15) PRIMARY KEY,
-	FName VARCHAR(20),
-	LName VARCHAR(20),
-	EPassword VARCHAR(30)
+	FName VARCHAR(20) NOT NULL,
+	LName VARCHAR(20) NOT NULL,
+	EPassword VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE Locations (
-	LocationID VARCHAR(30) PRIMARY KEY,
+	LocationID INT IDENTITY(1,1) PRIMARY KEY,
     City VARCHAR(30) NOT NULL,
     Street VARCHAR(30) NOT NULL,
     Building VARCHAR(30) NOT NULL
@@ -95,7 +95,7 @@ CREATE TABLE Locations (
 
 CREATE TABLE CustomerLocations (
     PhoneNumber VARCHAR(15),
-    LocationID VARCHAR(30),
+    LocationID INT,
     PRIMARY KEY (PhoneNumber, LocationID),
     FOREIGN KEY (PhoneNumber) REFERENCES Customer(PhoneNumber)
 	ON DELETE CASCADE,
@@ -105,16 +105,16 @@ CREATE TABLE CustomerLocations (
 );
 
 CREATE TABLE RestaurantTable (
-    TableNumber INT PRIMARY KEY,
-	CustomerPhoneNumber VARCHAR(15),
+    TableNumber INT IDENTITY(1,1) PRIMARY KEY,
+	CustomerPhoneNumber VARCHAR(15) DEFAULT NULL,
 	FOREIGN KEY (CustomerPhoneNumber) REFERENCES Customer(PhoneNumber)
 	ON DELETE SET NULL
 	ON UPDATE CASCADE
 );
 
 CREATE TABLE Supplies (
-    SupplierID VARCHAR(30),
-    IngredientID VARCHAR(30),
+    SupplierID INT,
+    IngredientID INT,
     SupplyDate DATE,
     PRIMARY KEY (SupplierID, IngredientID, SupplyDate),
     FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID)
@@ -126,7 +126,7 @@ CREATE TABLE Supplies (
 );
 
 CREATE TABLE CustomerOrder(
-	OrderID VARCHAR(30) PRIMARY KEY,
+	OrderID INT IDENTITY(1,1) PRIMARY KEY,
 	OrderState VARCHAR(15) DEFAULT 'Pending' NOT NULL,
 	OrderDate DATE NOT NULL,
 	OrderFeedback VARCHAR(255),
@@ -141,8 +141,8 @@ CREATE TABLE CustomerOrder(
 );
 
 CREATE TABLE Order_Contains_MenuItem (
-    OrderID VARCHAR(30),
-    ItemID VARCHAR(30),
+    OrderID INT,
+    ItemID INT,
     Quantity INT NOT NULL,
     PRIMARY KEY (OrderID, ItemID),
     FOREIGN KEY (OrderID) REFERENCES CustomerOrder(OrderID)
@@ -160,71 +160,71 @@ VALUES
     ('12345678901', 'John', 'Doe', 'Chef', 40, 2500.00, '23456789012', 'New York', '5th Ave', 'Building 1','mypassword123'),
     ('34567890123', 'Emily', 'Johnson', 'Waiter', 35, 1500.00, '23456789012', 'Chicago', 'Oak Street', 'Building 3','mypassword12');
 
-INSERT INTO Ingredient (IngredientID, IngredientName, IngredientStock, IngredientPrice)
+INSERT INTO Ingredient (IngredientName, IngredientStock, IngredientPrice)
 VALUES
-    ('INGR001', 'Flour', 100, 2.50),
-    ('INGR002', 'Sugar', 50, 1.80),
-    ('INGR003', 'Butter', 30, 3.00),
-    ('INGR004', 'Eggs', 200, 0.50);
+    ('Flour', 100, 2.50),
+    ('Sugar', 50, 1.80),
+    ('Butter', 30, 3.00),
+    ('Eggs', 200, 0.50);
 
-INSERT INTO Request (ID, IngredientID, ChefSSN, RequestDate, RequestStatus, ManagerSSN)
+INSERT INTO Request (IngredientID, ChefSSN, RequestDate, RequestStatus, ManagerSSN)
 VALUES
-    ('REQ001', 'INGR001', '12345678901', '2024-12-01', 'Pending', '23456789012'),
-    ('REQ002', 'INGR002', '12345678901', '2024-12-02', 'Approved', '23456789012'),
-    ('REQ003', 'INGR003', '34567890123', '2024-12-03', 'Pending', '23456789012');
+    (1, '12345678901', '2024-12-01', 'Pending', '23456789012'),
+    (2, '12345678901', '2024-12-02', 'Approved', '23456789012'),
+    (3, '34567890123', '2024-12-03', 'Pending', '23456789012');
 
-INSERT INTO MenuItem (ItemID, ItemName, CookingTime, ItemStatus, ChefSSN)
+INSERT INTO MenuItem (ItemName, CookingTime, ItemStatus, ChefSSN)
 VALUES
-    ('ITEM001', 'Burger', '00:20:00', 'Available', '12345678901'),
-    ('ITEM002', 'Pizza', '00:25:00', 'Available', '12345678901'),
-    ('ITEM003', 'Pasta', '00:15:00', 'Available', '34567890123');
+    ('Burger', '00:20:00', 'Available', '12345678901'),
+    ('Pizza', '00:25:00', 'Available', '12345678901'),
+    ('Pasta', '00:15:00', 'Available', '34567890123');
 
 INSERT INTO ContainsIngredient (ItemID, IngredientID, Quantity)
 VALUES
-    ('ITEM001', 'INGR001', 2.00),
-    ('ITEM001', 'INGR002', 1.00),
-    ('ITEM002', 'INGR001', 3.00),
-    ('ITEM002', 'INGR003', 1.50),
-    ('ITEM003', 'INGR004', 1.00);
+    (1, 1, 2.00),
+    (1, 2, 1.00),
+    (2, 1, 3.00),
+    (2, 3, 1.50),
+    (3, 4, 1.00);
 
-INSERT INTO Supplier (SupplierID, FName, LName)
+INSERT INTO Supplier (FName, LName)
 VALUES
-    ('SUPP001', 'ABC', 'Supplies'),
-    ('SUPP002', 'XYZ', 'Supplier');
+    ('ABC', 'Supplies'),
+    ('XYZ', 'Supplier');
 
 INSERT INTO Customer (PhoneNumber, FName, LName, EPassword)
 VALUES
-    ('1234567890', 'Michael', 'Brown', 'mypassword93'),
-    ('0987654321', 'Sarah', 'Davis','mypassword87');
+    ('01234567890', 'Michael', 'Brown', 'mypassword93'),
+    ('00987654321', 'Sarah', 'Davis','mypassword87');
 
-INSERT INTO Locations (LocationID, City, Street, Building)
+INSERT INTO Locations (City, Street, Building)
 VALUES
-    ('LOC001', 'New York', '5th Ave', 'Building 1'),
-    ('LOC002', 'Los Angeles', 'Sunset Blvd', 'Building 2');
+    ('New York', '5th Ave', 'Building 1'),
+    ('Los Angeles', 'Sunset Blvd', 'Building 2');
 
 INSERT INTO CustomerLocations (PhoneNumber, LocationID)
 VALUES
-    ('1234567890', 'LOC001'),
-    ('0987654321', 'LOC002');
+    ('01234567890', 1),
+    ('00987654321', 2);
 
-INSERT INTO RestaurantTable (TableNumber, CustomerPhoneNumber)
+INSERT INTO RestaurantTable (CustomerPhoneNumber)
 VALUES
-    (1, '1234567890'),
-    (2, '0987654321');
+    ('01234567890'),
+    (NULL);
 
 INSERT INTO Supplies (SupplierID, IngredientID, SupplyDate)
 VALUES
-    ('SUPP001', 'INGR001', '2024-12-01'),
-    ('SUPP001', 'INGR002', '2024-12-02'),
-    ('SUPP002', 'INGR003', '2024-12-03');
+    (1, 1, '2024-12-01'),
+    (1, 2, '2024-12-02'),
+    (2, 3, '2024-12-03');
 
-INSERT INTO CustomerOrder (OrderID, OrderState, OrderDate, OrderFeedback, CustomerPhoneNumber, WaiterSSN)
+INSERT INTO CustomerOrder (OrderState, OrderDate, OrderFeedback, CustomerPhoneNumber, WaiterSSN)
 VALUES
-    ('ORD001', 'Pending', '2024-12-01', 'Good', '1234567890', '34567890123'),
-    ('ORD002', 'Delivered', '2024-12-02', 'Excellent', '0987654321', '12345678901');
+    ('Pending', '2024-12-01', 'Good', '01234567890', '34567890123'),
+    ('Delivered', '2024-12-02', 'Excellent', '00987654321', '12345678901');
 
 INSERT INTO Order_Contains_MenuItem (OrderID, ItemID, Quantity)
 VALUES
-    ('ORD001', 'ITEM001', 2),
-    ('ORD001', 'ITEM002', 1),
-    ('ORD002', 'ITEM003', 3);
+    (1, 1, 2),
+    (1, 2, 1),
+    (2, 3, 3);
