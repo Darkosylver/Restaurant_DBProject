@@ -175,8 +175,6 @@
     <EmbeddedResource Include="waiter.resx">
       <DependentUpon>waiter.cs</DependentUpon>
     </EmbeddedResource>
-
-    </EmbeddedResource>
     <None Include=".env" />
     <Compile Include="Controller.cs" />
     <Compile Include="DBManager.cs" />
