@@ -137,6 +137,7 @@ namespace Restaurant_DB
         }
         //you can edit the ones below :)
 
+        //----------------- ABDELRAHMAN ZAKARIA ---------------------
         public string GetCustomerFName(string phoneNumber)  //returns the first name of the customer
         {
             string query = "SELECT FName FROM Customer WHERE PhoneNumber='" + phoneNumber + "';";
@@ -223,7 +224,51 @@ namespace Restaurant_DB
             }
         }
 
-            public void TerminateConnection()
+        public DataTable getCustomerLocations(string phone) //returns locationid if that location alrdy exists in our system and null if it doesnt
+        {
+            string query = "SELECT * FROM Locations WHERE LocationID IN (SELECT LocationID FROM CustomerLocations WHERE PhoneNumber = '" + phone + "');";
+
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                MessageBox.Show("Failed to get addresses of the customer.");
+                return null;
+            }
+        }
+
+        public void UpdateCustomerName(string phone, string fname, string lname) //updates the name of the customer
+        {
+            string query = "UPDATE Customer SET FName='" + fname + "', LName='" + lname + "' WHERE PhoneNumber='" + phone + "';";
+            int rowsAffected = dbMan.ExecuteNonQuery(query);
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Name updated successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to update name.");
+            }
+        }
+
+        public void UpdateAddress(string phone, int oldlocationid, int newlocationid) //updates the address of the customer
+        { 
+            //update customer location
+            string query = "UPDATE CustomerLocations SET LocationID = " + newlocationid + " WHERE PhoneNumber = '" + phone + "' AND LocationID = " + oldlocationid + ";";
+            int rowsAffected = dbMan.ExecuteNonQuery(query);
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Address updated successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to update address.");
+            }
+        }
+        public void TerminateConnection()
         {
             dbMan.CloseConnection();
         }

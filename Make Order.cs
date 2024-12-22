@@ -25,6 +25,7 @@ namespace Restaurant_DB
             MenuItemsComboBox.DisplayMember = "ItemName";
             MenuItemsComboBox.ValueMember = "ItemStatus";
             dataGridView1.DataSource = controllerobj.GetMenuItemPrice();
+            MenuItemsComboBox_SelectedIndexChanged(sender, e);
         }
 
         private void MenuItemsComboBox_SelectedIndexChanged(object sender, EventArgs e)

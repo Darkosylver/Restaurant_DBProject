@@ -34,6 +34,7 @@
             this.ShowOrdersButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.MakeOrderButton = new System.Windows.Forms.Button();
+            this.UpdatePersonalInfoButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,11 +97,22 @@
             this.MakeOrderButton.UseVisualStyleBackColor = true;
             this.MakeOrderButton.Click += new System.EventHandler(this.MakeOrderButton_Click);
             // 
+            // UpdatePersonalInfoButton
+            // 
+            this.UpdatePersonalInfoButton.Location = new System.Drawing.Point(582, 158);
+            this.UpdatePersonalInfoButton.Name = "UpdatePersonalInfoButton";
+            this.UpdatePersonalInfoButton.Size = new System.Drawing.Size(100, 80);
+            this.UpdatePersonalInfoButton.TabIndex = 6;
+            this.UpdatePersonalInfoButton.Text = "Update Personal Info";
+            this.UpdatePersonalInfoButton.UseVisualStyleBackColor = true;
+            this.UpdatePersonalInfoButton.Click += new System.EventHandler(this.UpdatePersonalInfoButton_Click);
+            // 
             // Welcome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.UpdatePersonalInfoButton);
             this.Controls.Add(this.MakeOrderButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.ShowOrdersButton);
@@ -124,5 +136,6 @@
         private System.Windows.Forms.Button ShowOrdersButton;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button MakeOrderButton;
+        private System.Windows.Forms.Button UpdatePersonalInfoButton;
     }
 }

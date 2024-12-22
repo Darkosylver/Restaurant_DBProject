@@ -163,6 +163,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Update Customer Personal Info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update Customer Personal Info.Designer.cs">
+      <DependentUpon>Update Customer Personal Info.cs</DependentUpon>
+    </Compile>
     <Compile Include="waiter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </Compile>
     <EmbeddedResource Include="Make Order.resx">
       <DependentUpon>Make Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update Customer Personal Info.resx">
+      <DependentUpon>Update Customer Personal Info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="waiter.resx">
       <DependentUpon>waiter.cs</DependentUpon>

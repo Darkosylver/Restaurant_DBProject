@@ -56,6 +56,7 @@ namespace Restaurant_DB
                 {
                     Form newform = new Welcome((userName.Text));
                     newform.ShowDialog();
+                    this.Hide();
                 }
                 else
                 {

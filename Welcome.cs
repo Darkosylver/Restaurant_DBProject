@@ -47,5 +47,13 @@ namespace Restaurant_DB
             Make_Order order = new Make_Order(Phone, waiterSSN);
             order.Show();
         }
+
+        private void UpdatePersonalInfoButton_Click(object sender, EventArgs e)
+        {
+            Update_Customer_Personal_Info update = new Update_Customer_Personal_Info(Phone);
+            update.Show();
+            //close the welcome screen
+            this.Hide();
+        }
     }
 }
