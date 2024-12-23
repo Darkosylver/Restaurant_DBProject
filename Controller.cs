@@ -1,6 +1,7 @@
 ﻿using Microsoft.SqlServer.Server;
 using System;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Restaurant_DB
 {
@@ -147,6 +148,7 @@ namespace Restaurant_DB
         }
         //you can edit the ones below :)
 
+        //----------------- ABDELRAHMAN ZAKARIA ---------------------
         public string GetCustomerFName(string phoneNumber)  //returns the first name of the customer
         {
             string query = "SELECT FName FROM Customer WHERE PhoneNumber='" + phoneNumber + "';";
@@ -178,6 +180,105 @@ namespace Restaurant_DB
             }
         }
 
+        public DataTable LoadCustomerOrders(string phoneNumber)  //loads the orders of the customer
+        {
+            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "';";
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                MessageBox.Show("No Orders found for the given Phone Number.");
+                return null;
+            }
+        }
+
+        public void MakeOrder(int orderID, string orderstate, string orderdate, string phonenumber )  //inserts the order of the customer
+        {
+            string query = "INSERT INTO CustomerOrder (OrderID, OrderState, OrderDate, CustomerPhoneNumber ) VALUES('" + orderID + "', '" + orderstate + "', '" + orderdate + "', '" + phonenumber + "');";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public DataTable GetMenuItems()  //loads the menu of the restaurant
+        {  
+            string query = "SELECT ItemName, ItemStatus FROM MenuItem;";
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                MessageBox.Show("No Menu Items found.");
+                return null;
+            }
+        }
+
+        public DataTable GetMenuItemPrice()  //returns the price of the menu item
+        {
+            string query = "SELECT MenuItem.*, SUM(IngredientPrice) as TotalPrice " +
+            "FROM MenuItem, ContainsIngredient, Ingredient " +
+            "WHERE MenuItem.ItemID = ContainsIngredient.ItemID AND Ingredient.IngredientID = ContainsIngredient.IngredientID " +
+            "GROUP BY MenuItem.ItemID, MenuItem.ItemName, MenuItem.CookingTime, MenuItem.ItemStatus, MenuItem.ChefSSN " +
+            "ORDER BY ItemName";
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                MessageBox.Show("Failed to get menu item price.");
+                return null;
+            }
+        }
+
+        public DataTable getCustomerLocations(string phone) //returns locationid if that location alrdy exists in our system and null if it doesnt
+        {
+            string query = "SELECT * FROM Locations WHERE LocationID IN (SELECT LocationID FROM CustomerLocations WHERE PhoneNumber = '" + phone + "');";
+
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                MessageBox.Show("Failed to get addresses of the customer.");
+                return null;
+            }
+        }
+
+        public void UpdateCustomerName(string phone, string fname, string lname) //updates the name of the customer
+        {
+            string query = "UPDATE Customer SET FName='" + fname + "', LName='" + lname + "' WHERE PhoneNumber='" + phone + "';";
+            int rowsAffected = dbMan.ExecuteNonQuery(query);
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Name updated successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to update name.");
+            }
+        }
+
+        public void UpdateAddress(string phone, int oldlocationid, int newlocationid) //updates the address of the customer
+        { 
+            //update customer location
+            string query = "UPDATE CustomerLocations SET LocationID = " + newlocationid + " WHERE PhoneNumber = '" + phone + "' AND LocationID = " + oldlocationid + ";";
+            int rowsAffected = dbMan.ExecuteNonQuery(query);
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Address updated successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to update address.");
+            }
+        }
         public void TerminateConnection()
         {
             dbMan.CloseConnection();
