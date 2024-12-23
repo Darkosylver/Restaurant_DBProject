@@ -49,6 +49,8 @@
             this.addtable = new System.Windows.Forms.Button();
             this.phonelabel = new System.Windows.Forms.Label();
             this.deletetable = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.addresses = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.restauranttables)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,11 +66,11 @@
             // 
             // update
             // 
-            this.update.Location = new System.Drawing.Point(663, 202);
+            this.update.Location = new System.Drawing.Point(663, 212);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(125, 23);
             this.update.TabIndex = 1;
-            this.update.Text = "update address";
+            this.update.Text = "insert address";
             this.update.UseVisualStyleBackColor = true;
             this.update.Click += new System.EventHandler(this.update_Click_1);
             // 
@@ -170,7 +172,7 @@
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(663, 231);
+            this.delete.Location = new System.Drawing.Point(663, 145);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(125, 23);
             this.delete.TabIndex = 13;
@@ -244,11 +246,31 @@
             this.deletetable.UseVisualStyleBackColor = true;
             this.deletetable.Click += new System.EventHandler(this.deletetable_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(537, 144);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 23;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // addresses
+            // 
+            this.addresses.AutoSize = true;
+            this.addresses.Location = new System.Drawing.Point(441, 148);
+            this.addresses.Name = "addresses";
+            this.addresses.Size = new System.Drawing.Size(72, 16);
+            this.addresses.TabIndex = 24;
+            this.addresses.Text = "addresses";
+            // 
             // waiter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.addresses);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.deletetable);
             this.Controls.Add(this.phonelabel);
             this.Controls.Add(this.addtable);
@@ -302,5 +324,7 @@
         private System.Windows.Forms.Button addtable;
         private System.Windows.Forms.Label phonelabel;
         private System.Windows.Forms.Button deletetable;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label addresses;
     }
 }

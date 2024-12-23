@@ -135,6 +135,17 @@ namespace Restaurant_DB
             string query = "DELETE FROM RestaurantTable WHERE TableNumber="+tableno+";";
             dbMan.ExecuteNonQuery(query);
         }
+
+        public DataTable getlocations(string phone)
+        {
+            string query = "SELECT LocationID, City, Street, Building FROM Locations WHERE LocationID IN (SELECT LocationID FROM CustomerLocations WHERE PhoneNumber='" + phone + "');";
+            return dbMan.ExecuteReader(query);
+        }
+        public void deletelocationwid(string phone, object id)
+        {
+            string query = "DELETE FROM CustomerLocations WHERE PhoneNumber='" + phone + "' AND LocationID=" + Convert.ToInt32(id) + ";";
+            dbMan.ExecuteNonQuery(query);
+        }
         //you can edit the ones below :)
 
         //----------------- ABDELRAHMAN ZAKARIA ---------------------

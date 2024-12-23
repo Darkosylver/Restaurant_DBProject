@@ -61,6 +61,7 @@ namespace Restaurant_DB
                 else
                 {
                     string position = controller.findPosition(userName.Text).ToString();
+                    label3.ForeColor = Color.RoyalBlue;
                     label3.Text = "Welcome, " + position;
                     if (position == "Waiter")
                     {
@@ -73,5 +74,15 @@ namespace Restaurant_DB
             label3.Visible = true;
                            
         }
+
+        private void signUp_MouseClick(object sender, MouseEventArgs e)
+        {
+            Hide();
+            SignUp sign = new SignUp();
+            sign.ShowDialog();
+            Show();
+        }
+
+
     }
 }
