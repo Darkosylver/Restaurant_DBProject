@@ -8,6 +8,8 @@ DROP DATABASE IF EXISTS Restaurant;
 GO
 CREATE DATABASE Restaurant;
 GO
+ALTER DATABASE Restaurant SET MULTI_USER;
+GO
 USE Restaurant;
 GO
 
