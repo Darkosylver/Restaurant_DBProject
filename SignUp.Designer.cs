@@ -101,6 +101,7 @@
             this.address1.Size = new System.Drawing.Size(359, 22);
             this.address1.TabIndex = 10;
             this.address1.TextChanged += new System.EventHandler(this.address1_TextChanged);
+            this.address1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.address1_KeyPress);
             // 
             // address2
             // 

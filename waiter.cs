@@ -128,7 +128,7 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
             }
             else if(controllerobj.checklocationexist(city.Text,street.Text,building.Text)==null)
             {
-                controllerobj.insertlocationid(phoneno.Text,city.Text,street.Text,building.Text);
+                controllerobj.insertlocationid(city.Text,street.Text,building.Text);
                 controllerobj.insertlocation(phoneno.Text,Convert.ToInt32(controllerobj.checklocationexist(city.Text,street.Text,building.Text)));
                 putlocationsincombobox(phoneno.Text);
                 MessageBox.Show("location inserted successfully");
