@@ -106,7 +106,7 @@ namespace Restaurant_DB
             return dbMan.ExecuteScalar(query);
         }
 
-        public void insertlocationid(string phone,string city,string street,string building)//insert the locationid in case it doesnt
+        public void insertlocationid(string city,string street,string building)//insert the locationid in case it doesnt
         {
             string query = "INSERT INTO Locations (City, Street, Building) VALUES('" + city + "', '" + street + "', '" + building + "');";
             dbMan.ExecuteNonQuery(query);
@@ -160,6 +160,13 @@ namespace Restaurant_DB
                 return "";
             }
         
+        }
+
+       public void addCustomer(string phone, string fName, string lName, string passWord)
+        {
+            string query = "INSERT INTO CUSTOMER (PhoneNumber, FName, LName, EPassword) " +
+                "VALUES ('" + phone + "', '" + fName + "', '" + lName + "', '"+ passWord +"';";
+            dbMan.ExecuteNonQuery(query);
         }
 
        public string VerifyCustonmer(string phoneNumber, string password)  //sees if the customer exists

@@ -13,6 +13,7 @@ namespace Restaurant_DB
 {
     public partial class SignUp : Form
     {
+        Controller controllerobj = new Controller();
         public SignUp()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace Restaurant_DB
 
         private void firstName_TextChanged(object sender, EventArgs e)
         {
-            if (firstName.Text != "" && lastName.Text != "" && address1.Text != "" && phoneNumber.Text != "" && passWord.Text != "" && confirmPassword.Text != "" && passWord.Text == confirmPassword.Text && ValidatePassword(passWord.Text))
+            if (validateSubmit())
             {
                 submit.Enabled = true;
             }
@@ -32,7 +33,7 @@ namespace Restaurant_DB
 
         private void lastName_TextChanged(object sender, EventArgs e)
         {
-            if (firstName.Text != "" && lastName.Text != "" && address1.Text != "" && phoneNumber.Text != "" && passWord.Text != "" && confirmPassword.Text != "" && passWord.Text == confirmPassword.Text && ValidatePassword(passWord.Text))
+            if (validateSubmit())
             {
                 submit.Enabled = true;
             }
@@ -44,19 +45,23 @@ namespace Restaurant_DB
 
         private void address1_TextChanged(object sender, EventArgs e)
         {
-            if (firstName.Text != "" && lastName.Text != "" && address1.Text != "" && phoneNumber.Text != "" && passWord.Text != "" && confirmPassword.Text != "" && passWord.Text == confirmPassword.Text && ValidatePassword(passWord.Text))
+            if (validateSubmit())
             {
                 submit.Enabled = true;
             }
             else
             {
+                if (!validateAddress(address1.Text))
+                {
+                    //Add a label to show user the correct way to input the address
+                }
                 submit.Enabled = false;
             }
         }
 
         private void phoneNumber_TextChanged(object sender, EventArgs e)
         {
-            if (firstName.Text != "" && lastName.Text != "" && address1.Text != "" && phoneNumber.Text != "" && passWord.Text != "" && confirmPassword.Text != "" && passWord.Text == confirmPassword.Text && ValidatePassword(passWord.Text))
+            if (validateSubmit())
             {
                 submit.Enabled = true;
             }
@@ -69,7 +74,7 @@ namespace Restaurant_DB
         private void passWord_TextChanged(object sender, EventArgs e)
         {
             ValidatePassword(passWord.Text);
-            if (firstName.Text != "" && lastName.Text != "" && address1.Text != "" && phoneNumber.Text != "" && passWord.Text != "" && confirmPassword.Text != "" && passWord.Text == confirmPassword.Text && ValidatePassword(passWord.Text))
+            if(validateSubmit())
             {
                 submit.Enabled = true;
             }
@@ -81,7 +86,7 @@ namespace Restaurant_DB
 
         private void confirmPassword_TextChanged(object sender, EventArgs e)
         {
-            if (firstName.Text != "" && lastName.Text != "" && address1.Text != "" && phoneNumber.Text != "" && passWord.Text != "" && confirmPassword.Text != "" && passWord.Text == confirmPassword.Text && ValidatePassword(passWord.Text))
+            if(validateSubmit())
             {
                 label2.Text = "";
                 submit.Enabled = true;
@@ -125,6 +130,54 @@ namespace Restaurant_DB
             }
         }
 
+        private void address1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ',' && address1.Text.IndexOf(",") != address1.Text.LastIndexOf(","))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void submit_Click(object sender, EventArgs e)
+        {
+            string fName = firstName.Text;
+            string lName = lastName.Text;
+            string pWord = passWord.Text;
+            string address = address1.Text;
+            int cityLength = address.IndexOf(",");
+            int streetLength = address.LastIndexOf(",") - (address.IndexOf(",") + 1);
+            int buildingLength = address.Length - (address.LastIndexOf(",") + 1);
+            string city = address1.Text.Substring(0, cityLength);
+            string street = address1.Text.Substring((address.IndexOf(",") + 1), streetLength);
+            string building = address1.Text.Substring((address.LastIndexOf(",") + 1), buildingLength);
+            
+            int locationID = 0;
+            if (controllerobj.checklocationexist(city,street,building) == null)
+            {
+                controllerobj.insertlocationid(city,street,building);
+                locationID = int.Parse(controllerobj.checklocationexist(city, street, building).ToString());
+            }
+            else
+            {
+                locationID = int.Parse(controllerobj.checklocationexist(city, street, building).ToString());
+            }
+
+            string ssnCheck = controllerobj.VerifyCustonmer(phoneNumber.Text, pWord);
+            if (ssnCheck == "")
+            {
+                controllerobj.addCustomer(phoneNumber.Text, fName, lName, pWord);
+                //label that the insertion is successful
+            }
+            else if (ssnCheck == fName)
+            {
+                //label that this user already exists
+            }
+            else
+            {
+                //label that the number is already linked to another user
+            }
+        }
+
         private bool ValidatePassword(string password)
         {
             var input = password;
@@ -155,7 +208,7 @@ namespace Restaurant_DB
             else if (!hasMiniMaxChars.IsMatch(input))
             {
                 label1.Text = "Password should not be lesser than 8 or greater than 15 characters.";
-                label1.ForeColor = Color.Red; 
+                label1.ForeColor = Color.Red;
                 return false;
             }
             else if (!hasNumber.IsMatch(input))
@@ -179,9 +232,26 @@ namespace Restaurant_DB
             }
         }
 
-        private void submit_Click(object sender, EventArgs e)
+        private bool validateAddress(string input)
         {
+            if (input.IndexOf(",") == -1 || input.LastIndexOf(",") == input.IndexOf(",")) //Checking there are 2 commas, not 1
+            {
+                return false;
+            }
+            if (input.IndexOf(",") == 0 || input.LastIndexOf(",") == input.IndexOf(",") + 1 || input.LastIndexOf(",") == input.Length-1) //Checking that each entry is there
+            {
+                return false;
+            }
+            return true;
+        }
 
+        private bool validateSubmit()
+        {
+            if (firstName.Text != "" && lastName.Text != "" && address1.Text != "" && phoneNumber.Text != "" && passWord.Text != "" && confirmPassword.Text != "" && passWord.Text == confirmPassword.Text && ValidatePassword(passWord.Text) && validateAddress(address1.Text))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
