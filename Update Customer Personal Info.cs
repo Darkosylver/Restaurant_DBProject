@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Restaurant_DB
 {
@@ -61,11 +62,12 @@ namespace Restaurant_DB
                 {
                     //update the addressId
                     controllerobj.UpdateAddress(this.phone, addressId, Convert.ToInt32(LocationID));
+                    putlocationsincombobox(phone);
                     //once updated, restart this form window
-                    Update_Customer_Personal_Info update_Customer_Personal_Info = new Update_Customer_Personal_Info(this.phone);
-                    update_Customer_Personal_Info.Show();
+                   // Update_Customer_Personal_Info update_Customer_Personal_Info = new Update_Customer_Personal_Info(this.phone);
+                    //update_Customer_Personal_Info.Show();
                     //hide this form
-                    this.Hide();
+                    //this.Hide();
                 }
                 catch (Exception ex)
                 {
@@ -81,10 +83,11 @@ namespace Restaurant_DB
                 LocationID = controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text);
                 //update the addressId
                 controllerobj.UpdateAddress(this.phone, addressId, Convert.ToInt32(LocationID));
-                Update_Customer_Personal_Info update_Customer_Personal_Info = new Update_Customer_Personal_Info(this.phone);
-                update_Customer_Personal_Info.Show();
+                putlocationsincombobox(phone);
+                //Update_Customer_Personal_Info update_Customer_Personal_Info = new Update_Customer_Personal_Info(this.phone);
+                //update_Customer_Personal_Info.Show();
                 //hide this form
-                this.Hide();
+                //this.Hide();
             }
 
 
@@ -174,6 +177,62 @@ namespace Restaurant_DB
             welcome.Show();
 
             this.Hide();
+        }
+
+        public void putlocationsincombobox(string phone)
+        {
+            DataTable dt = controllerobj.getlocations(phone);
+            if (dt == null)
+            {
+                AddressComboBox.DataSource = null;
+                return;
+            }
+            // Create a new DataTable with two columns: LocationID and Address
+            DataTable locationsTable = new DataTable();
+            locationsTable.Columns.Add("LocationID", typeof(string));
+            locationsTable.Columns.Add("Address", typeof(string));
+            if (dt.Rows.Count == 0)
+            {
+                AddressComboBox.DataSource = null;
+                return;
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                // Extract LocationID
+                string locationId = row["LocationID"].ToString();
+
+                // Merge City, Street, and Building into a single string
+                string address = $"{row["City"]}, {row["Street"]}, {row["Building"]}";
+
+                // Add a new row to the DataTable
+                locationsTable.Rows.Add(locationId, address);
+            }
+
+            AddressComboBox.DataSource = locationsTable;
+            AddressComboBox.DisplayMember = "address";
+            AddressComboBox.ValueMember = "locationID";
+
+        }
+
+        private void InsertAddressButton_Click(object sender, EventArgs e)
+        {
+             if (controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text) == null)
+            {
+                controllerobj.insertlocationid(phone, CityTextBox.Text, StreetTextBox.Text,BuildingTextBox.Text);
+                controllerobj.insertlocation(phone, Convert.ToInt32(controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text)));
+                putlocationsincombobox(phone);
+                MessageBox.Show("location inserted successfully");
+            }
+            else if (Convert.ToInt32(controllerobj.checkassignedlocation(phone, Convert.ToInt32(controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text)))) != 0)
+            {
+                MessageBox.Show("customer already has that address");
+            }
+            else
+            {
+                controllerobj.insertlocation(phone, Convert.ToInt32(controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text)));
+                putlocationsincombobox(phone);
+                MessageBox.Show("location inserted successfully");
+            }
         }
     }
 }
