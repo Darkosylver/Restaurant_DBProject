@@ -166,6 +166,7 @@ namespace Restaurant_DB
             if (ssnCheck == "")
             {
                 controllerobj.addCustomer(phoneNumber.Text, fName, lName, pWord);
+                controllerobj.insertlocation(phoneNumber.Text, locationID);
                 //label that the insertion is successful
             }
             else if (ssnCheck == fName)
