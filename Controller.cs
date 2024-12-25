@@ -294,6 +294,11 @@ namespace Restaurant_DB
                 MessageBox.Show("Failed to update address.");
             }
         }
+        public DataTable selectPosition()
+        {
+            string query = "select distinct Position from Employee";
+            return dbMan.ExecuteReader(query);
+        }
         public void TerminateConnection()
         {
             dbMan.CloseConnection();
