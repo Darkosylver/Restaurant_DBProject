@@ -171,5 +171,12 @@ namespace Restaurant_DB
 
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DataTable dt = controllerobj.ReviewOrder();
+            dataGridView1.DataSource = dt;
+            dataGridView1.Refresh();    
+        }
     }
 }

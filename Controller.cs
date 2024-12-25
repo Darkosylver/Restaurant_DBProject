@@ -294,6 +294,20 @@ namespace Restaurant_DB
                 MessageBox.Show("Failed to update address.");
             }
         }
+        public DataTable ReviewOrder()
+        {
+            string query = "SELECT " +
+                "  CO.OrderID,  CO.OrderDate, CO.OrderState,  CO.OrderFeedback,c.FName AS CustomerFirstName,  c.LName AS CustomerLastName,  e.FName AS WaiterFirstName,  e.LName AS WaiterLastName,  mi.ItemName,    ocm.Quantity,  (ocm.Quantity * i.IngredientPrice) AS TotalItemPrice" +
+                "FROM  CustomerOrder CO" +
+                " JOIN   Customer c ON CO.CustomerPhoneNumber = c.PhoneNumber" +
+                "LEFT JOIN    Employee e ON co.WaiterSSN = e.SSN" +
+                "JOIN   Order_Contains_MenuItem ocm ON co.OrderID = ocm.OrderID " +
+                "JOIN   MenuItem mi ON ocm.ItemID = mi.ItemID" +
+                "JOIN  ContainsIngredient ci ON mi.ItemID = ci.ItemID" +
+                "JOIN  Ingredient i ON ci.IngredientID = i.IngredientID" +
+                "ORDER BY   co.OrderDate DESC, co.OrderID;";
+            return dbMan.ExecuteReader(query);
+        }
         public DataTable selectPosition()
         {
             string query = "select distinct Position from Employee";
