@@ -48,11 +48,11 @@ namespace Restaurant_DB
             }
             else
             {
-                if (controller.findPassword(userName.Text).ToString() != passWord.Text && controller.VerifyCustonmer(userName.Text,passWord.Text)=="")
+                if (controller.findPassword(userName.Text).ToString() != passWord.Text && controller.VerifyCustomer(userName.Text)=="")
                 {
                     label3.Text = "Incorrect Password, Please try again";
                 }
-                else if (controller.VerifyCustonmer(userName.Text, passWord.Text) != "")
+                else if (controller.VerifyCustomer(userName.Text) != "")
                 {
                     Form newform = new Welcome((userName.Text));
                     newform.ShowDialog();

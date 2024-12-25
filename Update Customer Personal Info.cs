@@ -78,7 +78,7 @@ namespace Restaurant_DB
             else
             {
                 //create a new location
-                controllerobj.insertlocationid(phone,CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text);
+                controllerobj.insertlocationid(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text);
                 //get the LocationID of the new location
                 LocationID = controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text);
                 //update the addressId
@@ -218,7 +218,7 @@ namespace Restaurant_DB
         {
              if (controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text) == null)
             {
-                controllerobj.insertlocationid(phone, CityTextBox.Text, StreetTextBox.Text,BuildingTextBox.Text);
+                controllerobj.insertlocationid(CityTextBox.Text, StreetTextBox.Text,BuildingTextBox.Text);
                 controllerobj.insertlocation(phone, Convert.ToInt32(controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text)));
                 putlocationsincombobox(phone);
                 MessageBox.Show("location inserted successfully");

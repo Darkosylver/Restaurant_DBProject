@@ -167,13 +167,13 @@ namespace Restaurant_DB
        public void addCustomer(string phone, string fName, string lName, string passWord)
         {
             string query = "INSERT INTO CUSTOMER (PhoneNumber, FName, LName, EPassword) " +
-                "VALUES ('" + phone + "', '" + fName + "', '" + lName + "', '"+ passWord +"';";
+                "VALUES ('" + phone + "', '" + fName + "', '" + lName + "', '"+ passWord +"');";
             dbMan.ExecuteNonQuery(query);
         }
 
-       public string VerifyCustonmer(string phoneNumber, string password)  //sees if the customer exists
+       public string VerifyCustomer(string phoneNumber)  //sees if the customer exists
         {
-            string query="SELECT FName FROM Customer WHERE PhoneNumber='"+phoneNumber+"' AND EPassword='"+password+"';";
+            string query="SELECT FName FROM Customer WHERE PhoneNumber='"+phoneNumber+"';";
 
             object fname = dbMan.ExecuteScalar(query);
 
