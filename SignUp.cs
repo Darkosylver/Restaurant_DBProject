@@ -124,8 +124,13 @@ namespace Restaurant_DB
 
         private void phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (phoneNumber.TextLength == 11 && !char.IsControl(e.KeyChar))
             {
+                e.Handled = true;
+            }
+            else if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                
                 e.Handled= true;
             }
         }
@@ -162,7 +167,7 @@ namespace Restaurant_DB
                 locationID = int.Parse(controllerobj.checklocationexist(city, street, building).ToString());
             }
 
-            string ssnCheck = controllerobj.VerifyCustonmer(phoneNumber.Text, pWord);
+            string ssnCheck = controllerobj.VerifyCustomer(phoneNumber.Text);
             if (ssnCheck == "")
             {
                 controllerobj.addCustomer(phoneNumber.Text, fName, lName, pWord);
