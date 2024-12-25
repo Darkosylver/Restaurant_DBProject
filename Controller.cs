@@ -265,6 +265,22 @@ namespace Restaurant_DB
             }
         }
         
+        
+        public void UpdateAddress(string phone, int oldlocationid, int newlocationid) //updates the address of the customer
+        { 
+            //update customer location
+            string query = "UPDATE CustomerLocations SET LocationID = " + newlocationid + " WHERE PhoneNumber = '" + phone + "' AND LocationID = " + oldlocationid + ";";
+            int rowsAffected = dbMan.ExecuteNonQuery(query);
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Address updated successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to update address.");
+            }
+        }
+        //--------------------ALAA HAYTHAM----------------------
         public int UpdateEmployee(int ssn, string fname, string lname,string position,int hours,decimal salary,string city,string street,string building,string password)
         {
             string query = "UPDATE Employee SET  FName = '"+fname+ "',LName = '"+lname+"', Position = '"+position+"',   WorkingHours = "+hours+",   Salary = "+salary+",  City = '"+city+"',  Street = '"+street+"',  Building = '"+building+"', EPassword = '"+password+"'" +
@@ -280,24 +296,10 @@ namespace Restaurant_DB
             }
             return rowsAffected;
         }
-        public void UpdateAddress(string phone, int oldlocationid, int newlocationid) //updates the address of the customer
-        { 
-            //update customer location
-            string query = "UPDATE CustomerLocations SET LocationID = " + newlocationid + " WHERE PhoneNumber = '" + phone + "' AND LocationID = " + oldlocationid + ";";
-            int rowsAffected = dbMan.ExecuteNonQuery(query);
-            if (rowsAffected > 0)
-            {
-                MessageBox.Show("Address updated successfully!");
-            }
-            else
-            {
-                MessageBox.Show("Failed to update address.");
-            }
-        }
         public DataTable ReviewOrder()
         {
             string query = "SELECT " +
-                "  CO.OrderID,  CO.OrderDate, CO.OrderState,  CO.OrderFeedback,c.FName AS CustomerFirstName,  c.LName AS CustomerLastName,  e.FName AS WaiterFirstName,  e.LName AS WaiterLastName,  mi.ItemName,    ocm.Quantity,  (ocm.Quantity * i.IngredientPrice) AS TotalItemPrice" +
+                "  CO.OrderID,  CO.OrderDate, CO.OrderState,  CO.OrderFeedback,c.FName AS CustomerFirstName,  c.LName AS CustomerLastName,  e.FName AS WaiterFirstName,  e.LName AS WaiterLastName,  mi.ItemName,    ocm.Quantity" +
                 "FROM  CustomerOrder CO" +
                 " JOIN   Customer c ON CO.CustomerPhoneNumber = c.PhoneNumber" +
                 "LEFT JOIN    Employee e ON co.WaiterSSN = e.SSN" +
@@ -308,10 +310,35 @@ namespace Restaurant_DB
                 "ORDER BY   co.OrderDate DESC, co.OrderID;";
             return dbMan.ExecuteReader(query);
         }
+        public DataTable viewPendingOrder()
+        {
+            string query = "SELECT e.FName AS ChefFirstName,  e.LName AS ChefLastName, i.IngredientName,   r.RequestStatus" +
+                "FROM     Request r" +
+                "JOIN    Employee e ON r.ChefSSN = e.SSN" +
+                "JOIN   Ingredient i ON r.IngredientID = i.IngredientID" +
+                "WHERE    r.RequestStatus = 'Pending';";
+            return dbMan.ExecuteReader(query);
+        }
         public DataTable selectPosition()
         {
             string query = "select distinct Position from Employee";
             return dbMan.ExecuteReader(query);
+        }
+        public DataTable selectitempending()
+        {
+            string query = "SELECT i.IngredientName" +
+              "FROM     Request r" +
+              "JOIN   Ingredient i ON r.IngredientID = i.IngredientID" +
+              "WHERE    r.RequestStatus = 'Pending';";
+            return dbMan.ExecuteReader(query);
+        }
+        public void changepending(string IngredientName)
+        {
+            //still not done (I HATE QUEREYS )
+            string query = "UPDATE Request" +
+                "SET RequestStatus = 'Approved'" +
+                "WHERE  IngredientName= '"+ IngredientName + "' ";
+
         }
         public void TerminateConnection()
         {

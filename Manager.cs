@@ -23,7 +23,12 @@ namespace Restaurant_DB
             storedssn = ssn;
             DataTable dt = controllerobj.selectPosition();
             comboBox1.DataSource = dt;
-            comboBox1.DisplayMember="Position";
+            comboBox1.DisplayMember = "Position";
+
+
+            DataTable dt2 = controllerobj.selectitempending();
+            comboBox2.DataSource = dt2;
+            comboBox2.DisplayMember = "IngredientName";
             Salary_Man.KeyPress += new KeyPressEventHandler(Salary_Man_KeyPress);
             Working_Hours_Man.KeyPress += new KeyPressEventHandler(Working_Hours_Man_KeyPress);
         }
@@ -176,7 +181,31 @@ namespace Restaurant_DB
         {
             DataTable dt = controllerobj.ReviewOrder();
             dataGridView1.DataSource = dt;
-            dataGridView1.Refresh();    
+            dataGridView1.Refresh();
+        }
+
+        private void Manager_Load(object sender, EventArgs e)
+        {
+            //DataTable dt = controllerobj.ReviewOrder();
+            //dataGridView1.DataSource = dt;
+            //dataGridView1.Refresh();
+        }
+
+        private void PendingOrders_Click(object sender, EventArgs e)
+        {
+            DataTable dt = controllerobj.viewPendingOrder();
+            dataGridView1.DataSource = dt;
+            dataGridView1.Refresh();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
