@@ -158,6 +158,12 @@
     <Compile Include="Make Order.Designer.cs">
       <DependentUpon>Make Order.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager.Designer.cs">
+      <DependentUpon>Manager.cs</DependentUpon>
+    </Compile>
     <Compile Include="RestaurantDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -189,6 +195,9 @@
     </Compile>
     <EmbeddedResource Include="Make Order.resx">
       <DependentUpon>Make Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager.resx">
+      <DependentUpon>Manager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update Customer Personal Info.resx">
       <DependentUpon>Update Customer Personal Info.cs</DependentUpon>

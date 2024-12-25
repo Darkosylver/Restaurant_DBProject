@@ -264,7 +264,22 @@ namespace Restaurant_DB
                 MessageBox.Show("Failed to update name.");
             }
         }
-
+        
+        public int UpdateEmployee(int ssn, string fname, string lname,string position,int hours,decimal salary,string city,string street,string building,string password)
+        {
+            string query = "UPDATE Employee SET  FName = '"+fname+ "',LName = '"+lname+"', Position = '"+position+"',   WorkingHours = "+hours+",   Salary = "+salary+",  City = '"+city+"',  Street = '"+street+"',  Building = '"+building+"', EPassword = '"+password+"'" +
+                "WHERE   SSN = "+ssn+";";
+            int rowsAffected = dbMan.ExecuteNonQuery(query);
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Data updated successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to update Data.");
+            }
+            return rowsAffected;
+        }
         public void UpdateAddress(string phone, int oldlocationid, int newlocationid) //updates the address of the customer
         { 
             //update customer location

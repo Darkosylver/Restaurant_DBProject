@@ -68,7 +68,13 @@ namespace Restaurant_DB
                         Form newform = new waiter(userName.Text);
                         newform.ShowDialog();
                     }
-                    //use this to know which form to load after the login
+                    
+                    if(position == "Manager")
+                    {
+                        //open manager form
+                        Form fman = new Manager(userName.Text);
+                        fman.ShowDialog();
+                    }
                 }
             }
             label3.Visible = true;
