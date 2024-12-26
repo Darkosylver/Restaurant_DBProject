@@ -47,6 +47,11 @@ namespace Restaurant_DB
             set { timeCook.Text = value; }
         }
 
+        public string itemPriceSet
+        {
+            get { return itemPrice.Text; }
+            set { itemPrice.Text = value; }
+        }
         private void itemCount_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
