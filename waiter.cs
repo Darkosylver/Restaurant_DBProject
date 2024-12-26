@@ -409,8 +409,15 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
 
         private void order_Click(object sender, EventArgs e)
         {
-            //kindly add the new form and remove the message box
-            MessageBox.Show("under development thanks for supporting our restaurant");
+            Hide();
+            DataTable itemOrder = new DataTable("orderedItems");
+            itemOrder.Columns.Add("itemID", typeof(int));
+            itemOrder.Columns.Add("itemName", typeof(string));
+            itemOrder.Columns.Add("itemCount", typeof(int));
+            itemOrder.Columns.Add("itemPrice", typeof(float));
+            menuForm menu = new menuForm(phoneno.Text, storedssn, itemOrder);
+            menu.ShowDialog();
+            Show();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

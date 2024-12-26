@@ -54,9 +54,10 @@ namespace Restaurant_DB
                 }
                 else if (controller.VerifyCustomer(userName.Text) != "")
                 {
+                    Hide();
                     Form newform = new Welcome((userName.Text));
                     newform.ShowDialog();
-                    this.Hide();
+                    Show();
                 }
                 else
                 {
@@ -65,8 +66,10 @@ namespace Restaurant_DB
                     label3.Text = "Welcome, " + position;
                     if (position == "Waiter")
                     {
+                        Hide();
                         Form newform = new waiter(userName.Text);
                         newform.ShowDialog();
+                        Show();
                     }
                     //use this to know which form to load after the login
                 }
