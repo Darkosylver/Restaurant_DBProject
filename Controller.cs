@@ -146,6 +146,17 @@ namespace Restaurant_DB
             string query = "DELETE FROM CustomerLocations WHERE PhoneNumber='" + phone + "' AND LocationID=" + Convert.ToInt32(id) + ";";
             dbMan.ExecuteNonQuery(query);
         }
+        public DataTable GetAllEmployees()
+        {
+            string query = "SELECT * FROM Employee;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetEmployeeDetails(string ssn) 
+        {
+            string query = "SELECT FName, LName, Position, WorkingHours, Salary, City, Street, Building FROM Employee WHERE SSN='"+ssn+"';";
+            return dbMan.ExecuteReader(query);
+        }
         //you can edit the ones below :)
 
         //----------------- ABDELRAHMAN ZAKARIA ---------------------
