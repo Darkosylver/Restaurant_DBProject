@@ -45,6 +45,8 @@ namespace Restaurant_DB
             else
             {
                 confirm.Enabled = false;
+                total.Visible = false;
+                totalPrice.Visible=false;
             }
         }
 
@@ -75,7 +77,8 @@ namespace Restaurant_DB
                 controllerobj.addToOrder(orderID, itemID, itemCount);   
             }
             itemOrder.Clear();
-            this.Refresh();
+            realCartItems.Controls.Clear();
+            populatePanel();
         }
     }
 }
