@@ -38,6 +38,7 @@ namespace Restaurant_DB
             itemOrder.Columns.Add("itemID", typeof(int));
             itemOrder.Columns.Add("itemName", typeof(string));
             itemOrder.Columns.Add("itemCount", typeof(int));
+            itemOrder.Columns.Add("itemPrice", typeof(float));
             menuForm menu = new menuForm(Phone, waiterSSN, itemOrder);
             menu.Show();
         }

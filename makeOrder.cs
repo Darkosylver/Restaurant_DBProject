@@ -29,12 +29,18 @@ namespace Restaurant_DB
         {
             if (itemOrder.Rows.Count > 0)
             {
+                float sumPrice = 0;
                 foreach (DataRow dr in itemOrder.Rows)
                 {
                     cartItem item = new cartItem();
                     item.itemNameSet = dr.Field<int>("itemCount").ToString() + "x" + dr.Field<string>("itemName");
+                    sumPrice += dr.Field<float>("itemPrice");
+                    item.itemPriceGet = dr.Field<Object>("itemPrice").ToString();
                     realCartItems.Controls.Add(item);
                 }
+                total.Visible = true;
+                totalPrice.Visible = true;
+                totalPrice.Text = sumPrice.ToString();
             }
             else
             {
@@ -52,7 +58,7 @@ namespace Restaurant_DB
 
         private void confirm_Click(object sender, EventArgs e)
         {
-            DateTime date = DateTime.Now.Date;
+            DateTime date = DateTime.Now;
             int orderID;
             if (waiterSSN != null)
             {

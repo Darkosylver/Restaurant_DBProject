@@ -36,6 +36,8 @@
             this.itemID = new System.Windows.Forms.Label();
             this.cook = new System.Windows.Forms.Label();
             this.timeCook = new System.Windows.Forms.Label();
+            this.price = new System.Windows.Forms.Label();
+            this.itemPrice = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // itemName
@@ -98,7 +100,7 @@
             // cook
             // 
             this.cook.AutoSize = true;
-            this.cook.Location = new System.Drawing.Point(264, 122);
+            this.cook.Location = new System.Drawing.Point(171, 122);
             this.cook.Name = "cook";
             this.cook.Size = new System.Drawing.Size(94, 16);
             this.cook.TabIndex = 6;
@@ -107,16 +109,36 @@
             // timeCook
             // 
             this.timeCook.AutoSize = true;
-            this.timeCook.Location = new System.Drawing.Point(364, 122);
+            this.timeCook.Location = new System.Drawing.Point(271, 122);
             this.timeCook.Name = "timeCook";
             this.timeCook.Size = new System.Drawing.Size(79, 16);
             this.timeCook.TabIndex = 7;
             this.timeCook.Text = "time to cook";
             // 
+            // price
+            // 
+            this.price.AutoSize = true;
+            this.price.Location = new System.Drawing.Point(385, 122);
+            this.price.Name = "price";
+            this.price.Size = new System.Drawing.Size(41, 16);
+            this.price.TabIndex = 8;
+            this.price.Text = "Price:";
+            // 
+            // itemPrice
+            // 
+            this.itemPrice.AutoSize = true;
+            this.itemPrice.Location = new System.Drawing.Point(432, 122);
+            this.itemPrice.Name = "itemPrice";
+            this.itemPrice.Size = new System.Drawing.Size(55, 16);
+            this.itemPrice.TabIndex = 9;
+            this.itemPrice.Text = "theprice";
+            // 
             // menuItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.itemPrice);
+            this.Controls.Add(this.price);
             this.Controls.Add(this.timeCook);
             this.Controls.Add(this.cook);
             this.Controls.Add(this.itemID);
@@ -142,5 +164,7 @@
         private System.Windows.Forms.Label itemID;
         private System.Windows.Forms.Label cook;
         private System.Windows.Forms.Label timeCook;
+        private System.Windows.Forms.Label price;
+        private System.Windows.Forms.Label itemPrice;
     }
 }

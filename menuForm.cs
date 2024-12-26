@@ -29,7 +29,7 @@ namespace Restaurant_DB
 
         private void populatePanel()
         {
-            DataTable dt = controllerobj.GetMenuItems();
+            DataTable dt = controllerobj.GetMenuItemPrice();
             int rowCount = 0;
             foreach (DataRow dr in dt.Rows)
             {
@@ -39,6 +39,7 @@ namespace Restaurant_DB
                     Item.itemNameWrite = dr.Field<string>("ItemName");
                     Item.itemIDRead = dr.Field<int>("ItemID").ToString();
                     Item.itemCookWrite = dr.Field<Object>("CookingTime").ToString();
+                    Item.itemPriceSet = dr.Field<decimal>("TotalPrice").ToString();
                     if (itemOrder.Rows.Count > 0)
                     {
                         if (itemOrder.Rows[rowCount].Field<int>("itemID") == dr.Field<int>("itemID"))
@@ -67,6 +68,7 @@ namespace Restaurant_DB
                     row["itemID"] = Convert.ToInt32(item.itemIDRead);
                     row["itemName"] = item.itemNameWrite;
                     row["itemCount"] = Convert.ToInt32(item.itemCountRead);
+                    row["itemPrice"] = decimal.Parse(item.itemPriceSet) * decimal.Parse(item.itemCountRead);
                     itemOrder.Rows.Add(row);
                 }
                 
