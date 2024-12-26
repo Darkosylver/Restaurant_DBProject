@@ -178,6 +178,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="tablemanagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tablemanagement.Designer.cs">
+      <DependentUpon>tablemanagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Update Customer Personal Info.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,12 @@
     </Compile>
     <Compile Include="menuItem.Designer.cs">
       <DependentUpon>menuItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateuser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateuser.Designer.cs">
+      <DependentUpon>updateuser.cs</DependentUpon>
     </Compile>
     <Compile Include="waiter.cs">
       <SubType>Form</SubType>
@@ -217,6 +229,9 @@
     <EmbeddedResource Include="menuForm.resx">
       <DependentUpon>menuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="tablemanagement.resx">
+      <DependentUpon>tablemanagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Update Customer Personal Info.resx">
       <DependentUpon>Update Customer Personal Info.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="menuItem.resx">
       <DependentUpon>menuItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateuser.resx">
+      <DependentUpon>updateuser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="waiter.resx">
       <DependentUpon>waiter.cs</DependentUpon>
