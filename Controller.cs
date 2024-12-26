@@ -281,7 +281,7 @@ namespace Restaurant_DB
             }
         }
         //--------------------ALAA HAYTHAM----------------------
-        public int UpdateEmployee(int ssn, string fname, string lname,string position,int hours,decimal salary,string city,string street,string building,string password)
+        public int UpdateEmployee(long ssn, string fname, string lname,string position,long hours,decimal salary,string city,string street,string building,string password)
         {
             string query = "UPDATE Employee SET  FName = '"+fname+ "',LName = '"+lname+"', Position = '"+position+"',   WorkingHours = "+hours+",   Salary = "+salary+",  City = '"+city+"',  Street = '"+street+"',  Building = '"+building+"', EPassword = '"+password+"'" +
                 "WHERE   SSN = "+ssn+";";
@@ -298,25 +298,12 @@ namespace Restaurant_DB
         }
         public DataTable ReviewOrder()
         {
-            string query = "SELECT " +
-                "  CO.OrderID,  CO.OrderDate, CO.OrderState,  CO.OrderFeedback,c.FName AS CustomerFirstName,  c.LName AS CustomerLastName,  e.FName AS WaiterFirstName,  e.LName AS WaiterLastName,  mi.ItemName,    ocm.Quantity" +
-                "FROM  CustomerOrder CO" +
-                " JOIN   Customer c ON CO.CustomerPhoneNumber = c.PhoneNumber" +
-                "LEFT JOIN    Employee e ON co.WaiterSSN = e.SSN" +
-                "JOIN   Order_Contains_MenuItem ocm ON co.OrderID = ocm.OrderID " +
-                "JOIN   MenuItem mi ON ocm.ItemID = mi.ItemID" +
-                "JOIN  ContainsIngredient ci ON mi.ItemID = ci.ItemID" +
-                "JOIN  Ingredient i ON ci.IngredientID = i.IngredientID" +
-                "ORDER BY   co.OrderDate DESC, co.OrderID;";
+            string query = "SELECT CO.OrderID,  CO.OrderDate, CO.OrderState, CO.OrderFeedback,c.FName AS CustomerFirstName,  c.LName AS CustomerLastName,  e.FName AS WaiterFirstName,  e.LName AS WaiterLastName,  mi.ItemName,    ocm.Quantity FROM  CustomerOrder  CO  JOIN   Customer c ON CO.CustomerPhoneNumber = c.PhoneNumber LEFT JOIN    Employee e ON CO.WaiterSSN = e.SSN JOIN   Order_Contains_MenuItem ocm ON CO.OrderID = ocm.OrderID JOIN   MenuItem mi ON ocm.ItemID = mi.ItemID JOIN  ContainsIngredient ci ON mi.ItemID = ci.ItemID JOIN  Ingredient i ON ci.IngredientID = i.IngredientID ORDER BY   CO.OrderDate DESC, CO.OrderID;";
             return dbMan.ExecuteReader(query);
         }
         public DataTable viewPendingOrder()
         {
-            string query = "SELECT e.FName AS ChefFirstName,  e.LName AS ChefLastName, i.IngredientName,   r.RequestStatus" +
-                "FROM     Request r" +
-                "JOIN    Employee e ON r.ChefSSN = e.SSN" +
-                "JOIN   Ingredient i ON r.IngredientID = i.IngredientID" +
-                "WHERE    r.RequestStatus = 'Pending';";
+            string query = "SELECT e.FName AS ChefFirstName,  e.LName AS ChefLastName, i.IngredientName,   r.RequestStatus FROM     Request r JOIN    Employee e ON r.ChefSSN = e.SSN JOIN   Ingredient i ON r.IngredientID = i.IngredientID WHERE    r.RequestStatus = 'Pending';";
             return dbMan.ExecuteReader(query);
         }
         public DataTable selectPosition()
@@ -331,6 +318,11 @@ namespace Restaurant_DB
               "JOIN   Ingredient i ON r.IngredientID = i.IngredientID" +
               "WHERE    r.RequestStatus = 'Pending';";
             return dbMan.ExecuteReader(query);
+        }
+        public void insertEmployee(int ssn, string fname, string lname, string position, int hours, decimal salary, string city, string street, string building, string password)
+        {
+            string query = "";
+            dbMan.ExecuteNonQuery(query);
         }
         public void changepending(string IngredientName)
         {

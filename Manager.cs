@@ -36,51 +36,71 @@ namespace Restaurant_DB
         
         private void Update_Manager_Click(object sender, EventArgs e)
         {
-            int result = controllerobj.UpdateEmployee(Convert.ToInt16(MANAGER_SSN.Text), FName_Man.Text,LName_Man.Text,comboBox1.SelectedText,Convert.ToInt16( Working_Hours_Man.Text),Convert.ToDecimal(Salary_Man.Text),City_Man.Text,Street_Man.Text,Building_Man.Text,EPass_Man.Text);
+          
+           
             if (string.IsNullOrWhiteSpace(FName_Man.Text))
             {
-                MessageBox.Show("This field cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                FName_Man.Focus(); 
+                MessageBox.Show("FirstName cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                FName_Man.Focus();
+                return ;
                 
             }else if (string.IsNullOrWhiteSpace(LName_Man.Text))
             {
-                MessageBox.Show("This field cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("LastName cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LName_Man.Focus();
+                return;
             }
             else if (string.IsNullOrWhiteSpace(Working_Hours_Man.Text))
             {
-                MessageBox.Show("This field cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Working hours cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Working_Hours_Man.Focus();
+                return;
 
             }else if (string.IsNullOrWhiteSpace(Salary_Man.Text))
             {
-                MessageBox.Show("This field cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("salary cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Salary_Man.Focus();
+                return;
 
             }
             else if (string.IsNullOrWhiteSpace(City_Man.Text))
             {
-                MessageBox.Show("This field cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("city cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 City_Man.Focus();
+                return;
 
             }
             else if (string.IsNullOrWhiteSpace(Street_Man.Text))
             {
-                MessageBox.Show("This field cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Streetcannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Street_Man.Focus();
+                return;
 
             }else if (string.IsNullOrWhiteSpace(Building_Man.Text))
             {
-                MessageBox.Show("This field cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("building  cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Building_Man.Focus();
+                return;
 
             }
             else if (string.IsNullOrWhiteSpace(EPass_Man.Text))
             {
-                MessageBox.Show("This field cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("password cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 EPass_Man.Focus();
+                return;
 
             }
+            long Man_ssn = long.Parse(MANAGER_SSN.Text);
+            string FName = FName_Man.Text;
+            string LName = LName_Man.Text;
+            string pos = comboBox1.SelectedText;
+            long workinghour = long.Parse(Working_Hours_Man.Text);
+            decimal salary = Decimal.Parse(Salary_Man.Text);
+            string city = City_Man.Text;
+            string street = Street_Man.Text;
+            string building = Building_Man.Text;
+            string password = EPass_Man.Text;
+            int result = controllerobj.UpdateEmployee(Man_ssn, FName, LName, pos, workinghour, salary, city, street, building, password);
         }
        private  void Salary_Man_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -127,54 +147,72 @@ namespace Restaurant_DB
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int result = controllerobj.UpdateEmployee(Convert.ToInt16(EMPLOYEE_SNN.Text), FName_Man.Text, LName_Man.Text, comboBox1.SelectedText, Convert.ToInt16(Working_Hours_Man.Text), Convert.ToDecimal(Salary_Man.Text), City_Man.Text, Street_Man.Text, Building_Man.Text, EPass_Man.Text);
             if (string.IsNullOrWhiteSpace(FName_Man.Text))
             {
-                MessageBox.Show("First Name cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("FirstName cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 FName_Man.Focus();
+                return;
 
             }
             else if (string.IsNullOrWhiteSpace(LName_Man.Text))
             {
-                MessageBox.Show("Last Name cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("LastName cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LName_Man.Focus();
+                return;
             }
             else if (string.IsNullOrWhiteSpace(Working_Hours_Man.Text))
             {
-                MessageBox.Show(" working Hours cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Working hours cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Working_Hours_Man.Focus();
+                return;
 
             }
             else if (string.IsNullOrWhiteSpace(Salary_Man.Text))
             {
-                MessageBox.Show("Salary field cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("salary cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Salary_Man.Focus();
+                return;
 
             }
             else if (string.IsNullOrWhiteSpace(City_Man.Text))
             {
-                MessageBox.Show("City field cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("city cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 City_Man.Focus();
+                return;
 
             }
             else if (string.IsNullOrWhiteSpace(Street_Man.Text))
             {
-                MessageBox.Show("This field cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Streetcannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Street_Man.Focus();
+                return;
 
             }
             else if (string.IsNullOrWhiteSpace(Building_Man.Text))
             {
-                MessageBox.Show("This field cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("building  cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Building_Man.Focus();
+                return;
 
             }
             else if (string.IsNullOrWhiteSpace(EPass_Man.Text))
             {
-                MessageBox.Show("This field cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("password cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 EPass_Man.Focus();
+                return;
 
             }
+            long Man_ssn = long.Parse(EMPLOYEE_SNN.Text);
+            string FName = FName_Man.Text;
+            string LName = LName_Man.Text;
+            string pos = comboBox1.SelectedText;
+            long workinghour = long.Parse(Working_Hours_Man.Text);
+            decimal salary = Decimal.Parse(Salary_Man.Text);
+            string city = City_Man.Text;
+            string street = Street_Man.Text;
+            string building = Building_Man.Text;
+            string password = EPass_Man.Text;
+            int result = controllerobj.UpdateEmployee(Man_ssn, FName, LName, pos, workinghour, salary, city, street, building, password);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -204,6 +242,16 @@ namespace Restaurant_DB
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Insert_Employee_Click(object sender, EventArgs e)
         {
 
         }
