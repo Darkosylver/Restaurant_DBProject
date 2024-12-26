@@ -45,12 +45,14 @@ namespace Restaurant_DB
             if (controller.findPassword(userName.Text) == null)
             {
                 label3.Text = "Incorrect Credentials, Please check username";
+                label3.Visible = true;
             }
             else
             {
                 if (controller.findPassword(userName.Text).ToString() != passWord.Text && controller.VerifyCustomer(userName.Text)=="")
                 {
                     label3.Text = "Incorrect Password, Please try again";
+                    label3.Visible = true;
                 }
                 else if (controller.VerifyCustomer(userName.Text) != "")
                 {
@@ -58,24 +60,22 @@ namespace Restaurant_DB
                     Form newform = new Welcome((userName.Text));
                     newform.ShowDialog();
                     Show();
+                    passWord.Text = "";
                 }
                 else
                 {
                     string position = controller.findPosition(userName.Text).ToString();
-                    label3.ForeColor = Color.RoyalBlue;
-                    label3.Text = "Welcome, " + position;
                     if (position == "Waiter")
                     {
                         Hide();
                         Form newform = new waiter(userName.Text);
                         newform.ShowDialog();
                         Show();
+                        passWord.Text = "";
                     }
                     //use this to know which form to load after the login
                 }
-            }
-            label3.Visible = true;
-                           
+            }               
         }
 
         private void signUp_MouseClick(object sender, MouseEventArgs e)

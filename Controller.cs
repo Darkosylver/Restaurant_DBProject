@@ -146,6 +146,11 @@ namespace Restaurant_DB
             string query = "DELETE FROM CustomerLocations WHERE PhoneNumber='" + phone + "' AND LocationID=" + Convert.ToInt32(id) + ";";
             dbMan.ExecuteNonQuery(query);
         }
+        public DataTable getcustomerinfo(string phone)
+        {
+            string query = "SELECT * FROM Customer WHERE PhoneNumber='"+phone+"';";
+            return dbMan.ExecuteReader(query);
+        }
         //you can edit the ones below :)
 
         //----------------- ABDELRAHMAN ZAKARIA ---------------------
@@ -162,6 +167,12 @@ namespace Restaurant_DB
                 return "";
             }
         
+        }
+
+        public string getEmployeeName(string SSN)
+        {
+            string query = "SELECT FName FROM Employee WHERE SSN = '" + SSN + "';";
+            return dbMan.ExecuteScalar(query).ToString();
         }
 
        public void addCustomer(string phone, string fName, string lName, string passWord)

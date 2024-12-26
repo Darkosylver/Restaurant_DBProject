@@ -22,6 +22,14 @@ namespace Restaurant_DB
             Phone = phoneNumber;
             waiterSSN = waiterN;
             itemOrder = dataTable;
+            if (waiterSSN != null)
+            {
+                userName.Text = controllerobj.getEmployeeName(waiterSSN);
+            }
+            else
+            {
+                userName.Text = controllerobj.GetCustomerFName(Phone);
+            }
             populatePanel();
         }
 
@@ -52,9 +60,8 @@ namespace Restaurant_DB
 
         private void update_Click(object sender, EventArgs e)
         {
-            Hide();
             menuForm menu = new menuForm(Phone, waiterSSN, itemOrder);
-            menu.ShowDialog();
+            menu.Show();
             Close();
         }
 
@@ -79,6 +86,36 @@ namespace Restaurant_DB
             itemOrder.Clear();
             realCartItems.Controls.Clear();
             populatePanel();
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            loginScreen logIn = new loginScreen();
+            logIn.Show();
+            Close();
+        }
+
+        private void menuBox_Click(object sender, EventArgs e)
+        {
+            menuForm menu = new menuForm(Phone, waiterSSN, itemOrder);
+            menu.Show();
+            Close();
+        }
+
+        private void homePage_Click(object sender, EventArgs e)
+        {
+            if (waiterSSN != null)
+            {
+                waiter Waiter = new waiter(waiterSSN);
+                Waiter.Show();
+                Close();
+            }
+            else
+            {
+                Welcome homePage = new Welcome(Phone);
+                homePage.Show();
+                Close();
+            }
         }
     }
 }

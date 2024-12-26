@@ -25,6 +25,14 @@ namespace Restaurant_DB
             waiterSSN = waiterN;
             itemOrder = dataTable;
             populatePanel();
+            if (waiterSSN != null)
+            {
+                userName.Text = controllerobj.getEmployeeName(waiterSSN);
+            }
+            else
+            {
+                userName.Text = controllerobj.GetCustomerFName(Phone);
+            }
         }
 
         private void populatePanel()
@@ -73,10 +81,32 @@ namespace Restaurant_DB
                 }
                 
             }
-            Hide();
             makeOrder Order = new makeOrder(Phone, waiterSSN, itemOrder);
-            Order.ShowDialog();
-            Show();
+            Order.Show();
+            Close();
+        }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            if (waiterSSN != null)
+            {
+                waiter Waiter = new waiter(waiterSSN);
+                Waiter.Show();
+                Close();
+            }
+            else
+            {
+                Welcome homePage = new Welcome(Phone);
+                homePage.Show();
+                Close();
+            }
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            loginScreen logIn = new loginScreen();
+            logIn.Show();
+            Close();
         }
     }
 }
