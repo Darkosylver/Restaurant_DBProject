@@ -17,14 +17,9 @@ namespace Restaurant_DB
     {
         Controller controllerobj = new Controller();
         string storedssn;
-        public Manager(string ssn)
-        {
-            InitializeComponent();
-            storedssn = ssn;
-            DataTable dt = controllerobj.selectPosition();
-            comboBox1.DataSource = dt;
-            comboBox1.DisplayMember = "Position";
 
+        public void putingredientsincombobox()
+        {
             DataTable itemname = controllerobj.selectitempending();
             if (itemname.Rows.Count == 0)
             {
@@ -36,6 +31,16 @@ namespace Restaurant_DB
                 comboBox2.DisplayMember = "IngredientName";
                 comboBox2.ValueMember = "ID";
             }
+        }
+        public Manager(string ssn)
+        {
+            InitializeComponent();
+            storedssn = ssn;
+            DataTable dt = controllerobj.selectPosition();
+            comboBox1.DataSource = dt;
+            comboBox1.DisplayMember = "Position";
+
+            putingredientsincombobox();
             
             //DataTable dt2 = controllerobj.selectitempending();
             //comboBox2.DataSource = dt2;
@@ -328,6 +333,8 @@ namespace Restaurant_DB
         {
           
             controllerobj.approvepending(Convert.ToInt32(comboBox2.SelectedValue));
+            putingredientsincombobox();
+            MessageBox.Show("approved successfully");
         }
 
         private void label30_Click(object sender, EventArgs e)
