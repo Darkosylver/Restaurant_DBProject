@@ -169,6 +169,12 @@ namespace Restaurant_DB
         
         }
 
+        public string getEmployeeName(string SSN)
+        {
+            string query = "SELECT FName FROM Employee WHERE SSN = '" + SSN + "';";
+            return dbMan.ExecuteScalar(query).ToString();
+        }
+
        public void addCustomer(string phone, string fName, string lName, string passWord)
         {
             string query = "INSERT INTO CUSTOMER (PhoneNumber, FName, LName, EPassword) " +
