@@ -81,10 +81,9 @@ namespace Restaurant_DB
                 }
                 
             }
-            Hide();
             makeOrder Order = new makeOrder(Phone, waiterSSN, itemOrder);
-            Order.ShowDialog();
-            Show();
+            Order.Show();
+            Close();
         }
 
         private void homeButton_Click(object sender, EventArgs e)

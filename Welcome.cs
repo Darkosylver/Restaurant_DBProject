@@ -47,10 +47,9 @@ namespace Restaurant_DB
 
         private void UpdatePersonalInfoButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Update_Customer_Personal_Info update = new Update_Customer_Personal_Info(Phone);
             update.ShowDialog();
-            this.Show();
+            Close();
         }
 
         private void homePicture_Click(object sender, EventArgs e)
@@ -62,15 +61,14 @@ namespace Restaurant_DB
 
         private void menuBox_Click(object sender, EventArgs e)
         {
-            Hide();
             DataTable itemOrder = new DataTable("orderedItems");
             itemOrder.Columns.Add("itemID", typeof(int));
             itemOrder.Columns.Add("itemName", typeof(string));
             itemOrder.Columns.Add("itemCount", typeof(int));
             itemOrder.Columns.Add("itemPrice", typeof(float));
             menuForm menu = new menuForm(Phone, waiterSSN, itemOrder);
-            menu.ShowDialog();
-            Show();
+            menu.Show();
+            Close();
         }
 
         private void logOut_Click(object sender, EventArgs e)
