@@ -8,6 +8,8 @@ DROP DATABASE IF EXISTS Restaurant;
 GO
 CREATE DATABASE Restaurant;
 GO
+ALTER DATABASE Restaurant SET MULTI_USER;
+GO
 USE Restaurant;
 GO
 
@@ -128,7 +130,7 @@ CREATE TABLE Supplies (
 CREATE TABLE CustomerOrder(
 	OrderID INT IDENTITY(1,1) PRIMARY KEY,
 	OrderState VARCHAR(15) DEFAULT 'Pending' NOT NULL,
-	OrderDate DATE NOT NULL,
+	OrderDate DATETIME NOT NULL,
 	OrderFeedback VARCHAR(255),
 	CustomerPhoneNumber VARCHAR(15),
 	WaiterSSN VARCHAR(11),
@@ -220,8 +222,8 @@ VALUES
 
 INSERT INTO CustomerOrder (OrderState, OrderDate, OrderFeedback, CustomerPhoneNumber, WaiterSSN)
 VALUES
-    ('Pending', '2024-12-01', 'Good', '01234567890', '34567890123'),
-    ('Delivered', '2024-12-02', 'Excellent', '00987654321', '12345678901');
+    ('Pending', '2024-12-01 01:01:01', 'Good', '01234567890', '34567890123'),
+    ('Delivered', '2024-12-02 01:01:01', 'Excellent', '00987654321', '12345678901');
 
 INSERT INTO Order_Contains_MenuItem (OrderID, ItemID, Quantity)
 VALUES
