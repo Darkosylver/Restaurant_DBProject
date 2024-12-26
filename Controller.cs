@@ -210,7 +210,7 @@ namespace Restaurant_DB
 
         public DataTable GetMenuItems()  //loads the menu of the restaurant
         {  
-            string query = "SELECT ItemName, ItemStatus FROM MenuItem;";
+            string query = "SELECT ItemID, ItemName, ItemStatus, CookingTime FROM MenuItem;";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {

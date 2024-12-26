@@ -34,7 +34,12 @@ namespace Restaurant_DB
 
         private void MenuButton_Click(object sender, EventArgs e)
         {
-
+            DataTable itemOrder = new DataTable("orderedItems");
+            itemOrder.Columns.Add("itemID", typeof(int));
+            itemOrder.Columns.Add("itemName", typeof(string));
+            itemOrder.Columns.Add("itemCount", typeof(int));
+            menuForm menu = new menuForm(Phone, waiterSSN, itemOrder);
+            menu.Show();
         }
 
         private void ShowOrdersButton_Click(object sender, EventArgs e)
@@ -44,8 +49,7 @@ namespace Restaurant_DB
 
         private void MakeOrderButton_Click(object sender, EventArgs e)
         {
-            Make_Order order = new Make_Order(Phone, waiterSSN);
-            order.Show();
+            
         }
 
         private void UpdatePersonalInfoButton_Click(object sender, EventArgs e)
