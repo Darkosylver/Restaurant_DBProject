@@ -19,10 +19,50 @@ namespace Restaurant_DB
         String phone;
         int addressId = -1;
 
+        public void putlocationsincombobox()
+        {
+            DataTable dt = controllerobj.getlocations(phone);
+            if (dt == null)
+            {
+                AddressComboBox.DataSource = null;
+                return;
+            }
+            // Create a new DataTable with two columns: LocationID and Address
+            DataTable locationsTable = new DataTable();
+            locationsTable.Columns.Add("LocationID", typeof(string));
+            locationsTable.Columns.Add("Address", typeof(string));
+            if (dt.Rows.Count == 0)
+            {
+                AddressComboBox.DataSource = null;
+                return;
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                // Extract LocationID
+                string locationId = row["LocationID"].ToString();
+
+                // Merge City, Street, and Building into a single string
+                string address = $"{row["City"]}, {row["Street"]}, {row["Building"]}";
+
+                // Add a new row to the DataTable
+                locationsTable.Rows.Add(locationId, address);
+            }
+
+            AddressComboBox.DataSource = locationsTable;
+            AddressComboBox.DisplayMember = "address";
+            AddressComboBox.ValueMember = "locationID";
+
+        }
         public Update_Customer_Personal_Info(string phone)
         {
             InitializeComponent();
             this.phone = phone;
+
+            DataTable dt = controllerobj.getcustomerinfo(phone);
+            DataRow dr = dt.Rows[0];
+            FNameTextBox.Text = dr["FName"].ToString();
+            LNameTextBox.Text = dr["LName"].ToString();
+            putlocationsincombobox();
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
@@ -62,7 +102,7 @@ namespace Restaurant_DB
                 {
                     //update the addressId
                     controllerobj.UpdateAddress(this.phone, addressId, Convert.ToInt32(LocationID));
-                    putlocationsincombobox(phone);
+                    putlocationsincombobox();
                     //once updated, restart this form window
                    // Update_Customer_Personal_Info update_Customer_Personal_Info = new Update_Customer_Personal_Info(this.phone);
                     //update_Customer_Personal_Info.Show();
@@ -83,7 +123,7 @@ namespace Restaurant_DB
                 LocationID = controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text);
                 //update the addressId
                 controllerobj.UpdateAddress(this.phone, addressId, Convert.ToInt32(LocationID));
-                putlocationsincombobox(phone);
+                putlocationsincombobox();
                 //Update_Customer_Personal_Info update_Customer_Personal_Info = new Update_Customer_Personal_Info(this.phone);
                 //update_Customer_Personal_Info.Show();
                 //hide this form
@@ -94,38 +134,7 @@ namespace Restaurant_DB
         }
 
         private void Update_Customer_Personal_Info_Load(object sender, EventArgs e)
-        {
-            DataTable dt = new DataTable();
-            dt = controllerobj.getCustomerLocations(this.phone);
-            if (dt != null && dt.Rows.Count != 0)
-            {
-
-                // Add a new column to combine multiple attributes (City, Street, Building) into one column.
-                dt.Columns.Add("DisplayColumn", typeof(string));
-
-                foreach (DataRow row in dt.Rows)
-                {
-                    row["DisplayColumn"] = row["City"] + ", " + row["Street"] + ", " + row["Building"];
-                }
-
-                dt.Columns.Remove("City");
-                dt.Columns.Remove("Street");
-                dt.Columns.Remove("Building");
-
-                AddressComboBox.DataSource = dt;
-                AddressComboBox.DisplayMember = "DisplayColumn";
-                AddressComboBox.ValueMember = "LocationID";
-                AddressComboBox.SelectedIndex = 0;
-                addressId = Convert.ToInt32(AddressComboBox.SelectedValue.ToString());
-
-            }
-            else {
-                //disable the combobox
-                AddressComboBox.Enabled = false;
-                //disable the update button
-                UpdateButton.Enabled = false;
-            }
-            
+        {   
         }
 
         private void AddressComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -179,48 +188,13 @@ namespace Restaurant_DB
             this.Hide();
         }
 
-        public void putlocationsincombobox(string phone)
-        {
-            DataTable dt = controllerobj.getlocations(phone);
-            if (dt == null)
-            {
-                AddressComboBox.DataSource = null;
-                return;
-            }
-            // Create a new DataTable with two columns: LocationID and Address
-            DataTable locationsTable = new DataTable();
-            locationsTable.Columns.Add("LocationID", typeof(string));
-            locationsTable.Columns.Add("Address", typeof(string));
-            if (dt.Rows.Count == 0)
-            {
-                AddressComboBox.DataSource = null;
-                return;
-            }
-            foreach (DataRow row in dt.Rows)
-            {
-                // Extract LocationID
-                string locationId = row["LocationID"].ToString();
-
-                // Merge City, Street, and Building into a single string
-                string address = $"{row["City"]}, {row["Street"]}, {row["Building"]}";
-
-                // Add a new row to the DataTable
-                locationsTable.Rows.Add(locationId, address);
-            }
-
-            AddressComboBox.DataSource = locationsTable;
-            AddressComboBox.DisplayMember = "address";
-            AddressComboBox.ValueMember = "locationID";
-
-        }
-
         private void InsertAddressButton_Click(object sender, EventArgs e)
         {
              if (controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text) == null)
             {
                 controllerobj.insertlocationid(CityTextBox.Text, StreetTextBox.Text,BuildingTextBox.Text);
                 controllerobj.insertlocation(phone, Convert.ToInt32(controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text)));
-                putlocationsincombobox(phone);
+                putlocationsincombobox();
                 MessageBox.Show("location inserted successfully");
             }
             else if (Convert.ToInt32(controllerobj.checkassignedlocation(phone, Convert.ToInt32(controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text)))) != 0)
@@ -230,7 +204,7 @@ namespace Restaurant_DB
             else
             {
                 controllerobj.insertlocation(phone, Convert.ToInt32(controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text)));
-                putlocationsincombobox(phone);
+                putlocationsincombobox();
                 MessageBox.Show("location inserted successfully");
             }
         }
