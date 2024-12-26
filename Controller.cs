@@ -1,4 +1,5 @@
-﻿using Microsoft.SqlServer.Server;
+﻿using Azure.Core;
+using Microsoft.SqlServer.Server;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -146,17 +147,7 @@ namespace Restaurant_DB
             string query = "DELETE FROM CustomerLocations WHERE PhoneNumber='" + phone + "' AND LocationID=" + Convert.ToInt32(id) + ";";
             dbMan.ExecuteNonQuery(query);
         }
-        public DataTable GetAllEmployees()
-        {
-            string query = "SELECT * FROM Employee;";
-            return dbMan.ExecuteReader(query);
-        }
-
-        public DataTable GetEmployeeDetails(string ssn) 
-        {
-            string query = "SELECT FName, LName, Position, WorkingHours, Salary, City, Street, Building FROM Employee WHERE SSN='"+ssn+"';";
-            return dbMan.ExecuteReader(query);
-        }
+    
         //you can edit the ones below :)
 
         //----------------- ABDELRAHMAN ZAKARIA ---------------------
@@ -324,13 +315,18 @@ namespace Restaurant_DB
         }
         public DataTable selectitempending()
         {
-            string query = "SELECT i.IngredientName" +
-              "FROM     Request r" +
-              "JOIN   Ingredient i ON r.IngredientID = i.IngredientID" +
-              "WHERE    r.RequestStatus = 'Pending';";
+            string query = "SELECT i.IngredientName, r.ID FROM Request r JOIN Ingredient i ON r.IngredientID = i.IngredientID WHERE r.RequestStatus = 'Pending'";
             return dbMan.ExecuteReader(query);
         }
-        public int insertEmployee(long ssn, string fname, string lname, string position, long hours, decimal salary,long Superssn, string city, string street, string building, string password)
+
+        public void approvepending(int id)
+        {
+            string query = "UPDATE Request SET RequestStatus='Approved'" +
+              "WHERE ID="+id+";";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public int insertEmployee(long ssn, string fname, string lname, string position, long hours, decimal salary,string Superssn, string city, string street, string building, string password)
         {
             string query = "INSERT INTO Employee (SSN, FName, LName, Position, WorkingHours, Salary, SuperSSN, City, Street, Building,EPassword) VALUES   ("+ssn+", '"+fname+"', '"+lname+"', '"+position+"', "+hours+", "+salary+", "+Superssn+", '"+city+"', '"+street+"', '"+building+"', '"+password+"');";
             int rowsAffected = dbMan.ExecuteNonQuery(query);
@@ -352,7 +348,18 @@ namespace Restaurant_DB
                 "WHERE  IngredientName= '"+ IngredientName + "' ";
 
         }
-     
+        public DataTable GetAllEmployees()
+        {
+            string query = "SELECT * FROM Employee;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetEmployeeDetails(string ssn)
+        {
+            string query = "SELECT FName, LName, Position, WorkingHours, Salary, City, Street, Building FROM Employee WHERE SSN='" + ssn + "';";
+            return dbMan.ExecuteReader(query);
+        }
+
         public void deleteEmployee(long EMPSSN)
         {
             string query = "DELETE FROM Employee WHERE SSN = "+EMPSSN+";";
