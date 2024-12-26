@@ -34,13 +34,15 @@ namespace Restaurant_DB
 
         private void MenuButton_Click(object sender, EventArgs e)
         {
+            Hide();
             DataTable itemOrder = new DataTable("orderedItems");
             itemOrder.Columns.Add("itemID", typeof(int));
             itemOrder.Columns.Add("itemName", typeof(string));
             itemOrder.Columns.Add("itemCount", typeof(int));
             itemOrder.Columns.Add("itemPrice", typeof(float));
             menuForm menu = new menuForm(Phone, waiterSSN, itemOrder);
-            menu.Show();
+            menu.ShowDialog();
+            Show();
         }
 
         private void ShowOrdersButton_Click(object sender, EventArgs e)
