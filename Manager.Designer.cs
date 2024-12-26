@@ -86,6 +86,14 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.Insert_Employee = new System.Windows.Forms.Button();
+            this.Insert_SSN = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.Super_SSN = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.Delete_SSN = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.Delete_Employee = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -278,7 +286,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1171, 123);
+            this.dataGridView1.Size = new System.Drawing.Size(1190, 192);
             this.dataGridView1.TabIndex = 22;
             // 
             // label13
@@ -356,10 +364,11 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 30;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(356, 352);
+            this.button2.Location = new System.Drawing.Point(316, 354);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(176, 35);
             this.button2.TabIndex = 31;
@@ -369,7 +378,7 @@
             // 
             // PendingOrders
             // 
-            this.PendingOrders.Location = new System.Drawing.Point(566, 351);
+            this.PendingOrders.Location = new System.Drawing.Point(672, 354);
             this.PendingOrders.Name = "PendingOrders";
             this.PendingOrders.Size = new System.Drawing.Size(132, 35);
             this.PendingOrders.TabIndex = 32;
@@ -382,7 +391,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label17.ForeColor = System.Drawing.Color.Navy;
-            this.label17.Location = new System.Drawing.Point(480, 14);
+            this.label17.Location = new System.Drawing.Point(744, -2);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(114, 20);
             this.label17.TabIndex = 33;
@@ -391,7 +400,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(468, 42);
+            this.label18.Location = new System.Drawing.Point(745, 30);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(69, 16);
             this.label18.TabIndex = 34;
@@ -400,7 +409,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(559, 42);
+            this.comboBox2.Location = new System.Drawing.Point(836, 30);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 24);
             this.comboBox2.TabIndex = 35;
@@ -408,7 +417,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(503, 75);
+            this.button3.Location = new System.Drawing.Point(761, 60);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(159, 29);
             this.button3.TabIndex = 36;
@@ -419,7 +428,7 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(810, 264);
+            this.comboBox3.Location = new System.Drawing.Point(565, 309);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 24);
             this.comboBox3.TabIndex = 57;
@@ -427,7 +436,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(720, 275);
+            this.label19.Location = new System.Drawing.Point(475, 320);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(55, 16);
             this.label19.TabIndex = 56;
@@ -437,7 +446,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(950, 236);
+            this.label20.Location = new System.Drawing.Point(732, 286);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(92, 16);
             this.label20.TabIndex = 55;
@@ -448,7 +457,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(950, 99);
+            this.label21.Location = new System.Drawing.Point(732, 146);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(95, 16);
             this.label21.TabIndex = 54;
@@ -457,56 +466,56 @@
             // 
             // WorkingHours_Emp
             // 
-            this.WorkingHours_Emp.Location = new System.Drawing.Point(810, 236);
+            this.WorkingHours_Emp.Location = new System.Drawing.Point(565, 281);
             this.WorkingHours_Emp.Name = "WorkingHours_Emp";
             this.WorkingHours_Emp.Size = new System.Drawing.Size(124, 22);
             this.WorkingHours_Emp.TabIndex = 53;
             // 
             // Epassword_Emp
             // 
-            this.Epassword_Emp.Location = new System.Drawing.Point(798, 205);
+            this.Epassword_Emp.Location = new System.Drawing.Point(553, 250);
             this.Epassword_Emp.Name = "Epassword_Emp";
             this.Epassword_Emp.Size = new System.Drawing.Size(136, 22);
             this.Epassword_Emp.TabIndex = 52;
             // 
             // Building_Emp
             // 
-            this.Building_Emp.Location = new System.Drawing.Point(798, 177);
+            this.Building_Emp.Location = new System.Drawing.Point(553, 222);
             this.Building_Emp.Name = "Building_Emp";
             this.Building_Emp.Size = new System.Drawing.Size(136, 22);
             this.Building_Emp.TabIndex = 51;
             // 
             // Street_Emp
             // 
-            this.Street_Emp.Location = new System.Drawing.Point(798, 149);
+            this.Street_Emp.Location = new System.Drawing.Point(553, 194);
             this.Street_Emp.Name = "Street_Emp";
             this.Street_Emp.Size = new System.Drawing.Size(136, 22);
             this.Street_Emp.TabIndex = 50;
             // 
             // City_Emp
             // 
-            this.City_Emp.Location = new System.Drawing.Point(798, 121);
+            this.City_Emp.Location = new System.Drawing.Point(553, 166);
             this.City_Emp.Name = "City_Emp";
             this.City_Emp.Size = new System.Drawing.Size(136, 22);
             this.City_Emp.TabIndex = 49;
             // 
             // Salary_Emp
             // 
-            this.Salary_Emp.Location = new System.Drawing.Point(798, 93);
+            this.Salary_Emp.Location = new System.Drawing.Point(553, 138);
             this.Salary_Emp.Name = "Salary_Emp";
             this.Salary_Emp.Size = new System.Drawing.Size(136, 22);
             this.Salary_Emp.TabIndex = 48;
             // 
             // LastName_EMP
             // 
-            this.LastName_EMP.Location = new System.Drawing.Point(798, 65);
+            this.LastName_EMP.Location = new System.Drawing.Point(553, 110);
             this.LastName_EMP.Name = "LastName_EMP";
             this.LastName_EMP.Size = new System.Drawing.Size(136, 22);
             this.LastName_EMP.TabIndex = 47;
             // 
             // FirstName_EMP
             // 
-            this.FirstName_EMP.Location = new System.Drawing.Point(798, 37);
+            this.FirstName_EMP.Location = new System.Drawing.Point(553, 82);
             this.FirstName_EMP.Name = "FirstName_EMP";
             this.FirstName_EMP.Size = new System.Drawing.Size(136, 22);
             this.FirstName_EMP.TabIndex = 46;
@@ -514,7 +523,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(714, 211);
+            this.label22.Location = new System.Drawing.Point(469, 256);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(76, 16);
             this.label22.TabIndex = 45;
@@ -523,7 +532,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(715, 185);
+            this.label23.Location = new System.Drawing.Point(470, 230);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(55, 16);
             this.label23.TabIndex = 44;
@@ -532,7 +541,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(715, 127);
+            this.label24.Location = new System.Drawing.Point(470, 172);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(29, 16);
             this.label24.TabIndex = 43;
@@ -541,7 +550,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(715, 155);
+            this.label25.Location = new System.Drawing.Point(470, 200);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(42, 16);
             this.label25.TabIndex = 42;
@@ -550,7 +559,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(714, 99);
+            this.label26.Location = new System.Drawing.Point(469, 144);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(46, 16);
             this.label26.TabIndex = 41;
@@ -559,7 +568,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(714, 242);
+            this.label27.Location = new System.Drawing.Point(469, 287);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(93, 16);
             this.label27.TabIndex = 40;
@@ -568,7 +577,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(714, 72);
+            this.label28.Location = new System.Drawing.Point(469, 117);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(69, 16);
             this.label28.TabIndex = 39;
@@ -577,7 +586,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(715, 43);
+            this.label29.Location = new System.Drawing.Point(470, 88);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(52, 16);
             this.label29.TabIndex = 38;
@@ -588,7 +597,7 @@
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label30.ForeColor = System.Drawing.Color.Navy;
-            this.label30.Location = new System.Drawing.Point(714, 14);
+            this.label30.Location = new System.Drawing.Point(468, 3);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(204, 20);
             this.label30.TabIndex = 37;
@@ -597,19 +606,95 @@
             // 
             // Insert_Employee
             // 
-            this.Insert_Employee.Location = new System.Drawing.Point(770, 298);
+            this.Insert_Employee.Location = new System.Drawing.Point(526, 354);
             this.Insert_Employee.Name = "Insert_Employee";
-            this.Insert_Employee.Size = new System.Drawing.Size(125, 45);
+            this.Insert_Employee.Size = new System.Drawing.Size(121, 35);
             this.Insert_Employee.TabIndex = 58;
             this.Insert_Employee.Text = "Insert_Employee";
             this.Insert_Employee.UseVisualStyleBackColor = true;
             this.Insert_Employee.Click += new System.EventHandler(this.Insert_Employee_Click);
+            // 
+            // Insert_SSN
+            // 
+            this.Insert_SSN.Location = new System.Drawing.Point(553, 31);
+            this.Insert_SSN.Name = "Insert_SSN";
+            this.Insert_SSN.Size = new System.Drawing.Size(136, 22);
+            this.Insert_SSN.TabIndex = 60;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(453, 37);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(101, 16);
+            this.label31.TabIndex = 59;
+            this.label31.Text = "EMployee-SSN";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(460, 62);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(78, 16);
+            this.label32.TabIndex = 61;
+            this.label32.Text = "Super_SSN";
+            // 
+            // Super_SSN
+            // 
+            this.Super_SSN.Location = new System.Drawing.Point(553, 54);
+            this.Super_SSN.Name = "Super_SSN";
+            this.Super_SSN.Size = new System.Drawing.Size(136, 22);
+            this.Super_SSN.TabIndex = 62;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label33.ForeColor = System.Drawing.Color.Navy;
+            this.label33.Location = new System.Drawing.Point(981, 1);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(136, 20);
+            this.label33.TabIndex = 63;
+            this.label33.Text = "Delete Employee";
+            // 
+            // Delete_SSN
+            // 
+            this.Delete_SSN.Location = new System.Drawing.Point(1092, 24);
+            this.Delete_SSN.Name = "Delete_SSN";
+            this.Delete_SSN.Size = new System.Drawing.Size(100, 22);
+            this.Delete_SSN.TabIndex = 65;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(973, 30);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(101, 16);
+            this.label34.TabIndex = 64;
+            this.label34.Text = "EMployee-SSN";
+            // 
+            // Delete_Employee
+            // 
+            this.Delete_Employee.Location = new System.Drawing.Point(996, 52);
+            this.Delete_Employee.Name = "Delete_Employee";
+            this.Delete_Employee.Size = new System.Drawing.Size(121, 35);
+            this.Delete_Employee.TabIndex = 66;
+            this.Delete_Employee.Text = "Delete Employee";
+            this.Delete_Employee.UseVisualStyleBackColor = true;
             // 
             // Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1214, 607);
+            this.Controls.Add(this.Delete_Employee);
+            this.Controls.Add(this.Delete_SSN);
+            this.Controls.Add(this.label34);
+            this.Controls.Add(this.label33);
+            this.Controls.Add(this.Super_SSN);
+            this.Controls.Add(this.label32);
+            this.Controls.Add(this.Insert_SSN);
+            this.Controls.Add(this.label31);
             this.Controls.Add(this.Insert_Employee);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label19);
@@ -737,5 +822,13 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Button Insert_Employee;
+        private System.Windows.Forms.TextBox Insert_SSN;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox Super_SSN;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox Delete_SSN;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Button Delete_Employee;
     }
 }

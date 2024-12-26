@@ -319,10 +319,19 @@ namespace Restaurant_DB
               "WHERE    r.RequestStatus = 'Pending';";
             return dbMan.ExecuteReader(query);
         }
-        public void insertEmployee(int ssn, string fname, string lname, string position, int hours, decimal salary, string city, string street, string building, string password)
+        public int insertEmployee(long ssn, string fname, string lname, string position, long hours, decimal salary,long Superssn, string city, string street, string building, string password)
         {
-            string query = "";
-            dbMan.ExecuteNonQuery(query);
+            string query = "INSERT INTO Employee (SSN, FName, LName, Position, WorkingHours, Salary, SuperSSN, City, Street, Building,EPassword) VALUES   ("+ssn+", '"+fname+"', '"+lname+"', '"+position+"', "+hours+", "+salary+", "+Superssn+", '"+city+"', '"+street+"', '"+building+"', '"+password+"');";
+            int rowsAffected = dbMan.ExecuteNonQuery(query);
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Data Inserted successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to insert Data.");
+            }
+            return rowsAffected;
         }
         public void changepending(string IngredientName)
         {
