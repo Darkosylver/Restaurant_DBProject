@@ -202,9 +202,25 @@ namespace Restaurant_DB
             }
         }
 
-        public void MakeOrder(int orderID, string orderstate, string orderdate, string phonenumber )  //inserts the order of the customer
+        public object MakeOrder(string orderstate, DateTime orderDate, string phonenumber, string WaiterSSN)  //inserts the order of the customer
         {
-            string query = "INSERT INTO CustomerOrder (OrderID, OrderState, OrderDate, CustomerPhoneNumber ) VALUES('" + orderID + "', '" + orderstate + "', '" + orderdate + "', '" + phonenumber + "');";
+            string query = "INSERT INTO CustomerOrder (OrderState, OrderDate, CustomerPhoneNumber, WaiterSSN) VALUES('" + orderstate + "', '" + orderDate + "', '" + phonenumber + "','" + WaiterSSN +"');";
+            dbMan.ExecuteNonQuery(query);
+            query = "SELECT OrderID FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phonenumber + "' AND OrderDate = '" + orderDate + "';";
+            return dbMan.ExecuteScalar(query);
+        }
+        
+        public object makeOrderOnline (DateTime orderDate, string phoneNumber)
+        {
+            string query = "INSERT INTO CustomerOrder (OrderDate, CustomerPhoneNumber) VALUES('" + orderDate + "', '" + phoneNumber + "');";
+            dbMan.ExecuteNonQuery(query);
+            query = "SELECT OrderID FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND OrderDate = '" + orderDate + "';";
+            return dbMan.ExecuteScalar(query);
+        }
+
+        public void addToOrder(int orderID, int itemID, int Quantity)
+        {
+            string query = "INSERT INTO Order_Contains_MenuItem (OrderID, ItemID, Quantity) VALUES(" + orderID + "," + itemID + "," + Quantity + ");";
             dbMan.ExecuteNonQuery(query);
         }
 

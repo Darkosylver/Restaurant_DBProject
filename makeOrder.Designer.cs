@@ -51,6 +51,7 @@
             this.confirm.TabIndex = 6;
             this.confirm.Text = "Confirm";
             this.confirm.UseVisualStyleBackColor = true;
+            this.confirm.Click += new System.EventHandler(this.confirm_Click);
             // 
             // realCartItems
             // 
@@ -71,9 +72,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "makeOrder";
             this.Text = "makeOrder";
-            this.Load += new System.EventHandler(this.Make_Order_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

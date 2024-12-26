@@ -27,16 +27,19 @@ namespace Restaurant_DB
 
         private void populatePanel()
         {
-            foreach (DataRow dr in itemOrder.Rows)
+            if (itemOrder.Rows.Count > 0)
             {
-                cartItem item = new cartItem();
-                item.itemNameSet = dr.Field<int>("itemCount").ToString() + "x" + dr.Field<string>("itemName");
-                realCartItems.Controls.Add(item);
+                foreach (DataRow dr in itemOrder.Rows)
+                {
+                    cartItem item = new cartItem();
+                    item.itemNameSet = dr.Field<int>("itemCount").ToString() + "x" + dr.Field<string>("itemName");
+                    realCartItems.Controls.Add(item);
+                }
             }
-        }
-
-        private void Make_Order_Load(object sender, EventArgs e)
-        { 
+            else
+            {
+                confirm.Enabled = false;
+            }
         }
 
         private void update_Click(object sender, EventArgs e)
@@ -45,6 +48,28 @@ namespace Restaurant_DB
             menuForm menu = new menuForm(Phone, waiterSSN, itemOrder);
             menu.ShowDialog();
             Close();
+        }
+
+        private void confirm_Click(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Now.Date;
+            int orderID;
+            if (waiterSSN != null)
+            {
+                orderID = Convert.ToInt32(controllerobj.MakeOrder("Pending", date, Phone, waiterSSN));
+            }
+            else
+            {
+                orderID = Convert.ToInt32(controllerobj.makeOrderOnline(date, Phone).ToString());
+            }
+            foreach (DataRow dr in itemOrder.Rows)
+            {
+                int itemID = dr.Field<int>("itemID");
+                int itemCount = dr.Field<int>("itemCount");
+                controllerobj.addToOrder(orderID, itemID, itemCount);   
+            }
+            itemOrder.Clear();
+            this.Refresh();
         }
     }
 }
