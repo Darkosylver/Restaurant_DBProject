@@ -107,7 +107,7 @@ namespace Restaurant_DB
             string password = EPass_Man.Text;
             int result = controllerobj.UpdateEmployee(Man_ssn, FName, LName, pos, workinghour, salary, city, street, building, password);
         }
-        //---------------------Validate Data input Functions-------------------------------
+        //--------------------------------------------------Validate Data input Functions------------------------------------------------------
        private  void Salary_Man_KeyPress(object sender, KeyPressEventArgs e)
         {
            
@@ -164,7 +164,7 @@ namespace Restaurant_DB
 
 
         }
-        //----------------------End of validation functions-------------------------------
+        //-------------------------------------------------------End of validation functions----------------------------------------------------------
         private void Salary_Man_TextChanged(object sender, EventArgs e)
         {
 
@@ -302,12 +302,8 @@ namespace Restaurant_DB
 
         private void Insert_Employee_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
             if (string.IsNullOrWhiteSpace(FirstName_EMP.Text))
+
             {
                 MessageBox.Show("FirstName cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 FName_Man.Focus();
@@ -374,7 +370,30 @@ namespace Restaurant_DB
             string street = Street_Emp.Text;
             string building = Building_Emp.Text;
             string password = Epassword_Emp.Text;
-            int result = controllerobj.insertEmployee(Insert_ssn,FName,LName, pos, workinghour,salary,SuperSnn ,city, street,building,password);
+            int result = controllerobj.insertEmployee(Insert_ssn, FName, LName, pos, workinghour, salary, SuperSnn, city, street, building, password);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label34_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Delete_Employee_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(Delete_SSN.Text))
+            {
+                MessageBox.Show("Empployee SNN be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Delete_SSN.Focus();
+                return;
+            }
+            long Emp = long.Parse(Delete_SSN.Text);
+            controllerobj.deleteEmployee(Emp);
+            MessageBox.Show("deleted successfully");
         }
     }
 }

@@ -341,6 +341,12 @@ namespace Restaurant_DB
                 "WHERE  IngredientName= '"+ IngredientName + "' ";
 
         }
+     
+        public void deleteEmployee(long EMPSSN)
+        {
+            string query = "DELETE FROM Employee WHERE SSN = "+EMPSSN+";";
+            dbMan.ExecuteNonQuery(query);
+        }
         public void TerminateConnection()
         {
             dbMan.CloseConnection();

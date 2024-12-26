@@ -661,7 +661,7 @@
             // 
             this.Delete_SSN.Location = new System.Drawing.Point(1092, 24);
             this.Delete_SSN.Name = "Delete_SSN";
-            this.Delete_SSN.Size = new System.Drawing.Size(100, 22);
+            this.Delete_SSN.Size = new System.Drawing.Size(110, 22);
             this.Delete_SSN.TabIndex = 65;
             // 
             // label34
@@ -672,15 +672,17 @@
             this.label34.Size = new System.Drawing.Size(101, 16);
             this.label34.TabIndex = 64;
             this.label34.Text = "EMployee-SSN";
+            this.label34.Click += new System.EventHandler(this.label34_Click);
             // 
             // Delete_Employee
             // 
-            this.Delete_Employee.Location = new System.Drawing.Point(996, 52);
+            this.Delete_Employee.Location = new System.Drawing.Point(1007, 52);
             this.Delete_Employee.Name = "Delete_Employee";
             this.Delete_Employee.Size = new System.Drawing.Size(121, 35);
             this.Delete_Employee.TabIndex = 66;
             this.Delete_Employee.Text = "Delete Employee";
             this.Delete_Employee.UseVisualStyleBackColor = true;
+            this.Delete_Employee.Click += new System.EventHandler(this.Delete_Employee_Click);
             // 
             // Manager
             // 
