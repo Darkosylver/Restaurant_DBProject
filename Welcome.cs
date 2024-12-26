@@ -24,7 +24,7 @@ namespace Restaurant_DB
 
         private void CustomerNameLabel_Click(object sender, EventArgs e)
         {
-
+            //For Ziko: Add something to show the customer Data, thank you
         }
 
         private void Welcome_Load(object sender, EventArgs e)
@@ -45,22 +45,44 @@ namespace Restaurant_DB
             Show();
         }
 
-        private void ShowOrdersButton_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = controllerobj.LoadCustomerOrders(Phone);
-        }
-
-        private void MakeOrderButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void UpdatePersonalInfoButton_Click(object sender, EventArgs e)
         {
-            Update_Customer_Personal_Info update = new Update_Customer_Personal_Info(Phone);
-            update.Show();
-            //close the welcome screen
             this.Hide();
+            Update_Customer_Personal_Info update = new Update_Customer_Personal_Info(Phone);
+            update.ShowDialog();
+            this.Show();
+        }
+
+        private void homePicture_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.Visible=false;
+            welcomePanel.Visible=true;
+        }
+
+        private void menuBox_Click(object sender, EventArgs e)
+        {
+            Hide();
+            DataTable itemOrder = new DataTable("orderedItems");
+            itemOrder.Columns.Add("itemID", typeof(int));
+            itemOrder.Columns.Add("itemName", typeof(string));
+            itemOrder.Columns.Add("itemCount", typeof(int));
+            itemOrder.Columns.Add("itemPrice", typeof(float));
+            menuForm menu = new menuForm(Phone, waiterSSN, itemOrder);
+            menu.ShowDialog();
+            Show();
+        }
+
+        private void logOut_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void orderHistory_Click(object sender, EventArgs e)
+        {
+            welcomePanel.Visible = false;
+            dataGridView1.DataSource = controllerobj.LoadCustomerOrders(Phone);
+            dataGridView1.Visible = true;
         }
     }
 }

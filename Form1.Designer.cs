@@ -64,6 +64,7 @@
             // userName
             // 
             this.userName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.userName.ForeColor = System.Drawing.Color.White;
             this.userName.Location = new System.Drawing.Point(243, 128);
             this.userName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.userName.Name = "userName";
@@ -74,6 +75,7 @@
             // passWord
             // 
             this.passWord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.passWord.ForeColor = System.Drawing.Color.White;
             this.passWord.Location = new System.Drawing.Point(243, 202);
             this.passWord.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.passWord.Name = "passWord";
