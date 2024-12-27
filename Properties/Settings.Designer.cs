@@ -33,5 +33,16 @@ namespace Restaurant_DB.Properties {
                 return ((string)(this["RestaurantConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ZAKA-LENOVO;Initial Catalog=Restaurant;Integrated Security=True;Encry" +
+            "pt=False")]
+        public string RestaurantConnectionString1 {
+            get {
+                return ((string)(this["RestaurantConnectionString1"]));
+            }
+        }
     }
 }

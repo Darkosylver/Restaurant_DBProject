@@ -39,6 +39,7 @@
             this.currentOrders = new System.Windows.Forms.DataGridView();
             this.orderPrev = new System.Windows.Forms.Label();
             this.previousOrders = new System.Windows.Forms.DataGridView();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.search = new System.Windows.Forms.Label();
             this.userPhone = new System.Windows.Forms.TextBox();
             this.searchConfirm = new System.Windows.Forms.Button();
@@ -63,8 +64,9 @@
             this.dashBoard.Controls.Add(this.logOut);
             this.dashBoard.Controls.Add(this.homeBox);
             this.dashBoard.Location = new System.Drawing.Point(2, 1);
+            this.dashBoard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dashBoard.Name = "dashBoard";
-            this.dashBoard.Size = new System.Drawing.Size(859, 62);
+            this.dashBoard.Size = new System.Drawing.Size(966, 78);
             this.dashBoard.TabIndex = 0;
             // 
             // historyRefresh
@@ -129,24 +131,59 @@
             this.homeBox.TabIndex = 0;
             this.homeBox.TabStop = false;
             // 
+            // welcome
+            // 
+            this.welcome.AutoSize = true;
+            this.welcome.ForeColor = System.Drawing.Color.White;
+            this.welcome.Location = new System.Drawing.Point(112, 19);
+            this.welcome.Name = "welcome";
+            this.welcome.Size = new System.Drawing.Size(79, 20);
+            this.welcome.TabIndex = 2;
+            this.welcome.Text = "Welcome,";
+            // 
+            // logOut
+            // 
+            this.logOut.Image = global::Restaurant_DB.Properties.Resources.logout;
+            this.logOut.Location = new System.Drawing.Point(908, 11);
+            this.logOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.logOut.Name = "logOut";
+            this.logOut.Size = new System.Drawing.Size(45, 50);
+            this.logOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logOut.TabIndex = 1;
+            this.logOut.TabStop = false;
+            // 
+            // homeBox
+            // 
+            this.homeBox.Image = global::Restaurant_DB.Properties.Resources.home;
+            this.homeBox.Location = new System.Drawing.Point(18, 11);
+            this.homeBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.homeBox.Name = "homeBox";
+            this.ClientSize = new System.Drawing.Size(969, 805);
+            this.Controls.Add(this.reportViewer1);
+            this.homeBox.Size = new System.Drawing.Size(45, 50);
+            this.homeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.homeBox.TabIndex = 0;
+            this.homeBox.TabStop = false;
+            // 
             // orderCurrent
             // 
             this.orderCurrent.AutoSize = true;
             this.orderCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderCurrent.Location = new System.Drawing.Point(12, 77);
+            this.orderCurrent.Location = new System.Drawing.Point(14, 96);
             this.orderCurrent.Name = "orderCurrent";
-            this.orderCurrent.Size = new System.Drawing.Size(179, 29);
+            this.orderCurrent.Size = new System.Drawing.Size(209, 32);
             this.orderCurrent.TabIndex = 1;
             this.orderCurrent.Text = "Current Orders:";
             // 
             // currentOrders
             // 
             this.currentOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.currentOrders.Location = new System.Drawing.Point(18, 109);
+            this.currentOrders.Location = new System.Drawing.Point(20, 136);
+            this.currentOrders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.currentOrders.Name = "currentOrders";
             this.currentOrders.RowHeadersWidth = 51;
             this.currentOrders.RowTemplate.Height = 24;
-            this.currentOrders.Size = new System.Drawing.Size(831, 125);
+            this.currentOrders.Size = new System.Drawing.Size(935, 156);
             this.currentOrders.TabIndex = 2;
             this.currentOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.currentOrders_CellContentClick);
             // 
@@ -154,22 +191,32 @@
             // 
             this.orderPrev.AutoSize = true;
             this.orderPrev.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderPrev.Location = new System.Drawing.Point(13, 246);
+            this.orderPrev.Location = new System.Drawing.Point(15, 308);
             this.orderPrev.Name = "orderPrev";
-            this.orderPrev.Size = new System.Drawing.Size(194, 29);
+            this.orderPrev.Size = new System.Drawing.Size(226, 32);
             this.orderPrev.TabIndex = 3;
             this.orderPrev.Text = "Previous Orders:";
             // 
             // previousOrders
             // 
             this.previousOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.previousOrders.Location = new System.Drawing.Point(18, 288);
+            this.previousOrders.Location = new System.Drawing.Point(20, 360);
+            this.previousOrders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.previousOrders.Name = "previousOrders";
             this.previousOrders.RowHeadersWidth = 51;
             this.previousOrders.RowTemplate.Height = 24;
-            this.previousOrders.Size = new System.Drawing.Size(831, 135);
+            this.previousOrders.Size = new System.Drawing.Size(935, 169);
             this.previousOrders.TabIndex = 4;
             // 
+            // reportViewer1
+            // 
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Restaurant_DB.Report1.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(222, 547);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(396, 224);
+            this.reportViewer1.TabIndex = 5;
+            this.reportViewer1.Visible = false;
             // search
             // 
             this.search.AutoSize = true;
@@ -225,7 +272,7 @@
             // 
             // orderHistory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 644);
             this.Controls.Add(this.delivered);
@@ -238,6 +285,7 @@
             this.Controls.Add(this.currentOrders);
             this.Controls.Add(this.orderCurrent);
             this.Controls.Add(this.dashBoard);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "orderHistory";
             this.Text = "orderHistory";
             this.Load += new System.EventHandler(this.orderHistory_Load);
@@ -265,6 +313,7 @@
         private System.Windows.Forms.DataGridView currentOrders;
         private System.Windows.Forms.Label orderPrev;
         private System.Windows.Forms.DataGridView previousOrders;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.PictureBox historyRefresh;
         private System.Windows.Forms.PictureBox menu;
         private System.Windows.Forms.Label search;
