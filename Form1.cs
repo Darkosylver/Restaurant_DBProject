@@ -45,28 +45,35 @@ namespace Restaurant_DB
             if (controller.findPassword(userName.Text) == null)
             {
                 label3.Text = "Incorrect Credentials, Please check username";
+                label3.Visible = true;
             }
             else
             {
-                if (controller.findPassword(userName.Text).ToString() != passWord.Text && controller.VerifyCustonmer(userName.Text,passWord.Text)=="")
+                if (controller.findPassword(userName.Text).ToString() != passWord.Text)
                 {
                     label3.Text = "Incorrect Password, Please try again";
+                    label3.Visible = true;
                 }
-                else if (controller.VerifyCustonmer(userName.Text, passWord.Text) != "")
+                else if (controller.VerifyCustomer(userName.Text) != "" && controller.findPassword(userName.Text).ToString() == passWord.Text)
                 {
+                    Hide();
                     Form newform = new Welcome((userName.Text));
                     newform.ShowDialog();
-                    this.Hide();
+                    Show();
+                    passWord.Text = "";
+                    label3.Visible=false;
                 }
                 else
                 {
                     string position = controller.findPosition(userName.Text).ToString();
-                    label3.ForeColor = Color.RoyalBlue;
-                    label3.Text = "Welcome, " + position;
                     if (position == "Waiter")
                     {
+                        Hide();
                         Form newform = new waiter(userName.Text);
                         newform.ShowDialog();
+                        Show();
+                        passWord.Text = "";
+                        label3.Visible = false;
                     }
                     
                     if(position == "Manager")
@@ -82,9 +89,7 @@ namespace Restaurant_DB
                     
                     }
                 }
-            }
-            label3.Visible = true;
-                           
+            }               
         }
 
         private void signUp_MouseClick(object sender, MouseEventArgs e)
@@ -95,6 +100,14 @@ namespace Restaurant_DB
             Show();
         }
 
+        private void logIn_MouseEnter(object sender, EventArgs e)
+        {
+            logIn.BackColor = Color.SpringGreen;
+        }
 
+        private void logIn_MouseLeave(object sender, EventArgs e)
+        {
+            logIn.BackColor = Color.Cyan;
+        }
     }
 }

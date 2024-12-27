@@ -38,6 +38,15 @@
             this.address2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.fname = new System.Windows.Forms.Label();
+            this.lname = new System.Windows.Forms.Label();
+            this.pnumber = new System.Windows.Forms.Label();
+            this.pword = new System.Windows.Forms.Label();
+            this.cpword = new System.Windows.Forms.Label();
+            this.add1 = new System.Windows.Forms.Label();
+            this.add2 = new System.Windows.Forms.Label();
+            this.addressExample = new System.Windows.Forms.Label();
+            this.errorText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // firstName
@@ -101,10 +110,11 @@
             this.address1.Size = new System.Drawing.Size(359, 22);
             this.address1.TabIndex = 10;
             this.address1.TextChanged += new System.EventHandler(this.address1_TextChanged);
+            this.address1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.address1_KeyPress);
             // 
             // address2
             // 
-            this.address2.Location = new System.Drawing.Point(496, 133);
+            this.address2.Location = new System.Drawing.Point(496, 178);
             this.address2.Name = "address2";
             this.address2.Size = new System.Drawing.Size(359, 22);
             this.address2.TabIndex = 11;
@@ -128,11 +138,103 @@
             this.label2.Size = new System.Drawing.Size(0, 16);
             this.label2.TabIndex = 13;
             // 
+            // fname
+            // 
+            this.fname.AutoSize = true;
+            this.fname.Location = new System.Drawing.Point(40, 36);
+            this.fname.Name = "fname";
+            this.fname.Size = new System.Drawing.Size(139, 16);
+            this.fname.TabIndex = 14;
+            this.fname.Text = "First Name (Required)";
+            // 
+            // lname
+            // 
+            this.lname.AutoSize = true;
+            this.lname.Location = new System.Drawing.Point(40, 107);
+            this.lname.Name = "lname";
+            this.lname.Size = new System.Drawing.Size(139, 16);
+            this.lname.TabIndex = 15;
+            this.lname.Text = "Last Name (Required)";
+            // 
+            // pnumber
+            // 
+            this.pnumber.AutoSize = true;
+            this.pnumber.Location = new System.Drawing.Point(40, 178);
+            this.pnumber.Name = "pnumber";
+            this.pnumber.Size = new System.Drawing.Size(164, 16);
+            this.pnumber.TabIndex = 16;
+            this.pnumber.Text = "Phone Number (Required)";
+            // 
+            // pword
+            // 
+            this.pword.AutoSize = true;
+            this.pword.Location = new System.Drawing.Point(40, 244);
+            this.pword.Name = "pword";
+            this.pword.Size = new System.Drawing.Size(134, 16);
+            this.pword.TabIndex = 17;
+            this.pword.Text = "Password (Required)";
+            // 
+            // cpword
+            // 
+            this.cpword.AutoSize = true;
+            this.cpword.Location = new System.Drawing.Point(40, 321);
+            this.cpword.Name = "cpword";
+            this.cpword.Size = new System.Drawing.Size(115, 16);
+            this.cpword.TabIndex = 18;
+            this.cpword.Text = "Confirm Password";
+            // 
+            // add1
+            // 
+            this.add1.AutoSize = true;
+            this.add1.Location = new System.Drawing.Point(432, 36);
+            this.add1.Name = "add1";
+            this.add1.Size = new System.Drawing.Size(132, 16);
+            this.add1.TabIndex = 19;
+            this.add1.Text = "Address1 (Required)";
+            // 
+            // add2
+            // 
+            this.add2.AutoSize = true;
+            this.add2.Location = new System.Drawing.Point(432, 149);
+            this.add2.Name = "add2";
+            this.add2.Size = new System.Drawing.Size(126, 16);
+            this.add2.TabIndex = 20;
+            this.add2.Text = "Address2 (Optional)";
+            // 
+            // addressExample
+            // 
+            this.addressExample.AutoSize = true;
+            this.addressExample.Location = new System.Drawing.Point(493, 107);
+            this.addressExample.Name = "addressExample";
+            this.addressExample.Size = new System.Drawing.Size(143, 16);
+            this.addressExample.TabIndex = 21;
+            this.addressExample.Text = "e.g: City,Street,Building";
+            // 
+            // errorText
+            // 
+            this.errorText.AutoSize = true;
+            this.errorText.ForeColor = System.Drawing.Color.Red;
+            this.errorText.Location = new System.Drawing.Point(255, 440);
+            this.errorText.Name = "errorText";
+            this.errorText.Size = new System.Drawing.Size(35, 16);
+            this.errorText.TabIndex = 22;
+            this.errorText.Text = "error";
+            this.errorText.Visible = false;
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 519);
+            this.Controls.Add(this.errorText);
+            this.Controls.Add(this.addressExample);
+            this.Controls.Add(this.add2);
+            this.Controls.Add(this.add1);
+            this.Controls.Add(this.cpword);
+            this.Controls.Add(this.pword);
+            this.Controls.Add(this.pnumber);
+            this.Controls.Add(this.lname);
+            this.Controls.Add(this.fname);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.address2);
@@ -144,7 +246,7 @@
             this.Controls.Add(this.lastName);
             this.Controls.Add(this.firstName);
             this.Name = "SignUp";
-            this.Text = "SignUp";
+            this.Text = "Sign up";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,5 +264,14 @@
         private System.Windows.Forms.TextBox address2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label fname;
+        private System.Windows.Forms.Label lname;
+        private System.Windows.Forms.Label pnumber;
+        private System.Windows.Forms.Label pword;
+        private System.Windows.Forms.Label cpword;
+        private System.Windows.Forms.Label add1;
+        private System.Windows.Forms.Label add2;
+        private System.Windows.Forms.Label addressExample;
+        private System.Windows.Forms.Label errorText;
     }
 }

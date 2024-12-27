@@ -43,6 +43,7 @@
             this.AddressComboBox = new System.Windows.Forms.ComboBox();
             this.UpdateButton2 = new System.Windows.Forms.Button();
             this.DoneEditingButton = new System.Windows.Forms.Button();
+            this.InsertAddressButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -173,11 +174,22 @@
             this.DoneEditingButton.UseVisualStyleBackColor = true;
             this.DoneEditingButton.Click += new System.EventHandler(this.DoneEditingButton_Click);
             // 
+            // InsertAddressButton
+            // 
+            this.InsertAddressButton.Location = new System.Drawing.Point(288, 193);
+            this.InsertAddressButton.Name = "InsertAddressButton";
+            this.InsertAddressButton.Size = new System.Drawing.Size(128, 45);
+            this.InsertAddressButton.TabIndex = 17;
+            this.InsertAddressButton.Text = "Insert Address";
+            this.InsertAddressButton.UseVisualStyleBackColor = true;
+            this.InsertAddressButton.Click += new System.EventHandler(this.InsertAddressButton_Click);
+            // 
             // Update_Customer_Personal_Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.InsertAddressButton);
             this.Controls.Add(this.DoneEditingButton);
             this.Controls.Add(this.UpdateButton2);
             this.Controls.Add(this.AddressComboBox);
@@ -218,5 +230,6 @@
         private System.Windows.Forms.ComboBox AddressComboBox;
         private System.Windows.Forms.Button UpdateButton2;
         private System.Windows.Forms.Button DoneEditingButton;
+        private System.Windows.Forms.Button InsertAddressButton;
     }
 }

@@ -110,7 +110,7 @@ namespace Restaurant_DB
             return dbMan.ExecuteScalar(query);
         }
 
-        public void insertlocationid(string phone,string city,string street,string building)//insert the locationid in case it doesnt
+        public void insertlocationid(string city,string street,string building)//insert the locationid in case it doesnt
         {
             string query = "INSERT INTO Locations (City, Street, Building) VALUES('" + city + "', '" + street + "', '" + building + "');";
             dbMan.ExecuteNonQuery(query);
@@ -149,7 +149,11 @@ namespace Restaurant_DB
             string query = "DELETE FROM CustomerLocations WHERE PhoneNumber='" + phone + "' AND LocationID=" + Convert.ToInt32(id) + ";";
             dbMan.ExecuteNonQuery(query);
         }
-    
+        public DataTable getcustomerinfo(string phone)
+        {
+            string query = "SELECT * FROM Customer WHERE PhoneNumber='"+phone+"';";
+            return dbMan.ExecuteReader(query);
+        }
         //you can edit the ones below :)
 
         //----------------- ABDELRAHMAN ZAKARIA ---------------------
@@ -168,9 +172,22 @@ namespace Restaurant_DB
         
         }
 
-       public string VerifyCustonmer(string phoneNumber, string password)  //sees if the customer exists
+        public string getEmployeeName(string SSN)
         {
-            string query="SELECT FName FROM Customer WHERE PhoneNumber='"+phoneNumber+"' AND EPassword='"+password+"';";
+            string query = "SELECT FName FROM Employee WHERE SSN = '" + SSN + "';";
+            return dbMan.ExecuteScalar(query).ToString();
+        }
+
+       public void addCustomer(string phone, string fName, string lName, string passWord)
+        {
+            string query = "INSERT INTO CUSTOMER (PhoneNumber, FName, LName, EPassword) " +
+                "VALUES ('" + phone + "', '" + fName + "', '" + lName + "', '"+ passWord +"');";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+       public string VerifyCustomer(string phoneNumber)  //sees if the customer exists
+        {
+            string query="SELECT FName FROM Customer WHERE PhoneNumber='"+phoneNumber+"';";
 
             object fname = dbMan.ExecuteScalar(query);
 
@@ -184,9 +201,9 @@ namespace Restaurant_DB
             }
         }
 
-        public DataTable LoadCustomerOrders(string phoneNumber)  //loads the orders of the customer
+        public DataTable LoadCustomerOrdersCurret(string phoneNumber)  //loads the orders of the customer
         {
-            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "';";
+            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -194,20 +211,77 @@ namespace Restaurant_DB
             }
             else
             {
-                MessageBox.Show("No Orders found for the given Phone Number.");
                 return null;
             }
         }
 
-        public void MakeOrder(int orderID, string orderstate, string orderdate, string phonenumber )  //inserts the order of the customer
+        public DataTable LoadWaiterOrdersCurret(string waiterSSN)  //loads the orders of the waiter
         {
-            string query = "INSERT INTO CustomerOrder (OrderID, OrderState, OrderDate, CustomerPhoneNumber ) VALUES('" + orderID + "', '" + orderstate + "', '" + orderdate + "', '" + phonenumber + "');";
+            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking');";
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public DataTable loadCustomerOrdersPrevious(string phoneNumber)
+        {
+            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected');";
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public DataTable loadWaiterOrdersPrevious(string waiterSSN)
+        {
+            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected');";
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public object MakeOrder(string orderstate, DateTime orderDate, string phonenumber, string WaiterSSN)  //inserts the order of the customer
+        {
+            string query = "INSERT INTO CustomerOrder (OrderState, OrderDate, CustomerPhoneNumber, WaiterSSN) VALUES('" + orderstate + "', '" + orderDate + "', '" + phonenumber + "','" + WaiterSSN +"');";
+            dbMan.ExecuteNonQuery(query);
+            query = "SELECT OrderID FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phonenumber + "' AND OrderDate = '" + orderDate + "';";
+            return dbMan.ExecuteScalar(query);
+        }
+        
+        public object makeOrderOnline (DateTime orderDate, string phoneNumber)
+        {
+            string query = "INSERT INTO CustomerOrder (OrderDate, CustomerPhoneNumber) VALUES('" + orderDate + "', '" + phoneNumber + "');";
+            dbMan.ExecuteNonQuery(query);
+            query = "SELECT OrderID FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND OrderDate = '" + orderDate + "';";
+            return dbMan.ExecuteScalar(query);
+        }
+
+        public void addToOrder(int orderID, int itemID, int Quantity)
+        {
+            string query = "INSERT INTO Order_Contains_MenuItem (OrderID, ItemID, Quantity) VALUES(" + orderID + "," + itemID + "," + Quantity + ");";
             dbMan.ExecuteNonQuery(query);
         }
 
         public DataTable GetMenuItems()  //loads the menu of the restaurant
         {  
-            string query = "SELECT ItemName, ItemStatus FROM MenuItem;";
+            string query = "SELECT ItemID, ItemName, ItemStatus, CookingTime FROM MenuItem;";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {

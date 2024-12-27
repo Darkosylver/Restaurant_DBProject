@@ -30,101 +30,159 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.CustomerNameLabel = new System.Windows.Forms.Label();
-            this.MenuButton = new System.Windows.Forms.Button();
-            this.ShowOrdersButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.MakeOrderButton = new System.Windows.Forms.Button();
             this.UpdatePersonalInfoButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.toolBar = new System.Windows.Forms.Panel();
+            this.orderHistory = new System.Windows.Forms.PictureBox();
+            this.logOut = new System.Windows.Forms.PictureBox();
+            this.menuBox = new System.Windows.Forms.PictureBox();
+            this.homePicture = new System.Windows.Forms.PictureBox();
+            this.welcomePanel = new System.Windows.Forms.Panel();
+            this.welcomePic = new System.Windows.Forms.PictureBox();
+            this.toolBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orderHistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homePicture)).BeginInit();
+            this.welcomePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.welcomePic)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 42);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(100, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 20);
+            this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome,";
             // 
             // CustomerNameLabel
             // 
             this.CustomerNameLabel.AutoSize = true;
-            this.CustomerNameLabel.Location = new System.Drawing.Point(120, 42);
+            this.CustomerNameLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CustomerNameLabel.ForeColor = System.Drawing.Color.White;
+            this.CustomerNameLabel.Location = new System.Drawing.Point(100, 34);
             this.CustomerNameLabel.Name = "CustomerNameLabel";
-            this.CustomerNameLabel.Size = new System.Drawing.Size(124, 20);
+            this.CustomerNameLabel.Size = new System.Drawing.Size(104, 16);
             this.CustomerNameLabel.TabIndex = 1;
             this.CustomerNameLabel.Text = "Customer Name";
             this.CustomerNameLabel.Click += new System.EventHandler(this.CustomerNameLabel_Click);
             // 
-            // MenuButton
-            // 
-            this.MenuButton.Location = new System.Drawing.Point(70, 173);
-            this.MenuButton.Name = "MenuButton";
-            this.MenuButton.Size = new System.Drawing.Size(75, 47);
-            this.MenuButton.TabIndex = 2;
-            this.MenuButton.Text = "Menu";
-            this.MenuButton.UseVisualStyleBackColor = true;
-            this.MenuButton.Click += new System.EventHandler(this.MenuButton_Click);
-            // 
-            // ShowOrdersButton
-            // 
-            this.ShowOrdersButton.Location = new System.Drawing.Point(405, 173);
-            this.ShowOrdersButton.Name = "ShowOrdersButton";
-            this.ShowOrdersButton.Size = new System.Drawing.Size(114, 47);
-            this.ShowOrdersButton.TabIndex = 3;
-            this.ShowOrdersButton.Text = "Show Orders";
-            this.ShowOrdersButton.UseVisualStyleBackColor = true;
-            this.ShowOrdersButton.Click += new System.EventHandler(this.ShowOrdersButton_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 271);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 150);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // MakeOrderButton
-            // 
-            this.MakeOrderButton.Location = new System.Drawing.Point(224, 173);
-            this.MakeOrderButton.Name = "MakeOrderButton";
-            this.MakeOrderButton.Size = new System.Drawing.Size(109, 47);
-            this.MakeOrderButton.TabIndex = 5;
-            this.MakeOrderButton.Text = "Make Order";
-            this.MakeOrderButton.UseVisualStyleBackColor = true;
-            this.MakeOrderButton.Click += new System.EventHandler(this.MakeOrderButton_Click);
-            // 
             // UpdatePersonalInfoButton
             // 
-            this.UpdatePersonalInfoButton.Location = new System.Drawing.Point(582, 158);
+            this.UpdatePersonalInfoButton.ForeColor = System.Drawing.Color.Black;
+            this.UpdatePersonalInfoButton.Location = new System.Drawing.Point(223, 17);
+            this.UpdatePersonalInfoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UpdatePersonalInfoButton.Name = "UpdatePersonalInfoButton";
-            this.UpdatePersonalInfoButton.Size = new System.Drawing.Size(100, 80);
+            this.UpdatePersonalInfoButton.Size = new System.Drawing.Size(89, 24);
             this.UpdatePersonalInfoButton.TabIndex = 6;
-            this.UpdatePersonalInfoButton.Text = "Update Personal Info";
+            this.UpdatePersonalInfoButton.Text = "Update Info";
             this.UpdatePersonalInfoButton.UseVisualStyleBackColor = true;
             this.UpdatePersonalInfoButton.Click += new System.EventHandler(this.UpdatePersonalInfoButton_Click);
             // 
+            // toolBar
+            // 
+            this.toolBar.BackColor = System.Drawing.Color.Black;
+            this.toolBar.Controls.Add(this.orderHistory);
+            this.toolBar.Controls.Add(this.logOut);
+            this.toolBar.Controls.Add(this.menuBox);
+            this.toolBar.Controls.Add(this.homePicture);
+            this.toolBar.Controls.Add(this.label1);
+            this.toolBar.Controls.Add(this.UpdatePersonalInfoButton);
+            this.toolBar.Controls.Add(this.CustomerNameLabel);
+            this.toolBar.Location = new System.Drawing.Point(0, 2);
+            this.toolBar.Name = "toolBar";
+            this.toolBar.Size = new System.Drawing.Size(847, 68);
+            this.toolBar.TabIndex = 7;
+            // 
+            // orderHistory
+            // 
+            this.orderHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.orderHistory.Image = global::Restaurant_DB.Properties.Resources.history;
+            this.orderHistory.Location = new System.Drawing.Point(654, 10);
+            this.orderHistory.Name = "orderHistory";
+            this.orderHistory.Size = new System.Drawing.Size(45, 40);
+            this.orderHistory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.orderHistory.TabIndex = 8;
+            this.orderHistory.TabStop = false;
+            this.orderHistory.Click += new System.EventHandler(this.orderHistory_Click);
+            // 
+            // logOut
+            // 
+            this.logOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logOut.Image = global::Restaurant_DB.Properties.Resources.logout;
+            this.logOut.Location = new System.Drawing.Point(772, 9);
+            this.logOut.Name = "logOut";
+            this.logOut.Size = new System.Drawing.Size(40, 40);
+            this.logOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logOut.TabIndex = 8;
+            this.logOut.TabStop = false;
+            this.logOut.Click += new System.EventHandler(this.logOut_Click);
+            // 
+            // menuBox
+            // 
+            this.menuBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuBox.Image = global::Restaurant_DB.Properties.Resources.menu;
+            this.menuBox.Location = new System.Drawing.Point(599, 9);
+            this.menuBox.Name = "menuBox";
+            this.menuBox.Size = new System.Drawing.Size(40, 40);
+            this.menuBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.menuBox.TabIndex = 7;
+            this.menuBox.TabStop = false;
+            this.menuBox.Click += new System.EventHandler(this.menuBox_Click);
+            // 
+            // homePicture
+            // 
+            this.homePicture.Image = global::Restaurant_DB.Properties.Resources.home;
+            this.homePicture.Location = new System.Drawing.Point(16, 9);
+            this.homePicture.Name = "homePicture";
+            this.homePicture.Size = new System.Drawing.Size(40, 40);
+            this.homePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.homePicture.TabIndex = 0;
+            this.homePicture.TabStop = false;
+            this.homePicture.Click += new System.EventHandler(this.homePicture_Click);
+            // 
+            // welcomePanel
+            // 
+            this.welcomePanel.Controls.Add(this.welcomePic);
+            this.welcomePanel.Location = new System.Drawing.Point(0, 67);
+            this.welcomePanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.welcomePanel.Name = "welcomePanel";
+            this.welcomePanel.Size = new System.Drawing.Size(847, 374);
+            this.welcomePanel.TabIndex = 8;
+            // 
+            // welcomePic
+            // 
+            this.welcomePic.Image = global::Restaurant_DB.Properties.Resources.welcome2;
+            this.welcomePic.Location = new System.Drawing.Point(16, 0);
+            this.welcomePic.Name = "welcomePic";
+            this.welcomePic.Size = new System.Drawing.Size(796, 376);
+            this.welcomePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.welcomePic.TabIndex = 0;
+            this.welcomePic.TabStop = false;
+            this.welcomePic.Click += new System.EventHandler(this.welcomePic_Click);
+            // 
             // Welcome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.UpdatePersonalInfoButton);
-            this.Controls.Add(this.MakeOrderButton);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.ShowOrdersButton);
-            this.Controls.Add(this.MenuButton);
-            this.Controls.Add(this.CustomerNameLabel);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(817, 442);
+            this.Controls.Add(this.welcomePanel);
+            this.Controls.Add(this.toolBar);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Welcome";
             this.Text = "Welcome";
             this.Load += new System.EventHandler(this.Welcome_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.toolBar.ResumeLayout(false);
+            this.toolBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orderHistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homePicture)).EndInit();
+            this.welcomePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.welcomePic)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -132,10 +190,13 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label CustomerNameLabel;
-        private System.Windows.Forms.Button MenuButton;
-        private System.Windows.Forms.Button ShowOrdersButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button MakeOrderButton;
         private System.Windows.Forms.Button UpdatePersonalInfoButton;
+        private System.Windows.Forms.Panel toolBar;
+        private System.Windows.Forms.PictureBox homePicture;
+        private System.Windows.Forms.PictureBox menuBox;
+        private System.Windows.Forms.PictureBox logOut;
+        private System.Windows.Forms.PictureBox orderHistory;
+        private System.Windows.Forms.PictureBox welcomePic;
+        private System.Windows.Forms.Panel welcomePanel;
     }
 }
