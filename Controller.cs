@@ -384,6 +384,42 @@ namespace Restaurant_DB
             return dbMan.ExecuteReader(query);
         }
 
+        public DataTable GetSpendingPerItem(string phone)
+        {
+            string query = "SELECT mi.ItemName, SUM(ocmi.Quantity * ci.Quantity * i.IngredientPrice) AS TotalSpent " +
+            "FROM CustomerOrder co " +
+            "JOIN Order_Contains_MenuItem ocmi ON co.OrderID = ocmi.OrderID " +
+            "JOIN MenuItem mi ON ocmi.ItemID = mi.ItemID " +
+            "JOIN ContainsIngredient ci ON mi.ItemID = ci.ItemID " +
+            "JOIN Ingredient i ON ci.IngredientID = i.IngredientID " +
+            "WHERE co.CustomerPhoneNumber = '" + phone + "' " +
+            "GROUP BY mi.ItemName " +
+            "ORDER BY TotalSpent DESC;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetMostBoughtItem(string phone)
+        {
+            string query ="SELECT mi.ItemName, SUM(ocmi.Quantity) AS TotalQuantity " +
+            "FROM CustomerOrder co " +
+            "JOIN Order_Contains_MenuItem ocmi ON co.OrderID = ocmi.OrderID " +
+            "JOIN MenuItem mi ON ocmi.ItemID = mi.ItemID " +
+            "WHERE co.CustomerPhoneNumber = '" + phone + "' " +
+            "GROUP BY mi.ItemName " +
+            "ORDER BY TotalQuantity DESC;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetEmployeesByWorkingHours()
+        {
+            string query = "SELECT FName, LName, WorkingHours " +
+            "FROM Employee " +
+            "ORDER BY WorkingHours DESC;";
+
+            return dbMan.ExecuteReader(query);
+        }
+
+
         public DataTable GetRestaurantIncome()
         {
             string query = "SELECT SUM(ocmi.Quantity * ci.Quantity * i.IngredientPrice) AS TotalIncome " +
@@ -391,6 +427,33 @@ namespace Restaurant_DB
                 "JOIN MenuItem mi ON ocmi.ItemID = mi.ItemID " +
                 "JOIN ContainsIngredient ci ON mi.ItemID = ci.ItemID " +
                 "JOIN Ingredient i ON ci.IngredientID = i.IngredientID;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public float GetRestaurantSpendingOnIngredients()
+        {
+            string query = "SELECT SUM(r.Quantity * i.IngredientPrice) AS TotalSpending " +
+                "FROM Request r " +
+                "JOIN Ingredient i ON r.IngredientID = i.IngredientID;";
+            return Convert.ToSingle(dbMan.ExecuteScalar(query));
+        }
+
+        public float GetTotalSalaries()
+        {
+            string query = "SELECT SUM(Salary) AS TotalSalaries " +
+                "FROM Employee;";
+            return Convert.ToSingle(dbMan.ExecuteScalar(query));
+        }
+
+        public DataTable GetTopThreeMostOrderedItems()
+        {
+            string query =
+                "SELECT TOP 3 mi.ItemName, COUNT(ocmi.OrderID) AS OrderCount " +
+                "FROM MenuItem mi " +
+                "JOIN Order_Contains_MenuItem ocmi ON mi.ItemID = ocmi.ItemID " +
+                "GROUP BY mi.ItemName " +
+                "ORDER BY OrderCount DESC;";
+
             return dbMan.ExecuteReader(query);
         }
         
