@@ -32,12 +32,15 @@
             this.CustomerNameLabel = new System.Windows.Forms.Label();
             this.UpdatePersonalInfoButton = new System.Windows.Forms.Button();
             this.toolBar = new System.Windows.Forms.Panel();
+            this.welcomePanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.orderHistory = new System.Windows.Forms.PictureBox();
             this.logOut = new System.Windows.Forms.PictureBox();
             this.menuBox = new System.Windows.Forms.PictureBox();
             this.homePicture = new System.Windows.Forms.PictureBox();
-            this.welcomePanel = new System.Windows.Forms.Panel();
             this.toolBar.SuspendLayout();
+            this.welcomePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBox)).BeginInit();
@@ -93,6 +96,25 @@
             this.toolBar.Size = new System.Drawing.Size(826, 68);
             this.toolBar.TabIndex = 7;
             // 
+            // welcomePanel
+            // 
+            this.welcomePanel.Controls.Add(this.pictureBox1);
+            this.welcomePanel.Location = new System.Drawing.Point(11, 67);
+            this.welcomePanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.welcomePanel.Name = "welcomePanel";
+            this.welcomePanel.Size = new System.Drawing.Size(790, 364);
+            this.welcomePanel.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Restaurant_DB.Properties.Resources.welcome2;
+            this.pictureBox1.Location = new System.Drawing.Point(76, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(750, 376);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // orderHistory
             // 
             this.orderHistory.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -140,14 +162,6 @@
             this.homePicture.TabStop = false;
             this.homePicture.Click += new System.EventHandler(this.homePicture_Click);
             // 
-            // welcomePanel
-            // 
-            this.welcomePanel.Location = new System.Drawing.Point(11, 67);
-            this.welcomePanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.welcomePanel.Name = "welcomePanel";
-            this.welcomePanel.Size = new System.Drawing.Size(826, 364);
-            this.welcomePanel.TabIndex = 8;
-            // 
             // Welcome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -161,6 +175,8 @@
             this.Load += new System.EventHandler(this.Welcome_Load);
             this.toolBar.ResumeLayout(false);
             this.toolBar.PerformLayout();
+            this.welcomePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBox)).EndInit();
@@ -179,6 +195,7 @@
         private System.Windows.Forms.PictureBox menuBox;
         private System.Windows.Forms.PictureBox logOut;
         private System.Windows.Forms.PictureBox orderHistory;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel welcomePanel;
     }
 }
