@@ -22,6 +22,7 @@ namespace Restaurant_DB
             this.phone = phone;
             delete.Enabled = false;
             insert.Enabled = false;
+            waiterName.Text = controllerobj.getEmployeeName(ssn);
         }
         public void putlocationsincombobox(string phone)
         {
@@ -143,6 +144,27 @@ namespace Restaurant_DB
                 insert.Enabled = false;
 
             }
+        }
+
+        private void homePage_Click(object sender, EventArgs e)
+        {
+            Hide();
+            waiter homepage = new waiter(storedssn);
+            homepage.ShowDialog();
+            Close();
+        }
+
+        private void orderhistory_Click(object sender, EventArgs e)
+        {
+            Hide();
+            orderHistory orders = new orderHistory(null, storedssn);
+            orders.ShowDialog();
+            Close();
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

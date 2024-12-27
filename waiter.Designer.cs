@@ -40,6 +40,7 @@
             this.waiterName = new System.Windows.Forms.Label();
             this.welcome = new System.Windows.Forms.Label();
             this.homeBox = new System.Windows.Forms.PictureBox();
+            this.noCustomer = new System.Windows.Forms.Label();
             this.dashBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOut)).BeginInit();
@@ -166,11 +167,22 @@
             this.homeBox.TabIndex = 0;
             this.homeBox.TabStop = false;
             // 
+            // noCustomer
+            // 
+            this.noCustomer.AutoSize = true;
+            this.noCustomer.Location = new System.Drawing.Point(342, 96);
+            this.noCustomer.Name = "noCustomer";
+            this.noCustomer.Size = new System.Drawing.Size(121, 16);
+            this.noCustomer.TabIndex = 25;
+            this.noCustomer.Text = "Customer not found";
+            this.noCustomer.Visible = false;
+            // 
             // waiter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 450);
+            this.Controls.Add(this.noCustomer);
             this.Controls.Add(this.dashBoard);
             this.Controls.Add(this.customerinfo);
             this.Controls.Add(this.tablemanagement);
@@ -205,5 +217,6 @@
         private System.Windows.Forms.Label waiterName;
         private System.Windows.Forms.PictureBox logOut;
         private System.Windows.Forms.PictureBox orderLog;
+        private System.Windows.Forms.Label noCustomer;
     }
 }

@@ -34,17 +34,17 @@
             this.total = new System.Windows.Forms.Label();
             this.totalPrice = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.orders = new System.Windows.Forms.PictureBox();
             this.logout = new System.Windows.Forms.PictureBox();
             this.menuBox = new System.Windows.Forms.PictureBox();
             this.userName = new System.Windows.Forms.Label();
             this.welcome = new System.Windows.Forms.Label();
             this.homePage = new System.Windows.Forms.PictureBox();
-            this.orders = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homePage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orders)).BeginInit();
             this.SuspendLayout();
             // 
             // update
@@ -70,9 +70,10 @@
             // realCartItems
             // 
             this.realCartItems.AutoScroll = true;
-            this.realCartItems.Location = new System.Drawing.Point(14, 74);
+            this.realCartItems.Location = new System.Drawing.Point(2, 59);
+            this.realCartItems.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.realCartItems.Name = "realCartItems";
-            this.realCartItems.Size = new System.Drawing.Size(831, 187);
+            this.realCartItems.Size = new System.Drawing.Size(852, 202);
             this.realCartItems.TabIndex = 8;
             // 
             // total
@@ -104,15 +105,27 @@
             this.panel1.Controls.Add(this.userName);
             this.panel1.Controls.Add(this.welcome);
             this.panel1.Controls.Add(this.homePage);
-            this.panel1.Location = new System.Drawing.Point(14, 8);
+            this.panel1.Location = new System.Drawing.Point(2, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(829, 60);
+            this.panel1.Size = new System.Drawing.Size(852, 58);
             this.panel1.TabIndex = 11;
+            // 
+            // orders
+            // 
+            this.orders.Image = global::Restaurant_DB.Properties.Resources.history;
+            this.orders.Location = new System.Drawing.Point(657, 9);
+            this.orders.Name = "orders";
+            this.orders.Size = new System.Drawing.Size(45, 40);
+            this.orders.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.orders.TabIndex = 5;
+            this.orders.TabStop = false;
+            this.orders.Click += new System.EventHandler(this.orders_Click);
             // 
             // logout
             // 
             this.logout.Image = global::Restaurant_DB.Properties.Resources.logout;
-            this.logout.Location = new System.Drawing.Point(763, 9);
+            this.logout.Location = new System.Drawing.Point(801, 6);
             this.logout.Name = "logout";
             this.logout.Size = new System.Drawing.Size(40, 40);
             this.logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -163,17 +176,6 @@
             this.homePage.TabStop = false;
             this.homePage.Click += new System.EventHandler(this.homePage_Click);
             // 
-            // orders
-            // 
-            this.orders.Image = global::Restaurant_DB.Properties.Resources.history;
-            this.orders.Location = new System.Drawing.Point(657, 9);
-            this.orders.Name = "orders";
-            this.orders.Size = new System.Drawing.Size(45, 40);
-            this.orders.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.orders.TabIndex = 5;
-            this.orders.TabStop = false;
-            this.orders.Click += new System.EventHandler(this.orders_Click);
-            // 
             // makeOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -190,10 +192,10 @@
             this.Text = "makeOrder";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.homePage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

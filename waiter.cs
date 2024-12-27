@@ -36,12 +36,14 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
                 customerinfo.Enabled = true;
                 tablemanagement.Enabled = true;
                 order.Enabled = true;
+                noCustomer.Visible = false;
             }
             else
             {
                 customerinfo.Enabled = false;
                 tablemanagement.Enabled = false;
                 order.Enabled = false;
+                noCustomer.Visible = true;
             }
         }
         private void order_Click(object sender, EventArgs e)
