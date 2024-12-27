@@ -33,14 +33,18 @@ namespace Restaurant_DB
         private void orderHistory_Load(object sender, EventArgs e)
         {
             if (phoneNumber != null)
-            {
+            { //user stuff
                 currentOrders.DataSource = controllerobj.LoadCustomerOrdersCurret(phoneNumber);
                 previousOrders.DataSource = controllerobj.loadCustomerOrdersPrevious(phoneNumber);
             }
             else
-            {
+            { //waiter stuff
                 currentOrders.DataSource = controllerobj.LoadWaiterOrdersCurret(waiterSSN);
                 previousOrders.DataSource = controllerobj.loadWaiterOrdersPrevious(waiterSSN);
+                search.Visible = true;
+                userPhone.Visible = true;
+                userPhone.Enabled = true;
+                searchConfirm.Visible = true;
             }
         }
 

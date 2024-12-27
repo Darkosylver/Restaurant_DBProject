@@ -230,7 +230,7 @@ namespace Restaurant_DB
 
         public DataTable loadCustomerOrdersPrevious(string phoneNumber)
         {
-            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected');";
+            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected' OR OrderState = 'Cancelled');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -245,7 +245,7 @@ namespace Restaurant_DB
 
         public DataTable loadWaiterOrdersPrevious(string waiterSSN)
         {
-            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected');";
+            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected' Or OrderState = 'Cancelled');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
