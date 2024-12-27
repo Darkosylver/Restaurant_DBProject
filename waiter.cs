@@ -58,7 +58,7 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
             itemOrder.Columns.Add("itemName", typeof(string));
             itemOrder.Columns.Add("itemCount", typeof(int));
             itemOrder.Columns.Add("itemPrice", typeof(float));
-            menuForm menu = new menuForm(phoneno.Text, storedssn, itemOrder);
+            menuForm menu = new menuForm(phoneno.Text, storedssn,null, 0, 0, itemOrder);
             menu.ShowDialog();
             Close();
         }

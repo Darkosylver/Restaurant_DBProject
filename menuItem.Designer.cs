@@ -38,6 +38,7 @@
             this.timeCook = new System.Windows.Forms.Label();
             this.price = new System.Windows.Forms.Label();
             this.itemPrice = new System.Windows.Forms.Label();
+            this.itemRemove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // itemName
@@ -133,11 +134,24 @@
             this.itemPrice.TabIndex = 9;
             this.itemPrice.Text = "theprice";
             // 
+            // itemRemove
+            // 
+            this.itemRemove.Enabled = false;
+            this.itemRemove.Location = new System.Drawing.Point(449, 55);
+            this.itemRemove.Name = "itemRemove";
+            this.itemRemove.Size = new System.Drawing.Size(110, 23);
+            this.itemRemove.TabIndex = 10;
+            this.itemRemove.Text = "Remove Item";
+            this.itemRemove.UseVisualStyleBackColor = true;
+            this.itemRemove.Visible = false;
+            this.itemRemove.Click += new System.EventHandler(this.itemRemove_Click);
+            // 
             // menuItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.itemRemove);
             this.Controls.Add(this.itemPrice);
             this.Controls.Add(this.price);
             this.Controls.Add(this.timeCook);
@@ -168,5 +182,6 @@
         private System.Windows.Forms.Label timeCook;
         private System.Windows.Forms.Label price;
         private System.Windows.Forms.Label itemPrice;
+        private System.Windows.Forms.Button itemRemove;
     }
 }

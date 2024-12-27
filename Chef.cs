@@ -68,7 +68,7 @@ namespace Restaurant_DB
         {
             
             InitializeComponent();
-         
+            storedssn = ssn;
             putingredientsincombobox();
             putstocksincombobox();
             ssnchefcombobox();
@@ -132,6 +132,12 @@ namespace Restaurant_DB
         {
             int result=controllerobj.insertMenuItem(ItemName.Text, CookingTime.Text, comboBox4.Text);
             MessageBox.Show("New menu item added");
+            int itemID = Convert.ToInt32(controllerobj.getMenuItemID(ItemName.Text));
+            Hide();
+            DataTable dt = new DataTable("Dummy");
+            menuForm addToItem = new menuForm(null, null, storedssn,itemID, 1, dt);
+            addToItem.ShowDialog();
+            Close();
         }
     }
 }

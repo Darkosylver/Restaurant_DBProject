@@ -325,6 +325,18 @@ namespace Restaurant_DB
             }
         }
 
+        public DataTable getIngredients()
+        {
+            string query = "SELECT * FROM Ingredient";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public void addIngredientToItem(int ingredientID, int itemID, int count)
+        {
+            string query = "INSERT INTO ContainsIngredient (ItemID, IngredientID, Quantity) VALUES (" + ingredientID + "," + itemID + "," + count + ")";
+            dbMan.ExecuteNonQuery(query);
+        }
+
         public DataTable getCustomerLocations(string phone) //returns locationid if that location alrdy exists in our system and null if it doesnt
         {
             string query = "SELECT * FROM Locations WHERE LocationID IN (SELECT LocationID FROM CustomerLocations WHERE PhoneNumber = '" + phone + "');";
@@ -548,6 +560,24 @@ namespace Restaurant_DB
             return rowsAffected;
         }
         
+        public object getMenuItemID(string itemName)
+        {
+            string query = "SELECT ItemID FROM MenuItem WHERE ItemName = '" + itemName + "';";
+            return dbMan.ExecuteScalar(query);
+        }
+
+        public void deleteMenuItem(int itemID)
+        {
+            string query = "DELETE FROM MenuItem WHERE ItemID = " + itemID + ";";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public void deleteIngredient(int ingredientID)
+        {
+            string query = "DELETE FROM Ingredient WHERE IngredientID = " + ingredientID + ";";
+            dbMan.ExecuteNonQuery(query);
+        }
+
         public void TerminateConnection()
         {
             dbMan.CloseConnection();
