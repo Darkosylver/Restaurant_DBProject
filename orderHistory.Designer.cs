@@ -275,6 +275,7 @@
         private System.Windows.Forms.DataGridView currentOrders;
         private System.Windows.Forms.Label orderPrev;
         private System.Windows.Forms.DataGridView previousOrders;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.PictureBox historyRefresh;
         private System.Windows.Forms.PictureBox menu;
         private System.Windows.Forms.Label search;
