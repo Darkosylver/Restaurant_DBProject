@@ -64,16 +64,17 @@
             this.dashBoard.Controls.Add(this.homeBox);
             this.dashBoard.Location = new System.Drawing.Point(2, 1);
             this.dashBoard.Name = "dashBoard";
-            this.dashBoard.Size = new System.Drawing.Size(859, 62);
+            this.dashBoard.Size = new System.Drawing.Size(889, 62);
             this.dashBoard.TabIndex = 0;
             // 
             // historyRefresh
             // 
+            this.historyRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.historyRefresh.Image = global::Restaurant_DB.Properties.Resources.history;
-            this.historyRefresh.Location = new System.Drawing.Point(596, 9);
+            this.historyRefresh.Location = new System.Drawing.Point(607, 9);
             this.historyRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.historyRefresh.Name = "historyRefresh";
-            this.historyRefresh.Size = new System.Drawing.Size(40, 32);
+            this.historyRefresh.Size = new System.Drawing.Size(45, 40);
             this.historyRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.historyRefresh.TabIndex = 5;
             this.historyRefresh.TabStop = false;
@@ -81,11 +82,12 @@
             // 
             // menu
             // 
+            this.menu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.menu.Image = global::Restaurant_DB.Properties.Resources.menu;
             this.menu.Location = new System.Drawing.Point(540, 7);
             this.menu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(36, 32);
+            this.menu.Size = new System.Drawing.Size(40, 40);
             this.menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.menu.TabIndex = 4;
             this.menu.TabStop = false;
@@ -95,7 +97,7 @@
             // 
             this.userName.AutoSize = true;
             this.userName.ForeColor = System.Drawing.Color.White;
-            this.userName.Location = new System.Drawing.Point(89, 27);
+            this.userName.Location = new System.Drawing.Point(100, 33);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(67, 16);
             this.userName.TabIndex = 3;
@@ -113,8 +115,9 @@
             // 
             // logOut
             // 
+            this.logOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logOut.Image = global::Restaurant_DB.Properties.Resources.logout;
-            this.logOut.Location = new System.Drawing.Point(807, 9);
+            this.logOut.Location = new System.Drawing.Point(838, 9);
             this.logOut.Name = "logOut";
             this.logOut.Size = new System.Drawing.Size(40, 40);
             this.logOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -123,6 +126,7 @@
             // 
             // homeBox
             // 
+            this.homeBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homeBox.Image = global::Restaurant_DB.Properties.Resources.home;
             this.homeBox.Location = new System.Drawing.Point(16, 9);
             this.homeBox.Name = "homeBox";
@@ -209,7 +213,7 @@
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(116, 378);
+            this.cancel.Location = new System.Drawing.Point(132, 449);
             this.cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(114, 26);
@@ -220,7 +224,7 @@
             // 
             // delivered
             // 
-            this.delivered.Location = new System.Drawing.Point(385, 378);
+            this.delivered.Location = new System.Drawing.Point(380, 449);
             this.delivered.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.delivered.Name = "delivered";
             this.delivered.Size = new System.Drawing.Size(128, 26);
@@ -233,7 +237,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 515);
+            this.ClientSize = new System.Drawing.Size(892, 515);
             this.Controls.Add(this.delivered);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.searchConfirm);
