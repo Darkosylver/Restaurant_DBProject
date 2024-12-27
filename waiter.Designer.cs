@@ -35,15 +35,15 @@
             this.tablemanagement = new System.Windows.Forms.Button();
             this.customerinfo = new System.Windows.Forms.Button();
             this.dashBoard = new System.Windows.Forms.Panel();
-            this.welcome = new System.Windows.Forms.Label();
-            this.waiterName = new System.Windows.Forms.Label();
-            this.logOut = new System.Windows.Forms.PictureBox();
-            this.homeBox = new System.Windows.Forms.PictureBox();
             this.orderLog = new System.Windows.Forms.PictureBox();
+            this.logOut = new System.Windows.Forms.PictureBox();
+            this.waiterName = new System.Windows.Forms.Label();
+            this.welcome = new System.Windows.Forms.Label();
+            this.homeBox = new System.Windows.Forms.PictureBox();
             this.dashBoard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orderLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderLog)).BeginInit();
             this.SuspendLayout();
             // 
             // order
@@ -114,15 +114,27 @@
             this.dashBoard.Size = new System.Drawing.Size(847, 67);
             this.dashBoard.TabIndex = 24;
             // 
-            // welcome
+            // orderLog
             // 
-            this.welcome.AutoSize = true;
-            this.welcome.ForeColor = System.Drawing.Color.White;
-            this.welcome.Location = new System.Drawing.Point(100, 15);
-            this.welcome.Name = "welcome";
-            this.welcome.Size = new System.Drawing.Size(68, 16);
-            this.welcome.TabIndex = 1;
-            this.welcome.Text = "Welcome,";
+            this.orderLog.Image = global::Restaurant_DB.Properties.Resources.history;
+            this.orderLog.Location = new System.Drawing.Point(644, 14);
+            this.orderLog.Name = "orderLog";
+            this.orderLog.Size = new System.Drawing.Size(45, 40);
+            this.orderLog.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.orderLog.TabIndex = 4;
+            this.orderLog.TabStop = false;
+            this.orderLog.Click += new System.EventHandler(this.orderLog_Click);
+            // 
+            // logOut
+            // 
+            this.logOut.Image = global::Restaurant_DB.Properties.Resources.logout;
+            this.logOut.Location = new System.Drawing.Point(794, 14);
+            this.logOut.Name = "logOut";
+            this.logOut.Size = new System.Drawing.Size(40, 40);
+            this.logOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logOut.TabIndex = 3;
+            this.logOut.TabStop = false;
+            this.logOut.Click += new System.EventHandler(this.logOut_Click);
             // 
             // waiterName
             // 
@@ -134,36 +146,25 @@
             this.waiterName.TabIndex = 2;
             this.waiterName.Text = "waitername";
             // 
-            // logOut
+            // welcome
             // 
-            this.logOut.Image = global::Restaurant_DB.Properties.Resources.logout;
-            this.logOut.Location = new System.Drawing.Point(794, 14);
-            this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(40, 40);
-            this.logOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logOut.TabIndex = 3;
-            this.logOut.TabStop = false;
+            this.welcome.AutoSize = true;
+            this.welcome.ForeColor = System.Drawing.Color.White;
+            this.welcome.Location = new System.Drawing.Point(100, 15);
+            this.welcome.Name = "welcome";
+            this.welcome.Size = new System.Drawing.Size(68, 16);
+            this.welcome.TabIndex = 1;
+            this.welcome.Text = "Welcome,";
             // 
             // homeBox
             // 
             this.homeBox.Image = global::Restaurant_DB.Properties.Resources.home;
-            this.homeBox.Location = new System.Drawing.Point(16, 9);
+            this.homeBox.Location = new System.Drawing.Point(13, 14);
             this.homeBox.Name = "homeBox";
             this.homeBox.Size = new System.Drawing.Size(40, 40);
             this.homeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.homeBox.TabIndex = 0;
             this.homeBox.TabStop = false;
-            // 
-            // orderLog
-            // 
-            this.orderLog.Image = global::Restaurant_DB.Properties.Resources.history;
-            this.orderLog.Location = new System.Drawing.Point(644, 14);
-            this.orderLog.Name = "orderLog";
-            this.orderLog.Size = new System.Drawing.Size(45, 40);
-            this.orderLog.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.orderLog.TabIndex = 4;
-            this.orderLog.TabStop = false;
-            this.orderLog.Click += new System.EventHandler(this.orderLog_Click);
             // 
             // waiter
             // 
@@ -182,9 +183,9 @@
             this.Load += new System.EventHandler(this.waiter_Load);
             this.dashBoard.ResumeLayout(false);
             this.dashBoard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orderLog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderLog)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

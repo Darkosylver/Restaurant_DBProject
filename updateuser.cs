@@ -20,6 +20,8 @@ namespace Restaurant_DB
             InitializeComponent();
             storedssn = ssn;
             this.phone = phone;
+            delete.Enabled = false;
+            insert.Enabled = false;
         }
         public void putlocationsincombobox(string phone)
         {
@@ -105,12 +107,12 @@ namespace Restaurant_DB
         {
             if (building.Text != "" && city.Text != "" && street.Text != "")
             {
-                update.Enabled = true;
+                insert.Enabled = true;
 
             }
             else
             {
-                update.Enabled = false;
+                insert.Enabled = false;
 
             }
         }
@@ -119,12 +121,12 @@ namespace Restaurant_DB
         {
             if (building.Text != "" && city.Text != "" && street.Text != "")
             {
-                update.Enabled = true;
+                insert.Enabled = true;
 
             }
             else
             {
-                update.Enabled = false;
+                insert.Enabled = false;
 
             }
         }
@@ -133,12 +135,12 @@ namespace Restaurant_DB
         {
             if (building.Text != "" && city.Text != "" && street.Text != "")
             {
-                update.Enabled = true;
+                insert.Enabled = true;
 
             }
             else
             {
-                update.Enabled = false;
+                insert.Enabled = false;
 
             }
         }
