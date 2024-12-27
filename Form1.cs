@@ -88,6 +88,14 @@ namespace Restaurant_DB
             Show();
         }
 
+        private void logIn_MouseEnter(object sender, EventArgs e)
+        {
+            logIn.BackColor = Color.SpringGreen;
+        }
 
+        private void logIn_MouseLeave(object sender, EventArgs e)
+        {
+            logIn.BackColor = Color.Cyan;
+        }
     }
 }

@@ -41,7 +41,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(121, 128);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -53,7 +53,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(121, 205);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
@@ -90,13 +90,15 @@
             this.logIn.BackColor = System.Drawing.Color.Cyan;
             this.logIn.Enabled = false;
             this.logIn.Location = new System.Drawing.Point(123, 289);
-            this.logIn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.logIn.Margin = new System.Windows.Forms.Padding(0);
             this.logIn.Name = "logIn";
-            this.logIn.Size = new System.Drawing.Size(56, 23);
+            this.logIn.Size = new System.Drawing.Size(77, 32);
             this.logIn.TabIndex = 4;
             this.logIn.Text = "Log in";
             this.logIn.UseVisualStyleBackColor = false;
             this.logIn.Click += new System.EventHandler(this.logIn_Click);
+            this.logIn.MouseEnter += new System.EventHandler(this.logIn_MouseEnter);
+            this.logIn.MouseLeave += new System.EventHandler(this.logIn_MouseLeave);
             // 
             // label3
             // 
@@ -114,12 +116,12 @@
             // signUp
             // 
             this.signUp.AutoSize = true;
-            this.signUp.Font = new System.Drawing.Font("Arial Narrow", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signUp.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signUp.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.signUp.Location = new System.Drawing.Point(241, 292);
+            this.signUp.Location = new System.Drawing.Point(279, 291);
             this.signUp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.signUp.Name = "signUp";
-            this.signUp.Size = new System.Drawing.Size(54, 16);
+            this.signUp.Size = new System.Drawing.Size(77, 24);
             this.signUp.TabIndex = 6;
             this.signUp.Text = "Sign Up!";
             this.signUp.MouseClick += new System.Windows.Forms.MouseEventHandler(this.signUp_MouseClick);
@@ -128,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 554);
             this.Controls.Add(this.signUp);
             this.Controls.Add(this.label3);

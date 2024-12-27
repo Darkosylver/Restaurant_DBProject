@@ -72,5 +72,10 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
             orders.Show();
             Close();
         }
+
+        private void logOut_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
