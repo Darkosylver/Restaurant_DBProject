@@ -46,9 +46,11 @@
             this.dataSet1 = new Restaurant_DB.DataSet1();
             this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TotalSpendings = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.cancel = new System.Windows.Forms.Button();
             this.delivered = new System.Windows.Forms.Button();
+            this.totalSpendingButton = new System.Windows.Forms.Button();
+            this.SpendingPerItemButton = new System.Windows.Forms.Button();
+            this.MostBoughtItemButton = new System.Windows.Forms.Button();
             this.dashBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.historyRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menu)).BeginInit();
@@ -237,15 +239,6 @@
             this.TotalSpendings.TabIndex = 8;
             this.TotalSpendings.Visible = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.label1.Location = new System.Drawing.Point(15, 553);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 32);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Total Spendings:";
             // cancel
             // 
             this.cancel.Location = new System.Drawing.Point(131, 473);
@@ -266,12 +259,44 @@
             this.delivered.UseVisualStyleBackColor = true;
             this.delivered.Click += new System.EventHandler(this.delivered_Click);
             // 
+            // totalSpendingButton
+            // 
+            this.totalSpendingButton.Location = new System.Drawing.Point(52, 549);
+            this.totalSpendingButton.Name = "totalSpendingButton";
+            this.totalSpendingButton.Size = new System.Drawing.Size(157, 52);
+            this.totalSpendingButton.TabIndex = 10;
+            this.totalSpendingButton.Text = "Total Spending";
+            this.totalSpendingButton.UseVisualStyleBackColor = true;
+            this.totalSpendingButton.Click += new System.EventHandler(this.totalSpendingButton_Click);
+            // 
+            // SpendingPerItemButton
+            // 
+            this.SpendingPerItemButton.Location = new System.Drawing.Point(265, 549);
+            this.SpendingPerItemButton.Name = "SpendingPerItemButton";
+            this.SpendingPerItemButton.Size = new System.Drawing.Size(157, 52);
+            this.SpendingPerItemButton.TabIndex = 11;
+            this.SpendingPerItemButton.Text = "Spending Per Item";
+            this.SpendingPerItemButton.UseVisualStyleBackColor = true;
+            this.SpendingPerItemButton.Click += new System.EventHandler(this.SpendingPerItemButton_Click);
+            // 
+            // MostBoughtItemButton
+            // 
+            this.MostBoughtItemButton.Location = new System.Drawing.Point(508, 549);
+            this.MostBoughtItemButton.Name = "MostBoughtItemButton";
+            this.MostBoughtItemButton.Size = new System.Drawing.Size(157, 52);
+            this.MostBoughtItemButton.TabIndex = 12;
+            this.MostBoughtItemButton.Text = "Most Bought Item";
+            this.MostBoughtItemButton.UseVisualStyleBackColor = true;
+            this.MostBoughtItemButton.Click += new System.EventHandler(this.MostBoughtItemButton_Click);
+            // 
             // orderHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 769);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.MostBoughtItemButton);
+            this.Controls.Add(this.SpendingPerItemButton);
+            this.Controls.Add(this.totalSpendingButton);
             this.Controls.Add(this.TotalSpendings);
             this.Controls.Add(this.delivered);
             this.Controls.Add(this.cancel);
@@ -322,8 +347,10 @@
         private System.Windows.Forms.BindingSource dataSet1BindingSource;
         private DataSet1 dataSet1;
         private System.Windows.Forms.DataGridView TotalSpendings;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button delivered;
+        private System.Windows.Forms.Button totalSpendingButton;
+        private System.Windows.Forms.Button SpendingPerItemButton;
+        private System.Windows.Forms.Button MostBoughtItemButton;
     }
 }

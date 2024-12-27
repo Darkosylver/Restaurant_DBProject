@@ -66,6 +66,8 @@
             this.RestaurantIncomeButton = new System.Windows.Forms.Button();
             this.RestaurantSpendingButton = new System.Windows.Forms.Button();
             this.RevenueButton = new System.Windows.Forms.Button();
+            this.top3ItemsButton = new System.Windows.Forms.Button();
+            this.employeesWorkingHoursButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -436,11 +438,34 @@
             this.RevenueButton.UseVisualStyleBackColor = true;
             this.RevenueButton.Click += new System.EventHandler(this.RevenueButton_Click);
             // 
+            // top3ItemsButton
+            // 
+            this.top3ItemsButton.Location = new System.Drawing.Point(1059, 384);
+            this.top3ItemsButton.Name = "top3ItemsButton";
+            this.top3ItemsButton.Size = new System.Drawing.Size(117, 44);
+            this.top3ItemsButton.TabIndex = 72;
+            this.top3ItemsButton.Text = "Top 3 Items";
+            this.top3ItemsButton.UseVisualStyleBackColor = true;
+            this.top3ItemsButton.Click += new System.EventHandler(this.top3ItemsButton_Click);
+            // 
+            // employeesWorkingHoursButton
+            // 
+            this.employeesWorkingHoursButton.Location = new System.Drawing.Point(1203, 355);
+            this.employeesWorkingHoursButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.employeesWorkingHoursButton.Name = "employeesWorkingHoursButton";
+            this.employeesWorkingHoursButton.Size = new System.Drawing.Size(136, 72);
+            this.employeesWorkingHoursButton.TabIndex = 73;
+            this.employeesWorkingHoursButton.Text = "Employees Working Hours";
+            this.employeesWorkingHoursButton.UseVisualStyleBackColor = true;
+            this.employeesWorkingHoursButton.Click += new System.EventHandler(this.employeesWorkingHoursButton_Click);
+            // 
             // Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 759);
+            this.Controls.Add(this.employeesWorkingHoursButton);
+            this.Controls.Add(this.top3ItemsButton);
             this.Controls.Add(this.RevenueButton);
             this.Controls.Add(this.RestaurantSpendingButton);
             this.Controls.Add(this.RestaurantIncomeButton);
@@ -528,5 +553,7 @@
         private System.Windows.Forms.Button RestaurantIncomeButton;
         private System.Windows.Forms.Button RestaurantSpendingButton;
         private System.Windows.Forms.Button RevenueButton;
+        private System.Windows.Forms.Button top3ItemsButton;
+        private System.Windows.Forms.Button employeesWorkingHoursButton;
     }
 }

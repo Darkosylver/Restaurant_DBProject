@@ -35,6 +35,9 @@ namespace Restaurant_DB
                 delivered.Visible = false;
                 cancel.Enabled = false;
                 delivered.Enabled = false;
+                totalSpendingButton.Visible = false;
+                SpendingPerItemButton.Visible = false;
+                MostBoughtItemButton.Visible = false;
             }
         }
 
@@ -45,7 +48,9 @@ namespace Restaurant_DB
                 currentOrders.DataSource = controllerobj.LoadCustomerOrdersCurret(phoneNumber);
                 previousOrders.DataSource = controllerobj.loadCustomerOrdersPrevious(phoneNumber);
                 TotalSpendings.Visible = true;
-                TotalSpendings.DataSource = controllerobj.GetTotalSpendings(phoneNumber);
+                SpendingPerItemButton.Visible = true;
+                MostBoughtItemButton.Visible = true;
+                totalSpendingButton.Visible = true;
                 
             }
             else
@@ -156,6 +161,33 @@ namespace Restaurant_DB
             else
             {
                 MessageBox.Show("Please select exactly one row.");
+            }
+        }
+
+        private void totalSpendingButton_Click(object sender, EventArgs e)
+        {
+            if (phoneNumber != null)
+            { 
+                TotalSpendings.DataSource = controllerobj.GetTotalSpendings(phoneNumber);
+            }
+        }
+
+        private void SpendingPerItemButton_Click(object sender, EventArgs e)
+        {
+
+            if (phoneNumber != null)
+            {
+                TotalSpendings.DataSource = controllerobj.GetSpendingPerItem(phoneNumber);
+            }
+
+        }
+
+        private void MostBoughtItemButton_Click(object sender, EventArgs e)
+        {
+
+            if (phoneNumber != null)
+            {
+                TotalSpendings.DataSource = controllerobj.GetMostBoughtItem(phoneNumber);
             }
         }
     }
