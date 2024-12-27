@@ -263,6 +263,7 @@
       <DependentUpon>orderHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="tablemanagement.resx">
       <DependentUpon>tablemanagement.cs</DependentUpon>
     </EmbeddedResource>

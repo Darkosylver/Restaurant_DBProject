@@ -354,6 +354,31 @@ namespace Restaurant_DB
                 MessageBox.Show("Failed to update address.");
             }
         }
+
+        public DataTable GetTotalSpendings(string phone)
+        {
+            string query = "SELECT co.CustomerPhoneNumber, SUM(ocmi.Quantity * ci.Quantity * i.IngredientPrice) AS TotalSpendings " +
+            "FROM CustomerOrder co " +
+            "JOIN Order_Contains_MenuItem ocmi ON co.OrderID = ocmi.OrderID " +
+            "JOIN MenuItem mi ON ocmi.ItemID = mi.ItemID " +
+            "JOIN ContainsIngredient ci ON mi.ItemID = ci.ItemID " +
+            "JOIN Ingredient i ON ci.IngredientID = i.IngredientID " +
+            "WHERE co.CustomerPhoneNumber = '" + phone + "' " +
+            "GROUP BY co.CustomerPhoneNumber";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetRestaurantIncome()
+        {
+            string query = "SELECT SUM(ocmi.Quantity * ci.Quantity * i.IngredientPrice) AS TotalIncome " +
+                "FROM Order_Contains_MenuItem ocmi " +
+                "JOIN MenuItem mi ON ocmi.ItemID = mi.ItemID " +
+                "JOIN ContainsIngredient ci ON mi.ItemID = ci.ItemID " +
+                "JOIN Ingredient i ON ci.IngredientID = i.IngredientID;";
+            return dbMan.ExecuteReader(query);
+        }
+        
+
         public void TerminateConnection()
         {
             dbMan.CloseConnection();

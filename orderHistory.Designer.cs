@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dashBoard = new System.Windows.Forms.Panel();
             this.historyRefresh = new System.Windows.Forms.PictureBox();
             this.menu = new System.Windows.Forms.PictureBox();
@@ -39,10 +40,13 @@
             this.currentOrders = new System.Windows.Forms.DataGridView();
             this.orderPrev = new System.Windows.Forms.Label();
             this.previousOrders = new System.Windows.Forms.DataGridView();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.search = new System.Windows.Forms.Label();
             this.userPhone = new System.Windows.Forms.TextBox();
             this.searchConfirm = new System.Windows.Forms.Button();
+            this.dataSet1 = new Restaurant_DB.DataSet1();
+            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.TotalSpendings = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.dashBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.historyRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menu)).BeginInit();
@@ -50,6 +54,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.homeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.currentOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previousOrders)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TotalSpendings)).BeginInit();
             this.SuspendLayout();
             // 
             // dashBoard
@@ -95,39 +102,9 @@
             this.userName.ForeColor = System.Drawing.Color.White;
             this.userName.Location = new System.Drawing.Point(100, 34);
             this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(67, 16);
+            this.userName.Size = new System.Drawing.Size(80, 20);
             this.userName.TabIndex = 3;
             this.userName.Text = "username";
-            // 
-            // welcome
-            // 
-            this.welcome.AutoSize = true;
-            this.welcome.ForeColor = System.Drawing.Color.White;
-            this.welcome.Location = new System.Drawing.Point(100, 15);
-            this.welcome.Name = "welcome";
-            this.welcome.Size = new System.Drawing.Size(68, 16);
-            this.welcome.TabIndex = 2;
-            this.welcome.Text = "Welcome,";
-            // 
-            // logOut
-            // 
-            this.logOut.Image = global::Restaurant_DB.Properties.Resources.logout;
-            this.logOut.Location = new System.Drawing.Point(807, 9);
-            this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(40, 40);
-            this.logOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logOut.TabIndex = 1;
-            this.logOut.TabStop = false;
-            // 
-            // homeBox
-            // 
-            this.homeBox.Image = global::Restaurant_DB.Properties.Resources.home;
-            this.homeBox.Location = new System.Drawing.Point(16, 9);
-            this.homeBox.Name = "homeBox";
-            this.homeBox.Size = new System.Drawing.Size(40, 40);
-            this.homeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.homeBox.TabIndex = 0;
-            this.homeBox.TabStop = false;
             // 
             // welcome
             // 
@@ -156,8 +133,6 @@
             this.homeBox.Location = new System.Drawing.Point(18, 11);
             this.homeBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.homeBox.Name = "homeBox";
-            this.ClientSize = new System.Drawing.Size(969, 805);
-            this.Controls.Add(this.reportViewer1);
             this.homeBox.Size = new System.Drawing.Size(45, 50);
             this.homeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.homeBox.TabIndex = 0;
@@ -205,21 +180,12 @@
             this.previousOrders.Size = new System.Drawing.Size(935, 169);
             this.previousOrders.TabIndex = 4;
             // 
-            // reportViewer1
-            // 
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Restaurant_DB.Report1.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(222, 547);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(396, 224);
-            this.reportViewer1.TabIndex = 5;
-            this.reportViewer1.Visible = false;
             // search
             // 
             this.search.AutoSize = true;
             this.search.Location = new System.Drawing.Point(261, 87);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(97, 16);
+            this.search.Size = new System.Drawing.Size(115, 20);
             this.search.TabIndex = 5;
             this.search.Text = "Search by user";
             this.search.Visible = false;
@@ -229,7 +195,7 @@
             this.userPhone.Enabled = false;
             this.userPhone.Location = new System.Drawing.Point(378, 84);
             this.userPhone.Name = "userPhone";
-            this.userPhone.Size = new System.Drawing.Size(131, 22);
+            this.userPhone.Size = new System.Drawing.Size(131, 26);
             this.userPhone.TabIndex = 6;
             this.userPhone.Visible = false;
             this.userPhone.TextChanged += new System.EventHandler(this.userPhone_TextChanged);
@@ -247,11 +213,44 @@
             this.searchConfirm.Visible = false;
             this.searchConfirm.Click += new System.EventHandler(this.searchConfirm_Click);
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataSet1BindingSource
+            // 
+            this.dataSet1BindingSource.DataSource = this.dataSet1;
+            this.dataSet1BindingSource.Position = 0;
+            // 
+            // TotalSpendings
+            // 
+            this.TotalSpendings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TotalSpendings.Location = new System.Drawing.Point(20, 607);
+            this.TotalSpendings.Name = "TotalSpendings";
+            this.TotalSpendings.RowHeadersWidth = 62;
+            this.TotalSpendings.RowTemplate.Height = 28;
+            this.TotalSpendings.Size = new System.Drawing.Size(815, 150);
+            this.TotalSpendings.TabIndex = 8;
+            this.TotalSpendings.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.label1.Location = new System.Drawing.Point(15, 553);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(229, 32);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Total Spendings:";
+            // 
             // orderHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 644);
+            this.ClientSize = new System.Drawing.Size(861, 769);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TotalSpendings);
             this.Controls.Add(this.searchConfirm);
             this.Controls.Add(this.userPhone);
             this.Controls.Add(this.search);
@@ -272,6 +271,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.homeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.currentOrders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.previousOrders)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TotalSpendings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,11 +290,14 @@
         private System.Windows.Forms.DataGridView currentOrders;
         private System.Windows.Forms.Label orderPrev;
         private System.Windows.Forms.DataGridView previousOrders;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.PictureBox historyRefresh;
         private System.Windows.Forms.PictureBox menu;
         private System.Windows.Forms.Label search;
         private System.Windows.Forms.TextBox userPhone;
         private System.Windows.Forms.Button searchConfirm;
+        private System.Windows.Forms.BindingSource dataSet1BindingSource;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.DataGridView TotalSpendings;
+        private System.Windows.Forms.Label label1;
     }
 }
