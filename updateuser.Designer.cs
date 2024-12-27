@@ -53,7 +53,7 @@
             // addresses
             // 
             this.addresses.AutoSize = true;
-            this.addresses.Location = new System.Drawing.Point(404, 159);
+            this.addresses.Location = new System.Drawing.Point(7, 111);
             this.addresses.Name = "addresses";
             this.addresses.Size = new System.Drawing.Size(72, 16);
             this.addresses.TabIndex = 34;
@@ -62,14 +62,14 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(500, 155);
+            this.comboBox1.Location = new System.Drawing.Point(103, 107);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 33;
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(626, 156);
+            this.delete.Location = new System.Drawing.Point(12, 268);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(125, 23);
             this.delete.TabIndex = 32;
@@ -79,7 +79,7 @@
             // 
             // building
             // 
-            this.building.Location = new System.Drawing.Point(500, 197);
+            this.building.Location = new System.Drawing.Point(103, 149);
             this.building.Name = "building";
             this.building.Size = new System.Drawing.Size(100, 22);
             this.building.TabIndex = 31;
@@ -87,7 +87,7 @@
             // 
             // street
             // 
-            this.street.Location = new System.Drawing.Point(500, 225);
+            this.street.Location = new System.Drawing.Point(103, 177);
             this.street.Name = "street";
             this.street.Size = new System.Drawing.Size(100, 22);
             this.street.TabIndex = 30;
@@ -95,7 +95,7 @@
             // 
             // city
             // 
-            this.city.Location = new System.Drawing.Point(500, 253);
+            this.city.Location = new System.Drawing.Point(103, 205);
             this.city.Name = "city";
             this.city.Size = new System.Drawing.Size(100, 22);
             this.city.TabIndex = 29;
@@ -104,7 +104,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(422, 200);
+            this.label5.Location = new System.Drawing.Point(25, 152);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 16);
             this.label5.TabIndex = 28;
@@ -113,7 +113,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(436, 231);
+            this.label4.Location = new System.Drawing.Point(39, 183);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 16);
             this.label4.TabIndex = 27;
@@ -122,7 +122,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(449, 259);
+            this.label3.Location = new System.Drawing.Point(52, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 16);
             this.label3.TabIndex = 26;
@@ -130,7 +130,7 @@
             // 
             // insert
             // 
-            this.insert.Location = new System.Drawing.Point(626, 223);
+            this.insert.Location = new System.Drawing.Point(212, 268);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(125, 23);
             this.insert.TabIndex = 25;
