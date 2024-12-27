@@ -42,6 +42,8 @@
             this.search = new System.Windows.Forms.Label();
             this.userPhone = new System.Windows.Forms.TextBox();
             this.searchConfirm = new System.Windows.Forms.Button();
+            this.cancel = new System.Windows.Forms.Button();
+            this.delivered = new System.Windows.Forms.Button();
             this.dashBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.historyRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menu)).BeginInit();
@@ -146,6 +148,7 @@
             this.currentOrders.RowTemplate.Height = 24;
             this.currentOrders.Size = new System.Drawing.Size(831, 125);
             this.currentOrders.TabIndex = 2;
+            this.currentOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.currentOrders_CellContentClick);
             // 
             // orderPrev
             // 
@@ -200,11 +203,33 @@
             this.searchConfirm.Visible = false;
             this.searchConfirm.Click += new System.EventHandler(this.searchConfirm_Click);
             // 
+            // cancel
+            // 
+            this.cancel.Location = new System.Drawing.Point(131, 473);
+            this.cancel.Name = "cancel";
+            this.cancel.Size = new System.Drawing.Size(114, 23);
+            this.cancel.TabIndex = 8;
+            this.cancel.Text = "Cancel Order";
+            this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
+            // 
+            // delivered
+            // 
+            this.delivered.Location = new System.Drawing.Point(433, 472);
+            this.delivered.Name = "delivered";
+            this.delivered.Size = new System.Drawing.Size(132, 23);
+            this.delivered.TabIndex = 9;
+            this.delivered.Text = "Mark as Delivered";
+            this.delivered.UseVisualStyleBackColor = true;
+            this.delivered.Click += new System.EventHandler(this.delivered_Click);
+            // 
             // orderHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 644);
+            this.Controls.Add(this.delivered);
+            this.Controls.Add(this.cancel);
             this.Controls.Add(this.searchConfirm);
             this.Controls.Add(this.userPhone);
             this.Controls.Add(this.search);
@@ -245,5 +270,7 @@
         private System.Windows.Forms.Label search;
         private System.Windows.Forms.TextBox userPhone;
         private System.Windows.Forms.Button searchConfirm;
+        private System.Windows.Forms.Button cancel;
+        private System.Windows.Forms.Button delivered;
     }
 }

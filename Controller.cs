@@ -151,6 +151,18 @@ namespace Restaurant_DB
             string query = "SELECT * FROM Customer WHERE PhoneNumber='"+phone+"';";
             return dbMan.ExecuteReader(query);
         }
+
+        public void cancelorder(int orderid) 
+        {
+            string query = "UPDATE CustomerOrder SET OrderState = 'Cancelled' WHERE OrderID ="+orderid+";";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public void deliverorder(int orderid)
+        {
+            string query = "UPDATE CustomerOrder SET OrderState = 'Delivered' WHERE OrderID =" + orderid + ";";
+            dbMan.ExecuteNonQuery(query);
+        }
         //you can edit the ones below :)
 
         //----------------- ABDELRAHMAN ZAKARIA ---------------------
