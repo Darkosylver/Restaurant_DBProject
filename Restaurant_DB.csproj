@@ -173,6 +173,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chef.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chef.Designer.cs">
+      <DependentUpon>Chef.cs</DependentUpon>
+    </Compile>
+   
     <Compile Include="cartItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,6 +208,12 @@
     </Compile>
     <Compile Include="orderHistory.Designer.cs">
       <DependentUpon>orderHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager.Designer.cs">
+      <DependentUpon>Manager.cs</DependentUpon>
     </Compile>
     <Compile Include="RestaurantDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -250,6 +263,10 @@
     <Compile Include="Welcome.Designer.cs">
       <DependentUpon>Welcome.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Chef.resx">
+      <DependentUpon>Chef.cs</DependentUpon>
+    </EmbeddedResource>
+    
     <EmbeddedResource Include="cartItem.resx">
       <DependentUpon>cartItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +282,9 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="tablemanagement.resx">
       <DependentUpon>tablemanagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager.resx">
+      <DependentUpon>Manager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update Customer Personal Info.resx">
       <DependentUpon>Update Customer Personal Info.cs</DependentUpon>
