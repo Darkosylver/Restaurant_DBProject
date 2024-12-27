@@ -38,6 +38,7 @@ namespace Restaurant_DB
                 totalSpendingButton.Visible = false;
                 SpendingPerItemButton.Visible = false;
                 MostBoughtItemButton.Visible = false;
+
             }
         }
 

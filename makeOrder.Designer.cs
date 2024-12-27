@@ -115,6 +115,7 @@
             // 
             // orders
             // 
+            this.orders.Cursor = System.Windows.Forms.Cursors.Hand;
             this.orders.Image = global::Restaurant_DB.Properties.Resources.history;
             this.orders.Location = new System.Drawing.Point(739, 11);
             this.orders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -127,6 +128,7 @@
             // 
             // logout
             // 
+            this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logout.Image = global::Restaurant_DB.Properties.Resources.logout;
             this.logout.Location = new System.Drawing.Point(858, 11);
             this.logout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -139,6 +141,7 @@
             // 
             // menuBox
             // 
+            this.menuBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.menuBox.Image = global::Restaurant_DB.Properties.Resources.menu;
             this.menuBox.Location = new System.Drawing.Point(674, 8);
             this.menuBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -172,6 +175,7 @@
             // 
             // homePage
             // 
+            this.homePage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homePage.Image = global::Restaurant_DB.Properties.Resources.home;
             this.homePage.Location = new System.Drawing.Point(18, 11);
             this.homePage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
