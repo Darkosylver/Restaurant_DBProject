@@ -16,6 +16,7 @@ namespace Restaurant_DB
     {
         string waiterSSN;
         Controller controllerobj = new Controller();
+        encryptor encryptorobj = new encryptor();
         public SignUp(string waiterSSN)
         {
             InitializeComponent();
@@ -150,7 +151,7 @@ namespace Restaurant_DB
         {
             string fName = firstName.Text;
             string lName = lastName.Text;
-            string pWord = passWord.Text;
+            string pWord = encryptorobj.HashText(passWord.Text);
             string address = address1.Text;
             int cityLength = address.IndexOf(",");
             int streetLength = address.LastIndexOf(",") - (address.IndexOf(",") + 1);

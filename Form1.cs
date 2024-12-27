@@ -41,7 +41,8 @@ namespace Restaurant_DB
 
         private void logIn_Click(object sender, EventArgs e)
         {
-          
+            encryptor encrypt = new encryptor();
+            string encryptedpassword = encrypt.HashText(passWord.Text);
             if (controller.findPassword(userName.Text) == null)
             {
                 label3.Text = "Incorrect Credentials, Please check username";
@@ -49,12 +50,12 @@ namespace Restaurant_DB
             }
             else
             {
-                if (controller.findPassword(userName.Text).ToString() != passWord.Text)
+                if (controller.findPassword(userName.Text).ToString() !=  encryptedpassword)
                 {
                     label3.Text = "Incorrect Password, Please try again";
                     label3.Visible = true;
                 }
-                else if (controller.VerifyCustomer(userName.Text) != "" && controller.findPassword(userName.Text).ToString() == passWord.Text)
+                else if (controller.VerifyCustomer(userName.Text) != "" && controller.findPassword(userName.Text).ToString() == encryptedpassword)
                 {
                     Hide();
                     Form newform = new Welcome((userName.Text));

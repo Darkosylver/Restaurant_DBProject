@@ -179,7 +179,6 @@
     <Compile Include="Chef.Designer.cs">
       <DependentUpon>Chef.cs</DependentUpon>
     </Compile>
-   
     <Compile Include="cartItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,6 +190,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="encryptor.cs" />
     <Compile Include="makeOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,7 +266,6 @@
     <EmbeddedResource Include="Chef.resx">
       <DependentUpon>Chef.cs</DependentUpon>
     </EmbeddedResource>
-    
     <EmbeddedResource Include="cartItem.resx">
       <DependentUpon>cartItem.cs</DependentUpon>
     </EmbeddedResource>
