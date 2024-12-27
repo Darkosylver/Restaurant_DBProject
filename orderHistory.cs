@@ -35,7 +35,6 @@ namespace Restaurant_DB
                 delivered.Visible = false;
                 cancel.Enabled = false;
                 delivered.Enabled = false;
-                reportViewer1.Visible = true;
             }
         }
 
@@ -56,7 +55,6 @@ namespace Restaurant_DB
                 userPhone.Enabled = true;
                 searchConfirm.Visible = true;
             }
-            this.reportViewer1.RefreshReport();
         }
 
         private void historyRefresh_Click(object sender, EventArgs e)

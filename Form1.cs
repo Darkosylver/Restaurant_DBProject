@@ -75,19 +75,7 @@ namespace Restaurant_DB
                         passWord.Text = "";
                         label3.Visible = false;
                     }
-                    
-                    if(position == "Manager")
-                    {
-                        //open manager form
-                        Form fman = new Manager(userName.Text);
-                        fman.ShowDialog();
-                    }
-                    if (position== "Chef")
-                    {
-                        Form chef = new Chef(userName.Text);
-                        chef.ShowDialog();
-                    
-                    }
+                    //use this to know which form to load after the login
                 }
             }               
         }
