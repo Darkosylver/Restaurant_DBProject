@@ -200,7 +200,7 @@ namespace Restaurant_DB
 
         public DataTable LoadCustomerOrdersCurret(string phoneNumber)  //loads the orders of the customer
         {
-            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking');";
+            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking' OR OrderState = 'Ready');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -215,7 +215,7 @@ namespace Restaurant_DB
 
         public DataTable LoadWaiterOrdersCurret(string waiterSSN)  //loads the orders of the waiter
         {
-            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking');";
+            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking' OR OrderState = 'Ready');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
