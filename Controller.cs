@@ -154,6 +154,18 @@ namespace Restaurant_DB
             string query = "SELECT * FROM Customer WHERE PhoneNumber='"+phone+"';";
             return dbMan.ExecuteReader(query);
         }
+
+        public void cancelorder(int orderid) 
+        {
+            string query = "UPDATE CustomerOrder SET OrderState = 'Cancelled' WHERE OrderID ="+orderid+";";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public void deliverorder(int orderid)
+        {
+            string query = "UPDATE CustomerOrder SET OrderState = 'Delivered' WHERE OrderID =" + orderid + ";";
+            dbMan.ExecuteNonQuery(query);
+        }
         //you can edit the ones below :)
 
         //----------------- ABDELRAHMAN ZAKARIA ---------------------
@@ -203,7 +215,7 @@ namespace Restaurant_DB
 
         public DataTable LoadCustomerOrdersCurret(string phoneNumber)  //loads the orders of the customer
         {
-            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking');";
+            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking' OR OrderState = 'Ready');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -217,7 +229,7 @@ namespace Restaurant_DB
 
         public DataTable LoadWaiterOrdersCurret(string waiterSSN)  //loads the orders of the waiter
         {
-            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking');";
+            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking' OR OrderState = 'Ready');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -231,7 +243,7 @@ namespace Restaurant_DB
 
         public DataTable loadCustomerOrdersPrevious(string phoneNumber)
         {
-            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected');";
+            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected' OR OrderState = 'Cancelled');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -245,7 +257,7 @@ namespace Restaurant_DB
 
         public DataTable loadWaiterOrdersPrevious(string waiterSSN)
         {
-            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected');";
+            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected' Or OrderState = 'Cancelled');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
