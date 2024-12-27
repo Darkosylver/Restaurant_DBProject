@@ -30,7 +30,7 @@ namespace Restaurant_DB
             function = whatDo;
             menuItem = itemID;
             itemOrder = dataTable;
-            if (function == 0 || function == 2 && chefSSN != null)
+            if ((function == 0 || function == 2) && chefSSN != null)
             {
                 checkOut.Text = "Confirm Remove";
             }
