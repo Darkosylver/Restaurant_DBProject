@@ -181,10 +181,12 @@ namespace Restaurant_DB
             else if (ssnCheck == fName)
             {
                 errorText.Text = "This account already exists";
+                errorText.Visible = true;
             }
             else
             {
                 errorText.Text = "There already exists an account with the same number";
+                errorText.Visible = true;
             }
         }
 
