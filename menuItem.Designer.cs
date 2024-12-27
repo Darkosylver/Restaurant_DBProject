@@ -60,7 +60,7 @@
             // 
             // itemCount
             // 
-            this.itemCount.Location = new System.Drawing.Point(569, 55);
+            this.itemCount.Location = new System.Drawing.Point(634, 55);
             this.itemCount.Name = "itemCount";
             this.itemCount.Size = new System.Drawing.Size(16, 22);
             this.itemCount.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             // itemSub
             // 
-            this.itemSub.Location = new System.Drawing.Point(532, 55);
+            this.itemSub.Location = new System.Drawing.Point(592, 55);
             this.itemSub.Name = "itemSub";
             this.itemSub.Size = new System.Drawing.Size(22, 23);
             this.itemSub.TabIndex = 3;
@@ -79,7 +79,7 @@
             // 
             // itemAdd
             // 
-            this.itemAdd.Location = new System.Drawing.Point(601, 55);
+            this.itemAdd.Location = new System.Drawing.Point(666, 55);
             this.itemAdd.Name = "itemAdd";
             this.itemAdd.Size = new System.Drawing.Size(21, 23);
             this.itemAdd.TabIndex = 4;
@@ -90,7 +90,7 @@
             // itemID
             // 
             this.itemID.AutoSize = true;
-            this.itemID.Location = new System.Drawing.Point(3, 0);
+            this.itemID.Location = new System.Drawing.Point(653, 0);
             this.itemID.Name = "itemID";
             this.itemID.Size = new System.Drawing.Size(20, 16);
             this.itemID.TabIndex = 5;
@@ -137,6 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.itemPrice);
             this.Controls.Add(this.price);
             this.Controls.Add(this.timeCook);
@@ -147,8 +148,9 @@
             this.Controls.Add(this.itemCount);
             this.Controls.Add(this.itemDescription);
             this.Controls.Add(this.itemName);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "menuItem";
-            this.Size = new System.Drawing.Size(676, 150);
+            this.Size = new System.Drawing.Size(785, 148);
             this.ResumeLayout(false);
             this.PerformLayout();
 
