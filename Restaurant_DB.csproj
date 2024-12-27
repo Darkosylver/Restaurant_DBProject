@@ -173,6 +173,12 @@
     <Compile Include="menuForm.Designer.cs">
       <DependentUpon>menuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="orderHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="orderHistory.Designer.cs">
+      <DependentUpon>orderHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="RestaurantDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="menuForm.resx">
       <DependentUpon>menuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="orderHistory.resx">
+      <DependentUpon>orderHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tablemanagement.resx">
       <DependentUpon>tablemanagement.cs</DependentUpon>

@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.CustomerNameLabel = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.UpdatePersonalInfoButton = new System.Windows.Forms.Button();
             this.toolBar = new System.Windows.Forms.Panel();
             this.orderHistory = new System.Windows.Forms.PictureBox();
@@ -38,7 +37,6 @@
             this.menuBox = new System.Windows.Forms.PictureBox();
             this.homePicture = new System.Windows.Forms.PictureBox();
             this.welcomePanel = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOut)).BeginInit();
@@ -68,18 +66,6 @@
             this.CustomerNameLabel.Text = "Customer Name";
             this.CustomerNameLabel.Click += new System.EventHandler(this.CustomerNameLabel_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 75);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(826, 356);
-            this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.Visible = false;
-            // 
             // UpdatePersonalInfoButton
             // 
             this.UpdatePersonalInfoButton.ForeColor = System.Drawing.Color.Black;
@@ -102,9 +88,9 @@
             this.toolBar.Controls.Add(this.label1);
             this.toolBar.Controls.Add(this.UpdatePersonalInfoButton);
             this.toolBar.Controls.Add(this.CustomerNameLabel);
-            this.toolBar.Location = new System.Drawing.Point(11, 12);
+            this.toolBar.Location = new System.Drawing.Point(11, 2);
             this.toolBar.Name = "toolBar";
-            this.toolBar.Size = new System.Drawing.Size(826, 65);
+            this.toolBar.Size = new System.Drawing.Size(826, 68);
             this.toolBar.TabIndex = 7;
             // 
             // orderHistory
@@ -123,7 +109,7 @@
             // 
             this.logOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logOut.Image = global::Restaurant_DB.Properties.Resources.logout;
-            this.logOut.Location = new System.Drawing.Point(763, 9);
+            this.logOut.Location = new System.Drawing.Point(772, 9);
             this.logOut.Name = "logOut";
             this.logOut.Size = new System.Drawing.Size(40, 40);
             this.logOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -156,9 +142,10 @@
             // 
             // welcomePanel
             // 
-            this.welcomePanel.Location = new System.Drawing.Point(11, 75);
+            this.welcomePanel.Location = new System.Drawing.Point(11, 67);
+            this.welcomePanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.welcomePanel.Name = "welcomePanel";
-            this.welcomePanel.Size = new System.Drawing.Size(826, 356);
+            this.welcomePanel.Size = new System.Drawing.Size(826, 364);
             this.welcomePanel.TabIndex = 8;
             // 
             // Welcome
@@ -168,12 +155,10 @@
             this.ClientSize = new System.Drawing.Size(849, 442);
             this.Controls.Add(this.welcomePanel);
             this.Controls.Add(this.toolBar);
-            this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Welcome";
             this.Text = "Welcome";
             this.Load += new System.EventHandler(this.Welcome_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolBar.ResumeLayout(false);
             this.toolBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderHistory)).EndInit();
@@ -188,7 +173,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label CustomerNameLabel;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button UpdatePersonalInfoButton;
         private System.Windows.Forms.Panel toolBar;
         private System.Windows.Forms.PictureBox homePicture;

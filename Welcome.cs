@@ -54,9 +54,7 @@ namespace Restaurant_DB
 
         private void homePicture_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.Visible=false;
-            welcomePanel.Visible=true;
+            
         }
 
         private void menuBox_Click(object sender, EventArgs e)
@@ -78,9 +76,9 @@ namespace Restaurant_DB
 
         private void orderHistory_Click(object sender, EventArgs e)
         {
-            welcomePanel.Visible = false;
-            dataGridView1.DataSource = controllerobj.LoadCustomerOrders(Phone);
-            dataGridView1.Visible = true;
+            orderHistory orders = new orderHistory(Phone, waiterSSN);
+            orders.Show();
+            Close();
         }
     }
 }

@@ -34,6 +34,16 @@
             this.phonelabel = new System.Windows.Forms.Label();
             this.tablemanagement = new System.Windows.Forms.Button();
             this.customerinfo = new System.Windows.Forms.Button();
+            this.dashBoard = new System.Windows.Forms.Panel();
+            this.welcome = new System.Windows.Forms.Label();
+            this.waiterName = new System.Windows.Forms.Label();
+            this.logOut = new System.Windows.Forms.PictureBox();
+            this.homeBox = new System.Windows.Forms.PictureBox();
+            this.orderLog = new System.Windows.Forms.PictureBox();
+            this.dashBoard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderLog)).BeginInit();
             this.SuspendLayout();
             // 
             // order
@@ -49,7 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 60);
+            this.label1.Location = new System.Drawing.Point(32, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 16);
             this.label1.TabIndex = 3;
@@ -57,7 +67,7 @@
             // 
             // phoneno
             // 
-            this.phoneno.Location = new System.Drawing.Point(168, 60);
+            this.phoneno.Location = new System.Drawing.Point(169, 90);
             this.phoneno.Name = "phoneno";
             this.phoneno.Size = new System.Drawing.Size(126, 22);
             this.phoneno.TabIndex = 5;
@@ -91,11 +101,76 @@
             this.customerinfo.UseVisualStyleBackColor = true;
             this.customerinfo.Click += new System.EventHandler(this.customerinfo_Click);
             // 
+            // dashBoard
+            // 
+            this.dashBoard.BackColor = System.Drawing.Color.Black;
+            this.dashBoard.Controls.Add(this.orderLog);
+            this.dashBoard.Controls.Add(this.logOut);
+            this.dashBoard.Controls.Add(this.waiterName);
+            this.dashBoard.Controls.Add(this.welcome);
+            this.dashBoard.Controls.Add(this.homeBox);
+            this.dashBoard.Location = new System.Drawing.Point(-1, -2);
+            this.dashBoard.Name = "dashBoard";
+            this.dashBoard.Size = new System.Drawing.Size(847, 67);
+            this.dashBoard.TabIndex = 24;
+            // 
+            // welcome
+            // 
+            this.welcome.AutoSize = true;
+            this.welcome.ForeColor = System.Drawing.Color.White;
+            this.welcome.Location = new System.Drawing.Point(100, 15);
+            this.welcome.Name = "welcome";
+            this.welcome.Size = new System.Drawing.Size(68, 16);
+            this.welcome.TabIndex = 1;
+            this.welcome.Text = "Welcome,";
+            // 
+            // waiterName
+            // 
+            this.waiterName.AutoSize = true;
+            this.waiterName.ForeColor = System.Drawing.Color.White;
+            this.waiterName.Location = new System.Drawing.Point(100, 34);
+            this.waiterName.Name = "waiterName";
+            this.waiterName.Size = new System.Drawing.Size(76, 16);
+            this.waiterName.TabIndex = 2;
+            this.waiterName.Text = "waitername";
+            // 
+            // logOut
+            // 
+            this.logOut.Image = global::Restaurant_DB.Properties.Resources.logout;
+            this.logOut.Location = new System.Drawing.Point(794, 14);
+            this.logOut.Name = "logOut";
+            this.logOut.Size = new System.Drawing.Size(40, 40);
+            this.logOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logOut.TabIndex = 3;
+            this.logOut.TabStop = false;
+            // 
+            // homeBox
+            // 
+            this.homeBox.Image = global::Restaurant_DB.Properties.Resources.home;
+            this.homeBox.Location = new System.Drawing.Point(16, 9);
+            this.homeBox.Name = "homeBox";
+            this.homeBox.Size = new System.Drawing.Size(40, 40);
+            this.homeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.homeBox.TabIndex = 0;
+            this.homeBox.TabStop = false;
+            // 
+            // orderLog
+            // 
+            this.orderLog.Image = global::Restaurant_DB.Properties.Resources.history;
+            this.orderLog.Location = new System.Drawing.Point(644, 14);
+            this.orderLog.Name = "orderLog";
+            this.orderLog.Size = new System.Drawing.Size(45, 40);
+            this.orderLog.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.orderLog.TabIndex = 4;
+            this.orderLog.TabStop = false;
+            this.orderLog.Click += new System.EventHandler(this.orderLog_Click);
+            // 
             // waiter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(845, 450);
+            this.Controls.Add(this.dashBoard);
             this.Controls.Add(this.customerinfo);
             this.Controls.Add(this.tablemanagement);
             this.Controls.Add(this.phonelabel);
@@ -105,6 +180,11 @@
             this.Name = "waiter";
             this.Text = "waiter";
             this.Load += new System.EventHandler(this.waiter_Load);
+            this.dashBoard.ResumeLayout(false);
+            this.dashBoard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderLog)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,5 +198,11 @@
         private System.Windows.Forms.Label phonelabel;
         private System.Windows.Forms.Button tablemanagement;
         private System.Windows.Forms.Button customerinfo;
+        private System.Windows.Forms.Panel dashBoard;
+        private System.Windows.Forms.Label welcome;
+        private System.Windows.Forms.PictureBox homeBox;
+        private System.Windows.Forms.Label waiterName;
+        private System.Windows.Forms.PictureBox logOut;
+        private System.Windows.Forms.PictureBox orderLog;
     }
 }

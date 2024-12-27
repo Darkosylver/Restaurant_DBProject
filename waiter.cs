@@ -22,6 +22,7 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
             customerinfo.Enabled = false;
             tablemanagement.Enabled = false;
             order.Enabled = false;
+            waiterName.Text = controllerobj.getEmployeeName(ssn);
         }
 
         private void waiter_Load(object sender, EventArgs e)
@@ -63,6 +64,13 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
         private void customerinfo_Click(object sender, EventArgs e)
         {
             Form form = new updateuser(phoneno.Text,storedssn);
+        }
+
+        private void orderLog_Click(object sender, EventArgs e)
+        {
+            orderHistory orders = new orderHistory(null,storedssn);
+            orders.Show();
+            Close();
         }
     }
 }
