@@ -39,7 +39,6 @@
             this.currentOrders = new System.Windows.Forms.DataGridView();
             this.orderPrev = new System.Windows.Forms.Label();
             this.previousOrders = new System.Windows.Forms.DataGridView();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.search = new System.Windows.Forms.Label();
             this.userPhone = new System.Windows.Forms.TextBox();
             this.searchConfirm = new System.Windows.Forms.Button();
@@ -64,17 +63,17 @@
             this.dashBoard.Controls.Add(this.logOut);
             this.dashBoard.Controls.Add(this.homeBox);
             this.dashBoard.Location = new System.Drawing.Point(2, 1);
-            this.dashBoard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dashBoard.Name = "dashBoard";
-            this.dashBoard.Size = new System.Drawing.Size(966, 78);
+            this.dashBoard.Size = new System.Drawing.Size(859, 62);
             this.dashBoard.TabIndex = 0;
             // 
             // historyRefresh
             // 
             this.historyRefresh.Image = global::Restaurant_DB.Properties.Resources.history;
-            this.historyRefresh.Location = new System.Drawing.Point(671, 11);
+            this.historyRefresh.Location = new System.Drawing.Point(596, 9);
+            this.historyRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.historyRefresh.Name = "historyRefresh";
-            this.historyRefresh.Size = new System.Drawing.Size(45, 40);
+            this.historyRefresh.Size = new System.Drawing.Size(40, 32);
             this.historyRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.historyRefresh.TabIndex = 5;
             this.historyRefresh.TabStop = false;
@@ -83,9 +82,10 @@
             // menu
             // 
             this.menu.Image = global::Restaurant_DB.Properties.Resources.menu;
-            this.menu.Location = new System.Drawing.Point(608, 9);
+            this.menu.Location = new System.Drawing.Point(540, 7);
+            this.menu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(40, 40);
+            this.menu.Size = new System.Drawing.Size(36, 32);
             this.menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.menu.TabIndex = 4;
             this.menu.TabStop = false;
@@ -95,7 +95,7 @@
             // 
             this.userName.AutoSize = true;
             this.userName.ForeColor = System.Drawing.Color.White;
-            this.userName.Location = new System.Drawing.Point(100, 34);
+            this.userName.Location = new System.Drawing.Point(89, 27);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(67, 16);
             this.userName.TabIndex = 3;
@@ -131,59 +131,24 @@
             this.homeBox.TabIndex = 0;
             this.homeBox.TabStop = false;
             // 
-            // welcome
-            // 
-            this.welcome.AutoSize = true;
-            this.welcome.ForeColor = System.Drawing.Color.White;
-            this.welcome.Location = new System.Drawing.Point(112, 19);
-            this.welcome.Name = "welcome";
-            this.welcome.Size = new System.Drawing.Size(79, 20);
-            this.welcome.TabIndex = 2;
-            this.welcome.Text = "Welcome,";
-            // 
-            // logOut
-            // 
-            this.logOut.Image = global::Restaurant_DB.Properties.Resources.logout;
-            this.logOut.Location = new System.Drawing.Point(908, 11);
-            this.logOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(45, 50);
-            this.logOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logOut.TabIndex = 1;
-            this.logOut.TabStop = false;
-            // 
-            // homeBox
-            // 
-            this.homeBox.Image = global::Restaurant_DB.Properties.Resources.home;
-            this.homeBox.Location = new System.Drawing.Point(18, 11);
-            this.homeBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.homeBox.Name = "homeBox";
-            this.ClientSize = new System.Drawing.Size(969, 805);
-            this.Controls.Add(this.reportViewer1);
-            this.homeBox.Size = new System.Drawing.Size(45, 50);
-            this.homeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.homeBox.TabIndex = 0;
-            this.homeBox.TabStop = false;
-            // 
             // orderCurrent
             // 
             this.orderCurrent.AutoSize = true;
             this.orderCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderCurrent.Location = new System.Drawing.Point(14, 96);
+            this.orderCurrent.Location = new System.Drawing.Point(12, 77);
             this.orderCurrent.Name = "orderCurrent";
-            this.orderCurrent.Size = new System.Drawing.Size(209, 32);
+            this.orderCurrent.Size = new System.Drawing.Size(179, 29);
             this.orderCurrent.TabIndex = 1;
             this.orderCurrent.Text = "Current Orders:";
             // 
             // currentOrders
             // 
             this.currentOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.currentOrders.Location = new System.Drawing.Point(20, 136);
-            this.currentOrders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.currentOrders.Location = new System.Drawing.Point(18, 109);
             this.currentOrders.Name = "currentOrders";
             this.currentOrders.RowHeadersWidth = 51;
             this.currentOrders.RowTemplate.Height = 24;
-            this.currentOrders.Size = new System.Drawing.Size(935, 156);
+            this.currentOrders.Size = new System.Drawing.Size(831, 125);
             this.currentOrders.TabIndex = 2;
             this.currentOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.currentOrders_CellContentClick);
             // 
@@ -191,36 +156,26 @@
             // 
             this.orderPrev.AutoSize = true;
             this.orderPrev.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderPrev.Location = new System.Drawing.Point(15, 308);
+            this.orderPrev.Location = new System.Drawing.Point(13, 246);
             this.orderPrev.Name = "orderPrev";
-            this.orderPrev.Size = new System.Drawing.Size(226, 32);
+            this.orderPrev.Size = new System.Drawing.Size(194, 29);
             this.orderPrev.TabIndex = 3;
             this.orderPrev.Text = "Previous Orders:";
             // 
             // previousOrders
             // 
             this.previousOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.previousOrders.Location = new System.Drawing.Point(20, 360);
-            this.previousOrders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.previousOrders.Location = new System.Drawing.Point(18, 288);
             this.previousOrders.Name = "previousOrders";
             this.previousOrders.RowHeadersWidth = 51;
             this.previousOrders.RowTemplate.Height = 24;
-            this.previousOrders.Size = new System.Drawing.Size(935, 169);
+            this.previousOrders.Size = new System.Drawing.Size(831, 135);
             this.previousOrders.TabIndex = 4;
             // 
-            // reportViewer1
-            // 
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Restaurant_DB.Report1.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(222, 547);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(396, 224);
-            this.reportViewer1.TabIndex = 5;
-            this.reportViewer1.Visible = false;
             // search
             // 
             this.search.AutoSize = true;
-            this.search.Location = new System.Drawing.Point(261, 87);
+            this.search.Location = new System.Drawing.Point(232, 70);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(97, 16);
             this.search.TabIndex = 5;
@@ -230,9 +185,10 @@
             // userPhone
             // 
             this.userPhone.Enabled = false;
-            this.userPhone.Location = new System.Drawing.Point(378, 84);
+            this.userPhone.Location = new System.Drawing.Point(336, 67);
+            this.userPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userPhone.Name = "userPhone";
-            this.userPhone.Size = new System.Drawing.Size(131, 22);
+            this.userPhone.Size = new System.Drawing.Size(117, 22);
             this.userPhone.TabIndex = 6;
             this.userPhone.Visible = false;
             this.userPhone.TextChanged += new System.EventHandler(this.userPhone_TextChanged);
@@ -241,9 +197,10 @@
             // searchConfirm
             // 
             this.searchConfirm.Enabled = false;
-            this.searchConfirm.Location = new System.Drawing.Point(529, 84);
+            this.searchConfirm.Location = new System.Drawing.Point(470, 67);
+            this.searchConfirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchConfirm.Name = "searchConfirm";
-            this.searchConfirm.Size = new System.Drawing.Size(75, 23);
+            this.searchConfirm.Size = new System.Drawing.Size(72, 22);
             this.searchConfirm.TabIndex = 7;
             this.searchConfirm.Text = "Search";
             this.searchConfirm.UseVisualStyleBackColor = true;
@@ -252,9 +209,10 @@
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(131, 473);
+            this.cancel.Location = new System.Drawing.Point(116, 378);
+            this.cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(114, 23);
+            this.cancel.Size = new System.Drawing.Size(114, 26);
             this.cancel.TabIndex = 8;
             this.cancel.Text = "Cancel Order";
             this.cancel.UseVisualStyleBackColor = true;
@@ -262,9 +220,10 @@
             // 
             // delivered
             // 
-            this.delivered.Location = new System.Drawing.Point(433, 472);
+            this.delivered.Location = new System.Drawing.Point(385, 378);
+            this.delivered.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.delivered.Name = "delivered";
-            this.delivered.Size = new System.Drawing.Size(132, 23);
+            this.delivered.Size = new System.Drawing.Size(128, 26);
             this.delivered.TabIndex = 9;
             this.delivered.Text = "Mark as Delivered";
             this.delivered.UseVisualStyleBackColor = true;
@@ -272,9 +231,9 @@
             // 
             // orderHistory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 644);
+            this.ClientSize = new System.Drawing.Size(765, 515);
             this.Controls.Add(this.delivered);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.searchConfirm);
@@ -285,7 +244,6 @@
             this.Controls.Add(this.currentOrders);
             this.Controls.Add(this.orderCurrent);
             this.Controls.Add(this.dashBoard);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "orderHistory";
             this.Text = "orderHistory";
             this.Load += new System.EventHandler(this.orderHistory_Load);

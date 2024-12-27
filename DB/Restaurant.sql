@@ -40,6 +40,7 @@ CREATE TABLE Ingredient(
 CREATE TABLE Request(
 	ID INT IDENTITY(1,1) PRIMARY KEY,
 	IngredientID INT NOT NULL,
+	Quantity DECIMAL(5,2) NOT NULL,
 	ChefSSN VARCHAR(11) NOT NULL,
 	RequestDate DATE NOT NULL,
 	RequestStatus VARCHAR(20) DEFAULT 'Pending',
@@ -207,11 +208,11 @@ VALUES
     ('Potatoes', 150, 0.60),
     ('Bell Peppers', 70, 1.20);
 
-INSERT INTO Request (IngredientID, ChefSSN, RequestDate, RequestStatus, ManagerSSN)
+INSERT INTO Request (IngredientID, Quantity, ChefSSN, RequestDate, RequestStatus, ManagerSSN)
 VALUES
-    (1, '12345678901', '2024-12-01', 'Pending', '23456789012'),
-    (2, '12345678901', '2024-12-02', 'Approved', '23456789012'),
-    (3, '34567890123', '2024-12-03', 'Pending', '23456789012');
+    (1, 10, '12345678901', '2024-12-01', 'Pending', '23456789012'),
+    (2, 20, '12345678901', '2024-12-02', 'Approved', '23456789012'),
+    (3, 30, '34567890123', '2024-12-03', 'Pending', '23456789012');
 
 INSERT INTO MenuItem (ItemName, CookingTime, ItemStatus, ChefSSN)
 VALUES
