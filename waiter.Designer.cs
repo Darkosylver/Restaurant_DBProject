@@ -29,34 +29,26 @@
         private void InitializeComponent()
         {
             this.order = new System.Windows.Forms.Button();
-            this.update = new System.Windows.Forms.Button();
-            this.reserve = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.phoneno = new System.Windows.Forms.TextBox();
-            this.tableno = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.building = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.street = new System.Windows.Forms.TextBox();
-            this.city = new System.Windows.Forms.TextBox();
-            this.delete = new System.Windows.Forms.Button();
-            this.freetable = new System.Windows.Forms.Button();
-            this.tablelabel = new System.Windows.Forms.Label();
-            this.restauranttables = new System.Windows.Forms.DataGridView();
-            this.refresh = new System.Windows.Forms.Button();
-            this.addtable = new System.Windows.Forms.Button();
             this.phonelabel = new System.Windows.Forms.Label();
-            this.deletetable = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.addresses = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.restauranttables)).BeginInit();
+            this.tablemanagement = new System.Windows.Forms.Button();
+            this.customerinfo = new System.Windows.Forms.Button();
+            this.dashBoard = new System.Windows.Forms.Panel();
+            this.welcome = new System.Windows.Forms.Label();
+            this.waiterName = new System.Windows.Forms.Label();
+            this.logOut = new System.Windows.Forms.PictureBox();
+            this.homeBox = new System.Windows.Forms.PictureBox();
+            this.orderLog = new System.Windows.Forms.PictureBox();
+            this.dashBoard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderLog)).BeginInit();
             this.SuspendLayout();
             // 
             // order
             // 
-            this.order.Location = new System.Drawing.Point(503, 86);
+            this.order.Location = new System.Drawing.Point(597, 210);
             this.order.Name = "order";
             this.order.Size = new System.Drawing.Size(134, 23);
             this.order.TabIndex = 0;
@@ -64,169 +56,22 @@
             this.order.UseVisualStyleBackColor = true;
             this.order.Click += new System.EventHandler(this.order_Click);
             // 
-            // update
-            // 
-            this.update.Location = new System.Drawing.Point(663, 212);
-            this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(125, 23);
-            this.update.TabIndex = 1;
-            this.update.Text = "insert address";
-            this.update.UseVisualStyleBackColor = true;
-            this.update.Click += new System.EventHandler(this.update_Click_1);
-            // 
-            // reserve
-            // 
-            this.reserve.Location = new System.Drawing.Point(663, 347);
-            this.reserve.Name = "reserve";
-            this.reserve.Size = new System.Drawing.Size(125, 23);
-            this.reserve.TabIndex = 2;
-            this.reserve.Text = "reserve table";
-            this.reserve.UseVisualStyleBackColor = true;
-            this.reserve.Click += new System.EventHandler(this.reserve_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(86, 93);
+            this.label1.Location = new System.Drawing.Point(32, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "phone number";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(522, 347);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 16);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "table number";
-            // 
             // phoneno
             // 
-            this.phoneno.Location = new System.Drawing.Point(185, 91);
+            this.phoneno.Location = new System.Drawing.Point(169, 90);
             this.phoneno.Name = "phoneno";
             this.phoneno.Size = new System.Drawing.Size(126, 22);
             this.phoneno.TabIndex = 5;
             this.phoneno.TextChanged += new System.EventHandler(this.phoneno_TextChanged);
-            // 
-            // tableno
-            // 
-            this.tableno.Location = new System.Drawing.Point(517, 377);
-            this.tableno.Name = "tableno";
-            this.tableno.Size = new System.Drawing.Size(134, 22);
-            this.tableno.TabIndex = 6;
-            this.tableno.TextChanged += new System.EventHandler(this.tableno_TextChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(459, 189);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 16);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "building";
-            // 
-            // building
-            // 
-            this.building.Location = new System.Drawing.Point(537, 186);
-            this.building.Name = "building";
-            this.building.Size = new System.Drawing.Size(100, 22);
-            this.building.TabIndex = 12;
-            this.building.TextChanged += new System.EventHandler(this.building_TextChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(473, 220);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "street";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(486, 248);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 16);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "city";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // street
-            // 
-            this.street.Location = new System.Drawing.Point(537, 214);
-            this.street.Name = "street";
-            this.street.Size = new System.Drawing.Size(100, 22);
-            this.street.TabIndex = 11;
-            this.street.TextChanged += new System.EventHandler(this.street_TextChanged);
-            // 
-            // city
-            // 
-            this.city.Location = new System.Drawing.Point(537, 242);
-            this.city.Name = "city";
-            this.city.Size = new System.Drawing.Size(100, 22);
-            this.city.TabIndex = 10;
-            this.city.TextChanged += new System.EventHandler(this.city_TextChanged);
-            // 
-            // delete
-            // 
-            this.delete.Location = new System.Drawing.Point(663, 145);
-            this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(125, 23);
-            this.delete.TabIndex = 13;
-            this.delete.Text = "delete address";
-            this.delete.UseVisualStyleBackColor = true;
-            this.delete.Click += new System.EventHandler(this.delete_Click);
-            // 
-            // freetable
-            // 
-            this.freetable.Location = new System.Drawing.Point(663, 376);
-            this.freetable.Name = "freetable";
-            this.freetable.Size = new System.Drawing.Size(125, 23);
-            this.freetable.TabIndex = 16;
-            this.freetable.Text = "free table";
-            this.freetable.UseVisualStyleBackColor = true;
-            this.freetable.Click += new System.EventHandler(this.freetable_Click);
-            // 
-            // tablelabel
-            // 
-            this.tablelabel.AutoSize = true;
-            this.tablelabel.Location = new System.Drawing.Point(500, 406);
-            this.tablelabel.Name = "tablelabel";
-            this.tablelabel.Size = new System.Drawing.Size(0, 16);
-            this.tablelabel.TabIndex = 17;
-            // 
-            // restauranttables
-            // 
-            this.restauranttables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.restauranttables.Location = new System.Drawing.Point(12, 257);
-            this.restauranttables.Name = "restauranttables";
-            this.restauranttables.RowHeadersWidth = 51;
-            this.restauranttables.RowTemplate.Height = 24;
-            this.restauranttables.Size = new System.Drawing.Size(403, 181);
-            this.restauranttables.TabIndex = 18;
-            // 
-            // refresh
-            // 
-            this.refresh.Location = new System.Drawing.Point(12, 212);
-            this.refresh.Name = "refresh";
-            this.refresh.Size = new System.Drawing.Size(75, 23);
-            this.refresh.TabIndex = 19;
-            this.refresh.Text = "refresh";
-            this.refresh.UseVisualStyleBackColor = true;
-            this.refresh.Click += new System.EventHandler(this.refresh_Click);
-            // 
-            // addtable
-            // 
-            this.addtable.Location = new System.Drawing.Point(322, 212);
-            this.addtable.Name = "addtable";
-            this.addtable.Size = new System.Drawing.Size(75, 23);
-            this.addtable.TabIndex = 20;
-            this.addtable.Text = "add table";
-            this.addtable.UseVisualStyleBackColor = true;
-            this.addtable.Click += new System.EventHandler(this.addtable_Click);
             // 
             // phonelabel
             // 
@@ -236,66 +81,110 @@
             this.phonelabel.Size = new System.Drawing.Size(0, 16);
             this.phonelabel.TabIndex = 21;
             // 
-            // deletetable
+            // tablemanagement
             // 
-            this.deletetable.Location = new System.Drawing.Point(663, 406);
-            this.deletetable.Name = "deletetable";
-            this.deletetable.Size = new System.Drawing.Size(125, 23);
-            this.deletetable.TabIndex = 22;
-            this.deletetable.Text = "delete table";
-            this.deletetable.UseVisualStyleBackColor = true;
-            this.deletetable.Click += new System.EventHandler(this.deletetable_Click);
+            this.tablemanagement.Location = new System.Drawing.Point(102, 210);
+            this.tablemanagement.Name = "tablemanagement";
+            this.tablemanagement.Size = new System.Drawing.Size(137, 23);
+            this.tablemanagement.TabIndex = 22;
+            this.tablemanagement.Text = "Table Management";
+            this.tablemanagement.UseVisualStyleBackColor = true;
+            this.tablemanagement.Click += new System.EventHandler(this.tablemanagement_Click);
             // 
-            // comboBox1
+            // customerinfo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(537, 144);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 23;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.customerinfo.Location = new System.Drawing.Point(345, 210);
+            this.customerinfo.Name = "customerinfo";
+            this.customerinfo.Size = new System.Drawing.Size(132, 23);
+            this.customerinfo.TabIndex = 23;
+            this.customerinfo.Text = "Update Customer Info";
+            this.customerinfo.UseVisualStyleBackColor = true;
+            this.customerinfo.Click += new System.EventHandler(this.customerinfo_Click);
             // 
-            // addresses
+            // dashBoard
             // 
-            this.addresses.AutoSize = true;
-            this.addresses.Location = new System.Drawing.Point(441, 148);
-            this.addresses.Name = "addresses";
-            this.addresses.Size = new System.Drawing.Size(72, 16);
-            this.addresses.TabIndex = 24;
-            this.addresses.Text = "addresses";
+            this.dashBoard.BackColor = System.Drawing.Color.Black;
+            this.dashBoard.Controls.Add(this.orderLog);
+            this.dashBoard.Controls.Add(this.logOut);
+            this.dashBoard.Controls.Add(this.waiterName);
+            this.dashBoard.Controls.Add(this.welcome);
+            this.dashBoard.Controls.Add(this.homeBox);
+            this.dashBoard.Location = new System.Drawing.Point(-1, -2);
+            this.dashBoard.Name = "dashBoard";
+            this.dashBoard.Size = new System.Drawing.Size(847, 67);
+            this.dashBoard.TabIndex = 24;
+            // 
+            // welcome
+            // 
+            this.welcome.AutoSize = true;
+            this.welcome.ForeColor = System.Drawing.Color.White;
+            this.welcome.Location = new System.Drawing.Point(100, 15);
+            this.welcome.Name = "welcome";
+            this.welcome.Size = new System.Drawing.Size(68, 16);
+            this.welcome.TabIndex = 1;
+            this.welcome.Text = "Welcome,";
+            // 
+            // waiterName
+            // 
+            this.waiterName.AutoSize = true;
+            this.waiterName.ForeColor = System.Drawing.Color.White;
+            this.waiterName.Location = new System.Drawing.Point(100, 34);
+            this.waiterName.Name = "waiterName";
+            this.waiterName.Size = new System.Drawing.Size(76, 16);
+            this.waiterName.TabIndex = 2;
+            this.waiterName.Text = "waitername";
+            // 
+            // logOut
+            // 
+            this.logOut.Image = global::Restaurant_DB.Properties.Resources.logout;
+            this.logOut.Location = new System.Drawing.Point(794, 14);
+            this.logOut.Name = "logOut";
+            this.logOut.Size = new System.Drawing.Size(40, 40);
+            this.logOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logOut.TabIndex = 3;
+            this.logOut.TabStop = false;
+            // 
+            // homeBox
+            // 
+            this.homeBox.Image = global::Restaurant_DB.Properties.Resources.home;
+            this.homeBox.Location = new System.Drawing.Point(16, 9);
+            this.homeBox.Name = "homeBox";
+            this.homeBox.Size = new System.Drawing.Size(40, 40);
+            this.homeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.homeBox.TabIndex = 0;
+            this.homeBox.TabStop = false;
+            // 
+            // orderLog
+            // 
+            this.orderLog.Image = global::Restaurant_DB.Properties.Resources.history;
+            this.orderLog.Location = new System.Drawing.Point(644, 14);
+            this.orderLog.Name = "orderLog";
+            this.orderLog.Size = new System.Drawing.Size(45, 40);
+            this.orderLog.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.orderLog.TabIndex = 4;
+            this.orderLog.TabStop = false;
+            this.orderLog.Click += new System.EventHandler(this.orderLog_Click);
             // 
             // waiter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.addresses);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.deletetable);
+            this.ClientSize = new System.Drawing.Size(845, 450);
+            this.Controls.Add(this.dashBoard);
+            this.Controls.Add(this.customerinfo);
+            this.Controls.Add(this.tablemanagement);
             this.Controls.Add(this.phonelabel);
-            this.Controls.Add(this.addtable);
-            this.Controls.Add(this.refresh);
-            this.Controls.Add(this.restauranttables);
-            this.Controls.Add(this.tablelabel);
-            this.Controls.Add(this.freetable);
-            this.Controls.Add(this.delete);
-            this.Controls.Add(this.building);
-            this.Controls.Add(this.street);
-            this.Controls.Add(this.city);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.tableno);
             this.Controls.Add(this.phoneno);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.reserve);
-            this.Controls.Add(this.update);
             this.Controls.Add(this.order);
             this.Name = "waiter";
             this.Text = "waiter";
             this.Load += new System.EventHandler(this.waiter_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.restauranttables)).EndInit();
+            this.dashBoard.ResumeLayout(false);
+            this.dashBoard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderLog)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,27 +193,16 @@
         #endregion
 
         private System.Windows.Forms.Button order;
-        private System.Windows.Forms.Button update;
-        private System.Windows.Forms.Button reserve;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox phoneno;
-        private System.Windows.Forms.TextBox tableno;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox building;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox street;
-        private System.Windows.Forms.TextBox city;
-        private System.Windows.Forms.Button delete;
-        private System.Windows.Forms.Button freetable;
-        private System.Windows.Forms.Label tablelabel;
-        private System.Windows.Forms.DataGridView restauranttables;
-        private System.Windows.Forms.Button refresh;
-        private System.Windows.Forms.Button addtable;
         private System.Windows.Forms.Label phonelabel;
-        private System.Windows.Forms.Button deletetable;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label addresses;
+        private System.Windows.Forms.Button tablemanagement;
+        private System.Windows.Forms.Button customerinfo;
+        private System.Windows.Forms.Panel dashBoard;
+        private System.Windows.Forms.Label welcome;
+        private System.Windows.Forms.PictureBox homeBox;
+        private System.Windows.Forms.Label waiterName;
+        private System.Windows.Forms.PictureBox logOut;
+        private System.Windows.Forms.PictureBox orderLog;
     }
 }

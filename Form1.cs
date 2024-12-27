@@ -49,18 +49,19 @@ namespace Restaurant_DB
             }
             else
             {
-                if (controller.findPassword(userName.Text).ToString() != passWord.Text && controller.VerifyCustomer(userName.Text)=="")
+                if (controller.findPassword(userName.Text).ToString() != passWord.Text)
                 {
                     label3.Text = "Incorrect Password, Please try again";
                     label3.Visible = true;
                 }
-                else if (controller.VerifyCustomer(userName.Text) != "")
+                else if (controller.VerifyCustomer(userName.Text) != "" && controller.findPassword(userName.Text).ToString() == passWord.Text)
                 {
                     Hide();
                     Form newform = new Welcome((userName.Text));
                     newform.ShowDialog();
                     Show();
                     passWord.Text = "";
+                    label3.Visible=false;
                 }
                 else
                 {
@@ -72,6 +73,7 @@ namespace Restaurant_DB
                         newform.ShowDialog();
                         Show();
                         passWord.Text = "";
+                        label3.Visible = false;
                     }
                     //use this to know which form to load after the login
                 }

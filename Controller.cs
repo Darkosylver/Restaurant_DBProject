@@ -198,9 +198,9 @@ namespace Restaurant_DB
             }
         }
 
-        public DataTable LoadCustomerOrders(string phoneNumber)  //loads the orders of the customer
+        public DataTable LoadCustomerOrdersCurret(string phoneNumber)  //loads the orders of the customer
         {
-            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "';";
+            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderStatus = 'Pending' OR OrderStatus = 'Approved' OR OrderStatus = 'Cooking');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -209,6 +209,51 @@ namespace Restaurant_DB
             else
             {
                 MessageBox.Show("No Orders found for the given Phone Number.");
+                return null;
+            }
+        }
+
+        public DataTable LoadWaiterOrdersCurret(string waiterSSN)  //loads the orders of the waiter
+        {
+            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderStatus = 'Pending' OR OrderStatus = 'Approved' OR OrderStatus = 'Cooking');";
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                MessageBox.Show("No Orders found for the given Phone Number.");
+                return null;
+            }
+        }
+
+        public DataTable loadCustomerOrdersPrevious(string phoneNumber)
+        {
+            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderStatus = 'Delivered' OR OrderStatus = 'Rejected');";
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                MessageBox.Show("No Orders found for this Waiter.");
+                return null;
+            }
+        }
+
+        public DataTable loadWaiterOrdersPrevious(string waiterSSN)
+        {
+            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderStatus = 'Delivered' OR OrderStatus = 'Rejected');";
+            DataTable dt = dbMan.ExecuteReader(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                MessageBox.Show("No Orders found for this Waiter.");
                 return null;
             }
         }
