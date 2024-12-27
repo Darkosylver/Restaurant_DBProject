@@ -60,7 +60,7 @@
             // CustomerNameLabel
             // 
             this.CustomerNameLabel.AutoSize = true;
-            this.CustomerNameLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CustomerNameLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.CustomerNameLabel.ForeColor = System.Drawing.Color.White;
             this.CustomerNameLabel.Location = new System.Drawing.Point(100, 34);
             this.CustomerNameLabel.Name = "CustomerNameLabel";

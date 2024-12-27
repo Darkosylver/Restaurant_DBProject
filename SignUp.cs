@@ -14,10 +14,12 @@ namespace Restaurant_DB
 {
     public partial class SignUp : Form
     {
+        string waiterSSN;
         Controller controllerobj = new Controller();
-        public SignUp()
+        public SignUp(string waiterSSN)
         {
             InitializeComponent();
+            this.waiterSSN = waiterSSN;
         }
 
         private void firstName_TextChanged(object sender, EventArgs e)
@@ -171,11 +173,21 @@ namespace Restaurant_DB
             string ssnCheck = controllerobj.VerifyCustomer(phoneNumber.Text);
             if (ssnCheck == "")
             {
+                
                 controllerobj.addCustomer(phoneNumber.Text, fName, lName, pWord);
                 controllerobj.insertlocation(phoneNumber.Text, locationID);
                 Hide();
-                Welcome homePage = new Welcome(phoneNumber.Text);
-                homePage.ShowDialog();
+                if (waiterSSN == null)
+                {
+                    Welcome homePage = new Welcome(phoneNumber.Text);
+                    homePage.ShowDialog();
+                    
+                }
+                else
+                {
+                    waiter homePage = new waiter(waiterSSN);
+                    homePage.ShowDialog();
+                }
                 Close();
             }
             else if (ssnCheck == fName)
@@ -284,6 +296,22 @@ namespace Restaurant_DB
                 return true;
             }
             return false;
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            if (waiterSSN == null)
+            {
+                Welcome homePage = new Welcome(null);
+                homePage.ShowDialog();
+            }
+            else
+            {
+                Welcome homePage = new Welcome(waiterSSN);
+                homePage.ShowDialog();
+            }
+            Close();
         }
     }
 }

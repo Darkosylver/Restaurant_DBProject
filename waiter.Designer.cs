@@ -41,6 +41,7 @@
             this.welcome = new System.Windows.Forms.Label();
             this.homeBox = new System.Windows.Forms.PictureBox();
             this.noCustomer = new System.Windows.Forms.Label();
+            this.addCustomer = new System.Windows.Forms.Button();
             this.dashBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOut)).BeginInit();
@@ -117,6 +118,7 @@
             // 
             // orderLog
             // 
+            this.orderLog.Cursor = System.Windows.Forms.Cursors.Hand;
             this.orderLog.Image = global::Restaurant_DB.Properties.Resources.history;
             this.orderLog.Location = new System.Drawing.Point(644, 14);
             this.orderLog.Name = "orderLog";
@@ -128,6 +130,7 @@
             // 
             // logOut
             // 
+            this.logOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logOut.Image = global::Restaurant_DB.Properties.Resources.logout;
             this.logOut.Location = new System.Drawing.Point(794, 14);
             this.logOut.Name = "logOut";
@@ -159,6 +162,7 @@
             // 
             // homeBox
             // 
+            this.homeBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homeBox.Image = global::Restaurant_DB.Properties.Resources.home;
             this.homeBox.Location = new System.Drawing.Point(13, 14);
             this.homeBox.Name = "homeBox";
@@ -177,11 +181,24 @@
             this.noCustomer.Text = "Customer not found";
             this.noCustomer.Visible = false;
             // 
+            // addCustomer
+            // 
+            this.addCustomer.Enabled = false;
+            this.addCustomer.Location = new System.Drawing.Point(492, 89);
+            this.addCustomer.Name = "addCustomer";
+            this.addCustomer.Size = new System.Drawing.Size(121, 23);
+            this.addCustomer.TabIndex = 26;
+            this.addCustomer.Text = "Add Customer";
+            this.addCustomer.UseVisualStyleBackColor = true;
+            this.addCustomer.Visible = false;
+            this.addCustomer.Click += new System.EventHandler(this.addCustomer_Click);
+            // 
             // waiter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 450);
+            this.Controls.Add(this.addCustomer);
             this.Controls.Add(this.noCustomer);
             this.Controls.Add(this.dashBoard);
             this.Controls.Add(this.customerinfo);
@@ -218,5 +235,6 @@
         private System.Windows.Forms.PictureBox logOut;
         private System.Windows.Forms.PictureBox orderLog;
         private System.Windows.Forms.Label noCustomer;
+        private System.Windows.Forms.Button addCustomer;
     }
 }

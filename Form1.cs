@@ -95,7 +95,7 @@ namespace Restaurant_DB
         private void signUp_MouseClick(object sender, MouseEventArgs e)
         {
             Hide();
-            SignUp sign = new SignUp();
+            SignUp sign = new SignUp(null);
             sign.ShowDialog();
             Show();
         }

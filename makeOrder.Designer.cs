@@ -113,6 +113,7 @@
             // 
             // orders
             // 
+            this.orders.Cursor = System.Windows.Forms.Cursors.Hand;
             this.orders.Image = global::Restaurant_DB.Properties.Resources.history;
             this.orders.Location = new System.Drawing.Point(657, 9);
             this.orders.Name = "orders";
@@ -124,6 +125,7 @@
             // 
             // logout
             // 
+            this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logout.Image = global::Restaurant_DB.Properties.Resources.logout;
             this.logout.Location = new System.Drawing.Point(801, 6);
             this.logout.Name = "logout";
@@ -135,6 +137,7 @@
             // 
             // menuBox
             // 
+            this.menuBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.menuBox.Image = global::Restaurant_DB.Properties.Resources.menu;
             this.menuBox.Location = new System.Drawing.Point(599, 6);
             this.menuBox.Name = "menuBox";
@@ -167,6 +170,7 @@
             // 
             // homePage
             // 
+            this.homePage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homePage.Image = global::Restaurant_DB.Properties.Resources.home;
             this.homePage.Location = new System.Drawing.Point(16, 9);
             this.homePage.Name = "homePage";
