@@ -393,6 +393,21 @@ namespace Restaurant_DB
                 "JOIN Ingredient i ON ci.IngredientID = i.IngredientID;";
             return dbMan.ExecuteReader(query);
         }
+
+        public float GetRestaurantSpendingOnIngredients()
+        {
+            string query = "SELECT SUM(r.Quantity * i.IngredientPrice) AS TotalSpending " +
+                "FROM Request r " +
+                "JOIN Ingredient i ON r.IngredientID = i.IngredientID;";
+            return Convert.ToSingle(dbMan.ExecuteScalar(query));
+        }
+
+        public float GetTotalSalaries()
+        {
+            string query = "SELECT SUM(Salary) AS TotalSalaries " +
+                "FROM Employee;";
+            return Convert.ToSingle(dbMan.ExecuteScalar(query));
+        }
         
 
         //--------------------ALAA HAYTHAM----------------------

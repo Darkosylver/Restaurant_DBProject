@@ -35,7 +35,6 @@ namespace Restaurant_DB
                 delivered.Visible = false;
                 cancel.Enabled = false;
                 delivered.Enabled = false;
-                reportViewer1.Visible = true;
             }
         }
 
