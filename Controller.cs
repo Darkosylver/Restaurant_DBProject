@@ -1,13 +1,16 @@
-﻿using Microsoft.SqlServer.Server;
+﻿using Azure.Core;
+using Microsoft.SqlServer.Server;
 using System;
 using System.Data;
 using System.Windows.Forms;
+
 
 namespace Restaurant_DB
 {
     public class Controller
     {
         DBManager dbMan;
+        
         public Controller()
         {
             dbMan = new DBManager();
@@ -151,6 +154,18 @@ namespace Restaurant_DB
             string query = "SELECT * FROM Customer WHERE PhoneNumber='"+phone+"';";
             return dbMan.ExecuteReader(query);
         }
+
+        public void cancelorder(int orderid) 
+        {
+            string query = "UPDATE CustomerOrder SET OrderState = 'Cancelled' WHERE OrderID ="+orderid+";";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public void deliverorder(int orderid)
+        {
+            string query = "UPDATE CustomerOrder SET OrderState = 'Delivered' WHERE OrderID =" + orderid + ";";
+            dbMan.ExecuteNonQuery(query);
+        }
         //you can edit the ones below :)
 
         //----------------- ABDELRAHMAN ZAKARIA ---------------------
@@ -200,7 +215,7 @@ namespace Restaurant_DB
 
         public DataTable LoadCustomerOrdersCurret(string phoneNumber)  //loads the orders of the customer
         {
-            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking');";
+            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking' OR OrderState = 'Ready');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -214,7 +229,7 @@ namespace Restaurant_DB
 
         public DataTable LoadWaiterOrdersCurret(string waiterSSN)  //loads the orders of the waiter
         {
-            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking');";
+            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking' OR OrderState = 'Ready');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -228,7 +243,7 @@ namespace Restaurant_DB
 
         public DataTable loadCustomerOrdersPrevious(string phoneNumber)
         {
-            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected');";
+            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected' OR OrderState = 'Cancelled');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -242,7 +257,7 @@ namespace Restaurant_DB
 
         public DataTable loadWaiterOrdersPrevious(string waiterSSN)
         {
-            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected');";
+            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected' Or OrderState = 'Cancelled');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -339,7 +354,8 @@ namespace Restaurant_DB
                 MessageBox.Show("Failed to update name.");
             }
         }
-
+        
+        
         public void UpdateAddress(string phone, int oldlocationid, int newlocationid) //updates the address of the customer
         { 
             //update customer location
@@ -379,6 +395,159 @@ namespace Restaurant_DB
         }
         
 
+        //--------------------ALAA HAYTHAM----------------------
+        public int UpdateEmployee(long ssn, string fname, string lname,string position,long hours,decimal salary,string city,string street,string building,string password)
+        {
+            string query = "UPDATE Employee SET  FName = '"+fname+ "',LName = '"+lname+"', Position = '"+position+"',   WorkingHours = "+hours+",   Salary = "+salary+",  City = '"+city+"',  Street = '"+street+"',  Building = '"+building+"', EPassword = '"+password+"'" +
+                "WHERE   SSN = "+ssn+";";
+            int rowsAffected = dbMan.ExecuteNonQuery(query);
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Data updated successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to update Data.");
+            }
+            return rowsAffected;
+        }
+        public DataTable ReviewOrder()
+        {
+            string query = "SELECT CO.OrderID,  CO.OrderDate, CO.OrderState, CO.OrderFeedback,c.FName AS CustomerFirstName,  c.LName AS CustomerLastName,  e.FName AS WaiterFirstName,  e.LName AS WaiterLastName,  mi.ItemName,    ocm.Quantity FROM  CustomerOrder  CO  JOIN   Customer c ON CO.CustomerPhoneNumber = c.PhoneNumber LEFT JOIN    Employee e ON CO.WaiterSSN = e.SSN JOIN   Order_Contains_MenuItem ocm ON CO.OrderID = ocm.OrderID JOIN   MenuItem mi ON ocm.ItemID = mi.ItemID JOIN  ContainsIngredient ci ON mi.ItemID = ci.ItemID JOIN  Ingredient i ON ci.IngredientID = i.IngredientID ORDER BY   CO.OrderDate DESC, CO.OrderID;";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable viewPendingOrder()
+        {
+            string query = "SELECT e.FName AS ChefFirstName,  e.LName AS ChefLastName, i.IngredientName,   r.RequestStatus FROM     Request r JOIN    Employee e ON r.ChefSSN = e.SSN JOIN   Ingredient i ON r.IngredientID = i.IngredientID WHERE    r.RequestStatus = 'Pending';";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable selectPosition()
+        {
+            string query = "select distinct Position from Employee";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable selectitempending()
+        {
+            string query = "SELECT i.IngredientName, r.ID FROM Request r JOIN Ingredient i ON r.IngredientID = i.IngredientID WHERE r.RequestStatus = 'Pending'";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public void approvepending(int id)
+        {
+            string query = "UPDATE Request SET RequestStatus='Approved'" +
+              "WHERE ID="+id+";";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public int insertEmployee(long ssn, string fname, string lname, string position, long hours, decimal salary,string Superssn, string city, string street, string building, string password)
+        {
+            string query = "INSERT INTO Employee (SSN, FName, LName, Position, WorkingHours, Salary, SuperSSN, City, Street, Building,EPassword) VALUES   ("+ssn+", '"+fname+"', '"+lname+"', '"+position+"', "+hours+", "+salary+", "+Superssn+", '"+city+"', '"+street+"', '"+building+"', '"+password+"');";
+            int rowsAffected = dbMan.ExecuteNonQuery(query);
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Data Inserted successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to insert Data.");
+            }
+            return rowsAffected;
+        }
+        public void changepending(string IngredientName)
+        {
+            //still not done (I HATE QUEREYS )
+            string query = "UPDATE Request" +
+                "SET RequestStatus = 'Approved'" +
+                "WHERE  IngredientName= '"+ IngredientName + "' ";
+
+        }
+        public DataTable GetAllEmployees()
+        {
+            string query = "SELECT * FROM Employee;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetEmployeeDetails(string ssn)
+        {
+            string query = "SELECT FName, LName, Position, WorkingHours, Salary, City, Street, Building FROM Employee WHERE SSN='" + ssn + "';";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public void deleteEmployee(long EMPSSN)
+        {
+            string query = "DELETE FROM Employee WHERE SSN = "+EMPSSN+";";
+            dbMan.ExecuteNonQuery(query);
+        }
+        public DataTable GetEmpSSN()
+        {
+            string query = " select ssn from Employee";
+            return dbMan.ExecuteReader(query);
+        }
+        //---------------------chef form functionalities-----------------------------
+        public DataTable OrdersToBeMade()
+        {
+            string query = "SELECT  mi.ItemName AS MenuItemName,   co.OrderID AS OrderID FROM    CustomerOrder co  JOIN    Order_Contains_MenuItem ocm ON co.OrderID = ocm.OrderID JOIN  MenuItem mi ON ocm.ItemID = mi.ItemID WHERE     co.OrderState = 'Pending';";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable SelectedPendingID()
+        {
+            string query = "SELECT OrderID FROM    CustomerOrder WHERE    OrderState = 'Pending';";
+            return dbMan.ExecuteReader(query);
+        }
+        public void ServedOrder(string id)
+        {
+            string query = "UPDATE CustomerOrder SET OrderState = 'Served' WHERE OrderID = "+id+";";
+            dbMan.ExecuteNonQuery(query);
+
+        }
+        public void CancelledOrder(int id)
+        {
+            string query = "UPDATE CustomerOrder SET OrderState = 'Cancelled' WHERE OrderID = " + id + ";";
+            dbMan.ExecuteNonQuery(query);
+
+        }
+        public DataTable showstock()
+        {
+            string query = "SELECT  IngredientName FROM   Ingredient WHERE   IngredientStock = 0;";
+            return dbMan.ExecuteReader(query);
+        }
+        public int MakeRequest(string item,string ssn)
+        {
+            string query = "INSERT INTO Request (IngredientID, ChefSSN, RequestDate, RequestStatus, ManagerSSN)" +
+                "VALUES   ((SELECT IngredientID FROM Ingredient WHERE IngredientName = '" + item + "'), '" + ssn + "', GETDATE(), 'Pending', '23456789012');";
+            int rowsAffected = dbMan.ExecuteNonQuery(query);
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Data Requested successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed  to request Data.");
+            }
+            return rowsAffected;
+        }
+        public DataTable SlectChefSSN()
+        {
+            string query = "SELECT SSN FROM  Employee WHERE   Position = 'Chef';";
+            return dbMan.ExecuteReader(query);
+        }
+        //MenuItem (ItemName, CookingTime, ItemStatus, ChefSSN)
+        public int insertMenuItem(string item,string time,string ssn)
+        {
+            string query = "INSERT INTO MenuItem (ItemName, CookingTime, ItemStatus, ChefSSN)" +
+                "VALUES    ('"+item+"', '"+item+"', 'Available', '"+ssn+"')";
+            int rowsAffected = dbMan.ExecuteNonQuery(query);
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Data Inserted successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to insert Data.");
+            }
+            return rowsAffected;
+        }
+        
         public void TerminateConnection()
         {
             dbMan.CloseConnection();

@@ -81,8 +81,9 @@ namespace Restaurant_DB
                 }
                 
             }
+            Hide();
             makeOrder Order = new makeOrder(Phone, waiterSSN, itemOrder);
-            Order.Show();
+            Order.ShowDialog();
             Close();
         }
 
@@ -90,29 +91,33 @@ namespace Restaurant_DB
         {
             if (waiterSSN != null)
             {
+                Hide();
                 waiter Waiter = new waiter(waiterSSN);
-                Waiter.Show();
+                Waiter.ShowDialog();
                 Close();
             }
             else
             {
+                Hide();
                 Welcome homePage = new Welcome(Phone);
-                homePage.Show();
+                homePage.ShowDialog();
                 Close();
             }
         }
 
         private void logout_Click(object sender, EventArgs e)
         {
+            Hide();
             loginScreen logIn = new loginScreen();
-            logIn.Show();
+            logIn.ShowDialog();
             Close();
         }
 
         private void orders_Click(object sender, EventArgs e)
         {
+            Hide();
             orderHistory orders = new orderHistory(Phone, waiterSSN);
-            orders.Show();
+            orders.ShowDialog();
             Close();
         }
     }

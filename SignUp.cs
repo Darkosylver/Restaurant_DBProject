@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -172,15 +173,20 @@ namespace Restaurant_DB
             {
                 controllerobj.addCustomer(phoneNumber.Text, fName, lName, pWord);
                 controllerobj.insertlocation(phoneNumber.Text, locationID);
-                //label that the insertion is successful
+                Hide();
+                Welcome homePage = new Welcome(phoneNumber.Text);
+                homePage.ShowDialog();
+                Close();
             }
             else if (ssnCheck == fName)
             {
-                //label that this user already exists
+                errorText.Text = "This account already exists";
+                errorText.Visible = true;
             }
             else
             {
-                //label that the number is already linked to another user
+                errorText.Text = "There already exists an account with the same number";
+                errorText.Visible = true;
             }
         }
 
@@ -249,6 +255,26 @@ namespace Restaurant_DB
                 return false;
             }
             return true;
+        }
+
+        private bool validateAddressOptional(string input)
+        {
+            if (input == "")
+            {
+                return true;
+            }
+            else
+            {
+                if (input.IndexOf(",") == -1 || input.LastIndexOf(",") == input.IndexOf(",")) //Checking there are 2 commas, not 1
+                {
+                    return false;
+                }
+                if (input.IndexOf(",") == 0 || input.LastIndexOf(",") == input.IndexOf(",") + 1 || input.LastIndexOf(",") == input.Length - 1) //Checking that each entry is there
+                {
+                    return false;
+                }
+                return true;
+            }
         }
 
         private bool validateSubmit()
