@@ -117,5 +117,12 @@ namespace Restaurant_DB
                 Close();
             }
         }
+
+        private void orders_Click(object sender, EventArgs e)
+        {
+            orderHistory orders = new orderHistory(Phone, waiterSSN);
+            orders.Show();
+            Close();
+        }
     }
 }
