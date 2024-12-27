@@ -208,7 +208,6 @@ namespace Restaurant_DB
             }
             else
             {
-                MessageBox.Show("No Orders found for the given Phone Number.");
                 return null;
             }
         }
@@ -223,7 +222,6 @@ namespace Restaurant_DB
             }
             else
             {
-                MessageBox.Show("No Orders found for the given Phone Number.");
                 return null;
             }
         }
@@ -238,7 +236,6 @@ namespace Restaurant_DB
             }
             else
             {
-                MessageBox.Show("No Orders found for this Waiter.");
                 return null;
             }
         }
@@ -253,7 +250,6 @@ namespace Restaurant_DB
             }
             else
             {
-                MessageBox.Show("No Orders found for this Waiter.");
                 return null;
             }
         }
