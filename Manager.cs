@@ -382,7 +382,8 @@ namespace Restaurant_DB
             string street = Street_Man.Text;
             string building = Building_Man.Text;
             string password = EPass_Man.Text;
-            int result = controllerobj.insertEmployee(Insert_ssn, FName, LName, pos, workinghour, salary, SuperSnn, city, street, building, password);
+            
+            int result = controllerobj.insertEmployee(Insert_ssn, FName, LName, pos, workinghour, salary, storedssn, city, street, building, password);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
