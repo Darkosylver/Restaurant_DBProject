@@ -156,6 +156,8 @@
             this.homeBox.Location = new System.Drawing.Point(18, 11);
             this.homeBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.homeBox.Name = "homeBox";
+            this.ClientSize = new System.Drawing.Size(969, 805);
+            this.Controls.Add(this.reportViewer1);
             this.homeBox.Size = new System.Drawing.Size(45, 50);
             this.homeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.homeBox.TabIndex = 0;
