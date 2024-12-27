@@ -84,7 +84,7 @@
             // 
             this.menu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.menu.Image = global::Restaurant_DB.Properties.Resources.menu;
-            this.menu.Location = new System.Drawing.Point(540, 7);
+            this.menu.Location = new System.Drawing.Point(550, 9);
             this.menu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(40, 40);
