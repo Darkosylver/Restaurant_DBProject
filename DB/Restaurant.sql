@@ -26,7 +26,7 @@ CREATE TABLE Employee (
 	City VARCHAR(30),
     Street VARCHAR(30),
 	Building VARCHAR(30),
-	EPassword VARCHAR(30) NOT NULL,
+	EPassword VARCHAR(44) NOT NULL,
 	FOREIGN KEY (SuperSSN) REFERENCES Employee(SSN)
 );
 
@@ -40,6 +40,7 @@ CREATE TABLE Ingredient(
 CREATE TABLE Request(
 	ID INT IDENTITY(1,1) PRIMARY KEY,
 	IngredientID INT NOT NULL,
+	Quantity DECIMAL(5,2) NOT NULL,
 	ChefSSN VARCHAR(11) NOT NULL,
 	RequestDate DATE NOT NULL,
 	RequestStatus VARCHAR(20) DEFAULT 'Pending',
@@ -85,7 +86,7 @@ CREATE TABLE Customer(
 	PhoneNumber VARCHAR(15) PRIMARY KEY,
 	FName VARCHAR(20) NOT NULL,
 	LName VARCHAR(20) NOT NULL,
-	EPassword VARCHAR(30) NOT NULL
+	EPassword VARCHAR(44) NOT NULL
 );
 
 CREATE TABLE Locations (
@@ -158,26 +159,26 @@ GO
 ------------INSERT VALUES------------
 INSERT INTO Employee (SSN, FName, LName, Position, WorkingHours, Salary, SuperSSN, City, Street, Building, EPassword)
 VALUES 
-    ('23456789012', 'Jane', 'Smith', 'Manager', 45, 3500.00, NULL, 'Los Angeles', 'Sunset Blvd', 'Building 2', 'mypassword1234'),
-    ('12345678901', 'John', 'Doe', 'Chef', 40, 2500.00, '23456789012', 'New York', '5th Ave', 'Building 1', 'mypassword123'),
-    ('34567890123', 'Emily', 'Johnson', 'Waiter', 35, 1500.00, '23456789012', 'Chicago', 'Oak Street', 'Building 3', 'mypassword12'),
-    ('45678901234', 'Mike', 'Williams', 'Chef', 38, 2600.00, '23456789012', 'Boston', 'Beacon Street', 'Building 4', 'mypassword345'),
-    ('56789012345', 'Sarah', 'Davis', 'Waiter', 32, 1400.00, '23456789012', 'Miami', 'Ocean Drive', 'Building 5', 'mypassword678'),
-    ('67890123456', 'Tom', 'Brown', 'Chef', 50, 3700.00, '23456789012', 'San Francisco', 'Market Street', 'Building 6', 'mypassword910'),
-    ('78901234567', 'Anna', 'Taylor', 'Chef', 42, 2550.00, '67890123456', 'Seattle', 'Pike Street', 'Building 7', 'mypassword112'),
-    ('89012345678', 'Lisa', 'Moore', 'Waiter', 30, 1350.00, '67890123456', 'Austin', 'Congress Ave', 'Building 8', 'mypassword131'),
-    ('90123456789', 'Paul', 'White', 'Chef', 48, 3600.00, '67890123456', 'Denver', 'Larimer Street', 'Building 9', 'mypassword151'),
-    ('12345678912', 'Chris', 'Green', 'Chef', 41, 2400.00, '90123456789', 'Dallas', 'Main Street', 'Building 10', 'mypassword171'),
-    ('22345678912', 'Pat', 'Lewis', 'Waiter', 33, 1300.00, '90123456789', 'Orlando', 'Disney Blvd', 'Building 11', 'mypassword191'),
-    ('32345678912', 'Kelly', 'Harris', 'Chef', 46, 3550.00, '90123456789', 'Houston', 'Post Oak Blvd', 'Building 12', 'mypassword212'),
-    ('42345678912', 'Sam', 'Clark', 'Chef', 37, 2450.00, '32345678912', 'Phoenix', 'Camelback Road', 'Building 13', 'mypassword232'),
-    ('52345678912', 'Drew', 'Young', 'Waiter', 34, 1450.00, '32345678912', 'Las Vegas', 'Fremont Street', 'Building 14', 'mypassword252'),
-    ('62345678912', 'Taylor', 'Hall', 'Chef', 36, 2700.00, '32345678912', 'Philadelphia', 'Chestnut Street', 'Building 15', 'mypassword272'),
-    ('72345678912', 'Jordan', 'Allen', 'Chef', 49, 3800.00, '32345678912', 'Charlotte', 'Tryon Street', 'Building 16', 'mypassword292'),
-    ('82345678912', 'Morgan', 'King', 'Chef', 43, 2600.00, '72345678912', 'Atlanta', 'Peachtree Street', 'Building 17', 'mypassword312'),
-    ('92345678912', 'Jamie', 'Wright', 'Waiter', 31, 1250.00, '72345678912', 'San Diego', 'Broadway', 'Building 18', 'mypassword332'),
-    ('10345678912', 'Robin', 'Scott', 'Chef', 39, 2750.00, '72345678912', 'Nashville', 'Music Row', 'Building 19', 'mypassword352'),
-    ('11345678912', 'Alex', 'Baker', 'Waiter', 28, 1100.00, '72345678912', 'Portland', 'Burnside Street', 'Building 20', 'mypassword372');
+    ('23456789012', 'Jane', 'Smith', 'Manager', 45, 3500.00, NULL, 'Los Angeles', 'Sunset Blvd', 'Building 2', 'uAPFT895BnnNWQspvpmTTrwoJxRg/h7n8fQ9MrLg/Rg='),
+    ('12345678901', 'John', 'Doe', 'Chef', 40, 2500.00, '23456789012', 'New York', '5th Ave', 'Building 1', 'bmWd6qhYQs2rtcYwX8xAAzukN3LsANRcKjySF0Gl43c='),
+    ('34567890123', 'Emily', 'Johnson', 'Waiter', 35, 1500.00, '23456789012', 'Chicago', 'Oak Street', 'Building 3', 'E8Eqi5W/BFBCPUdT9ZTlOyZjaFE6dbIThGk6sA5IZw8='),
+    ('45678901234', 'Mike', 'Williams', 'Chef', 38, 2600.00, '23456789012', 'Boston', 'Beacon Street', 'Building 4', 'X5Y7VnoxDilFA1VLy4WojOm2OZE9/PXH5cOZAGof7F4='),
+    ('56789012345', 'Sarah', 'Davis', 'Waiter', 32, 1400.00, '23456789012', 'Miami', 'Ocean Drive', 'Building 5', 'rthNVwD/5H/kPclDpwq9F/baNYzf+5TEy9sZYrEx0gs='),
+    ('67890123456', 'Tom', 'Brown', 'Chef', 50, 3700.00, '23456789012', 'San Francisco', 'Market Street', 'Building 6', 'Jw8wXupWorZOx1IX5QAS9BlkbrK3hQ4LQhGggS8WGgg='),
+    ('78901234567', 'Anna', 'Taylor', 'Chef', 42, 2550.00, '67890123456', 'Seattle', 'Pike Street', 'Building 7', 'R+QsqnvqItuNTwVy/tPX8VEKAdjSyGpbrTcgGaJx3fQ='),
+    ('89012345678', 'Lisa', 'Moore', 'Waiter', 30, 1350.00, '67890123456', 'Austin', 'Congress Ave', 'Building 8', 'PjRJGqOuw62op5c0IPxkXE5K5GNQKF4Ef4/fx5g1LyY='),
+    ('90123456789', 'Paul', 'White', 'Chef', 48, 3600.00, '67890123456', 'Denver', 'Larimer Street', 'Building 9', 'NIm/NU0Cx1hCMG/nVl7EoBz1L7gFHzZLytGVLf1Sj2E='),
+    ('12345678912', 'Chris', 'Green', 'Chef', 41, 2400.00, '90123456789', 'Dallas', 'Main Street', 'Building 10', 'sSMBss5C58aj/RSDFDzGU9k0QTnYA7Xi6d1Si6QRf84='),
+    ('22345678912', 'Pat', 'Lewis', 'Waiter', 33, 1300.00, '90123456789', 'Orlando', 'Disney Blvd', 'Building 11', 'NRt80aT+96zD6zgS82xB/q/LHxB4Wj3aC37JOKYgZdI='),
+    ('32345678912', 'Kelly', 'Harris', 'Chef', 46, 3550.00, '90123456789', 'Houston', 'Post Oak Blvd', 'Building 12', 'LsxjcvsWnmX0910TuH1wYq/yHTJ3vERkYpeANurt6aA='),
+    ('42345678912', 'Sam', 'Clark', 'Chef', 37, 2450.00, '32345678912', 'Phoenix', 'Camelback Road', 'Building 13', 'Ht6qX6wXJyQAkMLWUqWcDfvBvX0jxYUPyvCyfHO5J7k='),
+    ('52345678912', 'Drew', 'Young', 'Waiter', 34, 1450.00, '32345678912', 'Las Vegas', 'Fremont Street', 'Building 14', 'lksRDCDKW556pne6iJcVQINZ0QV2/O9Z3iTbfk7hQbE='),
+    ('62345678912', 'Taylor', 'Hall', 'Chef', 36, 2700.00, '32345678912', 'Philadelphia', 'Chestnut Street', 'Building 15', 'Qyhr6N+vl1Ugsi/h0iZ3Wpbr+qV7C7sW6AaBVHOX/OY='),
+    ('72345678912', 'Jordan', 'Allen', 'Chef', 49, 3800.00, '32345678912', 'Charlotte', 'Tryon Street', 'Building 16', '4bkYyW4N28vohIsGWrVNe6kHiU9v4+qMm3DOuMF6ylw='),
+    ('82345678912', 'Morgan', 'King', 'Chef', 43, 2600.00, '72345678912', 'Atlanta', 'Peachtree Street', 'Building 17', 'Zaw8atoRjVIVZDJD1kcHIjNtecsQdUN7ARznxqXNsqE='),
+    ('92345678912', 'Jamie', 'Wright', 'Waiter', 31, 1250.00, '72345678912', 'San Diego', 'Broadway', 'Building 18', 'iQVQ8nAQHn/7VQgg/UtBagQ11pYLpYqmDMWk/7rbIis='),
+    ('10345678912', 'Robin', 'Scott', 'Chef', 39, 2750.00, '72345678912', 'Nashville', 'Music Row', 'Building 19', '6ozRyPkzm/iYxeQnSV7UvglLgjqyMUQ9pBR2p65jn/M='),
+    ('11345678912', 'Alex', 'Baker', 'Waiter', 28, 1100.00, '72345678912', 'Portland', 'Burnside Street', 'Building 20', '2k7RtX+e/VVWfc9t6jEA6ebbb4OZ2spUnahV2cWdL/g=');
 
 INSERT INTO Ingredient (IngredientName, IngredientStock, IngredientPrice)
 VALUES
@@ -207,11 +208,11 @@ VALUES
     ('Potatoes', 150, 0.60),
     ('Bell Peppers', 70, 1.20);
 
-INSERT INTO Request (IngredientID, ChefSSN, RequestDate, RequestStatus, ManagerSSN)
+INSERT INTO Request (IngredientID, Quantity, ChefSSN, RequestDate, RequestStatus, ManagerSSN)
 VALUES
-    (1, '12345678901', '2024-12-01', 'Pending', '23456789012'),
-    (2, '12345678901', '2024-12-02', 'Approved', '23456789012'),
-    (3, '34567890123', '2024-12-03', 'Pending', '23456789012');
+    (1, 10, '12345678901', '2024-12-01', 'Pending', '23456789012'),
+    (2, 20, '12345678901', '2024-12-02', 'Approved', '23456789012'),
+    (3, 30, '34567890123', '2024-12-03', 'Pending', '23456789012');
 
 INSERT INTO MenuItem (ItemName, CookingTime, ItemStatus, ChefSSN)
 VALUES

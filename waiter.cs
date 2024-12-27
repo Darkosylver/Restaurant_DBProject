@@ -37,6 +37,8 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
                 tablemanagement.Enabled = true;
                 order.Enabled = true;
                 noCustomer.Visible = false;
+                addCustomer.Visible = false;
+                addCustomer.Enabled = false;
             }
             else
             {
@@ -44,6 +46,8 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
                 tablemanagement.Enabled = false;
                 order.Enabled = false;
                 noCustomer.Visible = true;
+                addCustomer.Visible= true;
+                addCustomer.Enabled = true;
             }
         }
         private void order_Click(object sender, EventArgs e)
@@ -61,12 +65,18 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
 
         private void tablemanagement_Click(object sender, EventArgs e)
         {
+            Hide();
             Form form = new tablemanagement(phoneno.Text,storedssn);
+            form.ShowDialog();
+            Close();
         }
 
         private void customerinfo_Click(object sender, EventArgs e)
         {
+            Hide();
             Form form = new updateuser(phoneno.Text,storedssn);
+            form.ShowDialog();
+            Close();
         }
 
         private void orderLog_Click(object sender, EventArgs e)
@@ -79,6 +89,14 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
 
         private void logOut_Click(object sender, EventArgs e)
         {
+            Close();
+        }
+
+        private void addCustomer_Click(object sender, EventArgs e)
+        {
+            Hide();
+            SignUp signup = new SignUp(storedssn);
+            signup.ShowDialog();
             Close();
         }
     }

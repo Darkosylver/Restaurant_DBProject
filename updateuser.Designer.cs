@@ -39,15 +39,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.insert = new System.Windows.Forms.Button();
             this.dashBoard = new System.Windows.Forms.Panel();
-            this.homePage = new System.Windows.Forms.PictureBox();
-            this.welcome = new System.Windows.Forms.Label();
-            this.waiterName = new System.Windows.Forms.Label();
-            this.orderhistory = new System.Windows.Forms.PictureBox();
             this.logout = new System.Windows.Forms.PictureBox();
+            this.orderhistory = new System.Windows.Forms.PictureBox();
+            this.waiterName = new System.Windows.Forms.Label();
+            this.welcome = new System.Windows.Forms.Label();
+            this.homePage = new System.Windows.Forms.PictureBox();
             this.dashBoard.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.homePage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderhistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderhistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homePage)).BeginInit();
             this.SuspendLayout();
             // 
             // addresses
@@ -151,26 +151,29 @@
             this.dashBoard.Size = new System.Drawing.Size(848, 65);
             this.dashBoard.TabIndex = 35;
             // 
-            // homePage
+            // logout
             // 
-            this.homePage.Image = global::Restaurant_DB.Properties.Resources.home;
-            this.homePage.Location = new System.Drawing.Point(12, 11);
-            this.homePage.Name = "homePage";
-            this.homePage.Size = new System.Drawing.Size(40, 40);
-            this.homePage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.homePage.TabIndex = 0;
-            this.homePage.TabStop = false;
-            this.homePage.Click += new System.EventHandler(this.homePage_Click);
+            this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logout.Image = global::Restaurant_DB.Properties.Resources.logout;
+            this.logout.Location = new System.Drawing.Point(795, 11);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(40, 40);
+            this.logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logout.TabIndex = 4;
+            this.logout.TabStop = false;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
             // 
-            // welcome
+            // orderhistory
             // 
-            this.welcome.AutoSize = true;
-            this.welcome.ForeColor = System.Drawing.Color.White;
-            this.welcome.Location = new System.Drawing.Point(100, 15);
-            this.welcome.Name = "welcome";
-            this.welcome.Size = new System.Drawing.Size(68, 16);
-            this.welcome.TabIndex = 1;
-            this.welcome.Text = "Welcome,";
+            this.orderhistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.orderhistory.Image = global::Restaurant_DB.Properties.Resources.history;
+            this.orderhistory.Location = new System.Drawing.Point(655, 11);
+            this.orderhistory.Name = "orderhistory";
+            this.orderhistory.Size = new System.Drawing.Size(45, 40);
+            this.orderhistory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.orderhistory.TabIndex = 3;
+            this.orderhistory.TabStop = false;
+            this.orderhistory.Click += new System.EventHandler(this.orderhistory_Click);
             // 
             // waiterName
             // 
@@ -183,27 +186,27 @@
             this.waiterName.TabIndex = 2;
             this.waiterName.Text = "waitername";
             // 
-            // orderhistory
+            // welcome
             // 
-            this.orderhistory.Image = global::Restaurant_DB.Properties.Resources.history;
-            this.orderhistory.Location = new System.Drawing.Point(655, 11);
-            this.orderhistory.Name = "orderhistory";
-            this.orderhistory.Size = new System.Drawing.Size(45, 40);
-            this.orderhistory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.orderhistory.TabIndex = 3;
-            this.orderhistory.TabStop = false;
-            this.orderhistory.Click += new System.EventHandler(this.orderhistory_Click);
+            this.welcome.AutoSize = true;
+            this.welcome.ForeColor = System.Drawing.Color.White;
+            this.welcome.Location = new System.Drawing.Point(100, 15);
+            this.welcome.Name = "welcome";
+            this.welcome.Size = new System.Drawing.Size(68, 16);
+            this.welcome.TabIndex = 1;
+            this.welcome.Text = "Welcome,";
             // 
-            // logout
+            // homePage
             // 
-            this.logout.Image = global::Restaurant_DB.Properties.Resources.logout;
-            this.logout.Location = new System.Drawing.Point(795, 11);
-            this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(40, 40);
-            this.logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logout.TabIndex = 4;
-            this.logout.TabStop = false;
-            this.logout.Click += new System.EventHandler(this.logout_Click);
+            this.homePage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.homePage.Image = global::Restaurant_DB.Properties.Resources.home;
+            this.homePage.Location = new System.Drawing.Point(12, 11);
+            this.homePage.Name = "homePage";
+            this.homePage.Size = new System.Drawing.Size(40, 40);
+            this.homePage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.homePage.TabIndex = 0;
+            this.homePage.TabStop = false;
+            this.homePage.Click += new System.EventHandler(this.homePage_Click);
             // 
             // updateuser
             // 
@@ -226,9 +229,9 @@
             this.Load += new System.EventHandler(this.updateuser_Load);
             this.dashBoard.ResumeLayout(false);
             this.dashBoard.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.homePage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderhistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderhistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homePage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

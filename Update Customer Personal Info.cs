@@ -57,6 +57,7 @@ namespace Restaurant_DB
         {
             InitializeComponent();
             this.phone = phone;
+            userName.Text = controllerobj.GetCustomerFName(phone);
 
             DataTable dt = controllerobj.getcustomerinfo(phone);
             DataRow dr = dt.Rows[0];
@@ -190,9 +191,9 @@ namespace Restaurant_DB
 
         private void InsertAddressButton_Click(object sender, EventArgs e)
         {
-             if (controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text) == null)
+            if (controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text) == null)
             {
-                controllerobj.insertlocationid(CityTextBox.Text, StreetTextBox.Text,BuildingTextBox.Text);
+                controllerobj.insertlocationid(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text);
                 controllerobj.insertlocation(phone, Convert.ToInt32(controllerobj.checklocationexist(CityTextBox.Text, StreetTextBox.Text, BuildingTextBox.Text)));
                 putlocationsincombobox();
                 MessageBox.Show("location inserted successfully");
@@ -207,6 +208,40 @@ namespace Restaurant_DB
                 putlocationsincombobox();
                 MessageBox.Show("location inserted successfully");
             }
+        }
+
+        private void homeBox_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Welcome homePage = new Welcome(phone);
+            homePage.ShowDialog();
+            Close();
+        }
+
+        private void menuBox_Click(object sender, EventArgs e)
+        {
+            Hide();
+            DataTable itemOrder = new DataTable("orderedItems");
+            itemOrder.Columns.Add("itemID", typeof(int));
+            itemOrder.Columns.Add("itemName", typeof(string));
+            itemOrder.Columns.Add("itemCount", typeof(int));
+            itemOrder.Columns.Add("itemPrice", typeof(float));
+            menuForm menu = new menuForm(phone, null, itemOrder);
+            menu.ShowDialog();
+            Close();
+        }
+
+        private void orderhistory_Click(object sender, EventArgs e)
+        {
+            Hide();
+            orderHistory orders = new orderHistory(phone, null);
+            orders.ShowDialog();
+            Close();
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
