@@ -37,7 +37,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.update = new System.Windows.Forms.Button();
+            this.insert = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addresses
@@ -118,15 +118,15 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "city";
             // 
-            // update
+            // insert
             // 
-            this.update.Location = new System.Drawing.Point(626, 223);
-            this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(125, 23);
-            this.update.TabIndex = 25;
-            this.update.Text = "insert address";
-            this.update.UseVisualStyleBackColor = true;
-            this.update.Click += new System.EventHandler(this.update_Click);
+            this.insert.Location = new System.Drawing.Point(626, 223);
+            this.insert.Name = "insert";
+            this.insert.Size = new System.Drawing.Size(125, 23);
+            this.insert.TabIndex = 25;
+            this.insert.Text = "insert address";
+            this.insert.UseVisualStyleBackColor = true;
+            this.insert.Click += new System.EventHandler(this.update_Click);
             // 
             // updateuser
             // 
@@ -142,7 +142,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.update);
+            this.Controls.Add(this.insert);
             this.Name = "updateuser";
             this.Text = "updateuser";
             this.Load += new System.EventHandler(this.updateuser_Load);
@@ -162,6 +162,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button update;
+        private System.Windows.Forms.Button insert;
     }
 }
