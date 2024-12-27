@@ -27,6 +27,7 @@ namespace Restaurant_DB
             else
             {
                 userName.Text = controllerobj.GetCustomerFName(Phone);
+                reportViewer1.Visible = true;
             }
         }
 
@@ -42,6 +43,7 @@ namespace Restaurant_DB
                 currentOrders.DataSource = controllerobj.LoadWaiterOrdersCurret(waiterSSN);
                 previousOrders.DataSource = controllerobj.loadWaiterOrdersPrevious(waiterSSN);
             }
+            this.reportViewer1.RefreshReport();
         }
     }
 }
