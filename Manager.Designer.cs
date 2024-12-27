@@ -261,7 +261,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(88, 354);
+            this.button1.Location = new System.Drawing.Point(166, 354);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 35);
             this.button1.TabIndex = 28;
@@ -289,7 +289,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(326, 354);
+            this.button2.Location = new System.Drawing.Point(742, 354);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(176, 35);
             this.button2.TabIndex = 31;
@@ -299,7 +299,7 @@
             // 
             // PendingOrders
             // 
-            this.PendingOrders.Location = new System.Drawing.Point(668, 354);
+            this.PendingOrders.Location = new System.Drawing.Point(941, 354);
             this.PendingOrders.Name = "PendingOrders";
             this.PendingOrders.Size = new System.Drawing.Size(171, 35);
             this.PendingOrders.TabIndex = 32;
@@ -312,7 +312,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label17.ForeColor = System.Drawing.Color.Navy;
-            this.label17.Location = new System.Drawing.Point(744, -2);
+            this.label17.Location = new System.Drawing.Point(544, 12);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(114, 20);
             this.label17.TabIndex = 33;
@@ -321,7 +321,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(745, 30);
+            this.label18.Location = new System.Drawing.Point(545, 44);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(69, 16);
             this.label18.TabIndex = 34;
@@ -330,7 +330,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(836, 30);
+            this.comboBox2.Location = new System.Drawing.Point(636, 44);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 24);
             this.comboBox2.TabIndex = 35;
@@ -338,7 +338,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(761, 60);
+            this.button3.Location = new System.Drawing.Point(561, 74);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(159, 29);
             this.button3.TabIndex = 36;
@@ -348,7 +348,7 @@
             // 
             // Insert_Employee
             // 
-            this.Insert_Employee.Location = new System.Drawing.Point(526, 354);
+            this.Insert_Employee.Location = new System.Drawing.Point(15, 350);
             this.Insert_Employee.Name = "Insert_Employee";
             this.Insert_Employee.Size = new System.Drawing.Size(121, 35);
             this.Insert_Employee.TabIndex = 58;
@@ -358,7 +358,7 @@
             // 
             // Delete_Employee
             // 
-            this.Delete_Employee.Location = new System.Drawing.Point(526, 267);
+            this.Delete_Employee.Location = new System.Drawing.Point(331, 354);
             this.Delete_Employee.Name = "Delete_Employee";
             this.Delete_Employee.Size = new System.Drawing.Size(121, 35);
             this.Delete_Employee.TabIndex = 66;

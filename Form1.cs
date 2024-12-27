@@ -75,6 +75,12 @@ namespace Restaurant_DB
                         Form fman = new Manager(userName.Text);
                         fman.ShowDialog();
                     }
+                    if (position== "Chef")
+                    {
+                        Form chef = new Chef(userName.Text);
+                        chef.ShowDialog();
+                    
+                    }
                 }
             }
             label3.Visible = true;

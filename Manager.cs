@@ -17,6 +17,37 @@ namespace Restaurant_DB
     {
         Controller controllerobj = new Controller();
         string storedssn;
+
+        public void putingredientsincombobox()
+        {
+            DataTable itemname = controllerobj.selectitempending();
+            if (itemname.Rows.Count == 0)
+            {
+                comboBox2.DataSource = null;
+            }
+            else
+            {
+                comboBox2.DataSource = itemname;
+                comboBox2.DisplayMember = "IngredientName";
+                comboBox2.ValueMember = "ID";
+            }
+        }
+        public void putEmployeeSSnincombobox()
+        {
+            DataTable EmpSSN = controllerobj.GetEmpSSN();
+            if (EmpSSN != null && EmpSSN.Rows.Count > 0)
+            {
+
+                comboBox3.DataSource = EmpSSN;
+                comboBox3.DisplayMember = "SSN";
+            }
+            else
+            {
+                comboBox3.DataSource = null;
+
+            }
+
+        }
         public Manager(string ssn)
         {
             InitializeComponent();
@@ -25,35 +56,37 @@ namespace Restaurant_DB
             comboBox1.DataSource = dt;
             comboBox1.DisplayMember = "Position";
 
-            DataTable dt2 = controllerobj.selectitempending();
-            comboBox2.DataSource = dt2;
-            comboBox2.DisplayMember = "IngredientName";
-            Salary_Man.KeyPress += new KeyPressEventHandler(Salary_Man_KeyPress);
-            Working_Hours_Man.KeyPress += new KeyPressEventHandler(Working_Hours_Man_KeyPress);
+            putingredientsincombobox();
+            putEmployeeSSnincombobox();
+            //DataTable dt2 = controllerobj.selectitempending();
+            //comboBox2.DataSource = dt2;
+            //comboBox2.DisplayMember = "IngredientName";
+            //Salary_Man.KeyPress += new KeyPressEventHandler(Salary_Man_KeyPress);
+            //Working_Hours_Man.KeyPress += new KeyPressEventHandler(Working_Hours_Man_KeyPress);
 
-            DataTable dt3 = controllerobj.(phone);
-            if (dt == null)
-            {
-                comboBox1.DataSource = null;
-                return;
-            }
-            // Create a new DataTable with two columns: LocationID and Address
-            DataTable locationsTable = new DataTable();
-            locationsTable.Columns.Add("SSN", typeof(string));
-            locationsTable.Columns.Add("FullName", typeof(string));
-            if (dt.Rows.Count == 0)
-            {
-                comboBox1.DataSource = null;
-                return;
-            }
-            foreach (DataRow row in dt.Rows)
-            {
-                
-            }
+            //DataTable dt3 = controllerobj.();
+            //if (dt == null)
+            //{
+            //    comboBox1.DataSource = null;
+            //    return;
+            //}
+            //// Create a new DataTable with two columns: LocationID and Address
+            //DataTable locationsTable = new DataTable();
+            //locationsTable.Columns.Add("SSN", typeof(string));
+            //locationsTable.Columns.Add("FullName", typeof(string));
+            //if (dt.Rows.Count == 0)
+            //{
+            //    comboBox1.DataSource = null;
+            //    return;
+            //}
+            //foreach (DataRow row in dt.Rows)
+            //{
 
-            comboBox1.DataSource = locationsTable;
-            comboBox1.DisplayMember = "SSN";
-            comboBox1.ValueMember = "FullName";
+            //}
+
+            //comboBox1.DataSource = locationsTable;
+            //comboBox1.DisplayMember = "SSN";
+            //comboBox1.ValueMember = "FullName";
 
         }
         
@@ -286,9 +319,8 @@ namespace Restaurant_DB
 
         private void Manager_Load(object sender, EventArgs e)
         {
-            //DataTable dt = controllerobj.ReviewOrder();
-            //dataGridView1.DataSource = dt;
-            //dataGridView1.Refresh();
+            
+       
         }
 
         private void PendingOrders_Click(object sender, EventArgs e)
@@ -300,12 +332,23 @@ namespace Restaurant_DB
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (comboBox2.SelectedIndex == -1)
+            {
+                button3.Enabled = false;
+                return;
+            }
+            else
+            {
+                button3.Enabled= true;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+          
+            controllerobj.approvepending(Convert.ToInt32(comboBox2.SelectedValue));
+            putingredientsincombobox();
+            MessageBox.Show("approved successfully");
         }
 
         private void label30_Click(object sender, EventArgs e)
@@ -382,7 +425,6 @@ namespace Restaurant_DB
             string street = Street_Man.Text;
             string building = Building_Man.Text;
             string password = EPass_Man.Text;
-            
             int result = controllerobj.insertEmployee(Insert_ssn, FName, LName, pos, workinghour, salary, storedssn, city, street, building, password);
         }
 
@@ -400,7 +442,7 @@ namespace Restaurant_DB
         {
             if (string.IsNullOrWhiteSpace(EMPLOYEE_SNN.Text))
             {
-                MessageBox.Show("Empployee SNN be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Empployee SNN can`t be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 EMPLOYEE_SNN.Focus();
                 return;
             }
