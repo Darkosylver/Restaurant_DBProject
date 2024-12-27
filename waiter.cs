@@ -45,14 +45,15 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
             }
         }
         private void order_Click(object sender, EventArgs e)
-        { 
+        {
+            Hide();
             DataTable itemOrder = new DataTable("orderedItems");
             itemOrder.Columns.Add("itemID", typeof(int));
             itemOrder.Columns.Add("itemName", typeof(string));
             itemOrder.Columns.Add("itemCount", typeof(int));
             itemOrder.Columns.Add("itemPrice", typeof(float));
             menuForm menu = new menuForm(phoneno.Text, storedssn, itemOrder);
-            menu.Show();
+            menu.ShowDialog();
             Close();
         }
 
@@ -68,8 +69,9 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
 
         private void orderLog_Click(object sender, EventArgs e)
         {
+            Hide();
             orderHistory orders = new orderHistory(null,storedssn);
-            orders.Show();
+            orders.ShowDialog();
             Close();
         }
 
