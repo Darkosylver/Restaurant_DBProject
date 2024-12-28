@@ -177,6 +177,7 @@ namespace Restaurant_DB
                     {
                         if (Convert.ToInt32(item.itemCountRead) > 0)
                         {
+                            int ingredientID = Convert.ToInt32(item.itemIDRead);
                             controllerobj.addIngredientToItem(Convert.ToInt32(item.itemIDRead), menuItem, Convert.ToInt32(item.itemCountRead));
                         }
                     }

@@ -135,7 +135,7 @@ namespace Restaurant_DB
             int itemID = Convert.ToInt32(controllerobj.getMenuItemID(ItemName.Text));
             Hide();
             DataTable dt = new DataTable("Dummy");
-            menuForm addToItem = new menuForm(null, null, storedssn,itemID, 1, dt);
+            menuForm addToItem = new menuForm(null, null, storedssn,1, itemID, dt);
             addToItem.ShowDialog();
             Close();
         }

@@ -333,7 +333,7 @@ namespace Restaurant_DB
 
         public void addIngredientToItem(int ingredientID, int itemID, int count)
         {
-            string query = "INSERT INTO ContainsIngredient (ItemID, IngredientID, Quantity) VALUES (" + ingredientID + "," + itemID + "," + count + ")";
+            string query = "INSERT INTO ContainsIngredient (ItemID, IngredientID, Quantity) VALUES (" + itemID + "," + ingredientID + "," + count + ")";
             dbMan.ExecuteNonQuery(query);
         }
 

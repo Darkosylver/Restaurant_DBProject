@@ -114,7 +114,17 @@ namespace Restaurant_DB
 
         private void itemRemove_Click(object sender, EventArgs e)
         {
-            this.BackColor = Color.DarkRed;
+            if (this.BackColor == Color.White)
+            {
+                this.BackColor = Color.DarkRed;
+                itemRemove.Text = "Cancel";
+            }
+            else
+            {
+                this.BackColor = Color.White;
+                itemRemove.Text = "Remove Item";
+            }
+            
         }
     }
 }
