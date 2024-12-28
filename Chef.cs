@@ -157,5 +157,29 @@ namespace Restaurant_DB
             addToItem.ShowDialog();
             Close();
         }
+
+        private void ItemName_TextChanged(object sender, EventArgs e)
+        {
+            if (ItemName.Text == "" || CookingTime.Text == "" || controllerobj.getMenuItemID(ItemName.Text) == null)
+            {
+                Insert_item.Enabled = false;
+            }
+            else
+            {
+                Insert_item.Enabled = false;
+            }
+        }
+
+        private void CookingTime_TextChanged(object sender, EventArgs e)
+        {
+            if (ItemName.Text == "" || CookingTime.Text == "" || controllerobj.getMenuItemID(ItemName.Text) ==null)
+            {
+                Insert_item.Enabled = false;
+            }
+            else
+            {
+                Insert_item.Enabled = false;
+            }
+        }
     }
 }

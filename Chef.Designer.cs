@@ -207,6 +207,7 @@
             this.ItemName.Name = "ItemName";
             this.ItemName.Size = new System.Drawing.Size(90, 22);
             this.ItemName.TabIndex = 16;
+            this.ItemName.TextChanged += new System.EventHandler(this.ItemName_TextChanged);
             // 
             // CookingTime
             // 
@@ -214,6 +215,7 @@
             this.CookingTime.Name = "CookingTime";
             this.CookingTime.Size = new System.Drawing.Size(100, 22);
             this.CookingTime.TabIndex = 17;
+            this.CookingTime.TextChanged += new System.EventHandler(this.CookingTime_TextChanged);
             // 
             // comboBox4
             // 
