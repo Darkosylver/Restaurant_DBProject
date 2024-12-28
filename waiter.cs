@@ -96,7 +96,7 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
         private void waiterName_Click(object sender, EventArgs e)
         {
 
-
+        }
         private void addCustomer_Click(object sender, EventArgs e)
         {
             Hide();

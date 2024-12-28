@@ -210,6 +210,7 @@
       <DependentUpon>menuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Modify_Customer.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="menuManagementcs.cs">
       <SubType>Form</SubType>

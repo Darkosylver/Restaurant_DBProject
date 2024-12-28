@@ -65,16 +65,6 @@ namespace Restaurant_DB
 
         }
 
-        public Chef(string ssn)
-        {
-            
-            InitializeComponent();
-            storedssn = ssn;
-            putingredientsincombobox();
-            putstocksincombobox();
-            ssnchefcombobox();
-        }
-
         private void Chef_Load(object sender, EventArgs e)
         {
 
@@ -233,11 +223,6 @@ namespace Restaurant_DB
                 return false;
             }
             return true;
-        }
-
-        private void CookingTime_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
