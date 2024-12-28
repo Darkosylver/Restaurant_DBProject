@@ -259,11 +259,13 @@ namespace Restaurant_DB
 
         private bool validateAddress(string input)
         {
-            if (input.IndexOf(",") == -1 || input.LastIndexOf(",") == input.IndexOf(",")) //Checking there are 2 commas, not 1
+            //Checking there are 2 commas, not 1
+            if (input.IndexOf(",") == -1 || input.LastIndexOf(",") == input.IndexOf(",")) 
             {
                 return false;
             }
-            if (input.IndexOf(",") == 0 || input.LastIndexOf(",") == input.IndexOf(",") + 1 || input.LastIndexOf(",") == input.Length-1) //Checking that each entry is there
+            //Checking that each entry is there
+            if (input.IndexOf(",") == 0 || input.LastIndexOf(",") == input.IndexOf(",") + 1 || input.LastIndexOf(",") == input.Length-1) 
             {
                 return false;
             }
@@ -278,11 +280,13 @@ namespace Restaurant_DB
             }
             else
             {
-                if (input.IndexOf(",") == -1 || input.LastIndexOf(",") == input.IndexOf(",")) //Checking there are 2 commas, not 1
+                //Checking there are 2 commas, not 1
+                if (input.IndexOf(",") == -1 || input.LastIndexOf(",") == input.IndexOf(",")) 
                 {
                     return false;
                 }
-                if (input.IndexOf(",") == 0 || input.LastIndexOf(",") == input.IndexOf(",") + 1 || input.LastIndexOf(",") == input.Length - 1) //Checking that each entry is there
+                //Checking that each entry is there
+                if (input.IndexOf(",") == 0 || input.LastIndexOf(",") == input.IndexOf(",") + 1 || input.LastIndexOf(",") == input.Length - 1) 
                 {
                     return false;
                 }

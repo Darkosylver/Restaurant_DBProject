@@ -35,6 +35,7 @@
             this.logIn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.signUp = new System.Windows.Forms.Label();
+            this.guestLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -126,12 +127,23 @@
             this.signUp.Text = "Sign Up!";
             this.signUp.MouseClick += new System.Windows.Forms.MouseEventHandler(this.signUp_MouseClick);
             // 
+            // guestLogin
+            // 
+            this.guestLogin.Location = new System.Drawing.Point(140, 361);
+            this.guestLogin.Name = "guestLogin";
+            this.guestLogin.Size = new System.Drawing.Size(236, 23);
+            this.guestLogin.TabIndex = 7;
+            this.guestLogin.Text = "Continue as Guest";
+            this.guestLogin.UseVisualStyleBackColor = true;
+            this.guestLogin.Click += new System.EventHandler(this.guestLogin_Click);
+            // 
             // loginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 554);
+            this.Controls.Add(this.guestLogin);
             this.Controls.Add(this.signUp);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.logIn);
@@ -158,6 +170,7 @@
         private System.Windows.Forms.Button logIn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label signUp;
+        private System.Windows.Forms.Button guestLogin;
     }
 }
 

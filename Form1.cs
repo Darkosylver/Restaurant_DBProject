@@ -110,5 +110,13 @@ namespace Restaurant_DB
         {
             logIn.BackColor = Color.Cyan;
         }
+
+        private void guestLogin_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Welcome homePage = new Welcome(null);
+            homePage.ShowDialog();
+            Close();
+        }
     }
 }
