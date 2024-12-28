@@ -90,6 +90,7 @@
             // 
             this.logIn.BackColor = System.Drawing.Color.AliceBlue;
             this.logIn.Enabled = false;
+            this.logIn.ForeColor = System.Drawing.Color.DarkCyan;
             this.logIn.Location = new System.Drawing.Point(123, 289);
             this.logIn.Margin = new System.Windows.Forms.Padding(0);
             this.logIn.Name = "logIn";
