@@ -12,6 +12,7 @@ namespace Restaurant_DB
 {
     public partial class menuItem : UserControl
     {
+        Controller controllerobj = new Controller();
         public menuItem()
         {
             InitializeComponent();
@@ -47,16 +48,27 @@ namespace Restaurant_DB
             set { timeCook.Text = value; }
         }
 
+        public string cookWrite
+        {
+            get { return cook.Text; }
+            set { cook.Text = value; }
+        }
+
         public string itemPriceSet
         {
             get { return itemPrice.Text; }
             set { itemPrice.Text = value; }
         }
+        public string priceSet
+        {
+            get { return price.Text; }
+            set { price.Text = value; }
+        }
+
         private void itemCount_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-
                 e.Handled = true;
             }
         }
@@ -76,6 +88,43 @@ namespace Restaurant_DB
                 count--;
             }
             itemCount.Text = count.ToString();
+        }
+
+        public bool baggageControl
+        {
+            get { return true; }
+            set
+            {
+                itemSub.Enabled = value;
+                itemSub.Visible = value;
+                itemAdd.Enabled = value;
+                itemAdd.Visible = value;
+                itemCount.Enabled = value;
+                itemCount.Visible = value;
+                itemDescription.Visible = value;
+                itemRemove.Enabled = !value;
+                itemRemove.Visible = !value;
+            }
+        }
+
+        public Color getItemColor
+        {
+            get { return this.BackColor; }
+        }
+
+        private void itemRemove_Click(object sender, EventArgs e)
+        {
+            if (this.BackColor == Color.White)
+            {
+                this.BackColor = Color.DarkRed;
+                itemRemove.Text = "Cancel";
+            }
+            else
+            {
+                this.BackColor = Color.White;
+                itemRemove.Text = "Remove Item";
+            }
+            
         }
     }
 }

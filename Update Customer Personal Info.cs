@@ -226,7 +226,7 @@ namespace Restaurant_DB
             itemOrder.Columns.Add("itemName", typeof(string));
             itemOrder.Columns.Add("itemCount", typeof(int));
             itemOrder.Columns.Add("itemPrice", typeof(float));
-            menuForm menu = new menuForm(phone, null, itemOrder);
+            menuForm menu = new menuForm(phone, null,null, 0, 0, itemOrder);
             menu.ShowDialog();
             Close();
         }
