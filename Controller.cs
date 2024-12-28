@@ -331,6 +331,18 @@ namespace Restaurant_DB
             return dbMan.ExecuteReader(query);
         }
 
+        public void addIngredient(string ingredientName, int ingredientCount, decimal ingredientPrice)
+        {
+            string query = "INSERT INTO Ingredient (IngredientName, IngredientStock, IngredientPrice) VALUES ('" + ingredientName + "', " + ingredientCount + ", " + ingredientPrice + ");";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public object getIngredientID(string ingredientName)
+        {
+            string query = "SELECT IngredientID FROM Ingredient WHERE IngredientName = '" + ingredientName + "';";
+            return dbMan.ExecuteScalar(query);
+        }
+
         public void addIngredientToItem(int ingredientID, int itemID, int count)
         {
             string query = "INSERT INTO ContainsIngredient (ItemID, IngredientID, Quantity) VALUES (" + itemID + "," + ingredientID + "," + count + ")";
