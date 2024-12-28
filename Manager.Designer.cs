@@ -28,37 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.FName_Man = new System.Windows.Forms.TextBox();
-            this.LName_Man = new System.Windows.Forms.TextBox();
-            this.Salary_Man = new System.Windows.Forms.TextBox();
-            this.City_Man = new System.Windows.Forms.TextBox();
-            this.Street_Man = new System.Windows.Forms.TextBox();
-            this.Building_Man = new System.Windows.Forms.TextBox();
-            this.EPass_Man = new System.Windows.Forms.TextBox();
-            this.Working_Hours_Man = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.EMPLOYEE_SNN = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manager));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.ReviewOrderDetails = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.PendingOrders = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.Insert_Employee = new System.Windows.Forms.Button();
             this.Delete_Employee = new System.Windows.Forms.Button();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -69,8 +49,52 @@
             this.top3ItemsButton = new System.Windows.Forms.Button();
             this.employeesWorkingHoursButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.ReviewOrderDetails);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 433);
+            this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Menu;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel2.Location = new System.Drawing.Point(200, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(825, 24);
+            this.panel2.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.panel3.Location = new System.Drawing.Point(261, 23);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(117, 110);
+            this.panel3.TabIndex = 2;
+            // 
+            // ReviewOrderDetails
+            // 
+            this.ReviewOrderDetails.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ReviewOrderDetails.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ReviewOrderDetails.Location = new System.Drawing.Point(0, 39);
+            this.ReviewOrderDetails.Name = "ReviewOrderDetails";
+            this.ReviewOrderDetails.Size = new System.Drawing.Size(200, 59);
+            this.ReviewOrderDetails.TabIndex = 0;
+            this.ReviewOrderDetails.Text = "Review Order Details";
+            this.ReviewOrderDetails.UseVisualStyleBackColor = false;
+            this.ReviewOrderDetails.Click += new System.EventHandler(this.ReviewOrderDetails_Click);
             // label3
             // 
             this.label3.AutoSize = true;
@@ -291,103 +315,52 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 30;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(742, 354);
+            this.button2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Location = new System.Drawing.Point(-3, 269);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 35);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "ReviewOrderSDetails";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Size = new System.Drawing.Size(203, 56);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Pending Ingredients";
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // PendingOrders
-            // 
-            this.PendingOrders.Location = new System.Drawing.Point(941, 354);
-            this.PendingOrders.Name = "PendingOrders";
-            this.PendingOrders.Size = new System.Drawing.Size(171, 35);
-            this.PendingOrders.TabIndex = 32;
-            this.PendingOrders.Text = "Pending Ingredients";
-            this.PendingOrders.UseVisualStyleBackColor = true;
-            this.PendingOrders.Click += new System.EventHandler(this.PendingOrders_Click);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label17.ForeColor = System.Drawing.Color.Navy;
-            this.label17.Location = new System.Drawing.Point(544, 12);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(114, 20);
-            this.label17.TabIndex = 33;
-            this.label17.Text = "Orders Needs";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(545, 44);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(69, 16);
-            this.label18.TabIndex = 34;
-            this.label18.Text = "Enter Item ";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(636, 44);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 35;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(561, 74);
+            this.button3.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.Location = new System.Drawing.Point(0, 158);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(159, 29);
-            this.button3.TabIndex = 36;
-            this.button3.Text = "Updatepending Orders";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Size = new System.Drawing.Size(200, 58);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Modify Employee";
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Insert_Employee
+            // dataGridView1
             // 
-            this.Insert_Employee.Location = new System.Drawing.Point(15, 350);
-            this.Insert_Employee.Name = "Insert_Employee";
-            this.Insert_Employee.Size = new System.Drawing.Size(121, 35);
-            this.Insert_Employee.TabIndex = 58;
-            this.Insert_Employee.Text = "Insert_Employee";
-            this.Insert_Employee.UseVisualStyleBackColor = true;
-            this.Insert_Employee.Click += new System.EventHandler(this.Insert_Employee_Click);
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Beige;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(398, 39);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(615, 373);
+            this.dataGridView1.TabIndex = 3;
             // 
-            // Delete_Employee
+            // pictureBox1
             // 
-            this.Delete_Employee.Location = new System.Drawing.Point(331, 354);
-            this.Delete_Employee.Name = "Delete_Employee";
-            this.Delete_Employee.Size = new System.Drawing.Size(121, 35);
-            this.Delete_Employee.TabIndex = 66;
-            this.Delete_Employee.Text = "Delete Employee";
-            this.Delete_Employee.UseVisualStyleBackColor = true;
-            this.Delete_Employee.Click += new System.EventHandler(this.Delete_Employee_Click);
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(371, 60);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 24);
-            this.comboBox3.TabIndex = 67;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(275, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 16);
-            this.label1.TabIndex = 68;
-            this.label1.Text = "Existing SSN";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(19, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(84, 86);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // RestaurantIncomeButton
             // 
@@ -472,64 +445,32 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.Working_Hours_Man);
-            this.Controls.Add(this.EPass_Man);
-            this.Controls.Add(this.Building_Man);
-            this.Controls.Add(this.Street_Man);
-            this.Controls.Add(this.City_Man);
-            this.Controls.Add(this.Salary_Man);
-            this.Controls.Add(this.LName_Man);
-            this.Controls.Add(this.FName_Man);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "Manager";
-            this.Text = "XX";
+            this.Text = "Manager";
             this.Load += new System.EventHandler(this.Manager_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox FName_Man;
-        private System.Windows.Forms.TextBox LName_Man;
-        private System.Windows.Forms.TextBox Salary_Man;
-        private System.Windows.Forms.TextBox City_Man;
-        private System.Windows.Forms.TextBox Street_Man;
-        private System.Windows.Forms.TextBox Building_Man;
-        private System.Windows.Forms.TextBox EPass_Man;
-        private System.Windows.Forms.TextBox Working_Hours_Man;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox EMPLOYEE_SNN;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button PendingOrders;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox comboBox2;
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button ReviewOrderDetails;
         private System.Windows.Forms.Button button3;
+
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button Insert_Employee;
         private System.Windows.Forms.Button Delete_Employee;
         private System.Windows.Forms.ComboBox comboBox3;

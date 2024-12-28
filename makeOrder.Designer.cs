@@ -101,6 +101,27 @@
             this.panel1.Size = new System.Drawing.Size(829, 60);
             this.panel1.TabIndex = 11;
             // 
+            // userName
+            // 
+            this.userName.AutoSize = true;
+            this.userName.BackColor = System.Drawing.Color.Black;
+            this.userName.ForeColor = System.Drawing.Color.White;
+            this.userName.Location = new System.Drawing.Point(100, 34);
+            this.userName.Name = "userName";
+            this.userName.Size = new System.Drawing.Size(67, 16);
+            this.userName.TabIndex = 2;
+            this.userName.Text = "username";
+            // 
+            // welcome
+            // 
+            this.welcome.AutoSize = true;
+            this.welcome.ForeColor = System.Drawing.Color.White;
+            this.welcome.Location = new System.Drawing.Point(100, 15);
+            this.welcome.Name = "welcome";
+            this.welcome.Size = new System.Drawing.Size(68, 16);
+            this.welcome.TabIndex = 1;
+            this.welcome.Text = "Welcome,";
+            // 
             // orders
             // 
             this.orders.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -136,27 +157,6 @@
             this.menuBox.TabIndex = 3;
             this.menuBox.TabStop = false;
             this.menuBox.Click += new System.EventHandler(this.menuBox_Click);
-            // 
-            // userName
-            // 
-            this.userName.AutoSize = true;
-            this.userName.BackColor = System.Drawing.Color.Black;
-            this.userName.ForeColor = System.Drawing.Color.White;
-            this.userName.Location = new System.Drawing.Point(100, 34);
-            this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(67, 16);
-            this.userName.TabIndex = 2;
-            this.userName.Text = "username";
-            // 
-            // welcome
-            // 
-            this.welcome.AutoSize = true;
-            this.welcome.ForeColor = System.Drawing.Color.White;
-            this.welcome.Location = new System.Drawing.Point(100, 15);
-            this.welcome.Name = "welcome";
-            this.welcome.Size = new System.Drawing.Size(68, 16);
-            this.welcome.TabIndex = 1;
-            this.welcome.Text = "Welcome,";
             // 
             // homePage
             // 
@@ -194,6 +194,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "makeOrder";
             this.Text = "makeOrder";
+            this.Load += new System.EventHandler(this.makeOrder_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orders)).EndInit();

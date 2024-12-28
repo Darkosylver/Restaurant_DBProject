@@ -131,5 +131,11 @@ namespace Restaurant_DB
             Close();
         }
 
+
+        private void makeOrder_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
