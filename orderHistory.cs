@@ -90,7 +90,7 @@ namespace Restaurant_DB
             itemOrder.Columns.Add("itemName", typeof(string));
             itemOrder.Columns.Add("itemCount", typeof(int));
             itemOrder.Columns.Add("itemPrice", typeof(float));
-            menuForm menu = new menuForm(phoneNumber, waiterSSN, itemOrder);
+            menuForm menu = new menuForm(phoneNumber, waiterSSN,null,0, 0, itemOrder);
             menu.Show();
             Close();
         }
