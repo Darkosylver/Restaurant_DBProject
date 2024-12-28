@@ -61,7 +61,16 @@ namespace Restaurant_DB
         {
            // DataTable ssnchef = controllerobj.SlectChefSSN();
             //DataTable ssnchef2 = controllerobj.SlectChefSSN();
-           
+            DataTable ssnchef = controllerobj.SlectChefSSN();
+            if (ssnchef != null && ssnchef.Rows.Count > 0)
+            {
+                comboBox3.DataSource = ssnchef;
+                comboBox3.DisplayMember = "SSN";
+            }
+            else
+            {
+                comboBox3.DataSource = null;
+            }
 
         }
 
@@ -114,115 +123,48 @@ namespace Restaurant_DB
 
         }
 
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        private void menuManager_Click(object sender, EventArgs e)
         {
-
-        }
-        // Regular expression to match the format HH:MM:SS
-        public static bool IsValidCookingTime(string cookingTime)
-        {
-
-            string pattern = @"^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$";
-            return Regex.IsMatch(cookingTime, pattern);
-        }
-        private void Insert_item_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(ItemName.Text))
-            {
-                MessageBox.Show("ItemName cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ItemName.Focus();
-                return;
-            }
-            else if (IsValidCookingTime(CookingTime.Text))
-            {
-                MessageBox.Show("cooking formats is invalid.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                CookingTime.Focus();
-                return;
-            }
-            int result=controllerobj.insertMenuItem(ItemName.Text, CookingTime.Text, comboBox4.Text);
-            MessageBox.Show("New menu item added");
-            int itemID = Convert.ToInt32(controllerobj.getMenuItemID(ItemName.Text));
+            // // Regular expression to match the format HH:MM:SS
+            // public static bool IsValidCookingTime(string cookingTime)
+            // {
+    
+            //     string pattern = @"^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$";
+            //     return Regex.IsMatch(cookingTime, pattern);
+            // }
+            // private void Insert_item_Click(object sender, EventArgs e)
+            // {
+            //     if (string.IsNullOrWhiteSpace(ItemName.Text))
+            //     {
+            //         MessageBox.Show("ItemName cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //         ItemName.Focus();
+            //         return;
+            //     }
+            //     else if (IsValidCookingTime(CookingTime.Text))
+            //     {
+            //         MessageBox.Show("cooking formats is invalid.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //         CookingTime.Focus();
+            //         return;
+            //     }
+            //     int result=controllerobj.insertMenuItem(ItemName.Text, CookingTime.Text, comboBox4.Text);
+            //     MessageBox.Show("New menu item added");
+            //     int itemID = Convert.ToInt32(controllerobj.getMenuItemID(ItemName.Text));
             Hide();
-            DataTable dt = new DataTable("Dummy");
-            menuForm addToItem = new menuForm(null, null, storedssn,1, itemID, dt);
-            addToItem.ShowDialog();
+            menuManagementcs menu = new menuManagementcs(storedssn);
+            menu.ShowDialog();
             Close();
         }
 
-        private void itemRemove_Click(object sender, EventArgs e)
+        private void logout_Click(object sender, EventArgs e)
         {
-            Hide();
-            DataTable dt = new DataTable("Dummy");
-            menuForm addToItem = new menuForm(null, null, storedssn, 2, 0, dt);
-            addToItem.ShowDialog();
             Close();
         }
 
-        private void removeIngredient_Click(object sender, EventArgs e)
+        private void homeBox_Click(object sender, EventArgs e)
         {
-            Hide();
-            DataTable dt = new DataTable("Dummy");
-            menuForm addToItem = new menuForm(null, null, storedssn, 0, 0, dt);
-            addToItem.ShowDialog();
-            Close();
-        }
-
-        private void ItemName_TextChanged(object sender, EventArgs e)
-        {
-            if (ItemName.Text == "" || CookingTime.Text == "" || controllerobj.getMenuItemID(ItemName.Text) != null || !validateTime(CookingTime.Text))
-            {
-                Insert_item.Enabled = false;
-            }
-            else
-            {
-                Insert_item.Enabled = true;
-            }
-        }
-
-        private void CookingTime_TextChanged(object sender, EventArgs e)
-        {
-            if (ItemName.Text == "" || CookingTime.Text == "" || controllerobj.getMenuItemID(ItemName.Text) != null || !validateTime(CookingTime.Text))
-            {
-                Insert_item.Enabled = false;
-            }
-            else
-            {
-                Insert_item.Enabled = true;
-            }
-        }
-
-        private void CookingTime_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !(e.KeyChar == ':'))
-            {
-                e.Handled = true;
-            }
-            if (e.KeyChar == ':' && CookingTime.Text.IndexOf(":") != CookingTime.Text.LastIndexOf(":"))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void ItemName_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-        private bool validateTime(string input)
-        {
-            //Checking there are 2 colons, not 1
-            if (input.IndexOf(":") == -1 || input.LastIndexOf(":") == input.IndexOf(":")) 
-            {
-                return false;
-            }
-            //Checking that each entry is there
-            if (input.IndexOf(":") == 0 || input.LastIndexOf(":") == input.IndexOf(":") + 1 || input.LastIndexOf(":") == input.Length - 1) 
-            {
-                return false;
-            }
-            return true;
+            DataTable dt = controllerobj.OrdersToBeMade();
+            dataGridView1.DataSource = dt;
+            dataGridView1.Refresh();
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
