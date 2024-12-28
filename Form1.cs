@@ -103,12 +103,12 @@ namespace Restaurant_DB
 
         private void logIn_MouseEnter(object sender, EventArgs e)
         {
-            logIn.BackColor = Color.SpringGreen;
+            logIn.BackColor = Color.Silver;
         }
 
         private void logIn_MouseLeave(object sender, EventArgs e)
         {
-            logIn.BackColor = Color.Cyan;
+            logIn.BackColor = Color.AliceBlue;
         }
 
         private void guestLogin_Click(object sender, EventArgs e)

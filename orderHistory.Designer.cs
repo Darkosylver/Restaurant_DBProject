@@ -300,7 +300,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 769);
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ClientSize = new System.Drawing.Size(861, 769);
             this.Controls.Add(this.MostBoughtItemButton);
             this.Controls.Add(this.SpendingPerItemButton);
             this.Controls.Add(this.totalSpendingButton);

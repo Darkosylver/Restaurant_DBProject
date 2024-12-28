@@ -30,7 +30,6 @@
         {
             this.update = new System.Windows.Forms.Button();
             this.confirm = new System.Windows.Forms.Button();
-            this.realCartItems = new System.Windows.Forms.FlowLayoutPanel();
             this.total = new System.Windows.Forms.Label();
             this.totalPrice = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -40,6 +39,7 @@
             this.userName = new System.Windows.Forms.Label();
             this.welcome = new System.Windows.Forms.Label();
             this.homePage = new System.Windows.Forms.PictureBox();
+            this.realCartItems = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logout)).BeginInit();
@@ -49,10 +49,9 @@
             // 
             // update
             // 
-            this.update.Location = new System.Drawing.Point(93, 386);
-            this.update.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.update.Location = new System.Drawing.Point(83, 309);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(117, 29);
+            this.update.Size = new System.Drawing.Size(104, 23);
             this.update.TabIndex = 5;
             this.update.Text = "Update Cart";
             this.update.UseVisualStyleBackColor = true;
@@ -60,30 +59,20 @@
             // 
             // confirm
             // 
-            this.confirm.Location = new System.Drawing.Point(449, 386);
-            this.confirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.confirm.Location = new System.Drawing.Point(399, 309);
             this.confirm.Name = "confirm";
-            this.confirm.Size = new System.Drawing.Size(84, 29);
+            this.confirm.Size = new System.Drawing.Size(75, 23);
             this.confirm.TabIndex = 6;
             this.confirm.Text = "Confirm";
             this.confirm.UseVisualStyleBackColor = true;
             this.confirm.Click += new System.EventHandler(this.confirm_Click);
             // 
-            // realCartItems
-            // 
-            this.realCartItems.AutoScroll = true;
-            this.realCartItems.Location = new System.Drawing.Point(16, 92);
-            this.realCartItems.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.realCartItems.Name = "realCartItems";
-            this.realCartItems.Size = new System.Drawing.Size(935, 234);
-            this.realCartItems.TabIndex = 8;
-            // 
             // total
             // 
             this.total.AutoSize = true;
-            this.total.Location = new System.Drawing.Point(446, 345);
+            this.total.Location = new System.Drawing.Point(396, 276);
             this.total.Name = "total";
-            this.total.Size = new System.Drawing.Size(48, 20);
+            this.total.Size = new System.Drawing.Size(41, 16);
             this.total.TabIndex = 9;
             this.total.Text = "Total:";
             this.total.Visible = false;
@@ -91,9 +80,9 @@
             // totalPrice
             // 
             this.totalPrice.AutoSize = true;
-            this.totalPrice.Location = new System.Drawing.Point(498, 345);
+            this.totalPrice.Location = new System.Drawing.Point(443, 276);
             this.totalPrice.Name = "totalPrice";
-            this.totalPrice.Size = new System.Drawing.Size(51, 20);
+            this.totalPrice.Size = new System.Drawing.Size(44, 16);
             this.totalPrice.TabIndex = 10;
             this.totalPrice.Text = "label2";
             this.totalPrice.Visible = false;
@@ -107,20 +96,18 @@
             this.panel1.Controls.Add(this.userName);
             this.panel1.Controls.Add(this.welcome);
             this.panel1.Controls.Add(this.homePage);
-            this.panel1.Location = new System.Drawing.Point(16, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Location = new System.Drawing.Point(14, 8);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(933, 75);
+            this.panel1.Size = new System.Drawing.Size(829, 60);
             this.panel1.TabIndex = 11;
             // 
             // orders
             // 
             this.orders.Cursor = System.Windows.Forms.Cursors.Hand;
             this.orders.Image = global::Restaurant_DB.Properties.Resources.history;
-            this.orders.Location = new System.Drawing.Point(739, 11);
-            this.orders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.orders.Location = new System.Drawing.Point(657, 9);
             this.orders.Name = "orders";
-            this.orders.Size = new System.Drawing.Size(51, 50);
+            this.orders.Size = new System.Drawing.Size(45, 40);
             this.orders.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.orders.TabIndex = 5;
             this.orders.TabStop = false;
@@ -130,10 +117,9 @@
             // 
             this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logout.Image = global::Restaurant_DB.Properties.Resources.logout;
-            this.logout.Location = new System.Drawing.Point(858, 11);
-            this.logout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.logout.Location = new System.Drawing.Point(763, 9);
             this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(45, 50);
+            this.logout.Size = new System.Drawing.Size(40, 40);
             this.logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logout.TabIndex = 4;
             this.logout.TabStop = false;
@@ -143,10 +129,9 @@
             // 
             this.menuBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.menuBox.Image = global::Restaurant_DB.Properties.Resources.menu;
-            this.menuBox.Location = new System.Drawing.Point(674, 8);
-            this.menuBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.menuBox.Location = new System.Drawing.Point(599, 6);
             this.menuBox.Name = "menuBox";
-            this.menuBox.Size = new System.Drawing.Size(45, 50);
+            this.menuBox.Size = new System.Drawing.Size(40, 40);
             this.menuBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.menuBox.TabIndex = 3;
             this.menuBox.TabStop = false;
@@ -157,9 +142,9 @@
             this.userName.AutoSize = true;
             this.userName.BackColor = System.Drawing.Color.Black;
             this.userName.ForeColor = System.Drawing.Color.White;
-            this.userName.Location = new System.Drawing.Point(112, 42);
+            this.userName.Location = new System.Drawing.Point(100, 34);
             this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(80, 20);
+            this.userName.Size = new System.Drawing.Size(67, 16);
             this.userName.TabIndex = 2;
             this.userName.Text = "username";
             // 
@@ -167,9 +152,9 @@
             // 
             this.welcome.AutoSize = true;
             this.welcome.ForeColor = System.Drawing.Color.White;
-            this.welcome.Location = new System.Drawing.Point(112, 19);
+            this.welcome.Location = new System.Drawing.Point(100, 15);
             this.welcome.Name = "welcome";
-            this.welcome.Size = new System.Drawing.Size(79, 20);
+            this.welcome.Size = new System.Drawing.Size(68, 16);
             this.welcome.TabIndex = 1;
             this.welcome.Text = "Welcome,";
             // 
@@ -177,20 +162,29 @@
             // 
             this.homePage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homePage.Image = global::Restaurant_DB.Properties.Resources.home;
-            this.homePage.Location = new System.Drawing.Point(18, 11);
-            this.homePage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.homePage.Location = new System.Drawing.Point(16, 9);
             this.homePage.Name = "homePage";
-            this.homePage.Size = new System.Drawing.Size(45, 50);
+            this.homePage.Size = new System.Drawing.Size(40, 40);
             this.homePage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.homePage.TabIndex = 0;
             this.homePage.TabStop = false;
             this.homePage.Click += new System.EventHandler(this.homePage_Click);
             // 
+            // realCartItems
+            // 
+            this.realCartItems.AutoScroll = true;
+            this.realCartItems.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.realCartItems.Location = new System.Drawing.Point(14, 74);
+            this.realCartItems.Name = "realCartItems";
+            this.realCartItems.Size = new System.Drawing.Size(831, 187);
+            this.realCartItems.TabIndex = 8;
+            // 
             // makeOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 450);
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ClientSize = new System.Drawing.Size(855, 360);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.totalPrice);
             this.Controls.Add(this.total);
@@ -214,7 +208,6 @@
         #endregion
         private System.Windows.Forms.Button update;
         private System.Windows.Forms.Button confirm;
-        private System.Windows.Forms.FlowLayoutPanel realCartItems;
         private System.Windows.Forms.Label total;
         private System.Windows.Forms.Label totalPrice;
         private System.Windows.Forms.Panel panel1;
@@ -224,5 +217,6 @@
         private System.Windows.Forms.PictureBox menuBox;
         private System.Windows.Forms.PictureBox logout;
         private System.Windows.Forms.PictureBox orders;
+        private System.Windows.Forms.FlowLayoutPanel realCartItems;
     }
 }

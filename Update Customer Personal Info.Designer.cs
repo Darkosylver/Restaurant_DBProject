@@ -45,17 +45,17 @@
             this.DoneEditingButton = new System.Windows.Forms.Button();
             this.InsertAddressButton = new System.Windows.Forms.Button();
             this.dashBoard = new System.Windows.Forms.Panel();
+            this.logout = new System.Windows.Forms.PictureBox();
+            this.orderhistory = new System.Windows.Forms.PictureBox();
+            this.menuBox = new System.Windows.Forms.PictureBox();
             this.userName = new System.Windows.Forms.Label();
             this.welcome = new System.Windows.Forms.Label();
             this.homeBox = new System.Windows.Forms.PictureBox();
-            this.menuBox = new System.Windows.Forms.PictureBox();
-            this.orderhistory = new System.Windows.Forms.PictureBox();
-            this.logout = new System.Windows.Forms.PictureBox();
             this.dashBoard.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.homeBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menuBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderhistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderhistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -220,6 +220,42 @@
             this.dashBoard.Size = new System.Drawing.Size(838, 58);
             this.dashBoard.TabIndex = 18;
             // 
+            // logout
+            // 
+            this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logout.Image = global::Restaurant_DB.Properties.Resources.logout;
+            this.logout.Location = new System.Drawing.Point(785, 9);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(40, 40);
+            this.logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logout.TabIndex = 5;
+            this.logout.TabStop = false;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
+            // 
+            // orderhistory
+            // 
+            this.orderhistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.orderhistory.Image = global::Restaurant_DB.Properties.Resources.history;
+            this.orderhistory.Location = new System.Drawing.Point(645, 9);
+            this.orderhistory.Name = "orderhistory";
+            this.orderhistory.Size = new System.Drawing.Size(45, 40);
+            this.orderhistory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.orderhistory.TabIndex = 4;
+            this.orderhistory.TabStop = false;
+            this.orderhistory.Click += new System.EventHandler(this.orderhistory_Click);
+            // 
+            // menuBox
+            // 
+            this.menuBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuBox.Image = global::Restaurant_DB.Properties.Resources.menu;
+            this.menuBox.Location = new System.Drawing.Point(594, 9);
+            this.menuBox.Name = "menuBox";
+            this.menuBox.Size = new System.Drawing.Size(40, 40);
+            this.menuBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.menuBox.TabIndex = 3;
+            this.menuBox.TabStop = false;
+            this.menuBox.Click += new System.EventHandler(this.menuBox_Click);
+            // 
             // userName
             // 
             this.userName.AutoSize = true;
@@ -252,46 +288,11 @@
             this.homeBox.TabStop = false;
             this.homeBox.Click += new System.EventHandler(this.homeBox_Click);
             // 
-            // menuBox
-            // 
-            this.menuBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menuBox.Image = global::Restaurant_DB.Properties.Resources.menu;
-            this.menuBox.Location = new System.Drawing.Point(594, 9);
-            this.menuBox.Name = "menuBox";
-            this.menuBox.Size = new System.Drawing.Size(40, 40);
-            this.menuBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.menuBox.TabIndex = 3;
-            this.menuBox.TabStop = false;
-            this.menuBox.Click += new System.EventHandler(this.menuBox_Click);
-            // 
-            // orderhistory
-            // 
-            this.orderhistory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.orderhistory.Image = global::Restaurant_DB.Properties.Resources.history;
-            this.orderhistory.Location = new System.Drawing.Point(645, 9);
-            this.orderhistory.Name = "orderhistory";
-            this.orderhistory.Size = new System.Drawing.Size(45, 40);
-            this.orderhistory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.orderhistory.TabIndex = 4;
-            this.orderhistory.TabStop = false;
-            this.orderhistory.Click += new System.EventHandler(this.orderhistory_Click);
-            // 
-            // logout
-            // 
-            this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logout.Image = global::Restaurant_DB.Properties.Resources.logout;
-            this.logout.Location = new System.Drawing.Point(785, 9);
-            this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(40, 40);
-            this.logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logout.TabIndex = 5;
-            this.logout.TabStop = false;
-            this.logout.Click += new System.EventHandler(this.logout_Click);
-            // 
             // Update_Customer_Personal_Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(838, 466);
             this.Controls.Add(this.dashBoard);
             this.Controls.Add(this.InsertAddressButton);
@@ -316,10 +317,10 @@
             this.Load += new System.EventHandler(this.Update_Customer_Personal_Info_Load);
             this.dashBoard.ResumeLayout(false);
             this.dashBoard.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.homeBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menuBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderhistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderhistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

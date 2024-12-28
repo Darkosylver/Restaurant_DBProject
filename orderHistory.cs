@@ -25,15 +25,11 @@ namespace Restaurant_DB
             if (waiterSSN != null)
             {
                 userName.Text = controllerobj.getEmployeeName(waiterSSN);
-                cancel.Enabled = false;
-                delivered.Enabled = false;
             }
             else
             {
                 userName.Text = controllerobj.GetCustomerFName(Phone);
-                cancel.Visible = false;
                 delivered.Visible = false;
-                cancel.Enabled = false;
                 delivered.Enabled = false;
                 totalSpendingButton.Visible = false;
                 SpendingPerItemButton.Visible = false;
