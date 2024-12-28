@@ -203,6 +203,12 @@
     <Compile Include="menuForm.Designer.cs">
       <DependentUpon>menuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="menuManagementcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menuManagementcs.Designer.cs">
+      <DependentUpon>menuManagementcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="orderHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="menuForm.resx">
       <DependentUpon>menuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menuManagementcs.resx">
+      <DependentUpon>menuManagementcs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="orderHistory.resx">
       <DependentUpon>orderHistory.cs</DependentUpon>

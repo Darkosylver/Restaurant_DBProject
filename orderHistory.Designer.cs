@@ -107,9 +107,9 @@
             // 
             this.userName.AutoSize = true;
             this.userName.ForeColor = System.Drawing.Color.White;
-            this.userName.Location = new System.Drawing.Point(100, 33);
+            this.userName.Location = new System.Drawing.Point(113, 35);
             this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(80, 20);
+            this.userName.Size = new System.Drawing.Size(67, 16);
             this.userName.TabIndex = 3;
             this.userName.Text = "username";
             // 
@@ -119,20 +119,21 @@
             this.welcome.ForeColor = System.Drawing.Color.White;
             this.welcome.Location = new System.Drawing.Point(112, 19);
             this.welcome.Name = "welcome";
-            this.welcome.Size = new System.Drawing.Size(79, 20);
+            this.welcome.Size = new System.Drawing.Size(68, 16);
             this.welcome.TabIndex = 2;
             this.welcome.Text = "Welcome,";
             // 
             // logOut
             // 
             this.logOut.Image = global::Restaurant_DB.Properties.Resources.logout;
-            this.logOut.Location = new System.Drawing.Point(908, 11);
+            this.logOut.Location = new System.Drawing.Point(797, 9);
             this.logOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(45, 50);
+            this.logOut.Size = new System.Drawing.Size(40, 40);
             this.logOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logOut.TabIndex = 1;
             this.logOut.TabStop = false;
+            this.logOut.Click += new System.EventHandler(this.logOut_Click);
             // 
             // homeBox
             // 
@@ -140,10 +141,11 @@
             this.homeBox.Location = new System.Drawing.Point(18, 11);
             this.homeBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.homeBox.Name = "homeBox";
-            this.homeBox.Size = new System.Drawing.Size(45, 50);
+            this.homeBox.Size = new System.Drawing.Size(40, 40);
             this.homeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.homeBox.TabIndex = 0;
             this.homeBox.TabStop = false;
+            this.homeBox.Click += new System.EventHandler(this.homeBox_Click);
             // 
             // orderCurrent
             // 
@@ -191,7 +193,7 @@
             this.search.AutoSize = true;
             this.search.Location = new System.Drawing.Point(232, 70);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(115, 20);
+            this.search.Size = new System.Drawing.Size(97, 16);
             this.search.TabIndex = 5;
             this.search.Text = "Search by user";
             this.search.Visible = false;
@@ -202,7 +204,7 @@
             this.userPhone.Location = new System.Drawing.Point(336, 67);
             this.userPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userPhone.Name = "userPhone";
-            this.userPhone.Size = new System.Drawing.Size(131, 26);
+            this.userPhone.Size = new System.Drawing.Size(131, 22);
             this.userPhone.TabIndex = 6;
             this.userPhone.Visible = false;
             this.userPhone.TextChanged += new System.EventHandler(this.userPhone_TextChanged);
@@ -298,7 +300,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 769);
+            this.ClientSize = new System.Drawing.Size(851, 769);
             this.Controls.Add(this.MostBoughtItemButton);
             this.Controls.Add(this.SpendingPerItemButton);
             this.Controls.Add(this.totalSpendingButton);
