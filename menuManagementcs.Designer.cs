@@ -30,10 +30,10 @@
         {
             this.welcome = new System.Windows.Forms.Label();
             this.dashBoard = new System.Windows.Forms.Panel();
+            this.menuManager = new System.Windows.Forms.PictureBox();
+            this.logout = new System.Windows.Forms.PictureBox();
             this.homeBox = new System.Windows.Forms.PictureBox();
             this.userName = new System.Windows.Forms.Label();
-            this.logout = new System.Windows.Forms.PictureBox();
-            this.menuManager = new System.Windows.Forms.PictureBox();
             this.itemName = new System.Windows.Forms.TextBox();
             this.cookingTime = new System.Windows.Forms.TextBox();
             this.itemAdd = new System.Windows.Forms.Button();
@@ -54,9 +54,9 @@
             this.ingredientAdd = new System.Windows.Forms.Button();
             this.successMessage = new System.Windows.Forms.Label();
             this.dashBoard.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.homeBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBox)).BeginInit();
             this.SuspendLayout();
             // 
             // welcome
@@ -82,6 +82,29 @@
             this.dashBoard.Size = new System.Drawing.Size(866, 62);
             this.dashBoard.TabIndex = 1;
             // 
+            // menuManager
+            // 
+            this.menuManager.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuManager.Image = global::Restaurant_DB.Properties.Resources.menu;
+            this.menuManager.Location = new System.Drawing.Point(586, 9);
+            this.menuManager.Name = "menuManager";
+            this.menuManager.Size = new System.Drawing.Size(40, 40);
+            this.menuManager.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.menuManager.TabIndex = 4;
+            this.menuManager.TabStop = false;
+            // 
+            // logout
+            // 
+            this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logout.Image = global::Restaurant_DB.Properties.Resources.logout;
+            this.logout.Location = new System.Drawing.Point(815, 9);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(40, 40);
+            this.logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logout.TabIndex = 3;
+            this.logout.TabStop = false;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
+            // 
             // homeBox
             // 
             this.homeBox.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -103,29 +126,6 @@
             this.userName.Size = new System.Drawing.Size(67, 16);
             this.userName.TabIndex = 1;
             this.userName.Text = "username";
-            // 
-            // logout
-            // 
-            this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logout.Image = global::Restaurant_DB.Properties.Resources.logout;
-            this.logout.Location = new System.Drawing.Point(815, 9);
-            this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(40, 40);
-            this.logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logout.TabIndex = 3;
-            this.logout.TabStop = false;
-            this.logout.Click += new System.EventHandler(this.logout_Click);
-            // 
-            // menuManager
-            // 
-            this.menuManager.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menuManager.Image = global::Restaurant_DB.Properties.Resources.menu;
-            this.menuManager.Location = new System.Drawing.Point(586, 9);
-            this.menuManager.Name = "menuManager";
-            this.menuManager.Size = new System.Drawing.Size(40, 40);
-            this.menuManager.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.menuManager.TabIndex = 4;
-            this.menuManager.TabStop = false;
             // 
             // itemName
             // 
@@ -333,11 +333,12 @@
             this.Controls.Add(this.dashBoard);
             this.Name = "menuManagementcs";
             this.Text = "menuManagementcs";
+            this.Load += new System.EventHandler(this.menuManagementcs_Load);
             this.dashBoard.ResumeLayout(false);
             this.dashBoard.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.homeBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -24,7 +24,6 @@ namespace Restaurant_DB
             storedssn = ssn;
             putingredientsincombobox();
             putstocksincombobox();
-            ssnchefcombobox();
         }
         public void putingredientsincombobox()
         {
@@ -56,22 +55,6 @@ namespace Restaurant_DB
                 comboBox2.DataSource = null;
 
             }
-        }
-        public void ssnchefcombobox()
-        {
-           // DataTable ssnchef = controllerobj.SlectChefSSN();
-            //DataTable ssnchef2 = controllerobj.SlectChefSSN();
-            DataTable ssnchef = controllerobj.SlectChefSSN();
-            if (ssnchef != null && ssnchef.Rows.Count > 0)
-            {
-                comboBox3.DataSource = ssnchef;
-                comboBox3.DisplayMember = "SSN";
-            }
-            else
-            {
-                comboBox3.DataSource = null;
-            }
-
         }
 
         private void Chef_Load(object sender, EventArgs e)
@@ -125,13 +108,7 @@ namespace Restaurant_DB
 
         private void menuManager_Click(object sender, EventArgs e)
         {
-            // // Regular expression to match the format HH:MM:SS
-            // public static bool IsValidCookingTime(string cookingTime)
-            // {
-    
-            //     string pattern = @"^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$";
-            //     return Regex.IsMatch(cookingTime, pattern);
-            // }
+            
             // private void Insert_item_Click(object sender, EventArgs e)
             // {
             //     if (string.IsNullOrWhiteSpace(ItemName.Text))
@@ -168,6 +145,11 @@ namespace Restaurant_DB
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }

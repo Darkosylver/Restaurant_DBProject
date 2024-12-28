@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -72,7 +73,7 @@ namespace Restaurant_DB
 
         private void itemName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar!=' ')
             {
                 e.Handled = true;
             }
@@ -89,21 +90,28 @@ namespace Restaurant_DB
                 e.Handled = true;
             }
         }
-
-        private bool validateTime(string input)
+        public static bool validateTime(string cookingTime)
         {
-            //Checking there are 2 colons, not 1
-            if (input.IndexOf(":") == -1 || input.LastIndexOf(":") == input.IndexOf(":"))
-            {
-                return false;
-            }
-            //Checking that each entry is there
-            if (input.IndexOf(":") == 0 || input.LastIndexOf(":") == input.IndexOf(":") + 1 || input.LastIndexOf(":") == input.Length - 1)
-            {
-                return false;
-            }
-            return true;
+
+            string pattern = @"^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$";
+            return Regex.IsMatch(cookingTime, pattern);
         }
+        //private bool validateTime(string input)
+        //{
+        //    // Regular expression to match the format HH:MM:SS
+            
+        //    //Checking there are 2 colons, not 1
+        //    if (input.IndexOf(":") == -1 || input.LastIndexOf(":") == input.IndexOf(":"))
+        //    {
+        //        return false;
+        //    }
+        //    //Checking that each entry is there
+        //    if (input.IndexOf(":") == 0 || input.LastIndexOf(":") == input.IndexOf(":") + 1 || input.LastIndexOf(":") == input.Length - 1)
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+        //}
 
         private void itemAdd_Click(object sender, EventArgs e)
         {
@@ -203,6 +211,11 @@ namespace Restaurant_DB
         {
             controllerobj.addIngredient(ingredientName.Text, Convert.ToInt32(ingredientCount.Text), Convert.ToDecimal(ingredientPrice.Text));
             successMessage.Visible = true;
+        }
+
+        private void menuManagementcs_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
