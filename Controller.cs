@@ -609,8 +609,9 @@ namespace Restaurant_DB
         //MenuItem (ItemName, CookingTime, ItemStatus, ChefSSN)
         public int insertMenuItem(string item,string time,string ssn)
         {
+            DateTime cookingTime = Convert.ToDateTime(time);
             string query = "INSERT INTO MenuItem (ItemName, CookingTime, ItemStatus, ChefSSN)" +
-                "VALUES    ('"+item+"', '"+item+"', 'Available', '"+ssn+"')";
+                "VALUES    ('"+item+"', '"+cookingTime+"', 'Available', '"+ssn+"')";
             int rowsAffected = dbMan.ExecuteNonQuery(query);
             if (rowsAffected > 0)
             {
