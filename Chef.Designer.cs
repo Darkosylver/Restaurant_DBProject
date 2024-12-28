@@ -208,6 +208,7 @@
             this.ItemName.Size = new System.Drawing.Size(90, 22);
             this.ItemName.TabIndex = 16;
             this.ItemName.TextChanged += new System.EventHandler(this.ItemName_TextChanged);
+            this.ItemName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ItemName_KeyPress);
             // 
             // CookingTime
             // 
@@ -216,6 +217,7 @@
             this.CookingTime.Size = new System.Drawing.Size(100, 22);
             this.CookingTime.TabIndex = 17;
             this.CookingTime.TextChanged += new System.EventHandler(this.CookingTime_TextChanged);
+            this.CookingTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CookingTime_KeyPress);
             // 
             // comboBox4
             // 

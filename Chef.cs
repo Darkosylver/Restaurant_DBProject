@@ -166,7 +166,7 @@ namespace Restaurant_DB
             }
             else
             {
-                Insert_item.Enabled = false;
+                Insert_item.Enabled = true;
             }
         }
 
@@ -178,7 +178,23 @@ namespace Restaurant_DB
             }
             else
             {
-                Insert_item.Enabled = false;
+                Insert_item.Enabled = true;
+            }
+        }
+
+        private void CookingTime_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !(e.KeyChar == ':'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ItemName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }
