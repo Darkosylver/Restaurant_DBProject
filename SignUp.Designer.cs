@@ -236,6 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(960, 519);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.errorText);
@@ -259,6 +260,7 @@
             this.Controls.Add(this.firstName);
             this.Name = "SignUp";
             this.Text = "Sign up";
+            this.Load += new System.EventHandler(this.SignUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

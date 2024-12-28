@@ -87,7 +87,7 @@
             // 
             // logIn
             // 
-            this.logIn.BackColor = System.Drawing.Color.Cyan;
+            this.logIn.BackColor = System.Drawing.Color.AliceBlue;
             this.logIn.Enabled = false;
             this.logIn.Location = new System.Drawing.Point(123, 289);
             this.logIn.Margin = new System.Windows.Forms.Padding(0);
@@ -117,7 +117,7 @@
             // 
             this.signUp.AutoSize = true;
             this.signUp.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signUp.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.signUp.ForeColor = System.Drawing.Color.AliceBlue;
             this.signUp.Location = new System.Drawing.Point(279, 291);
             this.signUp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.signUp.Name = "signUp";
@@ -130,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 554);
             this.Controls.Add(this.signUp);
             this.Controls.Add(this.label3);

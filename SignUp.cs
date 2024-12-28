@@ -314,5 +314,10 @@ namespace Restaurant_DB
             }
             Close();
         }
+
+        private void SignUp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
