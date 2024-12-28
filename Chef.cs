@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.Map.WebForms.BingMaps;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -160,7 +161,7 @@ namespace Restaurant_DB
 
         private void ItemName_TextChanged(object sender, EventArgs e)
         {
-            if (ItemName.Text == "" || CookingTime.Text == "" || controllerobj.getMenuItemID(ItemName.Text) == null)
+            if (ItemName.Text == "" || CookingTime.Text == "" || controllerobj.getMenuItemID(ItemName.Text) != null || !validateTime(CookingTime.Text))
             {
                 Insert_item.Enabled = false;
             }
@@ -172,7 +173,7 @@ namespace Restaurant_DB
 
         private void CookingTime_TextChanged(object sender, EventArgs e)
         {
-            if (ItemName.Text == "" || CookingTime.Text == "" || controllerobj.getMenuItemID(ItemName.Text) ==null)
+            if (ItemName.Text == "" || CookingTime.Text == "" || controllerobj.getMenuItemID(ItemName.Text) != null || !validateTime(CookingTime.Text))
             {
                 Insert_item.Enabled = false;
             }
@@ -188,6 +189,10 @@ namespace Restaurant_DB
             {
                 e.Handled = true;
             }
+            if (e.KeyChar == ':' && CookingTime.Text.IndexOf(":") != CookingTime.Text.LastIndexOf(":"))
+            {
+                e.Handled = true;
+            }
         }
 
         private void ItemName_KeyPress(object sender, KeyPressEventArgs e)
@@ -196,6 +201,20 @@ namespace Restaurant_DB
             {
                 e.Handled = true;
             }
+        }
+        private bool validateTime(string input)
+        {
+            //Checking there are 2 colons, not 1
+            if (input.IndexOf(":") == -1 || input.LastIndexOf(":") == input.IndexOf(":")) 
+            {
+                return false;
+            }
+            //Checking that each entry is there
+            if (input.IndexOf(":") == 0 || input.LastIndexOf(":") == input.IndexOf(":") + 1 || input.LastIndexOf(":") == input.Length - 1) 
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

@@ -230,6 +230,7 @@
             // 
             // Insert_item
             // 
+            this.Insert_item.Enabled = false;
             this.Insert_item.Location = new System.Drawing.Point(703, 451);
             this.Insert_item.Name = "Insert_item";
             this.Insert_item.Size = new System.Drawing.Size(86, 24);
