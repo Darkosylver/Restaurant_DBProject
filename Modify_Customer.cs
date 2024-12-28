@@ -229,7 +229,7 @@ namespace Restaurant_DB
                     City.Text = dr["City"].ToString();
                     Street.Text = dr["Street"].ToString();
                     Building.Text = dr["Building"].ToString();
-                    EPassword.Text = dr["EPassword"].ToString();
+                    EPassword.Text = "";
                     long Insert_ssn = long.Parse(EMPLOYEE_SNN.Text);
                     string FirstName = FName.Text;
                     string LastName = LName.Text;
