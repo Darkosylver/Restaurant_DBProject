@@ -448,7 +448,7 @@ namespace Restaurant_DB
         public DataTable GetTopThreeMostOrderedItems()
         {
             string query =
-                "SELECT TOP 3 mi.ItemName, COUNT(ocmi.OrderID) AS OrderCount " +
+                "SELECT TOP 3 mi.ItemName, SUM(ocmi.Quantity) AS OrderCount " +
                 "FROM MenuItem mi " +
                 "JOIN Order_Contains_MenuItem ocmi ON mi.ItemID = ocmi.ItemID " +
                 "GROUP BY mi.ItemName " +
