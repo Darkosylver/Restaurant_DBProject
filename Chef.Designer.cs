@@ -42,8 +42,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.ItemName = new System.Windows.Forms.TextBox();
             this.CookingTime = new System.Windows.Forms.TextBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -138,7 +136,7 @@
             // 
             // Request
             // 
-            this.Request.Location = new System.Drawing.Point(577, 304);
+            this.Request.Location = new System.Drawing.Point(564, 304);
             this.Request.Name = "Request";
             this.Request.Size = new System.Drawing.Size(75, 23);
             this.Request.TabIndex = 9;
@@ -182,23 +180,6 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "ChefSSN";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(407, 283);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 16);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Enter Your SSN";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(534, 275);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 24);
-            this.comboBox3.TabIndex = 15;
-            // 
             // ItemName
             // 
             this.ItemName.Location = new System.Drawing.Point(12, 392);
@@ -212,6 +193,7 @@
             this.CookingTime.Name = "CookingTime";
             this.CookingTime.Size = new System.Drawing.Size(100, 22);
             this.CookingTime.TabIndex = 17;
+            this.CookingTime.TextChanged += new System.EventHandler(this.CookingTime_TextChanged);
             // 
             // comboBox4
             // 
@@ -224,9 +206,9 @@
             // 
             // Insert_item
             // 
-            this.Insert_item.Location = new System.Drawing.Point(703, 451);
+            this.Insert_item.Location = new System.Drawing.Point(430, 386);
             this.Insert_item.Name = "Insert_item";
-            this.Insert_item.Size = new System.Drawing.Size(86, 24);
+            this.Insert_item.Size = new System.Drawing.Size(92, 30);
             this.Insert_item.TabIndex = 19;
             this.Insert_item.Text = "Insert Item";
             this.Insert_item.UseVisualStyleBackColor = true;
@@ -241,8 +223,6 @@
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.CookingTime);
             this.Controls.Add(this.ItemName);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -282,8 +262,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.TextBox ItemName;
         private System.Windows.Forms.TextBox CookingTime;
         private System.Windows.Forms.ComboBox comboBox4;

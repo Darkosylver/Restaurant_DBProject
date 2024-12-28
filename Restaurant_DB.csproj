@@ -179,7 +179,6 @@
     <Compile Include="Chef.Designer.cs">
       <DependentUpon>Chef.cs</DependentUpon>
     </Compile>
-   
     <Compile Include="cartItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -197,11 +196,23 @@
     <Compile Include="makeOrder.Designer.cs">
       <DependentUpon>makeOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager.Designer.cs">
+      <DependentUpon>Manager.cs</DependentUpon>
+    </Compile>
     <Compile Include="menuForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="menuForm.Designer.cs">
       <DependentUpon>menuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modify_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modify_Customer.Designer.cs">
+      <DependentUpon>Modify_Customer.cs</DependentUpon>
     </Compile>
     <Compile Include="orderHistory.cs">
       <SubType>Form</SubType>
@@ -209,18 +220,11 @@
     <Compile Include="orderHistory.Designer.cs">
       <DependentUpon>orderHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manager.Designer.cs">
-      <DependentUpon>Manager.cs</DependentUpon>
-    </Compile>
     <Compile Include="RestaurantDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="tablemanagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,15 +270,20 @@
     <EmbeddedResource Include="Chef.resx">
       <DependentUpon>Chef.cs</DependentUpon>
     </EmbeddedResource>
-    
     <EmbeddedResource Include="cartItem.resx">
       <DependentUpon>cartItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="makeOrder.resx">
       <DependentUpon>makeOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manager.resx">
+      <DependentUpon>Manager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="menuForm.resx">
       <DependentUpon>menuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modify_Customer.resx">
+      <DependentUpon>Modify_Customer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="orderHistory.resx">
       <DependentUpon>orderHistory.cs</DependentUpon>
@@ -282,9 +291,6 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="tablemanagement.resx">
       <DependentUpon>tablemanagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manager.resx">
-      <DependentUpon>Manager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update Customer Personal Info.resx">
       <DependentUpon>Update Customer Personal Info.cs</DependentUpon>
@@ -379,21 +385,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\history.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Microsoft.Data.SqlClient.SNI.5.2.0\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('packages\Microsoft.Data.SqlClient.SNI.5.2.0\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />

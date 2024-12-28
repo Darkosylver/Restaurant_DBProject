@@ -7,13 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Restaurant_DB
 {
+   // inline   string storedssn;
     public partial class Chef : Form
     {
         Controller controllerobj = new Controller();
         string storedssn;
+        public Chef(string ssn)
+        {
+
+            InitializeComponent();
+            storedssn = ssn;
+            putingredientsincombobox();
+            putstocksincombobox();
+            ssnchefcombobox();
+        }
         public void putingredientsincombobox()
         {
             DataTable pendingid = controllerobj.SelectedPendingID();
@@ -47,32 +58,13 @@ namespace Restaurant_DB
         }
         public void ssnchefcombobox()
         {
-            DataTable ssnchef = controllerobj.SlectChefSSN();
-            DataTable ssnchef2 = controllerobj.SlectChefSSN();
-            if (ssnchef != null && ssnchef.Rows.Count > 0)
-            {
-                comboBox3.DataSource = ssnchef;
-                comboBox3.DisplayMember = "SSN";
-                comboBox4.DataSource = ssnchef2;
-                comboBox4.DisplayMember = "SSN";
-            }
-            else
-            {
-                comboBox3.DataSource = null;
-                comboBox4.DataSource = null;
-
-            }
+           // DataTable ssnchef = controllerobj.SlectChefSSN();
+            //DataTable ssnchef2 = controllerobj.SlectChefSSN();
+           
 
         }
-        public Chef(string ssn)
-        {
-            
-            InitializeComponent();
-         
-            putingredientsincombobox();
-            putstocksincombobox();
-            ssnchefcombobox();
-        }
+        //string storedssn;
+       
 
         private void Chef_Load(object sender, EventArgs e)
         {
@@ -113,7 +105,7 @@ namespace Restaurant_DB
         private void Request_Click(object sender, EventArgs e)
         {
 
-            int result = controllerobj.MakeRequest(comboBox2.Text, comboBox3.Text);
+            int result = controllerobj.MakeRequest(comboBox2.Text,storedssn);
             MessageBox.Show("Ingredient item is requested successfully!");
 
         }
@@ -127,11 +119,39 @@ namespace Restaurant_DB
         {
 
         }
+        // Regular expression to match the format HH:MM:SS
+        public static bool IsValidCookingTime(string cookingTime)
+        {
 
+            string pattern = @"^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$";
+            return Regex.IsMatch(cookingTime, pattern);
+        }
         private void Insert_item_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(ItemName.Text))
+            {
+                MessageBox.Show("ItemName cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ItemName.Focus();
+                return;
+            }
+            else if (IsValidCookingTime(CookingTime.Text))
+            {
+                MessageBox.Show("cooking formats is invalid.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CookingTime.Focus();
+                return;
+            }
             int result=controllerobj.insertMenuItem(ItemName.Text, CookingTime.Text, comboBox4.Text);
             MessageBox.Show("New menu item added");
+        }
+
+        private void CookingTime_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

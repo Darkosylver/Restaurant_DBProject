@@ -130,5 +130,10 @@ namespace Restaurant_DB
             orders.ShowDialog();
             Close();
         }
+
+        private void makeOrder_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

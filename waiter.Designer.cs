@@ -145,6 +145,7 @@
             this.waiterName.Size = new System.Drawing.Size(76, 16);
             this.waiterName.TabIndex = 2;
             this.waiterName.Text = "waitername";
+            this.waiterName.Click += new System.EventHandler(this.waiterName_Click);
             // 
             // welcome
             // 

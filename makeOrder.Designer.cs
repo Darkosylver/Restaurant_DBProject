@@ -34,17 +34,17 @@
             this.total = new System.Windows.Forms.Label();
             this.totalPrice = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.logout = new System.Windows.Forms.PictureBox();
-            this.menuBox = new System.Windows.Forms.PictureBox();
             this.userName = new System.Windows.Forms.Label();
             this.welcome = new System.Windows.Forms.Label();
-            this.homePage = new System.Windows.Forms.PictureBox();
             this.orders = new System.Windows.Forms.PictureBox();
+            this.logout = new System.Windows.Forms.PictureBox();
+            this.menuBox = new System.Windows.Forms.PictureBox();
+            this.homePage = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homePage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orders)).BeginInit();
             this.SuspendLayout();
             // 
             // update
@@ -109,6 +109,38 @@
             this.panel1.Size = new System.Drawing.Size(829, 60);
             this.panel1.TabIndex = 11;
             // 
+            // userName
+            // 
+            this.userName.AutoSize = true;
+            this.userName.BackColor = System.Drawing.Color.Black;
+            this.userName.ForeColor = System.Drawing.Color.White;
+            this.userName.Location = new System.Drawing.Point(100, 34);
+            this.userName.Name = "userName";
+            this.userName.Size = new System.Drawing.Size(67, 16);
+            this.userName.TabIndex = 2;
+            this.userName.Text = "username";
+            // 
+            // welcome
+            // 
+            this.welcome.AutoSize = true;
+            this.welcome.ForeColor = System.Drawing.Color.White;
+            this.welcome.Location = new System.Drawing.Point(100, 15);
+            this.welcome.Name = "welcome";
+            this.welcome.Size = new System.Drawing.Size(68, 16);
+            this.welcome.TabIndex = 1;
+            this.welcome.Text = "Welcome,";
+            // 
+            // orders
+            // 
+            this.orders.Image = global::Restaurant_DB.Properties.Resources.history;
+            this.orders.Location = new System.Drawing.Point(657, 9);
+            this.orders.Name = "orders";
+            this.orders.Size = new System.Drawing.Size(45, 40);
+            this.orders.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.orders.TabIndex = 5;
+            this.orders.TabStop = false;
+            this.orders.Click += new System.EventHandler(this.orders_Click);
+            // 
             // logout
             // 
             this.logout.Image = global::Restaurant_DB.Properties.Resources.logout;
@@ -131,27 +163,6 @@
             this.menuBox.TabStop = false;
             this.menuBox.Click += new System.EventHandler(this.menuBox_Click);
             // 
-            // userName
-            // 
-            this.userName.AutoSize = true;
-            this.userName.BackColor = System.Drawing.Color.Black;
-            this.userName.ForeColor = System.Drawing.Color.White;
-            this.userName.Location = new System.Drawing.Point(100, 34);
-            this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(67, 16);
-            this.userName.TabIndex = 2;
-            this.userName.Text = "username";
-            // 
-            // welcome
-            // 
-            this.welcome.AutoSize = true;
-            this.welcome.ForeColor = System.Drawing.Color.White;
-            this.welcome.Location = new System.Drawing.Point(100, 15);
-            this.welcome.Name = "welcome";
-            this.welcome.Size = new System.Drawing.Size(68, 16);
-            this.welcome.TabIndex = 1;
-            this.welcome.Text = "Welcome,";
-            // 
             // homePage
             // 
             this.homePage.Image = global::Restaurant_DB.Properties.Resources.home;
@@ -162,17 +173,6 @@
             this.homePage.TabIndex = 0;
             this.homePage.TabStop = false;
             this.homePage.Click += new System.EventHandler(this.homePage_Click);
-            // 
-            // orders
-            // 
-            this.orders.Image = global::Restaurant_DB.Properties.Resources.history;
-            this.orders.Location = new System.Drawing.Point(657, 9);
-            this.orders.Name = "orders";
-            this.orders.Size = new System.Drawing.Size(45, 40);
-            this.orders.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.orders.TabIndex = 5;
-            this.orders.TabStop = false;
-            this.orders.Click += new System.EventHandler(this.orders_Click);
             // 
             // makeOrder
             // 
@@ -188,12 +188,13 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "makeOrder";
             this.Text = "makeOrder";
+            this.Load += new System.EventHandler(this.makeOrder_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.homePage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

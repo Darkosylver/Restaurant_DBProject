@@ -79,5 +79,10 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
         {
             Close();
         }
+
+        private void waiterName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
