@@ -187,5 +187,26 @@ namespace Restaurant_DB
                 TotalSpendings.DataSource = controllerobj.GetMostBoughtItem(phoneNumber);
             }
         }
+
+        private void homeBox_Click(object sender, EventArgs e)
+        {
+            Hide();
+            if (phoneNumber != null)
+            {
+                Welcome homePage = new Welcome(phoneNumber);
+                homePage.ShowDialog();
+            }
+            else
+            {
+                waiter homePage = new waiter(waiterSSN);
+                homePage.ShowDialog();
+            }
+            Close();
+        }
+
+        private void logOut_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -107,7 +107,7 @@
             // 
             this.userName.AutoSize = true;
             this.userName.ForeColor = System.Drawing.Color.White;
-            this.userName.Location = new System.Drawing.Point(100, 33);
+            this.userName.Location = new System.Drawing.Point(113, 35);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(67, 16);
             this.userName.TabIndex = 3;
@@ -126,13 +126,14 @@
             // logOut
             // 
             this.logOut.Image = global::Restaurant_DB.Properties.Resources.logout;
-            this.logOut.Location = new System.Drawing.Point(908, 11);
+            this.logOut.Location = new System.Drawing.Point(797, 9);
             this.logOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(45, 50);
+            this.logOut.Size = new System.Drawing.Size(40, 40);
             this.logOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logOut.TabIndex = 1;
             this.logOut.TabStop = false;
+            this.logOut.Click += new System.EventHandler(this.logOut_Click);
             // 
             // homeBox
             // 
@@ -140,10 +141,11 @@
             this.homeBox.Location = new System.Drawing.Point(18, 11);
             this.homeBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.homeBox.Name = "homeBox";
-            this.homeBox.Size = new System.Drawing.Size(45, 50);
+            this.homeBox.Size = new System.Drawing.Size(40, 40);
             this.homeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.homeBox.TabIndex = 0;
             this.homeBox.TabStop = false;
+            this.homeBox.Click += new System.EventHandler(this.homeBox_Click);
             // 
             // orderCurrent
             // 
