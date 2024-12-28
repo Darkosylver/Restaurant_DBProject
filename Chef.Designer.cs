@@ -46,6 +46,8 @@
             this.CookingTime = new System.Windows.Forms.TextBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.Insert_item = new System.Windows.Forms.Button();
+            this.itemRemove = new System.Windows.Forms.Button();
+            this.removeIngredient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,6 +188,8 @@
             this.ItemName.Name = "ItemName";
             this.ItemName.Size = new System.Drawing.Size(90, 22);
             this.ItemName.TabIndex = 16;
+            this.ItemName.TextChanged += new System.EventHandler(this.ItemName_TextChanged);
+            this.ItemName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ItemName_KeyPress);
             // 
             // CookingTime
             // 
@@ -194,6 +198,7 @@
             this.CookingTime.Size = new System.Drawing.Size(100, 22);
             this.CookingTime.TabIndex = 17;
             this.CookingTime.TextChanged += new System.EventHandler(this.CookingTime_TextChanged);
+            this.CookingTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CookingTime_KeyPress);
             // 
             // comboBox4
             // 
@@ -207,6 +212,7 @@
             // Insert_item
             // 
             this.Insert_item.Location = new System.Drawing.Point(430, 386);
+            this.Insert_item.Enabled = false;
             this.Insert_item.Name = "Insert_item";
             this.Insert_item.Size = new System.Drawing.Size(92, 30);
             this.Insert_item.TabIndex = 19;
@@ -214,11 +220,34 @@
             this.Insert_item.UseVisualStyleBackColor = true;
             this.Insert_item.Click += new System.EventHandler(this.Insert_item_Click);
             // 
+            // itemRemove
+            // 
+            this.itemRemove.Location = new System.Drawing.Point(785, 80);
+            this.itemRemove.Name = "itemRemove";
+            this.itemRemove.Size = new System.Drawing.Size(150, 23);
+            this.itemRemove.TabIndex = 20;
+            this.itemRemove.Text = "Remove Itens";
+            this.itemRemove.UseVisualStyleBackColor = true;
+            this.itemRemove.Click += new System.EventHandler(this.itemRemove_Click);
+            // 
+            // removeIngredient
+            // 
+            this.removeIngredient.Location = new System.Drawing.Point(790, 137);
+            this.removeIngredient.Name = "removeIngredient";
+            this.removeIngredient.Size = new System.Drawing.Size(145, 23);
+            this.removeIngredient.TabIndex = 21;
+            this.removeIngredient.Text = "Remove Ingredients";
+            this.removeIngredient.UseVisualStyleBackColor = true;
+            this.removeIngredient.Click += new System.EventHandler(this.removeIngredient_Click);
+            // 
             // Chef
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1023, 517);
+            this.Controls.Add(this.removeIngredient);
+            this.Controls.Add(this.itemRemove);
             this.Controls.Add(this.Insert_item);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.CookingTime);
@@ -266,5 +295,7 @@
         private System.Windows.Forms.TextBox CookingTime;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Button Insert_item;
+        private System.Windows.Forms.Button itemRemove;
+        private System.Windows.Forms.Button removeIngredient;
     }
 }

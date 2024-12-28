@@ -41,7 +41,8 @@ namespace Restaurant_DB
 
         private void logIn_Click(object sender, EventArgs e)
         {
-          
+            encryptor encrypt = new encryptor();
+            string encryptedpassword = encrypt.HashText(passWord.Text);
             if (controller.findPassword(userName.Text) == null)
             {
                 label3.Text = "Incorrect Credentials, Please check username";
@@ -49,12 +50,12 @@ namespace Restaurant_DB
             }
             else
             {
-                if (controller.findPassword(userName.Text).ToString() != passWord.Text)
+                if (controller.findPassword(userName.Text).ToString() !=  encryptedpassword)
                 {
                     label3.Text = "Incorrect Password, Please try again";
                     label3.Visible = true;
                 }
-                else if (controller.VerifyCustomer(userName.Text) != "" && controller.findPassword(userName.Text).ToString() == passWord.Text)
+                else if (controller.VerifyCustomer(userName.Text) != "" && controller.findPassword(userName.Text).ToString() == encryptedpassword)
                 {
                     Hide();
                     Form newform = new Welcome((userName.Text));
@@ -95,19 +96,27 @@ namespace Restaurant_DB
         private void signUp_MouseClick(object sender, MouseEventArgs e)
         {
             Hide();
-            SignUp sign = new SignUp();
+            SignUp sign = new SignUp(null);
             sign.ShowDialog();
             Show();
         }
 
         private void logIn_MouseEnter(object sender, EventArgs e)
         {
-            logIn.BackColor = Color.SpringGreen;
+            logIn.BackColor = Color.Silver;
         }
 
         private void logIn_MouseLeave(object sender, EventArgs e)
         {
-            logIn.BackColor = Color.Cyan;
+            logIn.BackColor = Color.AliceBlue;
+        }
+
+        private void guestLogin_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Welcome homePage = new Welcome(null);
+            homePage.ShowDialog();
+            Close();
         }
     }
 }

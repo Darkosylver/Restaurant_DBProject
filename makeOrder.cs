@@ -61,7 +61,7 @@ namespace Restaurant_DB
         private void update_Click(object sender, EventArgs e)
         {
             Hide();
-            menuForm menu = new menuForm(Phone, waiterSSN, itemOrder);
+            menuForm menu = new menuForm(Phone, waiterSSN,null,0,0, itemOrder);
             menu.ShowDialog();
             Close();
         }
@@ -100,7 +100,7 @@ namespace Restaurant_DB
         private void menuBox_Click(object sender, EventArgs e)
         {
             Hide();
-            menuForm menu = new menuForm(Phone, waiterSSN, itemOrder);
+            menuForm menu = new menuForm(Phone, waiterSSN, null, 0, 0, itemOrder);
             menu.ShowDialog();
             Close();
         }
@@ -131,9 +131,11 @@ namespace Restaurant_DB
             Close();
         }
 
+
         private void makeOrder_Load(object sender, EventArgs e)
         {
 
         }
+
     }
 }

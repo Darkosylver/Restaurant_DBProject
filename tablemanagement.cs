@@ -20,7 +20,7 @@ namespace Restaurant_DB
             InitializeComponent();
             storedssn = ssn;
             this.phone = phone;
-
+            waiterName.Text = controllerobj.getEmployeeName(ssn);
         }
 
         private void tableno_TextChanged(object sender, EventArgs e)
@@ -153,6 +153,27 @@ namespace Restaurant_DB
         private void refresh_Click(object sender, EventArgs e)
         {
             refreshtables();
+        }
+
+        private void homeBox_Click(object sender, EventArgs e)
+        {
+            Hide();
+            waiter homepage = new waiter(storedssn);
+            homepage.ShowDialog();
+            Close();
+        }
+
+        private void orderhistory_Click(object sender, EventArgs e)
+        {
+            Hide();
+            orderHistory orders = new orderHistory(null, storedssn);
+            orders.ShowDialog();
+            Close();
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

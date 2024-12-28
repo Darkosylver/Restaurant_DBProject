@@ -6,7 +6,7 @@ namespace Restaurant_DB
 { 
     public class DBManager
     {
-        static string DB_Connection_String = Environment.GetEnvironmentVariable("Connection_String");
+        static string DB_Connection_String = "Server=db11998.public.databaseasp.net; Database=db11998; User Id=db11998; Password=pL+2=b5KC6-q; Encrypt=True; TrustServerCertificate=True; MultipleActiveResultSets=True;";
         SqlConnection myConnection;
 
         public DBManager()

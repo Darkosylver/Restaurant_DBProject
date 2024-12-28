@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.Map.WebForms.BingMaps;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -63,8 +64,16 @@ namespace Restaurant_DB
            
 
         }
-        //string storedssn;
-       
+
+        public Chef(string ssn)
+        {
+            
+            InitializeComponent();
+            storedssn = ssn;
+            putingredientsincombobox();
+            putstocksincombobox();
+            ssnchefcombobox();
+        }
 
         private void Chef_Load(object sender, EventArgs e)
         {
@@ -142,6 +151,88 @@ namespace Restaurant_DB
             }
             int result=controllerobj.insertMenuItem(ItemName.Text, CookingTime.Text, comboBox4.Text);
             MessageBox.Show("New menu item added");
+            int itemID = Convert.ToInt32(controllerobj.getMenuItemID(ItemName.Text));
+            Hide();
+            DataTable dt = new DataTable("Dummy");
+            menuForm addToItem = new menuForm(null, null, storedssn,1, itemID, dt);
+            addToItem.ShowDialog();
+            Close();
+        }
+
+        private void itemRemove_Click(object sender, EventArgs e)
+        {
+            Hide();
+            DataTable dt = new DataTable("Dummy");
+            menuForm addToItem = new menuForm(null, null, storedssn, 2, 0, dt);
+            addToItem.ShowDialog();
+            Close();
+        }
+
+        private void removeIngredient_Click(object sender, EventArgs e)
+        {
+            Hide();
+            DataTable dt = new DataTable("Dummy");
+            menuForm addToItem = new menuForm(null, null, storedssn, 0, 0, dt);
+            addToItem.ShowDialog();
+            Close();
+        }
+
+        private void ItemName_TextChanged(object sender, EventArgs e)
+        {
+            if (ItemName.Text == "" || CookingTime.Text == "" || controllerobj.getMenuItemID(ItemName.Text) != null || !validateTime(CookingTime.Text))
+            {
+                Insert_item.Enabled = false;
+            }
+            else
+            {
+                Insert_item.Enabled = true;
+            }
+        }
+
+        private void CookingTime_TextChanged(object sender, EventArgs e)
+        {
+            if (ItemName.Text == "" || CookingTime.Text == "" || controllerobj.getMenuItemID(ItemName.Text) != null || !validateTime(CookingTime.Text))
+            {
+                Insert_item.Enabled = false;
+            }
+            else
+            {
+                Insert_item.Enabled = true;
+            }
+        }
+
+        private void CookingTime_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !(e.KeyChar == ':'))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ':' && CookingTime.Text.IndexOf(":") != CookingTime.Text.LastIndexOf(":"))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ItemName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private bool validateTime(string input)
+        {
+            //Checking there are 2 colons, not 1
+            if (input.IndexOf(":") == -1 || input.LastIndexOf(":") == input.IndexOf(":")) 
+            {
+                return false;
+            }
+            //Checking that each entry is there
+            if (input.IndexOf(":") == 0 || input.LastIndexOf(":") == input.IndexOf(":") + 1 || input.LastIndexOf(":") == input.Length - 1) 
+            {
+                return false;
+            }
+            return true;
         }
 
         private void CookingTime_TextChanged(object sender, EventArgs e)

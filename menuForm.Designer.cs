@@ -31,25 +31,25 @@
             this.menuItems = new System.Windows.Forms.FlowLayoutPanel();
             this.checkOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.orders = new System.Windows.Forms.PictureBox();
             this.menuBox = new System.Windows.Forms.PictureBox();
             this.logout = new System.Windows.Forms.PictureBox();
             this.userName = new System.Windows.Forms.Label();
             this.welcomeText = new System.Windows.Forms.Label();
             this.homeButton = new System.Windows.Forms.PictureBox();
-            this.orders = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orders)).BeginInit();
             this.SuspendLayout();
             // 
             // menuItems
             // 
             this.menuItems.AutoScroll = true;
-            this.menuItems.Location = new System.Drawing.Point(12, 74);
+            this.menuItems.Location = new System.Drawing.Point(2, 74);
             this.menuItems.Name = "menuItems";
-            this.menuItems.Size = new System.Drawing.Size(821, 335);
+            this.menuItems.Size = new System.Drawing.Size(842, 335);
             this.menuItems.TabIndex = 0;
             // 
             // checkOut
@@ -71,10 +71,22 @@
             this.panel1.Controls.Add(this.userName);
             this.panel1.Controls.Add(this.welcomeText);
             this.panel1.Controls.Add(this.homeButton);
-            this.panel1.Location = new System.Drawing.Point(12, 9);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(821, 64);
+            this.panel1.Size = new System.Drawing.Size(842, 71);
             this.panel1.TabIndex = 2;
+            // 
+            // orders
+            // 
+            this.orders.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.orders.Image = global::Restaurant_DB.Properties.Resources.history;
+            this.orders.Location = new System.Drawing.Point(654, 9);
+            this.orders.Name = "orders";
+            this.orders.Size = new System.Drawing.Size(45, 40);
+            this.orders.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.orders.TabIndex = 5;
+            this.orders.TabStop = false;
+            this.orders.Click += new System.EventHandler(this.orders_Click);
             // 
             // menuBox
             // 
@@ -91,7 +103,7 @@
             // 
             this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logout.Image = global::Restaurant_DB.Properties.Resources.logout;
-            this.logout.Location = new System.Drawing.Point(763, 9);
+            this.logout.Location = new System.Drawing.Point(791, 9);
             this.logout.Name = "logout";
             this.logout.Size = new System.Drawing.Size(40, 40);
             this.logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -132,21 +144,11 @@
             this.homeButton.TabStop = false;
             this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
-            // orders
-            // 
-            this.orders.Image = global::Restaurant_DB.Properties.Resources.history;
-            this.orders.Location = new System.Drawing.Point(661, 9);
-            this.orders.Name = "orders";
-            this.orders.Size = new System.Drawing.Size(45, 40);
-            this.orders.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.orders.TabIndex = 5;
-            this.orders.TabStop = false;
-            this.orders.Click += new System.EventHandler(this.orders_Click);
-            // 
             // menuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(845, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.checkOut);
@@ -155,10 +157,10 @@
             this.Text = "menuForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orders)).EndInit();
             this.ResumeLayout(false);
 
         }

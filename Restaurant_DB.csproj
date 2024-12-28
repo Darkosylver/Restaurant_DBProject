@@ -190,6 +190,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="encryptor.cs" />
     <Compile Include="makeOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +210,14 @@
       <DependentUpon>menuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Modify_Customer.cs">
+    </Compile>
+    <Compile Include="menuManagementcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menuManagementcs.Designer.cs">
+      <DependentUpon>menuManagementcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="orderHistory.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modify_Customer.Designer.cs">
@@ -285,10 +294,14 @@
     <EmbeddedResource Include="Modify_Customer.resx">
       <DependentUpon>Modify_Customer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="menuManagementcs.resx">
+      <DependentUpon>menuManagementcs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="orderHistory.resx">
       <DependentUpon>orderHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="tablemanagement.resx">
       <DependentUpon>tablemanagement.cs</DependentUpon>
     </EmbeddedResource>

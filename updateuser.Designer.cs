@@ -38,12 +38,22 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.insert = new System.Windows.Forms.Button();
+            this.dashBoard = new System.Windows.Forms.Panel();
+            this.logout = new System.Windows.Forms.PictureBox();
+            this.orderhistory = new System.Windows.Forms.PictureBox();
+            this.waiterName = new System.Windows.Forms.Label();
+            this.welcome = new System.Windows.Forms.Label();
+            this.homePage = new System.Windows.Forms.PictureBox();
+            this.dashBoard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderhistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homePage)).BeginInit();
             this.SuspendLayout();
             // 
             // addresses
             // 
             this.addresses.AutoSize = true;
-            this.addresses.Location = new System.Drawing.Point(404, 159);
+            this.addresses.Location = new System.Drawing.Point(7, 111);
             this.addresses.Name = "addresses";
             this.addresses.Size = new System.Drawing.Size(72, 16);
             this.addresses.TabIndex = 34;
@@ -52,14 +62,14 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(500, 155);
+            this.comboBox1.Location = new System.Drawing.Point(103, 107);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 33;
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(626, 156);
+            this.delete.Location = new System.Drawing.Point(12, 268);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(125, 23);
             this.delete.TabIndex = 32;
@@ -69,7 +79,7 @@
             // 
             // building
             // 
-            this.building.Location = new System.Drawing.Point(500, 197);
+            this.building.Location = new System.Drawing.Point(103, 149);
             this.building.Name = "building";
             this.building.Size = new System.Drawing.Size(100, 22);
             this.building.TabIndex = 31;
@@ -77,7 +87,7 @@
             // 
             // street
             // 
-            this.street.Location = new System.Drawing.Point(500, 225);
+            this.street.Location = new System.Drawing.Point(103, 177);
             this.street.Name = "street";
             this.street.Size = new System.Drawing.Size(100, 22);
             this.street.TabIndex = 30;
@@ -85,7 +95,7 @@
             // 
             // city
             // 
-            this.city.Location = new System.Drawing.Point(500, 253);
+            this.city.Location = new System.Drawing.Point(103, 205);
             this.city.Name = "city";
             this.city.Size = new System.Drawing.Size(100, 22);
             this.city.TabIndex = 29;
@@ -94,7 +104,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(422, 200);
+            this.label5.Location = new System.Drawing.Point(25, 152);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 16);
             this.label5.TabIndex = 28;
@@ -103,7 +113,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(436, 231);
+            this.label4.Location = new System.Drawing.Point(39, 183);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 16);
             this.label4.TabIndex = 27;
@@ -112,7 +122,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(449, 259);
+            this.label3.Location = new System.Drawing.Point(52, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 16);
             this.label3.TabIndex = 26;
@@ -120,7 +130,7 @@
             // 
             // insert
             // 
-            this.insert.Location = new System.Drawing.Point(626, 223);
+            this.insert.Location = new System.Drawing.Point(212, 268);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(125, 23);
             this.insert.TabIndex = 25;
@@ -128,11 +138,83 @@
             this.insert.UseVisualStyleBackColor = true;
             this.insert.Click += new System.EventHandler(this.update_Click);
             // 
+            // dashBoard
+            // 
+            this.dashBoard.BackColor = System.Drawing.Color.Black;
+            this.dashBoard.Controls.Add(this.logout);
+            this.dashBoard.Controls.Add(this.orderhistory);
+            this.dashBoard.Controls.Add(this.waiterName);
+            this.dashBoard.Controls.Add(this.welcome);
+            this.dashBoard.Controls.Add(this.homePage);
+            this.dashBoard.Location = new System.Drawing.Point(0, 1);
+            this.dashBoard.Name = "dashBoard";
+            this.dashBoard.Size = new System.Drawing.Size(848, 65);
+            this.dashBoard.TabIndex = 35;
+            // 
+            // logout
+            // 
+            this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logout.Image = global::Restaurant_DB.Properties.Resources.logout;
+            this.logout.Location = new System.Drawing.Point(795, 11);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(40, 40);
+            this.logout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logout.TabIndex = 4;
+            this.logout.TabStop = false;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
+            // 
+            // orderhistory
+            // 
+            this.orderhistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.orderhistory.Image = global::Restaurant_DB.Properties.Resources.history;
+            this.orderhistory.Location = new System.Drawing.Point(655, 11);
+            this.orderhistory.Name = "orderhistory";
+            this.orderhistory.Size = new System.Drawing.Size(45, 40);
+            this.orderhistory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.orderhistory.TabIndex = 3;
+            this.orderhistory.TabStop = false;
+            this.orderhistory.Click += new System.EventHandler(this.orderhistory_Click);
+            // 
+            // waiterName
+            // 
+            this.waiterName.AutoSize = true;
+            this.waiterName.BackColor = System.Drawing.Color.Black;
+            this.waiterName.ForeColor = System.Drawing.Color.White;
+            this.waiterName.Location = new System.Drawing.Point(100, 35);
+            this.waiterName.Name = "waiterName";
+            this.waiterName.Size = new System.Drawing.Size(76, 16);
+            this.waiterName.TabIndex = 2;
+            this.waiterName.Text = "waitername";
+            // 
+            // welcome
+            // 
+            this.welcome.AutoSize = true;
+            this.welcome.ForeColor = System.Drawing.Color.White;
+            this.welcome.Location = new System.Drawing.Point(100, 15);
+            this.welcome.Name = "welcome";
+            this.welcome.Size = new System.Drawing.Size(68, 16);
+            this.welcome.TabIndex = 1;
+            this.welcome.Text = "Welcome,";
+            // 
+            // homePage
+            // 
+            this.homePage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.homePage.Image = global::Restaurant_DB.Properties.Resources.home;
+            this.homePage.Location = new System.Drawing.Point(12, 11);
+            this.homePage.Name = "homePage";
+            this.homePage.Size = new System.Drawing.Size(40, 40);
+            this.homePage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.homePage.TabIndex = 0;
+            this.homePage.TabStop = false;
+            this.homePage.Click += new System.EventHandler(this.homePage_Click);
+            // 
             // updateuser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ClientSize = new System.Drawing.Size(847, 450);
+            this.Controls.Add(this.dashBoard);
             this.Controls.Add(this.addresses);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.delete);
@@ -146,6 +228,11 @@
             this.Name = "updateuser";
             this.Text = "updateuser";
             this.Load += new System.EventHandler(this.updateuser_Load);
+            this.dashBoard.ResumeLayout(false);
+            this.dashBoard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderhistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homePage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +250,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button insert;
+        private System.Windows.Forms.Panel dashBoard;
+        private System.Windows.Forms.PictureBox homePage;
+        private System.Windows.Forms.Label waiterName;
+        private System.Windows.Forms.Label welcome;
+        private System.Windows.Forms.PictureBox orderhistory;
+        private System.Windows.Forms.PictureBox logout;
     }
 }

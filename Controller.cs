@@ -154,6 +154,18 @@ namespace Restaurant_DB
             string query = "SELECT * FROM Customer WHERE PhoneNumber='"+phone+"';";
             return dbMan.ExecuteReader(query);
         }
+
+        public void cancelorder(int orderid) 
+        {
+            string query = "UPDATE CustomerOrder SET OrderState = 'Cancelled' WHERE OrderID ="+orderid+";";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public void deliverorder(int orderid)
+        {
+            string query = "UPDATE CustomerOrder SET OrderState = 'Delivered' WHERE OrderID =" + orderid + ";";
+            dbMan.ExecuteNonQuery(query);
+        }
         //you can edit the ones below :)
 
         //----------------- ABDELRAHMAN ZAKARIA ---------------------
@@ -203,7 +215,7 @@ namespace Restaurant_DB
 
         public DataTable LoadCustomerOrdersCurret(string phoneNumber)  //loads the orders of the customer
         {
-            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking');";
+            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking' OR OrderState = 'Ready');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -217,7 +229,7 @@ namespace Restaurant_DB
 
         public DataTable LoadWaiterOrdersCurret(string waiterSSN)  //loads the orders of the waiter
         {
-            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking');";
+            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Pending' OR OrderState = 'Approved' OR OrderState = 'Cooking' OR OrderState = 'Ready');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -231,7 +243,7 @@ namespace Restaurant_DB
 
         public DataTable loadCustomerOrdersPrevious(string phoneNumber)
         {
-            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected');";
+            string query = "SELECT * FROM CustomerOrder WHERE CustomerPhoneNumber = '" + phoneNumber + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected' OR OrderState = 'Cancelled');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -245,7 +257,7 @@ namespace Restaurant_DB
 
         public DataTable loadWaiterOrdersPrevious(string waiterSSN)
         {
-            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected');";
+            string query = "SELECT * FROM CustomerOrder WHERE WaiterSSN = '" + waiterSSN + "' AND (OrderState = 'Delivered' OR OrderState = 'Rejected' Or OrderState = 'Cancelled');";
             DataTable dt = dbMan.ExecuteReader(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -313,6 +325,18 @@ namespace Restaurant_DB
             }
         }
 
+        public DataTable getIngredients()
+        {
+            string query = "SELECT * FROM Ingredient";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public void addIngredientToItem(int ingredientID, int itemID, int count)
+        {
+            string query = "INSERT INTO ContainsIngredient (ItemID, IngredientID, Quantity) VALUES (" + itemID + "," + ingredientID + "," + count + ")";
+            dbMan.ExecuteNonQuery(query);
+        }
+
         public DataTable getCustomerLocations(string phone) //returns locationid if that location alrdy exists in our system and null if it doesnt
         {
             string query = "SELECT * FROM Locations WHERE LocationID IN (SELECT LocationID FROM CustomerLocations WHERE PhoneNumber = '" + phone + "');";
@@ -358,6 +382,94 @@ namespace Restaurant_DB
                 MessageBox.Show("Failed to update address.");
             }
         }
+
+        public DataTable GetTotalSpendings(string phone)
+        {
+            string query = "SELECT co.CustomerPhoneNumber, SUM(ocmi.Quantity * ci.Quantity * i.IngredientPrice) AS TotalSpendings " +
+            "FROM CustomerOrder co " +
+            "JOIN Order_Contains_MenuItem ocmi ON co.OrderID = ocmi.OrderID " +
+            "JOIN MenuItem mi ON ocmi.ItemID = mi.ItemID " +
+            "JOIN ContainsIngredient ci ON mi.ItemID = ci.ItemID " +
+            "JOIN Ingredient i ON ci.IngredientID = i.IngredientID " +
+            "WHERE co.CustomerPhoneNumber = '" + phone + "' " +
+            "GROUP BY co.CustomerPhoneNumber";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetSpendingPerItem(string phone)
+        {
+            string query = "SELECT mi.ItemName, SUM(ocmi.Quantity * ci.Quantity * i.IngredientPrice) AS TotalSpent " +
+            "FROM CustomerOrder co " +
+            "JOIN Order_Contains_MenuItem ocmi ON co.OrderID = ocmi.OrderID " +
+            "JOIN MenuItem mi ON ocmi.ItemID = mi.ItemID " +
+            "JOIN ContainsIngredient ci ON mi.ItemID = ci.ItemID " +
+            "JOIN Ingredient i ON ci.IngredientID = i.IngredientID " +
+            "WHERE co.CustomerPhoneNumber = '" + phone + "' " +
+            "GROUP BY mi.ItemName " +
+            "ORDER BY TotalSpent DESC;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetMostBoughtItem(string phone)
+        {
+            string query ="SELECT mi.ItemName, SUM(ocmi.Quantity) AS TotalQuantity " +
+            "FROM CustomerOrder co " +
+            "JOIN Order_Contains_MenuItem ocmi ON co.OrderID = ocmi.OrderID " +
+            "JOIN MenuItem mi ON ocmi.ItemID = mi.ItemID " +
+            "WHERE co.CustomerPhoneNumber = '" + phone + "' " +
+            "GROUP BY mi.ItemName " +
+            "ORDER BY TotalQuantity DESC;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetEmployeesByWorkingHours()
+        {
+            string query = "SELECT FName, LName, WorkingHours " +
+            "FROM Employee " +
+            "ORDER BY WorkingHours DESC;";
+
+            return dbMan.ExecuteReader(query);
+        }
+
+
+        public DataTable GetRestaurantIncome()
+        {
+            string query = "SELECT SUM(ocmi.Quantity * ci.Quantity * i.IngredientPrice) AS TotalIncome " +
+                "FROM Order_Contains_MenuItem ocmi " +
+                "JOIN MenuItem mi ON ocmi.ItemID = mi.ItemID " +
+                "JOIN ContainsIngredient ci ON mi.ItemID = ci.ItemID " +
+                "JOIN Ingredient i ON ci.IngredientID = i.IngredientID;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public float GetRestaurantSpendingOnIngredients()
+        {
+            string query = "SELECT SUM(r.Quantity * i.IngredientPrice) AS TotalSpending " +
+                "FROM Request r " +
+                "JOIN Ingredient i ON r.IngredientID = i.IngredientID;";
+            return Convert.ToSingle(dbMan.ExecuteScalar(query));
+        }
+
+        public float GetTotalSalaries()
+        {
+            string query = "SELECT SUM(Salary) AS TotalSalaries " +
+                "FROM Employee;";
+            return Convert.ToSingle(dbMan.ExecuteScalar(query));
+        }
+
+        public DataTable GetTopThreeMostOrderedItems()
+        {
+            string query =
+                "SELECT TOP 3 mi.ItemName, SUM(ocmi.Quantity) AS OrderCount " +
+                "FROM MenuItem mi " +
+                "JOIN Order_Contains_MenuItem ocmi ON mi.ItemID = ocmi.ItemID " +
+                "GROUP BY mi.ItemName " +
+                "ORDER BY OrderCount DESC;";
+
+            return dbMan.ExecuteReader(query);
+        }
+        
+
         //--------------------ALAA HAYTHAM----------------------
         public int UpdateEmployee(long ssn, string fname, string lname,string position,long hours,decimal salary,string city,string street,string building,string password)
         {
@@ -497,8 +609,9 @@ namespace Restaurant_DB
         //MenuItem (ItemName, CookingTime, ItemStatus, ChefSSN)
         public int insertMenuItem(string item,string time,string ssn)
         {
+            DateTime cookingTime = Convert.ToDateTime(time);
             string query = "INSERT INTO MenuItem (ItemName, CookingTime, ItemStatus, ChefSSN)" +
-                "VALUES    ('"+item+"', '"+item+"', 'Available', '"+ssn+"')";
+                "VALUES    ('"+item+"', '"+cookingTime+"', 'Available', '"+ssn+"')";
             int rowsAffected = dbMan.ExecuteNonQuery(query);
             if (rowsAffected > 0)
             {
@@ -511,6 +624,24 @@ namespace Restaurant_DB
             return rowsAffected;
         }
         
+        public object getMenuItemID(string itemName)
+        {
+            string query = "SELECT ItemID FROM MenuItem WHERE ItemName = '" + itemName + "';";
+            return dbMan.ExecuteScalar(query);
+        }
+
+        public void deleteMenuItem(int itemID)
+        {
+            string query = "DELETE FROM MenuItem WHERE ItemID = " + itemID + ";";
+            dbMan.ExecuteNonQuery(query);
+        }
+
+        public void deleteIngredient(int ingredientID)
+        {
+            string query = "DELETE FROM Ingredient WHERE IngredientID = " + ingredientID + ";";
+            dbMan.ExecuteNonQuery(query);
+        }
+
         public void TerminateConnection()
         {
             dbMan.CloseConnection();

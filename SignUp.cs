@@ -14,10 +14,13 @@ namespace Restaurant_DB
 {
     public partial class SignUp : Form
     {
+        string waiterSSN;
         Controller controllerobj = new Controller();
-        public SignUp()
+        encryptor encryptorobj = new encryptor();
+        public SignUp(string waiterSSN)
         {
             InitializeComponent();
+            this.waiterSSN = waiterSSN;
         }
 
         private void firstName_TextChanged(object sender, EventArgs e)
@@ -148,7 +151,7 @@ namespace Restaurant_DB
         {
             string fName = firstName.Text;
             string lName = lastName.Text;
-            string pWord = passWord.Text;
+            string pWord = encryptorobj.HashText(passWord.Text);
             string address = address1.Text;
             int cityLength = address.IndexOf(",");
             int streetLength = address.LastIndexOf(",") - (address.IndexOf(",") + 1);
@@ -171,11 +174,21 @@ namespace Restaurant_DB
             string ssnCheck = controllerobj.VerifyCustomer(phoneNumber.Text);
             if (ssnCheck == "")
             {
+                
                 controllerobj.addCustomer(phoneNumber.Text, fName, lName, pWord);
                 controllerobj.insertlocation(phoneNumber.Text, locationID);
                 Hide();
-                Welcome homePage = new Welcome(phoneNumber.Text);
-                homePage.ShowDialog();
+                if (waiterSSN == null)
+                {
+                    Welcome homePage = new Welcome(phoneNumber.Text);
+                    homePage.ShowDialog();
+                    
+                }
+                else
+                {
+                    waiter homePage = new waiter(waiterSSN);
+                    homePage.ShowDialog();
+                }
                 Close();
             }
             else if (ssnCheck == fName)
@@ -246,11 +259,13 @@ namespace Restaurant_DB
 
         private bool validateAddress(string input)
         {
-            if (input.IndexOf(",") == -1 || input.LastIndexOf(",") == input.IndexOf(",")) //Checking there are 2 commas, not 1
+            //Checking there are 2 commas, not 1
+            if (input.IndexOf(",") == -1 || input.LastIndexOf(",") == input.IndexOf(",")) 
             {
                 return false;
             }
-            if (input.IndexOf(",") == 0 || input.LastIndexOf(",") == input.IndexOf(",") + 1 || input.LastIndexOf(",") == input.Length-1) //Checking that each entry is there
+            //Checking that each entry is there
+            if (input.IndexOf(",") == 0 || input.LastIndexOf(",") == input.IndexOf(",") + 1 || input.LastIndexOf(",") == input.Length-1) 
             {
                 return false;
             }
@@ -265,11 +280,13 @@ namespace Restaurant_DB
             }
             else
             {
-                if (input.IndexOf(",") == -1 || input.LastIndexOf(",") == input.IndexOf(",")) //Checking there are 2 commas, not 1
+                //Checking there are 2 commas, not 1
+                if (input.IndexOf(",") == -1 || input.LastIndexOf(",") == input.IndexOf(",")) 
                 {
                     return false;
                 }
-                if (input.IndexOf(",") == 0 || input.LastIndexOf(",") == input.IndexOf(",") + 1 || input.LastIndexOf(",") == input.Length - 1) //Checking that each entry is there
+                //Checking that each entry is there
+                if (input.IndexOf(",") == 0 || input.LastIndexOf(",") == input.IndexOf(",") + 1 || input.LastIndexOf(",") == input.Length - 1) 
                 {
                     return false;
                 }
@@ -284,6 +301,27 @@ namespace Restaurant_DB
                 return true;
             }
             return false;
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            if (waiterSSN == null)
+            {
+                Welcome homePage = new Welcome(null);
+                homePage.ShowDialog();
+            }
+            else
+            {
+                Welcome homePage = new Welcome(waiterSSN);
+                homePage.ShowDialog();
+            }
+            Close();
+        }
+
+        private void SignUp_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

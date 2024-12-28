@@ -36,12 +36,18 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
                 customerinfo.Enabled = true;
                 tablemanagement.Enabled = true;
                 order.Enabled = true;
+                noCustomer.Visible = false;
+                addCustomer.Visible = false;
+                addCustomer.Enabled = false;
             }
             else
             {
                 customerinfo.Enabled = false;
                 tablemanagement.Enabled = false;
                 order.Enabled = false;
+                noCustomer.Visible = true;
+                addCustomer.Visible= true;
+                addCustomer.Enabled = true;
             }
         }
         private void order_Click(object sender, EventArgs e)
@@ -52,19 +58,25 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
             itemOrder.Columns.Add("itemName", typeof(string));
             itemOrder.Columns.Add("itemCount", typeof(int));
             itemOrder.Columns.Add("itemPrice", typeof(float));
-            menuForm menu = new menuForm(phoneno.Text, storedssn, itemOrder);
+            menuForm menu = new menuForm(phoneno.Text, storedssn,null, 0, 0, itemOrder);
             menu.ShowDialog();
             Close();
         }
 
         private void tablemanagement_Click(object sender, EventArgs e)
         {
+            Hide();
             Form form = new tablemanagement(phoneno.Text,storedssn);
+            form.ShowDialog();
+            Close();
         }
 
         private void customerinfo_Click(object sender, EventArgs e)
         {
+            Hide();
             Form form = new updateuser(phoneno.Text,storedssn);
+            form.ShowDialog();
+            Close();
         }
 
         private void orderLog_Click(object sender, EventArgs e)
@@ -80,8 +92,17 @@ namespace Restaurant_DB // okay so before we start let's agree on smth.. if you 
             Close();
         }
 
+
         private void waiterName_Click(object sender, EventArgs e)
         {
+
+
+        private void addCustomer_Click(object sender, EventArgs e)
+        {
+            Hide();
+            SignUp signup = new SignUp(storedssn);
+            signup.ShowDialog();
+            Close();
 
         }
     }

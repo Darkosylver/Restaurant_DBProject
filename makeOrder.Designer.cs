@@ -30,16 +30,16 @@
         {
             this.update = new System.Windows.Forms.Button();
             this.confirm = new System.Windows.Forms.Button();
-            this.realCartItems = new System.Windows.Forms.FlowLayoutPanel();
             this.total = new System.Windows.Forms.Label();
             this.totalPrice = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.userName = new System.Windows.Forms.Label();
-            this.welcome = new System.Windows.Forms.Label();
             this.orders = new System.Windows.Forms.PictureBox();
             this.logout = new System.Windows.Forms.PictureBox();
             this.menuBox = new System.Windows.Forms.PictureBox();
+            this.userName = new System.Windows.Forms.Label();
+            this.welcome = new System.Windows.Forms.Label();
             this.homePage = new System.Windows.Forms.PictureBox();
+            this.realCartItems = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logout)).BeginInit();
@@ -66,14 +66,6 @@
             this.confirm.Text = "Confirm";
             this.confirm.UseVisualStyleBackColor = true;
             this.confirm.Click += new System.EventHandler(this.confirm_Click);
-            // 
-            // realCartItems
-            // 
-            this.realCartItems.AutoScroll = true;
-            this.realCartItems.Location = new System.Drawing.Point(14, 74);
-            this.realCartItems.Name = "realCartItems";
-            this.realCartItems.Size = new System.Drawing.Size(831, 187);
-            this.realCartItems.TabIndex = 8;
             // 
             // total
             // 
@@ -132,6 +124,7 @@
             // 
             // orders
             // 
+            this.orders.Cursor = System.Windows.Forms.Cursors.Hand;
             this.orders.Image = global::Restaurant_DB.Properties.Resources.history;
             this.orders.Location = new System.Drawing.Point(657, 9);
             this.orders.Name = "orders";
@@ -143,6 +136,7 @@
             // 
             // logout
             // 
+            this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logout.Image = global::Restaurant_DB.Properties.Resources.logout;
             this.logout.Location = new System.Drawing.Point(763, 9);
             this.logout.Name = "logout";
@@ -154,6 +148,7 @@
             // 
             // menuBox
             // 
+            this.menuBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.menuBox.Image = global::Restaurant_DB.Properties.Resources.menu;
             this.menuBox.Location = new System.Drawing.Point(599, 6);
             this.menuBox.Name = "menuBox";
@@ -165,6 +160,7 @@
             // 
             // homePage
             // 
+            this.homePage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homePage.Image = global::Restaurant_DB.Properties.Resources.home;
             this.homePage.Location = new System.Drawing.Point(16, 9);
             this.homePage.Name = "homePage";
@@ -174,10 +170,20 @@
             this.homePage.TabStop = false;
             this.homePage.Click += new System.EventHandler(this.homePage_Click);
             // 
+            // realCartItems
+            // 
+            this.realCartItems.AutoScroll = true;
+            this.realCartItems.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.realCartItems.Location = new System.Drawing.Point(14, 74);
+            this.realCartItems.Name = "realCartItems";
+            this.realCartItems.Size = new System.Drawing.Size(831, 187);
+            this.realCartItems.TabIndex = 8;
+            // 
             // makeOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(855, 360);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.totalPrice);
@@ -203,7 +209,6 @@
         #endregion
         private System.Windows.Forms.Button update;
         private System.Windows.Forms.Button confirm;
-        private System.Windows.Forms.FlowLayoutPanel realCartItems;
         private System.Windows.Forms.Label total;
         private System.Windows.Forms.Label totalPrice;
         private System.Windows.Forms.Panel panel1;
@@ -213,5 +218,6 @@
         private System.Windows.Forms.PictureBox menuBox;
         private System.Windows.Forms.PictureBox logout;
         private System.Windows.Forms.PictureBox orders;
+        private System.Windows.Forms.FlowLayoutPanel realCartItems;
     }
 }

@@ -47,6 +47,7 @@
             this.add2 = new System.Windows.Forms.Label();
             this.addressExample = new System.Windows.Forms.Label();
             this.errorText = new System.Windows.Forms.Label();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // firstName
@@ -79,7 +80,7 @@
             // submit
             // 
             this.submit.Enabled = false;
-            this.submit.Location = new System.Drawing.Point(101, 437);
+            this.submit.Location = new System.Drawing.Point(80, 415);
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(75, 23);
             this.submit.TabIndex = 7;
@@ -214,18 +215,30 @@
             // 
             this.errorText.AutoSize = true;
             this.errorText.ForeColor = System.Drawing.Color.Red;
-            this.errorText.Location = new System.Drawing.Point(255, 440);
+            this.errorText.Location = new System.Drawing.Point(98, 456);
             this.errorText.Name = "errorText";
             this.errorText.Size = new System.Drawing.Size(35, 16);
             this.errorText.TabIndex = 22;
             this.errorText.Text = "error";
             this.errorText.Visible = false;
             // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(215, 415);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 23;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(960, 519);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.errorText);
             this.Controls.Add(this.addressExample);
             this.Controls.Add(this.add2);
@@ -247,6 +260,7 @@
             this.Controls.Add(this.firstName);
             this.Name = "SignUp";
             this.Text = "Sign up";
+            this.Load += new System.EventHandler(this.SignUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,5 +287,6 @@
         private System.Windows.Forms.Label add2;
         private System.Windows.Forms.Label addressExample;
         private System.Windows.Forms.Label errorText;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
